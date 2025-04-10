@@ -18,7 +18,7 @@ import re
 import json
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
-
+import os
 
 def KATA():
     # 1. 셀레니움 드라이버 설정
@@ -41,20 +41,27 @@ def KATA():
     apply_selectors = []
     rule_selectors = []
 
+    dd_elements = soup.select("div.competition_list > dl > dd")
+
     for idx, dd in enumerate(dd_elements, start=1):
-        span = dd.select_one("span.r_con")
-        if not span:
+        r_con = dd.select_one("span.r_con")
+        if not r_con:
             continue
 
-        links = span.find_all("a")
+        links = r_con.find_all("a")
         for link_idx, a in enumerate(links, start=1):
             text = a.get_text(strip=True)
+
+            # 신청하기
             if "신청하기" in text:
-                sel = f"{base_selector} > dl > dd:nth-child({idx}) > div > ul > li > span.r_con > a.sm_btn.green_btn"
-                apply_selectors.append(sel)
-            elif "요강보기" in text:
-                sel = f"{base_selector} > dl > dd:nth-child({idx}) > div > ul > li > span.r_con > a:nth-child({link_idx})"
-                rule_selectors.append(sel)
+                selector = f"div.competition_list > dl > dd:nth-of-type({idx}) a.sm_btn.green_btn"
+                apply_selectors.append(selector)
+
+            # 요강보기
+            elif "요강보기" in text and "href" in a.attrs:
+                selector = f"div.competition_list > dl > dd:nth-of-type({idx}) a[href*='bo_table=program']"
+                rule_selectors.append(selector)
+
 
     rule_result = []
     for selector in rule_selectors:
@@ -105,6 +112,7 @@ def KATA():
         # 8. 탭 닫고 원래 탭으로 전환
         driver.close()
         driver.switch_to.window(driver.window_handles[0])
+        time.sleep(2)
 
     apply_result = []
     for selector in apply_selectors:
@@ -131,6 +139,7 @@ def KATA():
         option_elements = driver.find_elements(By.CSS_SELECTOR, "#levelno > option")
 
         for opt in option_elements:
+            time.sleep(2)
             value = opt.get_attribute("value").strip()
             text = opt.text.strip()
 
@@ -161,6 +170,7 @@ def KATA():
                     entry["대회기간"] = matching["대회기간"]
 
                 apply_result.append(entry)
+            
 
     kata_result = apply_result
     driver.quit()
@@ -300,20 +310,115 @@ def KTA():
         print(f"✅ {len(available_rows)}개 행이 '{target_title}' 시트에 추가됨.")
     else:
         print("ℹ️ 조건을 만족하는 행이 없음.")
+def KATO():
+    chrome_options = Options()
+    chrome_options.add_experimental_option("detach", True)
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
+    driver.get("https://www.kato.kr/")
+    wait = WebDriverWait(driver, 10)
+    time.sleep(3)
 
-import os
+    # 대회 버튼들 수집
+    containers = driver.find_elements(By.CSS_SELECTOR, "div.gtco-services.gtco-section")
+    tournaments = containers[1].find_elements(By.CSS_SELECTOR, "div.service-wrap > div.service")
+
+    all_data = []
+
+    for i in range(len(tournaments)):
+        try:
+            print(f"🔍 {i+1}번째 대회 클릭 중...")
+            # 리스트 다시 수집 (StaleElementReference 해결)
+            containers = driver.find_elements(By.CSS_SELECTOR, "div.gtco-services.gtco-section")
+            tournaments = containers[1].find_elements(By.CSS_SELECTOR, "div.service-wrap > div.service")
+            tournaments[i].click()
+            time.sleep(2)
+
+            try:
+                tab = driver.find_element(By.CSS_SELECTOR, "#gameTap > li:nth-child(2) > a")
+                tab.click()
+                time.sleep(1)
+            except Exception as e:
+                print(f"❌ 참가신청 탭 클릭 실패: {e}")
+                driver.back()
+                time.sleep(2)
+                continue
+
+            title = driver.find_element(By.CSS_SELECTOR, "div.group-title").text.strip()
+            rows = driver.find_elements(By.CSS_SELECTOR, "#tab2 > div > table > tbody > tr")
+
+            for row in rows:
+                try:
+                    dept = row.find_element(By.CSS_SELECTOR, "td:nth-child(1)").text.strip()
+                    date = row.find_element(By.CSS_SELECTOR, "td.rightnone > div:nth-child(1)").text.strip()
+                    location = row.find_element(By.CSS_SELECTOR, "td.rightnone > div.place").text.strip()
+
+                    print(f"📅 원본 date: {date}")  # ✅ 날짜 원본 로그 확인
+
+                    # ✅ 날짜 정제
+                    match = re.search(r"(\d{4})년\s*(\d{2})월\s*(\d{2})일", date)
+                    if match:
+                        formatted_date = f"{match.group(1)}.{match.group(2)}.{match.group(3)}"
+                    else:
+                        formatted_date = date  # 변환 실패 시 원본 사용
+                    print(f"✅ 변환된 formatted_date: {formatted_date}")  # ✅ 확인용
+
+                    take_span = row.find_elements(By.CSS_SELECTOR, "td.leftnone > span.takeparting, td.leftnone > span.takepartingOver")
+                    if take_span:
+                        now, total = [x.strip() for x in take_span[0].text.strip().split('/')]
+                    else:
+                        now, total = '', ''
+                        
+                    all_data.append({
+                        "종류": "복식",
+                        "주관사": "KATO",
+                        "대회명": title,
+                        "대회기간": formatted_date,
+                        "장소": location,
+                        "부서": dept,
+                        "경기일시": formatted_date,
+                        "현원": now,
+                        "정원": total,
+                    })
+                except Exception as e:
+                    print(f"⚠️ 행 파싱 실패: {e}")
+            driver.back()
+            time.sleep(2)
+
+        except Exception as e:
+            print(f"❌ 대회 클릭 실패: {e}")
+
+    driver.quit()
+    with open("kato_tournaments.json", "w", encoding="utf-8") as f:
+        json.dump(all_data, f, ensure_ascii=False, indent=2)
+
+    print(f"✅ 데이터 수집 완료. 결과 항목 수: {len(all_data)}")
+    print(all_data)
+
+    kato_result = all_data
+
+    print(f"✅ 데이터 수집 완료. 결과 항목 수: {len(all_data)}")
+    return kato_result
+
+
 
 if __name__ == "__main__":
+    start_time = time.time()  # 시작 시간 기록
+
     # 결과 수집
     kata_result = KATA()
     kta_result = KTA()
+    kato_result = KATO()
 
     # 통합 결과
-    all_results = kata_result + kta_result
+    all_results = kata_result + kta_result + kato_result
 
     # JSON 저장
     output_path = os.path.join(os.getcwd(), "tennis_results.json")
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(all_results, f, ensure_ascii=False, indent=2)
 
+    end_time = time.time()  # 종료 시간 기록
+    elapsed = end_time - start_time
+
     print(f"✅ 크롤링 결과 저장 완료: {output_path}")
+    print(f"⏱️ 총 소요 시간: {elapsed:.2f}초")
