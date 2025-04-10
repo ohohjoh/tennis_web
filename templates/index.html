@@ -111,6 +111,17 @@
       vertical-align: middle;
     }
 
+    .carousel-item {
+      padding: 1rem;
+    }
+
+    .mobile-card {
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 0 6px rgba(0,0,0,0.1);
+    }
+
     .ad-banner {
       max-width: 100%;
       border-radius: 0.5rem;
@@ -171,7 +182,8 @@
       </div>
     </div>
 
-    <div class="table-responsive table-responsive-scroll">
+    <!-- PC 테이블 -->
+    <div class="table-responsive table-responsive-scroll d-none d-md-block">
       <table class="table table-bordered table-striped">
         <thead class="table-light">
           <tr>
@@ -185,6 +197,17 @@
         </thead>
         <tbody id="tbody"></tbody>
       </table>
+    </div>
+
+    <!-- 모바일 캐러셀 -->
+    <div id="carouselCards" class="carousel slide d-md-none" data-bs-ride="carousel">
+      <div class="carousel-inner" id="mobileCards"></div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselCards" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselCards" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
     </div>
 
     <div class="text-center my-4">
@@ -204,53 +227,79 @@
     async function fetchData() {
       const response = await fetch("/api/data");
       rawData = await response.json();
-
-      rawData.sort((a, b) => {
-        const aDate = (a['대회기간'] || '').toString();
-        const bDate = (b['대회기간'] || '').toString();
-        return bDate.localeCompare(aDate, 'ko');
-      });
-
+      rawData.sort((a, b) => (b['대회기간'] || '').localeCompare(a['대회기간'] || '', 'ko'));
       filterAvailable();
     }
 
     function renderTable(data) {
-      filteredData = data;
       const tbody = document.getElementById("tbody");
       tbody.innerHTML = "";
+      data.forEach(item => tbody.appendChild(makeTableRow(item)));
 
-      data.forEach(item => {
-        const current = parseInt(item['현원']) || 0;
-        const capacity = parseInt(item['정원']) || 0;
-        const percentage = capacity > 0 ? Math.round((current / capacity) * 100) : 0;
-        const progressColor = percentage >= 100 ? 'progress-red' : percentage >= 70 ? 'progress-yellow' : 'progress-green';
+      const carouselInner = document.getElementById("mobileCards");
+      carouselInner.innerHTML = "";
+      data.forEach((item, index) => carouselInner.appendChild(makeCarouselCard(item, index === 0)));
+    }
 
-        const fullDate = item['대회기간'] || '';
-        const shortDate = fullDate.split('~')[0].trim() + ' ~';
+    function makeTableRow(item) {
+      const row = document.createElement("tr");
+      const fullDate = item['대회기간'] || '';
+      const shortDate = fullDate.split('~')[0].trim() + ' ~';
+      const fullTitle = item['대회명'] || '';
+      const shortTitle = fullTitle.length > 15 ? fullTitle.slice(0, 15) + '…' : fullTitle;
+      const current = parseInt(item['현원']) || 0;
+      const capacity = parseInt(item['정원']) || 0;
+      const percentage = capacity > 0 ? Math.round((current / capacity) * 100) : 0;
+      const progressColor = percentage >= 100 ? 'progress-red' : percentage >= 70 ? 'progress-yellow' : 'progress-green';
 
-        const fullTitle = item['대회명'] || '';
-        const shortTitle = fullTitle.length > 15 ? fullTitle.slice(0, 15) + '…' : fullTitle;
-
-        const row = document.createElement("tr");
-        row.innerHTML = `
-          <td><span class="date-display" title="${fullDate}">${shortDate}</span></td>
-          <td>${item['부서'] || ''}</td>
-          <td><span class="title-truncate" title="${fullTitle}">${shortTitle}</span></td>
-          <td>
-            <div class="position-relative">
-              <div class="progress">
-                <div class="progress-bar ${progressColor}" style="width: ${percentage}%"></div>
-              </div>
-              <div class="position-absolute top-50 start-50 translate-middle fw-bold" style="font-size: 0.75rem;">
-                ${current}/${capacity}
-              </div>
+      row.innerHTML = `
+        <td><span class="date-display" title="${fullDate}">${shortDate}</span></td>
+        <td>${item['부서'] || ''}</td>
+        <td><span class="title-truncate" title="${fullTitle}">${shortTitle}</span></td>
+        <td>
+          <div class="position-relative">
+            <div class="progress">
+              <div class="progress-bar ${progressColor}" style="width: ${percentage}%"></div>
             </div>
-          </td>
-          <td>${item['주관사']}</td>
-          <td><a href="${item['참가신청 링크']}" target="_blank" class="text-primary"><i class="bi bi-box-arrow-up-right"></i></a></td>
-        `;
-        tbody.appendChild(row);
-      });
+            <div class="position-absolute top-50 start-50 translate-middle fw-bold" style="font-size: 0.75rem;">
+              ${current}/${capacity}
+            </div>
+          </div>
+        </td>
+        <td>${item['주관사']}</td>
+        <td><a href="${item['참가신청 링크']}" target="_blank" class="text-primary"><i class="bi bi-box-arrow-up-right"></i></a></td>
+      `;
+      return row;
+    }
+
+    function makeCarouselCard(item, active) {
+      const fullDate = item['대회기간'] || '';
+      const shortDate = fullDate.split('~')[0].trim() + ' ~';
+      const fullTitle = item['대회명'] || '';
+      const shortTitle = fullTitle.length > 15 ? fullTitle.slice(0, 15) + '…' : fullTitle;
+      const current = parseInt(item['현원']) || 0;
+      const capacity = parseInt(item['정원']) || 0;
+      const percentage = capacity > 0 ? Math.round((current / capacity) * 100) : 0;
+      const progressColor = percentage >= 100 ? 'progress-red' : percentage >= 70 ? 'progress-yellow' : 'progress-green';
+
+      const wrapper = document.createElement("div");
+      wrapper.className = `carousel-item${active ? ' active' : ''}`;
+      wrapper.innerHTML = `
+        <div class="mobile-card">
+          <h6 title="${fullTitle}">${shortTitle}</h6>
+          <p><strong>기간:</strong> ${shortDate}</p>
+          <p><strong>부서:</strong> ${item['부서'] || ''}</p>
+          <p><strong>주관사:</strong> ${item['주관사']}</p>
+          <div class="mb-2">
+            <div class="progress">
+              <div class="progress-bar ${progressColor}" style="width: ${percentage}%"></div>
+            </div>
+            <small class="fw-bold">${current}/${capacity}</small>
+          </div>
+          <a href="${item['참가신청 링크']}" target="_blank" class="btn btn-sm btn-primary">신청하기</a>
+        </div>
+      `;
+      return wrapper;
     }
 
     function showAll() {
@@ -259,11 +308,7 @@
     }
 
     function filterAvailable() {
-      const available = rawData.filter(item => {
-        const current = parseInt(item['현원']) || 0;
-        const capacity = parseInt(item['정원']) || 0;
-        return current < capacity;
-      });
+      const available = rawData.filter(item => (parseInt(item['현원']) || 0) < (parseInt(item['정원']) || 0));
       renderTable(available);
       setActiveButton('btn-available');
     }
