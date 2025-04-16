@@ -391,8 +391,12 @@ if __name__ == "__main__":
 
     output_path = os.path.join(os.getcwd(), "tennis_results.json")
     try:
+        result_with_timestamp = {
+            "last_updated": datetime.now().strftime("%Y-%m-%d %H:%M"),
+            "data": all_results
+        }
         with open(output_path, "w", encoding="utf-8") as f:
-            json.dump(all_results, f, ensure_ascii=False, indent=2)
+            json.dump(result_with_timestamp, f, ensure_ascii=False, indent=2)
         logging.info(f"✅ 결과 저장 완료: {output_path}")
     except Exception as e:
         save_error_to_json(traceback.format_exc(), source="Result Saving")
