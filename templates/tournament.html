@@ -275,11 +275,11 @@
 
     async function fetchData() {
       const response = await fetch("/api/data");
-      rawData = await response.json();
+      const result = await response.json();
+      rawData = result.data || [];  // ⚠️ null 대비
       rawData.sort((a, b) => (b['대회기간'] || '').localeCompare(a['대회기간'] || '', 'ko'));
       showAll();
     }
-
     function render(data) {
       renderTable(data);
       renderMobileCards(data);
