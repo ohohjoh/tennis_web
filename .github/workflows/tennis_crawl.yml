@@ -45,12 +45,3 @@ jobs:
 
       - name: ▶️ Run web4.py
         run: python web4.py
-
-      - name: 💾 Commit result json
-        run: |
-          git add tennis_results.json
-          git commit -m "🤖 Auto-update tennis_results.json" || echo "No changes to commit"
-
-      - name: 🚀 Push to GitHub
-        run: |
-          git push https://$GH_TOKEN@github.com/$GH_REPO.git || echo "No changes pushed"
