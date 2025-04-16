@@ -2,6 +2,7 @@ from flask import Flask, render_template, jsonify
 import json
 import os
 from collections import defaultdict
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -32,7 +33,20 @@ def index():
 @app.route("/tournament")
 def tournament():
     data = load_data()
-    return render_template("tournament.html", data=data, page_title="🎾 테니스 대회 현황")
+
+    # tennis_results.json 최종 수정 시간 가져오기
+    try:
+        file_time = os.path.getmtime("tennis_results.json")
+        last_modified = datetime.fromtimestamp(file_time).strftime('%Y-%m-%d %H:%M')
+    except Exception as e:
+        last_modified = "알 수 없음"
+
+    return render_template(
+        "tournament.html",
+        data=data,
+        page_title="🎾 테니스 대회 현황",
+        last_modified=last_modified
+    )
 
 @app.route("/court-guide")
 def court_guide():
