@@ -28,17 +28,30 @@ def load_data2():
 @app.route("/")
 def index():
     data = load_data()
-    return render_template("index.html", data=data, page_title="🎾 테니스 대회 현황")
+
+    try:
+        file_time = os.path.getmtime(JSON_PATH)
+        last_modified = datetime.fromtimestamp(file_time).strftime('%Y-%m-%d %H:%M')
+    except Exception as e:
+        print("❌ 파일 수정 시간 오류:", e)
+        last_modified = "알 수 없음"
+
+    return render_template(
+        "tournament.html",
+        data=data,
+        page_title="🎾 테니스 대회 현황",
+        last_modified=last_modified
+    )
 
 @app.route("/tournament")
 def tournament():
     data = load_data()
 
-    # tennis_results.json 최종 수정 시간 가져오기
     try:
-        file_time = os.path.getmtime("tennis_results.json")
+        file_time = os.path.getmtime(JSON_PATH)
         last_modified = datetime.fromtimestamp(file_time).strftime('%Y-%m-%d %H:%M')
     except Exception as e:
+        print("❌ 파일 수정 시간 오류:", e)
         last_modified = "알 수 없음"
 
     return render_template(
