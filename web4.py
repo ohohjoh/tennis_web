@@ -371,24 +371,6 @@ def KATO():
     finally:
         if driver:
             driver.quit()
-def git_commit_and_push():
-    try:
-        subprocess.run(["git", "config", "--global", "user.email", os.environ["GH_EMAIL"]], check=True)
-        subprocess.run(["git", "config", "--global", "user.name", os.environ["GH_NAME"]], check=True)
-        subprocess.run(["git", "add", "tennis_results.json"], check=True)
-        subprocess.run(["git", "commit", "-m", f"auto: update results {datetime.now().isoformat()}"], check=True)
-
-        # 👇 PAT 포함된 remote 주소 설정
-        repo = os.environ["GH_REPO"]
-        token = os.environ["GH_TOKEN"]
-        remote_url = f"https://{token}@github.com/{repo}.git"
-        subprocess.run(["git", "remote", "set-url", "origin", remote_url], check=True)
-
-        # ✅ 단일 push만 수행
-        subprocess.run(["git", "push", "origin", "main"], check=True)
-        logging.info("✅ GitHub push 완료")
-    except Exception as e:
-        logging.error(f"❌ GitHub push 실패: {e}")
 
 if __name__ == "__main__":
     logging.info("=== 크롤링 작업 시작 ===")
@@ -418,4 +400,3 @@ if __name__ == "__main__":
     elapsed = time.time() - start_time
     logging.info(f"⏱️ 전체 소요 시간: {elapsed:.2f}초")
     logging.info("=== 크롤링 작업 종료 ===")
-    git_commit_and_push()
