@@ -381,7 +381,8 @@ def git_commit_and_push():
         repo = os.environ["GH_REPO"]
         token = os.environ["GH_TOKEN"]
         remote_url = f"https://{token}@github.com/{repo}.git"
-        subprocess.run(["git", "remote", "set-url", "origin", remote_url], check=True)
+        
+        subprocess.run(["git", "push", "origin", "main"], check=True)
         subprocess.run(["git", "push", remote_url], check=True)
         logging.info("✅ GitHub push 완료")
     except Exception as e:
