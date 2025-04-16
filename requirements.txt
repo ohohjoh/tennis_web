@@ -6,3 +6,4 @@ gspread
 oauth2client
 gspread
 gunicorn
+chromedriver-autoinstaller
