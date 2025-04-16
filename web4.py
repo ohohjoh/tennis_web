@@ -15,7 +15,6 @@ import chromedriver_autoinstaller
 import os
 import subprocess
 
-
 log_dir = os.path.join(os.getcwd(), "logs")
 os.makedirs(log_dir, exist_ok=True)
 logging.basicConfig(
@@ -276,97 +275,6 @@ def KTA():
     finally:
         if driver:
             driver.quit()
-
-    chrome_options = Options()
-    chrome_options.add_experimental_option("detach", True)
-    chrome_options.add_argument('--ignore-certificate-errors')  # ← 이 줄 추가
-    chrome_options.add_experimental_option("excludeSwitches", ["enable-logging"])
-    service = Service(r'C:\\chromedriver.exe')
-    driver = webdriver.Chrome(service = service)
-
-    driver.get("https://www.kato.kr/")
-    time.sleep(2)
-
-    # 대회 버튼들 수집
-    containers = driver.find_elements(By.CSS_SELECTOR, "div.gtco-services.gtco-section")
-    tournaments = containers[1].find_elements(By.CSS_SELECTOR, "div.service-wrap > div.service")
-
-    all_data = []
-
-    for i in range(len(tournaments)):
-        try:
-            print(f"🔍 {i+1}번째 대회 클릭 중...")
-            # 리스트 다시 수집 (StaleElementReference 해결)
-            containers = driver.find_elements(By.CSS_SELECTOR, "div.gtco-services.gtco-section")
-            tournaments = containers[1].find_elements(By.CSS_SELECTOR, "div.service-wrap > div.service")
-            tournaments[i].click()
-            time.sleep(2)
-
-            try:
-                tab = driver.find_element(By.CSS_SELECTOR, "#gameTap > li:nth-child(2) > a")
-                tab.click()
-                time.sleep(1)
-            except Exception as e:
-                print(f"❌ 참가신청 탭 클릭 실패: {e}")
-                driver.back()
-                time.sleep(2)
-                continue
-
-            title = driver.find_element(By.CSS_SELECTOR, "div.group-title").text.strip()
-            rows = driver.find_elements(By.CSS_SELECTOR, "#tab2 > div > table > tbody > tr")
-
-            for row in rows:
-                try:
-                    dept = row.find_element(By.CSS_SELECTOR, "td:nth-child(1)").text.strip()
-                    date = row.find_element(By.CSS_SELECTOR, "td.rightnone > div:nth-child(1)").text.strip()
-                    location = row.find_element(By.CSS_SELECTOR, "td.rightnone > div.place").text.strip()
-
-                    print(f"📅 원본 date: {date}")  # ✅ 날짜 원본 로그 확인
-
-                    # ✅ 날짜 정제
-                    match = re.search(r"(\d{4})년\s*(\d{2})월\s*(\d{2})일", date)
-                    if match:
-                        formatted_date = f"{match.group(1)}.{match.group(2)}.{match.group(3)}"
-                    else:
-                        formatted_date = date  # 변환 실패 시 원본 사용
-                    print(f"✅ 변환된 formatted_date: {formatted_date}")  # ✅ 확인용
-
-                    take_span = row.find_elements(By.CSS_SELECTOR, "td.leftnone > span.takeparting, td.leftnone > span.takepartingOver")
-                    if take_span:
-                        now, total = [x.strip() for x in take_span[0].text.strip().split('/')]
-                    else:
-                        now, total = '', ''
-                        
-                    all_data.append({
-                        "종류": "복식",
-                        "주관사": "KATO",
-                        "대회명": title,
-                        "대회기간": formatted_date,
-                        "장소": location,
-                        "부서": dept,
-                        "경기일시": formatted_date,
-                        "현원": now,
-                        "정원": total,
-                    })
-                except Exception as e:
-                    print(f"⚠️ 행 파싱 실패: {e}")
-            driver.back()
-            time.sleep(2)
-
-        except Exception as e:
-            print(f"❌ 대회 클릭 실패: {e}")
-
-    driver.quit()
-    with open("kato_tournaments.json", "w", encoding="utf-8") as f:
-        json.dump(all_data, f, ensure_ascii=False, indent=2)
-
-    print(f"✅ 데이터 수집 완료. 결과 항목 수: {len(all_data)}")
-    print(all_data)
-
-    kato_result = all_data
-
-    print(f"✅ 데이터 수집 완료. 결과 항목 수: {len(all_data)}")
-    return kato_result
 def KATO():
     logging.info("KATO 크롤링 시작")
     driver = None
@@ -473,18 +381,14 @@ def git_commit_and_push():
         repo = os.environ["GH_REPO"]
         token = os.environ["GH_TOKEN"]
         remote_url = f"https://{token}@github.com/{repo}.git"
-
-        # ✅ remote 주소를 명시적으로 설정!
         subprocess.run(["git", "remote", "set-url", "origin", remote_url], check=True)
-
-        subprocess.run(["git", "push", "origin", "main"], check=True)
+        subprocess.run(["git", "push", remote_url], check=True)
         logging.info("✅ GitHub push 완료")
     except Exception as e:
         logging.error(f"❌ GitHub push 실패: {e}")
 
 
 if __name__ == "__main__":
-    chromedriver_autoinstaller.install()  # ✅ 크롬 드라이버 자동 설치
     logging.info("=== 크롤링 작업 시작 ===")
     start_time = time.time()
 
