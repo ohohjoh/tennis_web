@@ -14,6 +14,7 @@ from bs4 import BeautifulSoup
 import chromedriver_autoinstaller
 import os
 import subprocess
+import pytz
 
 log_dir = os.path.join(os.getcwd(), "logs")
 os.makedirs(log_dir, exist_ok=True)
@@ -391,8 +392,10 @@ if __name__ == "__main__":
 
     output_path = os.path.join(os.getcwd(), "tennis_results.json")
     try:
+        kst = pytz.timezone("Asia/Seoul")
+        now_kst = datetime.now(kst).strftime("%Y-%m-%d %H:%M:%S")
         result_with_timestamp = {
-            "last_updated": datetime.now().strftime("%Y-%m-%d %H:%M"),
+            "executed_at": now_kst,
             "data": all_results
         }
         with open(output_path, "w", encoding="utf-8") as f:
