@@ -11,12 +11,13 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 JSON_PATH = os.path.join(BASE_DIR, "tennis_results.json")
 JSON_PATH2 = os.path.join(BASE_DIR, "seoul_tenniscourt_with_guide.json")
 
-def load_data():
+def load_data_with_timestamp():
     if os.path.exists(JSON_PATH):
         with open(JSON_PATH, "r", encoding="utf-8") as f:
-            return json.load(f)
+            data = json.load(f)
+            return data.get("data", []), data.get("last_updated", "알 수 없음")
     print("🚫 JSON 파일을 찾을 수 없습니다:", JSON_PATH)
-    return []
+    return [], "알 수 없음"
 
 def load_data2():
     if os.path.exists(JSON_PATH2):
@@ -27,15 +28,7 @@ def load_data2():
 
 @app.route("/")
 def index():
-    data = load_data()
-
-    try:
-        file_time = os.path.getmtime(JSON_PATH)
-        last_modified = datetime.fromtimestamp(file_time).strftime('%Y-%m-%d %H:%M')
-    except Exception as e:
-        print("❌ 파일 수정 시간 오류:", e)
-        last_modified = "알 수 없음"
-
+    data, last_modified = load_data_with_timestamp()
     return render_template(
         "tournament.html",
         data=data,
@@ -45,15 +38,7 @@ def index():
 
 @app.route("/tournament")
 def tournament():
-    data = load_data()
-
-    try:
-        file_time = os.path.getmtime(JSON_PATH)
-        last_modified = datetime.fromtimestamp(file_time).strftime('%Y-%m-%d %H:%M')
-    except Exception as e:
-        print("❌ 파일 수정 시간 오류:", e)
-        last_modified = "알 수 없음"
-
+    data, last_modified = load_data_with_timestamp()
     return render_template(
         "tournament.html",
         data=data,
@@ -65,7 +50,6 @@ def tournament():
 def court_guide():
     raw_data = load_data2()  # 이건 list임
     grouped = defaultdict(list)
-
     for entry in raw_data:
         grouped[entry['장소명']].append(entry)
 
@@ -80,10 +64,10 @@ def board():
         posts = []
     return render_template("board.html", posts=posts, page_title="💬익명 게시판")
 
-
 @app.route("/api/data")
 def api_data():
-    return jsonify(load_data())
+    data, _ = load_data_with_timestamp()
+    return jsonify(data)
 
 if __name__ == "__main__":
     app.run(debug=True)
