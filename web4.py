@@ -378,16 +378,17 @@ def git_commit_and_push():
         subprocess.run(["git", "add", "tennis_results.json"], check=True)
         subprocess.run(["git", "commit", "-m", f"auto: update results {datetime.now().isoformat()}"], check=True)
 
+        # 👇 PAT 포함된 remote 주소 설정
         repo = os.environ["GH_REPO"]
         token = os.environ["GH_TOKEN"]
         remote_url = f"https://{token}@github.com/{repo}.git"
-        
+        subprocess.run(["git", "remote", "set-url", "origin", remote_url], check=True)
+
+        # ✅ 단일 push만 수행
         subprocess.run(["git", "push", "origin", "main"], check=True)
-        subprocess.run(["git", "push", remote_url], check=True)
         logging.info("✅ GitHub push 완료")
     except Exception as e:
         logging.error(f"❌ GitHub push 실패: {e}")
-
 
 if __name__ == "__main__":
     logging.info("=== 크롤링 작업 시작 ===")
