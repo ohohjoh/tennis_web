@@ -15,8 +15,6 @@ jobs:
       GH_TOKEN: ${{ secrets.TENNIS_WEB_ING_SECRET_GH_TOKEN }}
       GH_REPO: ${{ secrets.TENNIS_WEB_ING_SECRET_GH_REPO }}
 
-      
-
     steps:
       - name: 📦 Checkout repository
         uses: actions/checkout@v3
@@ -38,10 +36,14 @@ jobs:
           wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
           sudo apt install -y ./google-chrome-stable_current_amd64.deb
 
-      - name: 🧑‍💻 Set Git identity
+      - name: ▶️ Run web4.py
+        run: python web4.py
+
+      - name: 💾 Commit & Push tennis_results.json
         run: |
           git config --global user.email "$GH_EMAIL"
           git config --global user.name "$GH_NAME"
-
-      - name: ▶️ Run web4.py
-        run: python web4.py
+          git add tennis_results.json
+          git commit -m "🤖 Auto-update tennis_results.json" || echo "No changes to commit"
+          git remote set-url origin https://$GH_TOKEN@github.com/$GH_REPO.git
+          git push origin main || echo "No changes pushed"
