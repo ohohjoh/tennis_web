@@ -66,8 +66,8 @@ def board():
 
 @app.route("/api/data")
 def api_data():
-    data, _ = load_data_with_timestamp()
-    return jsonify(data)
+    data, executed_at = load_data_with_timestamp()
+    return jsonify({"data": data, "executed_at": executed_at})  # ✅ key를 명시적으로 줘야 함!
 
 if __name__ == "__main__":
     app.run(debug=True)
