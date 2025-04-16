@@ -36,5 +36,16 @@ jobs:
           wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
           sudo apt install -y ./google-chrome-stable_current_amd64.deb
 
+      - name: 🧾 Set Git identity
+        run: |
+          git config --global user.name "${{ env.GH_NAME }}"
+          git config --global user.email "${{ env.GH_EMAIL }}"
+
       - name: ▶️ Run web4.py
         run: python web4.py
+
+      - name: 🔁 Commit & Push result JSON
+        run: |
+          git add tennis_results.json
+          git commit -m "Update tennis_results.json [bot]" || echo "No changes to commit"
+          git push https://x-access-token:${{ env.GH_TOKEN }}@github.com/${{ env.GH_REPO }}.git main
