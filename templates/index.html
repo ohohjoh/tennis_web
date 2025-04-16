@@ -186,31 +186,31 @@
   </style>
 </head>
 <body class="grass-theme p-3">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded shadow mb-3">
-    <div class="container-fluid">
-      <a class="navbar-brand fw-bold" href="/">{{ page_title }}</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/tournament">테니스 대회 현황</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/court-guide">코트 예약 가이드</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/board">익명 게시판</a>
-          </li>
-        </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded shadow mb-3">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="/">{{ page_title }}</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/tournament">테니스 대회 현황</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/court-guide">코트 예약 가이드</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/board">익명 게시판</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
    <div class="card-section">
     <div class="desktop-header">
-      <!-- <h4 class="fw-bold mb-0">🎾 테니스 대회 현황</h4> -->
+      <h4 class="fw-bold mb-0">🎾 테니스 대회 현황</h4>
       <div class="d-flex gap-2 filter-area">
         <button id="btn-all" class="btn btn-outline-dark btn-sm filter-btn active" onclick="showAll()">전체</button>
         <button id="btn-신인" class="btn btn-outline-secondary btn-sm filter-btn" onclick="filterByKeyword('신인')">신인</button>
@@ -228,6 +228,7 @@
         <label class="form-check-label" for="openingOnly">Opening!</label>
       </div>
     </div>
+   
 
     <!-- 데스크탑 테이블 -->
     <div class="table-responsive table-responsive-scroll desktop-only">
@@ -256,6 +257,15 @@
         <img src="/static/images/ad-banner.jpg" alt="광고" style="max-width: 100%; border-radius: 12px;" />
       </div>
     </div>
+    <div class="d-flex justify-content-center mt-3">
+      <div style="font-size: 0.85rem; color: #2e5339; border: 1px solid #5c2e91; border-radius: 8px; padding: 0.3rem 0.75rem;">
+        ⏰ 데이터 기준: {{ last_modified }}
+      </div>
+    </div>
+    
+    
+    
+    
     </div>
   </div>
 
