@@ -2,7 +2,7 @@ name: Run Tennis Web Crawler
 
 on:
   schedule:
-    - cron: '*/10 * * * *'  # ⏰ 매 10분마다 실행
+    - cron: '0 * * * *'  # ⏰ 매시 정각 (예: 01:00, 02:00, 03:00...)
   workflow_dispatch:        # 🔘 수동 실행도 가능하게
 
 jobs:
