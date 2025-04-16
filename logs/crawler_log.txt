@@ -1,0 +1,867 @@
+2025-04-15 11:57:11,425 [INFO] === 크롤링 작업 시작 ===
+2025-04-15 11:57:11,425 [INFO] KATA 시작
+2025-04-15 11:57:11,425 [INFO] KATA 크롤링 시작
+2025-04-15 11:57:56,188 [INFO] KATA 크롤링 완료 / 총 항목 수: 20
+2025-04-15 11:57:58,412 [INFO] KATA 완료 / 수집 항목 수: 20
+2025-04-15 11:57:58,412 [INFO] KTA 시작
+2025-04-15 11:57:58,412 [INFO] KTA 크롤링 시작
+2025-04-15 11:58:20,734 [INFO] KTA 크롤링 완료 / 총 항목 수: 37
+2025-04-15 11:58:23,114 [INFO] KTA 완료 / 수집 항목 수: 37
+2025-04-15 11:58:23,114 [INFO] KATO 시작
+2025-04-15 11:58:23,114 [INFO] KATO 크롤링 시작
+2025-04-15 11:58:27,643 [INFO] 1번째 대회 클릭 시도
+2025-04-15 11:58:33,550 [INFO] 2번째 대회 클릭 시도
+2025-04-15 11:58:39,165 [INFO] 3번째 대회 클릭 시도
+2025-04-15 11:58:44,629 [INFO] 4번째 대회 클릭 시도
+2025-04-15 11:58:50,073 [INFO] 5번째 대회 클릭 시도
+2025-04-15 11:58:55,512 [INFO] 6번째 대회 클릭 시도
+2025-04-15 11:59:00,909 [INFO] 7번째 대회 클릭 시도
+2025-04-15 11:59:06,436 [INFO] 8번째 대회 클릭 시도
+2025-04-15 11:59:11,811 [INFO] KATO 크롤링 완료 / 총 항목 수: 34
+2025-04-15 11:59:14,048 [INFO] KATO 완료 / 수집 항목 수: 34
+2025-04-15 11:59:14,049 [INFO] ✅ 결과 저장 완료: C:\Python313\Scripts\tennis_results.json
+2025-04-15 11:59:14,049 [INFO] ⏱️ 전체 소요 시간: 122.62초
+2025-04-15 11:59:14,049 [INFO] === 크롤링 작업 종료 ===
+2025-04-15 12:30:55,044 [INFO] === 크롤링 작업 시작 ===
+2025-04-15 12:30:55,045 [INFO] KATA 시작
+2025-04-15 12:30:55,046 [INFO] KATA 크롤링 시작
+2025-04-15 12:36:28,704 [INFO] === 크롤링 작업 시작 ===
+2025-04-15 12:36:28,704 [INFO] KATA 시작
+2025-04-15 12:36:28,704 [INFO] KATA 크롤링 시작
+2025-04-15 12:36:44,037 [ERROR] KATA 전체 오류: Traceback (most recent call last):
+  File "c:\Python313\Scripts\web3.py", line 52, in KATA
+    WebDriverWait(driver, 10).until(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        EC.presence_of_element_located((By.CSS_SELECTOR, "div.competition_list > dl > dd"))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\support\wait.py", line 146, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+	GetHandleVerifier [0x00007FF6146E5335+78597]
+	GetHandleVerifier [0x00007FF6146E5390+78688]
+	(No symbol) [0x00007FF6144991AA]
+	(No symbol) [0x00007FF6144EF149]
+	(No symbol) [0x00007FF6144EF3FC]
+	(No symbol) [0x00007FF614542467]
+	(No symbol) [0x00007FF61451712F]
+	(No symbol) [0x00007FF61453F2BB]
+	(No symbol) [0x00007FF614516EC3]
+	(No symbol) [0x00007FF6144E03F8]
+	(No symbol) [0x00007FF6144E1163]
+	GetHandleVerifier [0x00007FF61498EEED+2870973]
+	GetHandleVerifier [0x00007FF614989698+2848360]
+	GetHandleVerifier [0x00007FF6149A6973+2967875]
+	GetHandleVerifier [0x00007FF61470017A+188746]
+	GetHandleVerifier [0x00007FF61470845F+222255]
+	GetHandleVerifier [0x00007FF6146ED2B4+111236]
+	GetHandleVerifier [0x00007FF6146ED462+111666]
+	GetHandleVerifier [0x00007FF6146D3589+5465]
+	BaseThreadInitThunk [0x00007FFDDE4F259D+29]
+	RtlUserThreadStart [0x00007FFDE03AAF38+40]
+
+
+2025-04-15 12:36:46,247 [INFO] KATA 완료 / 수집 항목 수: 0
+2025-04-15 12:36:46,248 [INFO] KTA 시작
+2025-04-15 12:36:46,248 [INFO] KTA 크롤링 시작
+2025-04-15 12:37:08,056 [INFO] KTA 크롤링 완료 / 총 항목 수: 37
+2025-04-15 12:37:11,897 [INFO] KTA 완료 / 수집 항목 수: 37
+2025-04-15 12:37:11,897 [INFO] KATO 시작
+2025-04-15 12:37:11,897 [INFO] KATO 크롤링 시작
+2025-04-15 12:37:17,863 [INFO] 1번째 대회 클릭 시도
+2025-04-15 12:37:23,846 [INFO] 2번째 대회 클릭 시도
+2025-04-15 12:37:29,587 [INFO] 3번째 대회 클릭 시도
+2025-04-15 12:37:35,113 [INFO] 4번째 대회 클릭 시도
+2025-04-15 12:37:40,589 [INFO] 5번째 대회 클릭 시도
+2025-04-15 12:37:46,002 [INFO] 6번째 대회 클릭 시도
+2025-04-15 12:37:51,422 [INFO] 7번째 대회 클릭 시도
+2025-04-15 12:37:56,940 [INFO] 8번째 대회 클릭 시도
+2025-04-15 12:38:02,336 [INFO] KATO 크롤링 완료 / 총 항목 수: 34
+2025-04-15 12:38:06,165 [INFO] KATO 완료 / 수집 항목 수: 34
+2025-04-15 12:38:06,166 [INFO] ✅ 결과 저장 완료: C:\Python313\Scripts\tennis_results.json
+2025-04-15 12:38:06,166 [INFO] ⏱️ 전체 소요 시간: 97.46초
+2025-04-15 12:38:06,166 [INFO] === 크롤링 작업 종료 ===
+2025-04-15 12:38:40,904 [INFO] === 크롤링 작업 시작 ===
+2025-04-15 12:38:40,904 [INFO] KATA 시작
+2025-04-15 12:38:40,904 [INFO] KATA 크롤링 시작
+2025-04-15 12:38:53,068 [ERROR] KATA 전체 오류: Traceback (most recent call last):
+  File "c:\Python313\Scripts\web3.py", line 52, in KATA
+    WebDriverWait(driver, 10).until(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        EC.presence_of_element_located((By.CSS_SELECTOR, "div.competition_list > dl > dd"))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\support\wait.py", line 146, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+	GetHandleVerifier [0x00007FF6146E5335+78597]
+	GetHandleVerifier [0x00007FF6146E5390+78688]
+	(No symbol) [0x00007FF6144991AA]
+	(No symbol) [0x00007FF6144EF149]
+	(No symbol) [0x00007FF6144EF3FC]
+	(No symbol) [0x00007FF614542467]
+	(No symbol) [0x00007FF61451712F]
+	(No symbol) [0x00007FF61453F2BB]
+	(No symbol) [0x00007FF614516EC3]
+	(No symbol) [0x00007FF6144E03F8]
+	(No symbol) [0x00007FF6144E1163]
+	GetHandleVerifier [0x00007FF61498EEED+2870973]
+	GetHandleVerifier [0x00007FF614989698+2848360]
+	GetHandleVerifier [0x00007FF6149A6973+2967875]
+	GetHandleVerifier [0x00007FF61470017A+188746]
+	GetHandleVerifier [0x00007FF61470845F+222255]
+	GetHandleVerifier [0x00007FF6146ED2B4+111236]
+	GetHandleVerifier [0x00007FF6146ED462+111666]
+	GetHandleVerifier [0x00007FF6146D3589+5465]
+	BaseThreadInitThunk [0x00007FFDDE4F259D+29]
+	RtlUserThreadStart [0x00007FFDE03AAF38+40]
+
+
+2025-04-15 12:38:56,835 [INFO] KATA 완료 / 수집 항목 수: 0
+2025-04-15 12:38:56,835 [INFO] KTA 시작
+2025-04-15 12:38:56,835 [INFO] KTA 크롤링 시작
+2025-04-15 12:39:20,641 [INFO] KTA 크롤링 완료 / 총 항목 수: 37
+2025-04-15 12:39:23,029 [INFO] KTA 완료 / 수집 항목 수: 37
+2025-04-15 12:39:23,029 [INFO] KATO 시작
+2025-04-15 12:39:23,029 [INFO] KATO 크롤링 시작
+2025-04-15 12:39:28,803 [INFO] 1번째 대회 클릭 시도
+2025-04-15 12:39:34,788 [INFO] 2번째 대회 클릭 시도
+2025-04-15 12:39:40,556 [INFO] 3번째 대회 클릭 시도
+2025-04-15 12:39:46,299 [INFO] 4번째 대회 클릭 시도
+2025-04-15 12:39:51,888 [INFO] 5번째 대회 클릭 시도
+2025-04-15 12:39:57,292 [INFO] 6번째 대회 클릭 시도
+2025-04-15 12:40:02,707 [INFO] 7번째 대회 클릭 시도
+2025-04-15 12:40:08,234 [INFO] 8번째 대회 클릭 시도
+2025-04-15 12:40:13,619 [INFO] KATO 크롤링 완료 / 총 항목 수: 34
+2025-04-15 12:40:20,169 [INFO] === 크롤링 작업 시작 ===
+2025-04-15 12:40:20,169 [INFO] KATA 시작
+2025-04-15 12:40:20,169 [INFO] KATA 크롤링 시작
+2025-04-15 12:40:32,580 [WARNING] [요강 파싱 오류] Traceback (most recent call last):
+  File "c:\Python313\Scripts\web3.py", line 80, in KATA
+    driver.switch_to.window(driver.window_handles[-1])
+                            ~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+
+2025-04-15 12:40:32,588 [WARNING] [요강 파싱 오류] Traceback (most recent call last):
+  File "c:\Python313\Scripts\web3.py", line 78, in KATA
+    WebDriverWait(driver, 10).until(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        EC.element_to_be_clickable((By.CSS_SELECTOR, selector))).click()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\support\wait.py", line 137, in until
+    value = method(self._driver)
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 633, in _predicate
+    target = driver.find_element(*target)  # grab element at locator
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 898, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 429, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=135.0.7049.85)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6146E5335+78597]
+	GetHandleVerifier [0x00007FF6146E5390+78688]
+	(No symbol) [0x00007FF6144991AA]
+	(No symbol) [0x00007FF614471B63]
+	(No symbol) [0x00007FF61451EB6E]
+	(No symbol) [0x00007FF61453EBB2]
+	(No symbol) [0x00007FF614516EC3]
+	(No symbol) [0x00007FF6144E03F8]
+	(No symbol) [0x00007FF6144E1163]
+	GetHandleVerifier [0x00007FF61498EEED+2870973]
+	GetHandleVerifier [0x00007FF614989698+2848360]
+	GetHandleVerifier [0x00007FF6149A6973+2967875]
+	GetHandleVerifier [0x00007FF61470017A+188746]
+	GetHandleVerifier [0x00007FF61470845F+222255]
+	GetHandleVerifier [0x00007FF6146ED2B4+111236]
+	GetHandleVerifier [0x00007FF6146ED462+111666]
+	GetHandleVerifier [0x00007FF6146D3589+5465]
+	BaseThreadInitThunk [0x00007FFDDE4F259D+29]
+	RtlUserThreadStart [0x00007FFDE03AAF38+40]
+
+
+2025-04-15 12:40:32,593 [WARNING] [신청탭 파싱 오류] Traceback (most recent call last):
+  File "c:\Python313\Scripts\web3.py", line 119, in KATA
+    driver.get("http://tennis.sportsdiary.co.kr/tennis/tnrequest/list.asp")
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 454, in get
+    self.execute(Command.GET, {"url": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 429, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=135.0.7049.85)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6146E5335+78597]
+	GetHandleVerifier [0x00007FF6146E5390+78688]
+	(No symbol) [0x00007FF6144991AA]
+	(No symbol) [0x00007FF614471B63]
+	(No symbol) [0x00007FF61451EB6E]
+	(No symbol) [0x00007FF61453EBB2]
+	(No symbol) [0x00007FF614516EC3]
+	(No symbol) [0x00007FF6144E03F8]
+	(No symbol) [0x00007FF6144E1163]
+	GetHandleVerifier [0x00007FF61498EEED+2870973]
+	GetHandleVerifier [0x00007FF614989698+2848360]
+	GetHandleVerifier [0x00007FF6149A6973+2967875]
+	GetHandleVerifier [0x00007FF61470017A+188746]
+	GetHandleVerifier [0x00007FF61470845F+222255]
+	GetHandleVerifier [0x00007FF6146ED2B4+111236]
+	GetHandleVerifier [0x00007FF6146ED462+111666]
+	GetHandleVerifier [0x00007FF6146D3589+5465]
+	BaseThreadInitThunk [0x00007FFDDE4F259D+29]
+	RtlUserThreadStart [0x00007FFDE03AAF38+40]
+
+
+2025-04-15 12:40:32,597 [WARNING] [신청탭 파싱 오류] Traceback (most recent call last):
+  File "c:\Python313\Scripts\web3.py", line 119, in KATA
+    driver.get("http://tennis.sportsdiary.co.kr/tennis/tnrequest/list.asp")
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 454, in get
+    self.execute(Command.GET, {"url": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 429, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=135.0.7049.85)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6146E5335+78597]
+	GetHandleVerifier [0x00007FF6146E5390+78688]
+	(No symbol) [0x00007FF6144991AA]
+	(No symbol) [0x00007FF614471B63]
+	(No symbol) [0x00007FF61451EB6E]
+	(No symbol) [0x00007FF61453EBB2]
+	(No symbol) [0x00007FF614516EC3]
+	(No symbol) [0x00007FF6144E03F8]
+	(No symbol) [0x00007FF6144E1163]
+	GetHandleVerifier [0x00007FF61498EEED+2870973]
+	GetHandleVerifier [0x00007FF614989698+2848360]
+	GetHandleVerifier [0x00007FF6149A6973+2967875]
+	GetHandleVerifier [0x00007FF61470017A+188746]
+	GetHandleVerifier [0x00007FF61470845F+222255]
+	GetHandleVerifier [0x00007FF6146ED2B4+111236]
+	GetHandleVerifier [0x00007FF6146ED462+111666]
+	GetHandleVerifier [0x00007FF6146D3589+5465]
+	BaseThreadInitThunk [0x00007FFDDE4F259D+29]
+	RtlUserThreadStart [0x00007FFDE03AAF38+40]
+
+
+2025-04-15 12:40:32,602 [WARNING] [신청탭 파싱 오류] Traceback (most recent call last):
+  File "c:\Python313\Scripts\web3.py", line 119, in KATA
+    driver.get("http://tennis.sportsdiary.co.kr/tennis/tnrequest/list.asp")
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 454, in get
+    self.execute(Command.GET, {"url": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 429, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=135.0.7049.85)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6146E5335+78597]
+	GetHandleVerifier [0x00007FF6146E5390+78688]
+	(No symbol) [0x00007FF6144991AA]
+	(No symbol) [0x00007FF614471B63]
+	(No symbol) [0x00007FF61451EB6E]
+	(No symbol) [0x00007FF61453EBB2]
+	(No symbol) [0x00007FF614516EC3]
+	(No symbol) [0x00007FF6144E03F8]
+	(No symbol) [0x00007FF6144E1163]
+	GetHandleVerifier [0x00007FF61498EEED+2870973]
+	GetHandleVerifier [0x00007FF614989698+2848360]
+	GetHandleVerifier [0x00007FF6149A6973+2967875]
+	GetHandleVerifier [0x00007FF61470017A+188746]
+	GetHandleVerifier [0x00007FF61470845F+222255]
+	GetHandleVerifier [0x00007FF6146ED2B4+111236]
+	GetHandleVerifier [0x00007FF6146ED462+111666]
+	GetHandleVerifier [0x00007FF6146D3589+5465]
+	BaseThreadInitThunk [0x00007FFDDE4F259D+29]
+	RtlUserThreadStart [0x00007FFDE03AAF38+40]
+
+
+2025-04-15 12:40:32,606 [WARNING] [신청탭 파싱 오류] Traceback (most recent call last):
+  File "c:\Python313\Scripts\web3.py", line 119, in KATA
+    driver.get("http://tennis.sportsdiary.co.kr/tennis/tnrequest/list.asp")
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 454, in get
+    self.execute(Command.GET, {"url": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 429, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=135.0.7049.85)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6146E5335+78597]
+	GetHandleVerifier [0x00007FF6146E5390+78688]
+	(No symbol) [0x00007FF6144991AA]
+	(No symbol) [0x00007FF614471B63]
+	(No symbol) [0x00007FF61451EB6E]
+	(No symbol) [0x00007FF61453EBB2]
+	(No symbol) [0x00007FF614516EC3]
+	(No symbol) [0x00007FF6144E03F8]
+	(No symbol) [0x00007FF6144E1163]
+	GetHandleVerifier [0x00007FF61498EEED+2870973]
+	GetHandleVerifier [0x00007FF614989698+2848360]
+	GetHandleVerifier [0x00007FF6149A6973+2967875]
+	GetHandleVerifier [0x00007FF61470017A+188746]
+	GetHandleVerifier [0x00007FF61470845F+222255]
+	GetHandleVerifier [0x00007FF6146ED2B4+111236]
+	GetHandleVerifier [0x00007FF6146ED462+111666]
+	GetHandleVerifier [0x00007FF6146D3589+5465]
+	BaseThreadInitThunk [0x00007FFDDE4F259D+29]
+	RtlUserThreadStart [0x00007FFDE03AAF38+40]
+
+
+2025-04-15 12:40:32,611 [WARNING] [신청탭 파싱 오류] Traceback (most recent call last):
+  File "c:\Python313\Scripts\web3.py", line 119, in KATA
+    driver.get("http://tennis.sportsdiary.co.kr/tennis/tnrequest/list.asp")
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 454, in get
+    self.execute(Command.GET, {"url": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 429, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=135.0.7049.85)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6146E5335+78597]
+	GetHandleVerifier [0x00007FF6146E5390+78688]
+	(No symbol) [0x00007FF6144991AA]
+	(No symbol) [0x00007FF614471B63]
+	(No symbol) [0x00007FF61451EB6E]
+	(No symbol) [0x00007FF61453EBB2]
+	(No symbol) [0x00007FF614516EC3]
+	(No symbol) [0x00007FF6144E03F8]
+	(No symbol) [0x00007FF6144E1163]
+	GetHandleVerifier [0x00007FF61498EEED+2870973]
+	GetHandleVerifier [0x00007FF614989698+2848360]
+	GetHandleVerifier [0x00007FF6149A6973+2967875]
+	GetHandleVerifier [0x00007FF61470017A+188746]
+	GetHandleVerifier [0x00007FF61470845F+222255]
+	GetHandleVerifier [0x00007FF6146ED2B4+111236]
+	GetHandleVerifier [0x00007FF6146ED462+111666]
+	GetHandleVerifier [0x00007FF6146D3589+5465]
+	BaseThreadInitThunk [0x00007FFDDE4F259D+29]
+	RtlUserThreadStart [0x00007FFDE03AAF38+40]
+
+
+2025-04-15 12:40:32,612 [INFO] KATA 크롤링 완료 / 총 항목 수: 0
+2025-04-15 12:40:34,828 [INFO] KATA 완료 / 수집 항목 수: 0
+2025-04-15 12:40:34,828 [INFO] KTA 시작
+2025-04-15 12:40:34,828 [INFO] KTA 크롤링 시작
+2025-04-15 12:40:41,595 [INFO] === 크롤링 작업 시작 ===
+2025-04-15 12:40:41,595 [INFO] KATA 시작
+2025-04-15 12:40:41,595 [INFO] KATA 크롤링 시작
+2025-04-15 12:40:59,863 [INFO] === 크롤링 작업 시작 ===
+2025-04-15 12:40:59,863 [INFO] KATA 시작
+2025-04-15 12:40:59,863 [INFO] KATA 크롤링 시작
+2025-04-15 12:41:07,304 [ERROR] KATA 전체 오류: Traceback (most recent call last):
+  File "c:\Python313\Scripts\web3.py", line 52, in KATA
+    WebDriverWait(driver, 10).until(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        EC.presence_of_element_located((By.CSS_SELECTOR, "div.competition_list > dl > dd"))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\support\wait.py", line 137, in until
+    value = method(self._driver)
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 110, in _predicate
+    return driver.find_element(*locator)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 898, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 429, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=135.0.7049.85)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6146E5335+78597]
+	GetHandleVerifier [0x00007FF6146E5390+78688]
+	(No symbol) [0x00007FF6144991AA]
+	(No symbol) [0x00007FF614484EF5]
+	(No symbol) [0x00007FF6144A9F04]
+	(No symbol) [0x00007FF61451ED0F]
+	(No symbol) [0x00007FF61453EBB2]
+	(No symbol) [0x00007FF614516EC3]
+	(No symbol) [0x00007FF6144E03F8]
+	(No symbol) [0x00007FF6144E1163]
+	GetHandleVerifier [0x00007FF61498EEED+2870973]
+	GetHandleVerifier [0x00007FF614989698+2848360]
+	GetHandleVerifier [0x00007FF6149A6973+2967875]
+	GetHandleVerifier [0x00007FF61470017A+188746]
+	GetHandleVerifier [0x00007FF61470845F+222255]
+	GetHandleVerifier [0x00007FF6146ED2B4+111236]
+	GetHandleVerifier [0x00007FF6146ED462+111666]
+	GetHandleVerifier [0x00007FF6146D3589+5465]
+	BaseThreadInitThunk [0x00007FFDDE4F259D+29]
+	RtlUserThreadStart [0x00007FFDE03AAF38+40]
+
+
+2025-04-15 12:41:09,458 [INFO] KATA 완료 / 수집 항목 수: 0
+2025-04-15 12:41:09,458 [INFO] KTA 시작
+2025-04-15 12:41:09,458 [INFO] KTA 크롤링 시작
+2025-04-15 12:41:20,670 [INFO] === 크롤링 작업 시작 ===
+2025-04-15 12:41:20,670 [INFO] KATA 시작
+2025-04-15 12:41:20,670 [INFO] KATA 크롤링 시작
+2025-04-15 12:41:29,263 [WARNING] [요강 파싱 오류] Traceback (most recent call last):
+  File "c:\Python313\Scripts\web3.py", line 82, in KATA
+    target_elem = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.CSS_SELECTOR, "body > table > tbody > tr:nth-child(2) > td > table > tbody > tr > td:nth-child(4) > table > tbody > tr:nth-child(4) > td > table:nth-child(3) > tbody > tr > td > table:nth-child(2) > tbody > tr:nth-child(1) > td"))
+    )
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\support\wait.py", line 137, in until
+    value = method(self._driver)
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 110, in _predicate
+    return driver.find_element(*locator)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 898, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 429, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=135.0.7049.85)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6146E5335+78597]
+	GetHandleVerifier [0x00007FF6146E5390+78688]
+	(No symbol) [0x00007FF6144991AA]
+	(No symbol) [0x00007FF614471B63]
+	(No symbol) [0x00007FF61451EB6E]
+	(No symbol) [0x00007FF61453EBB2]
+	(No symbol) [0x00007FF614516EC3]
+	(No symbol) [0x00007FF6144E03F8]
+	(No symbol) [0x00007FF6144E1163]
+	GetHandleVerifier [0x00007FF61498EEED+2870973]
+	GetHandleVerifier [0x00007FF614989698+2848360]
+	GetHandleVerifier [0x00007FF6149A6973+2967875]
+	GetHandleVerifier [0x00007FF61470017A+188746]
+	GetHandleVerifier [0x00007FF61470845F+222255]
+	GetHandleVerifier [0x00007FF6146ED2B4+111236]
+	GetHandleVerifier [0x00007FF6146ED462+111666]
+	GetHandleVerifier [0x00007FF6146D3589+5465]
+	BaseThreadInitThunk [0x00007FFDDE4F259D+29]
+	RtlUserThreadStart [0x00007FFDE03AAF38+40]
+
+
+2025-04-15 12:41:29,267 [WARNING] [요강 파싱 오류] Traceback (most recent call last):
+  File "c:\Python313\Scripts\web3.py", line 78, in KATA
+    WebDriverWait(driver, 10).until(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        EC.element_to_be_clickable((By.CSS_SELECTOR, selector))).click()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\support\wait.py", line 137, in until
+    value = method(self._driver)
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 633, in _predicate
+    target = driver.find_element(*target)  # grab element at locator
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 898, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 429, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=135.0.7049.85)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6146E5335+78597]
+	GetHandleVerifier [0x00007FF6146E5390+78688]
+	(No symbol) [0x00007FF6144991AA]
+	(No symbol) [0x00007FF614471B63]
+	(No symbol) [0x00007FF61451EB6E]
+	(No symbol) [0x00007FF61453EBB2]
+	(No symbol) [0x00007FF614516EC3]
+	(No symbol) [0x00007FF6144E03F8]
+	(No symbol) [0x00007FF6144E1163]
+	GetHandleVerifier [0x00007FF61498EEED+2870973]
+	GetHandleVerifier [0x00007FF614989698+2848360]
+	GetHandleVerifier [0x00007FF6149A6973+2967875]
+	GetHandleVerifier [0x00007FF61470017A+188746]
+	GetHandleVerifier [0x00007FF61470845F+222255]
+	GetHandleVerifier [0x00007FF6146ED2B4+111236]
+	GetHandleVerifier [0x00007FF6146ED462+111666]
+	GetHandleVerifier [0x00007FF6146D3589+5465]
+	BaseThreadInitThunk [0x00007FFDDE4F259D+29]
+	RtlUserThreadStart [0x00007FFDE03AAF38+40]
+
+
+2025-04-15 12:41:29,270 [WARNING] [요강 파싱 오류] Traceback (most recent call last):
+  File "c:\Python313\Scripts\web3.py", line 78, in KATA
+    WebDriverWait(driver, 10).until(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        EC.element_to_be_clickable((By.CSS_SELECTOR, selector))).click()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\support\wait.py", line 137, in until
+    value = method(self._driver)
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 633, in _predicate
+    target = driver.find_element(*target)  # grab element at locator
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 898, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 429, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=135.0.7049.85)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6146E5335+78597]
+	GetHandleVerifier [0x00007FF6146E5390+78688]
+	(No symbol) [0x00007FF6144991AA]
+	(No symbol) [0x00007FF614471B63]
+	(No symbol) [0x00007FF61451EB6E]
+	(No symbol) [0x00007FF61453EBB2]
+	(No symbol) [0x00007FF614516EC3]
+	(No symbol) [0x00007FF6144E03F8]
+	(No symbol) [0x00007FF6144E1163]
+	GetHandleVerifier [0x00007FF61498EEED+2870973]
+	GetHandleVerifier [0x00007FF614989698+2848360]
+	GetHandleVerifier [0x00007FF6149A6973+2967875]
+	GetHandleVerifier [0x00007FF61470017A+188746]
+	GetHandleVerifier [0x00007FF61470845F+222255]
+	GetHandleVerifier [0x00007FF6146ED2B4+111236]
+	GetHandleVerifier [0x00007FF6146ED462+111666]
+	GetHandleVerifier [0x00007FF6146D3589+5465]
+	BaseThreadInitThunk [0x00007FFDDE4F259D+29]
+	RtlUserThreadStart [0x00007FFDE03AAF38+40]
+
+
+2025-04-15 12:41:29,272 [WARNING] [요강 파싱 오류] Traceback (most recent call last):
+  File "c:\Python313\Scripts\web3.py", line 78, in KATA
+    WebDriverWait(driver, 10).until(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        EC.element_to_be_clickable((By.CSS_SELECTOR, selector))).click()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\support\wait.py", line 137, in until
+    value = method(self._driver)
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 633, in _predicate
+    target = driver.find_element(*target)  # grab element at locator
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 898, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 429, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=135.0.7049.85)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6146E5335+78597]
+	GetHandleVerifier [0x00007FF6146E5390+78688]
+	(No symbol) [0x00007FF6144991AA]
+	(No symbol) [0x00007FF614471B63]
+	(No symbol) [0x00007FF61451EB6E]
+	(No symbol) [0x00007FF61453EBB2]
+	(No symbol) [0x00007FF614516EC3]
+	(No symbol) [0x00007FF6144E03F8]
+	(No symbol) [0x00007FF6144E1163]
+	GetHandleVerifier [0x00007FF61498EEED+2870973]
+	GetHandleVerifier [0x00007FF614989698+2848360]
+	GetHandleVerifier [0x00007FF6149A6973+2967875]
+	GetHandleVerifier [0x00007FF61470017A+188746]
+	GetHandleVerifier [0x00007FF61470845F+222255]
+	GetHandleVerifier [0x00007FF6146ED2B4+111236]
+	GetHandleVerifier [0x00007FF6146ED462+111666]
+	GetHandleVerifier [0x00007FF6146D3589+5465]
+	BaseThreadInitThunk [0x00007FFDDE4F259D+29]
+	RtlUserThreadStart [0x00007FFDE03AAF38+40]
+
+
+2025-04-15 12:41:29,275 [WARNING] [요강 파싱 오류] Traceback (most recent call last):
+  File "c:\Python313\Scripts\web3.py", line 78, in KATA
+    WebDriverWait(driver, 10).until(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        EC.element_to_be_clickable((By.CSS_SELECTOR, selector))).click()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\support\wait.py", line 137, in until
+    value = method(self._driver)
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 633, in _predicate
+    target = driver.find_element(*target)  # grab element at locator
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 898, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 429, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=135.0.7049.85)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6146E5335+78597]
+	GetHandleVerifier [0x00007FF6146E5390+78688]
+	(No symbol) [0x00007FF6144991AA]
+	(No symbol) [0x00007FF614471B63]
+	(No symbol) [0x00007FF61451EB6E]
+	(No symbol) [0x00007FF61453EBB2]
+	(No symbol) [0x00007FF614516EC3]
+	(No symbol) [0x00007FF6144E03F8]
+	(No symbol) [0x00007FF6144E1163]
+	GetHandleVerifier [0x00007FF61498EEED+2870973]
+	GetHandleVerifier [0x00007FF614989698+2848360]
+	GetHandleVerifier [0x00007FF6149A6973+2967875]
+	GetHandleVerifier [0x00007FF61470017A+188746]
+	GetHandleVerifier [0x00007FF61470845F+222255]
+	GetHandleVerifier [0x00007FF6146ED2B4+111236]
+	GetHandleVerifier [0x00007FF6146ED462+111666]
+	GetHandleVerifier [0x00007FF6146D3589+5465]
+	BaseThreadInitThunk [0x00007FFDDE4F259D+29]
+	RtlUserThreadStart [0x00007FFDE03AAF38+40]
+
+
+2025-04-15 12:41:29,278 [WARNING] [신청탭 파싱 오류] Traceback (most recent call last):
+  File "c:\Python313\Scripts\web3.py", line 119, in KATA
+    driver.get("http://tennis.sportsdiary.co.kr/tennis/tnrequest/list.asp")
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 454, in get
+    self.execute(Command.GET, {"url": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 429, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=135.0.7049.85)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6146E5335+78597]
+	GetHandleVerifier [0x00007FF6146E5390+78688]
+	(No symbol) [0x00007FF6144991AA]
+	(No symbol) [0x00007FF614471B63]
+	(No symbol) [0x00007FF61451EB6E]
+	(No symbol) [0x00007FF61453EBB2]
+	(No symbol) [0x00007FF614516EC3]
+	(No symbol) [0x00007FF6144E03F8]
+	(No symbol) [0x00007FF6144E1163]
+	GetHandleVerifier [0x00007FF61498EEED+2870973]
+	GetHandleVerifier [0x00007FF614989698+2848360]
+	GetHandleVerifier [0x00007FF6149A6973+2967875]
+	GetHandleVerifier [0x00007FF61470017A+188746]
+	GetHandleVerifier [0x00007FF61470845F+222255]
+	GetHandleVerifier [0x00007FF6146ED2B4+111236]
+	GetHandleVerifier [0x00007FF6146ED462+111666]
+	GetHandleVerifier [0x00007FF6146D3589+5465]
+	BaseThreadInitThunk [0x00007FFDDE4F259D+29]
+	RtlUserThreadStart [0x00007FFDE03AAF38+40]
+
+
+2025-04-15 12:41:29,282 [WARNING] [신청탭 파싱 오류] Traceback (most recent call last):
+  File "c:\Python313\Scripts\web3.py", line 119, in KATA
+    driver.get("http://tennis.sportsdiary.co.kr/tennis/tnrequest/list.asp")
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 454, in get
+    self.execute(Command.GET, {"url": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 429, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=135.0.7049.85)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6146E5335+78597]
+	GetHandleVerifier [0x00007FF6146E5390+78688]
+	(No symbol) [0x00007FF6144991AA]
+	(No symbol) [0x00007FF614471B63]
+	(No symbol) [0x00007FF61451EB6E]
+	(No symbol) [0x00007FF61453EBB2]
+	(No symbol) [0x00007FF614516EC3]
+	(No symbol) [0x00007FF6144E03F8]
+	(No symbol) [0x00007FF6144E1163]
+	GetHandleVerifier [0x00007FF61498EEED+2870973]
+	GetHandleVerifier [0x00007FF614989698+2848360]
+	GetHandleVerifier [0x00007FF6149A6973+2967875]
+	GetHandleVerifier [0x00007FF61470017A+188746]
+	GetHandleVerifier [0x00007FF61470845F+222255]
+	GetHandleVerifier [0x00007FF6146ED2B4+111236]
+	GetHandleVerifier [0x00007FF6146ED462+111666]
+	GetHandleVerifier [0x00007FF6146D3589+5465]
+	BaseThreadInitThunk [0x00007FFDDE4F259D+29]
+	RtlUserThreadStart [0x00007FFDE03AAF38+40]
+
+
+2025-04-15 12:41:29,285 [WARNING] [신청탭 파싱 오류] Traceback (most recent call last):
+  File "c:\Python313\Scripts\web3.py", line 119, in KATA
+    driver.get("http://tennis.sportsdiary.co.kr/tennis/tnrequest/list.asp")
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 454, in get
+    self.execute(Command.GET, {"url": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 429, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=135.0.7049.85)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6146E5335+78597]
+	GetHandleVerifier [0x00007FF6146E5390+78688]
+	(No symbol) [0x00007FF6144991AA]
+	(No symbol) [0x00007FF614471B63]
+	(No symbol) [0x00007FF61451EB6E]
+	(No symbol) [0x00007FF61453EBB2]
+	(No symbol) [0x00007FF614516EC3]
+	(No symbol) [0x00007FF6144E03F8]
+	(No symbol) [0x00007FF6144E1163]
+	GetHandleVerifier [0x00007FF61498EEED+2870973]
+	GetHandleVerifier [0x00007FF614989698+2848360]
+	GetHandleVerifier [0x00007FF6149A6973+2967875]
+	GetHandleVerifier [0x00007FF61470017A+188746]
+	GetHandleVerifier [0x00007FF61470845F+222255]
+	GetHandleVerifier [0x00007FF6146ED2B4+111236]
+	GetHandleVerifier [0x00007FF6146ED462+111666]
+	GetHandleVerifier [0x00007FF6146D3589+5465]
+	BaseThreadInitThunk [0x00007FFDDE4F259D+29]
+	RtlUserThreadStart [0x00007FFDE03AAF38+40]
+
+
+2025-04-15 12:41:29,288 [WARNING] [신청탭 파싱 오류] Traceback (most recent call last):
+  File "c:\Python313\Scripts\web3.py", line 119, in KATA
+    driver.get("http://tennis.sportsdiary.co.kr/tennis/tnrequest/list.asp")
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 454, in get
+    self.execute(Command.GET, {"url": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 429, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=135.0.7049.85)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6146E5335+78597]
+	GetHandleVerifier [0x00007FF6146E5390+78688]
+	(No symbol) [0x00007FF6144991AA]
+	(No symbol) [0x00007FF614471B63]
+	(No symbol) [0x00007FF61451EB6E]
+	(No symbol) [0x00007FF61453EBB2]
+	(No symbol) [0x00007FF614516EC3]
+	(No symbol) [0x00007FF6144E03F8]
+	(No symbol) [0x00007FF6144E1163]
+	GetHandleVerifier [0x00007FF61498EEED+2870973]
+	GetHandleVerifier [0x00007FF614989698+2848360]
+	GetHandleVerifier [0x00007FF6149A6973+2967875]
+	GetHandleVerifier [0x00007FF61470017A+188746]
+	GetHandleVerifier [0x00007FF61470845F+222255]
+	GetHandleVerifier [0x00007FF6146ED2B4+111236]
+	GetHandleVerifier [0x00007FF6146ED462+111666]
+	GetHandleVerifier [0x00007FF6146D3589+5465]
+	BaseThreadInitThunk [0x00007FFDDE4F259D+29]
+	RtlUserThreadStart [0x00007FFDE03AAF38+40]
+
+
+2025-04-15 12:41:29,290 [WARNING] [신청탭 파싱 오류] Traceback (most recent call last):
+  File "c:\Python313\Scripts\web3.py", line 119, in KATA
+    driver.get("http://tennis.sportsdiary.co.kr/tennis/tnrequest/list.asp")
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 454, in get
+    self.execute(Command.GET, {"url": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 429, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=135.0.7049.85)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6146E5335+78597]
+	GetHandleVerifier [0x00007FF6146E5390+78688]
+	(No symbol) [0x00007FF6144991AA]
+	(No symbol) [0x00007FF614471B63]
+	(No symbol) [0x00007FF61451EB6E]
+	(No symbol) [0x00007FF61453EBB2]
+	(No symbol) [0x00007FF614516EC3]
+	(No symbol) [0x00007FF6144E03F8]
+	(No symbol) [0x00007FF6144E1163]
+	GetHandleVerifier [0x00007FF61498EEED+2870973]
+	GetHandleVerifier [0x00007FF614989698+2848360]
+	GetHandleVerifier [0x00007FF6149A6973+2967875]
+	GetHandleVerifier [0x00007FF61470017A+188746]
+	GetHandleVerifier [0x00007FF61470845F+222255]
+	GetHandleVerifier [0x00007FF6146ED2B4+111236]
+	GetHandleVerifier [0x00007FF6146ED462+111666]
+	GetHandleVerifier [0x00007FF6146D3589+5465]
+	BaseThreadInitThunk [0x00007FFDDE4F259D+29]
+	RtlUserThreadStart [0x00007FFDE03AAF38+40]
+
+
+2025-04-15 12:41:29,290 [INFO] KATA 크롤링 완료 / 총 항목 수: 0
+2025-04-15 12:41:31,378 [INFO] KATA 완료 / 수집 항목 수: 0
+2025-04-15 12:41:31,378 [INFO] KTA 시작
+2025-04-15 12:41:31,378 [INFO] KTA 크롤링 시작
+2025-04-15 12:41:48,898 [INFO] === 크롤링 작업 시작 ===
+2025-04-15 12:41:48,898 [INFO] KATA 시작
+2025-04-15 12:41:48,898 [INFO] KATA 크롤링 시작
+2025-04-15 12:42:33,594 [INFO] KATA 크롤링 완료 / 총 항목 수: 20
+2025-04-15 12:42:35,851 [INFO] KATA 완료 / 수집 항목 수: 20
+2025-04-15 12:42:35,851 [INFO] KTA 시작
+2025-04-15 12:42:35,851 [INFO] KTA 크롤링 시작
+2025-04-15 12:43:02,429 [INFO] KTA 크롤링 완료 / 총 항목 수: 37
+2025-04-15 12:43:06,265 [INFO] KTA 완료 / 수집 항목 수: 37
+2025-04-15 12:43:06,265 [INFO] KATO 시작
+2025-04-15 12:43:06,265 [INFO] KATO 크롤링 시작
+2025-04-15 12:43:11,380 [INFO] 1번째 대회 클릭 시도
+2025-04-15 12:43:17,539 [INFO] 2번째 대회 클릭 시도
+2025-04-15 12:43:23,312 [INFO] 3번째 대회 클릭 시도
+2025-04-15 12:43:28,800 [INFO] 4번째 대회 클릭 시도
+2025-04-15 12:43:34,242 [INFO] 5번째 대회 클릭 시도
+2025-04-15 12:43:39,663 [INFO] 6번째 대회 클릭 시도
+2025-04-15 12:43:45,051 [INFO] 7번째 대회 클릭 시도
+2025-04-15 12:43:50,505 [INFO] 8번째 대회 클릭 시도
+2025-04-15 12:43:55,875 [INFO] KATO 크롤링 완료 / 총 항목 수: 34
+2025-04-15 12:43:59,733 [INFO] KATO 완료 / 수집 항목 수: 34
+2025-04-15 12:43:59,734 [INFO] ✅ 결과 저장 완료: C:\Python313\Scripts\tennis_results.json
+2025-04-15 12:43:59,734 [INFO] ⏱️ 전체 소요 시간: 130.84초
+2025-04-15 12:43:59,734 [INFO] === 크롤링 작업 종료 ===

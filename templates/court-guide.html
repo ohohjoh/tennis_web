@@ -3,117 +3,117 @@
 
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <title>🗓️ 코트 예약 가이드</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <style>
-    body.grass-theme {
-      background-color: #2e5339;
-      color: #fff;
-    }
-    .top-nav {
-      background-color: #2e5339;
-      padding: 0.5rem 1rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .top-nav .logo {
-      font-weight: bold;
-      font-size: 1.25rem;
-    }
-    .top-nav .tabs button {
-      font-size: 0.8rem;
-      padding: 0.3rem 0.75rem;
-    }
-    .bottom-nav {
-      background-color: #2e5339;
-      color: white;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      z-index: 1000;
-      font-size: 0.75rem;
-    }
-    .bottom-nav .nav-item small {
-      font-size: 0.65rem;
-    }
-    .court-card {
-      background-color: #fff;
-      color: #2b2b2b;
-      border-radius: 16px;
-      padding: 0.75rem;
-      font-size: 0.9rem;
-      box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
-      min-height: 300px;
-    }
-    .court-card h5 {
-      font-size: 1rem;
-      color: #5c2e91;
-      font-weight: bold;
-      margin-bottom: 0.5rem;
-    }
-    .court-card img {
-      width: 100%;
-      max-height: 130px;
-      object-fit: cover;
-      border-radius: 12px;
-      margin-bottom: 0.5rem;
-    }
-    .court-card p {
-      font-size: 0.85rem;
-      margin-bottom: 0.1rem;
-    }
-    .btn-reserve {
-      background-color: #5c2e91;
-      color: #fff;
-      border: none;
-      font-size: 0.85rem;
-      padding: 0.4rem 0.75rem;
-    }
-    .btn-reserve:hover {
-      background-color: #4a1e7e;
-    }
-    .mobile-slider {
-      display: flex;
-      justify-content: flex-start; /* 👈 여기만 수정 */
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      scroll-behavior: smooth;
-      gap: 0.75rem;
-      padding: 0 1rem 0.5rem;
-      scroll-padding-left: 1rem;
-    }
-    .mobile-slider > div {
-      scroll-snap-align: start;
-      flex: 0 0 80vw;
-      max-width: 80vw;
-      min-width: 80vw;
-    }
-    @media (min-width: 768px) {
-      .mobile-only { display: none !important; }
-    }
-    @media (max-width: 767px) {
-      .desktop-only { display: none !important; }
+  <head>
+    <meta charset="UTF-8" />
+    <title>🗓️ 코트 예약 가이드</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      body.grass-theme {
+        background-color: #2e5339;
+        color: #fff;
+      }
+      .top-nav {
+        background-color: #2e5339;
+        padding: 0.5rem 1rem;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+      .top-nav .logo {
+        font-weight: bold;
+        font-size: 1.25rem;
+      }
+      .top-nav .tabs button {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.75rem;
+      }
+      .bottom-nav {
+        background-color: #2e5339;
+        color: white;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        z-index: 1000;
+        font-size: 0.75rem;
+      }
+      .bottom-nav .nav-item small {
+        font-size: 0.65rem;
+      }
       .court-card {
-        padding: 1rem;
+        background-color: #fff;
+        color: #2b2b2b;
+        border-radius: 16px;
+        padding: 0.75rem;
         font-size: 0.9rem;
+        box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+        min-height: 300px;
+      }
+      .court-card h5 {
+        font-size: 1rem;
+        color: #5c2e91;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+      }
+      .court-card img {
+        width: 100%;
+        max-height: 130px;
+        object-fit: cover;
+        border-radius: 12px;
+        margin-bottom: 0.5rem;
       }
       .court-card p {
         font-size: 0.85rem;
+        margin-bottom: 0.1rem;
       }
       .btn-reserve {
+        background-color: #5c2e91;
+        color: #fff;
+        border: none;
         font-size: 0.85rem;
+        padding: 0.4rem 0.75rem;
       }
-    }
-    .info-box {
-      border: 1px solid #5c2e91;
+      .btn-reserve:hover {
+        background-color: #4a1e7e;
       }
-  </style>
-</head>
+      .mobile-slider {
+        display: flex;
+        justify-content: flex-start;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        gap: 0.75rem;
+        padding: 0 1rem 0.5rem;
+        scroll-padding-left: 1rem;
+      }
+      .mobile-slider > div {
+        scroll-snap-align: start;
+        flex: 0 0 80vw;
+        max-width: 80vw;
+        min-width: 80vw;
+      }
+      @media (min-width: 768px) {
+        .mobile-only { display: none !important; }
+      }
+      @media (max-width: 767px) {
+        .desktop-only { display: none !important; }
+        .court-card {
+          padding: 1rem;
+          font-size: 0.9rem;
+        }
+        .court-card p {
+          font-size: 0.85rem;
+        }
+        .btn-reserve {
+          font-size: 0.85rem;
+        }
+      }
+      .info-box {
+        border: 1px solid #5c2e91;
+      }
+    </style>
+  </head>
 <body class="grass-theme p-3">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded shadow mb-3">
     <div class="container-fluid">
@@ -227,6 +227,7 @@
               예약하러 가기
             </button>
           <div class="text-center text-muted small mt-2">{{ loop.index }} / {{ data|length }}</div>
+          
         </div>
       {% endfor %}
     </div>
@@ -317,10 +318,13 @@
             data-place="{{ first['장소명'] }}">
             예약하러 가기
           </button>
-         <div class="text-center text-muted small mt-2">{{ loop.index }} / {{ data|length }}</div>
-         </div>
+          <div class="text-center text-muted small mt-2">{{ loop.index }} / {{ data|length }}</div>
+
+        </div>
       {% endfor %}
+    
     </div>
+  </div>
   </div>
 
   <script>
@@ -329,6 +333,10 @@
   document.addEventListener("DOMContentLoaded", () => {
     const today = new Date().toISOString().split("T")[0];
     // document.getElementById("baseDate").value = today;
+    const allCards = document.querySelectorAll(".court-card");
+    const placeNames = [...allCards].map(card => card.querySelector("h5")?.innerText).filter(Boolean);
+
+    placeNames.forEach(name => loadPlaceComments(name));
   });
 
   function calculateDate() {
@@ -440,6 +448,13 @@
         slider.scrollTo({ left: 0, behavior: "instant" });
       }
     });
+    function formatDate(iso) {
+  const d = new Date(iso);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')} ` +
+         `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+}
+
+
   </script>
   
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -494,6 +509,16 @@
       serviceList.appendChild(li);
     });
   });
+  const currentPath = window.location.pathname.includes("court") ? "court" : "tournament";
+  const API_URL = `/api/comments/${currentPath}`;
+
+  function formatDate(iso) {
+    const d = new Date(iso);
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')} ` +
+           `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+  }
+
+
 </script>
 </body>
 </html>

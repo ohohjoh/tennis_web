@@ -258,7 +258,25 @@
     </div>
     </div>
   </div>
-
+  <div class="mt-5" id="comment-section">
+    <h5 class="fw-bold" id="commentTitle">댓글</h5>
+  
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <small class="text-muted">익명으로 작성됩니다 (최대 300자)</small>
+      <select id="sortSelect" class="form-select form-select-sm" style="width: 120px;" onchange="loadComments()">
+        <option value="desc">최신순</option>
+        <option value="asc">과거순</option>
+      </select>
+    </div>
+  
+    <textarea id="commentInput" class="form-control mb-2" rows="2" maxlength="300"
+              placeholder="300자 이내로 댓글을 남겨보세요"></textarea>
+    <div class="d-flex justify-content-end mb-3">
+      <button class="btn btn-primary btn-sm" onclick="submitComment()">등록</button>
+    </div>
+  
+    <div id="commentList" class="border-top pt-3"></div>
+  </div>
   <script>
     let rawData = [];
     let currentFilter = 'all';
@@ -439,7 +457,50 @@
       document.getElementById("resultArea").innerText =
         `📆 ${base}의 ${days}일 뒤는 👉 ${yyyy}-${mm}-${dd} 입니다.`;
     }
-    
+    const currentPath = window.location.pathname.includes("court") ? "court" : "tournament";
+    const API_URL = `/api/comments/${currentPath}`;
+
+    function formatDate(iso) {
+      const d = new Date(iso);
+      return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')} ` +
+            `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+    }
+
+    async function loadComments() {
+      const sort = document.getElementById("sortSelect").value;
+      const res = await fetch(`${API_URL}?sort=${sort}`);
+      const comments = await res.json();
+      const list = document.getElementById("commentList");
+
+      list.innerHTML = comments.length === 0
+        ? "<p class='text-muted'>아직 댓글이 없습니다.</p>"
+        : comments.map(c => `
+            <div class="border rounded p-2 mb-2 bg-light">
+              <div>${c.text}</div>
+              <div class="text-muted small text-end mt-1">${formatDate(c.timestamp)}</div>
+            </div>
+          `).join("");
+
+      document.getElementById("commentTitle").innerText = 
+        (currentPath === "court" ? "🏟️ TMI in Court" : "🎾 테니스 대회 대나무숲") + ` (${comments.length})`;
+    }
+
+    async function submitComment() {
+      const input = document.getElementById("commentInput");
+      const text = input.value.trim();
+      if (!text) return alert("댓글을 입력해주세요!");
+
+      await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text })
+      });
+
+      input.value = "";
+      loadComments();
+    }
+
+    window.addEventListener("DOMContentLoaded", loadComments);
   </script>
   <!-- ✅ Bootstrap JS 추가 (메뉴 토글 위해 필요) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

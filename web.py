@@ -16,26 +16,26 @@ from bs4 import BeautifulSoup
 import time
 import re
 import json
-import gspread
-from oauth2client.service_account import ServiceAccountCredentials
 import os
 
 def KATA():
     # 1. 셀레니움 드라이버 설정
     chrome_options = Options()
     chrome_options.add_experimental_option("detach", True)
-
-    driver = webdriver.Chrome(
-        service=Service(ChromeDriverManager().install()),
-        options=chrome_options
-)
+    chrome_options.add_argument('--ignore-certificate-errors')  # ← 이 줄 추가
+    chrome_options.add_experimental_option("excludeSwitches", ["enable-logging"])
+    service = Service(r'C:\\chromedriver.exe')
+    driver = webdriver.Chrome(service = service)
 
     # 1. 페이지 이동
     driver.get("http://tennis.sportsdiary.co.kr/tennis/tnrequest/list.asp")
-    time.sleep(3)  # 페이지 로딩 대기 (필요 시 WebDriverWait으로 대체 가능)
+
+    # 예시: 특정 요소가 로드될 때까지 대기
+    WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.CSS_SELECTOR, "div.competition_list > dl > dd"))
+    )
     html = driver.page_source
     soup = BeautifulSoup(html, 'html.parser')
-    base_selector = "#AppBody > div.l_apply_list > div:nth-child(2)"
     dd_elements = soup.select("div.competition_list > dl > dd")
 
     apply_selectors = []
@@ -112,7 +112,7 @@ def KATA():
         # 8. 탭 닫고 원래 탭으로 전환
         driver.close()
         driver.switch_to.window(driver.window_handles[0])
-        time.sleep(2)
+        time.sleep(1)
 
     apply_result = []
     for selector in apply_selectors:
@@ -139,7 +139,7 @@ def KATA():
         option_elements = driver.find_elements(By.CSS_SELECTOR, "#levelno > option")
 
         for opt in option_elements:
-            time.sleep(2)
+            time.sleep(1)
             value = opt.get_attribute("value").strip()
             text = opt.text.strip()
 
@@ -178,14 +178,13 @@ def KATA():
     # print(json.dumps(kata_result, ensure_ascii=False, indent=2))
 def KTA():
 
-    # 1. 셀레니움 드라이버 설정
     chrome_options = Options()
     chrome_options.add_experimental_option("detach", True)
+    chrome_options.add_argument('--ignore-certificate-errors')  # ← 이 줄 추가
+    chrome_options.add_experimental_option("excludeSwitches", ["enable-logging"])
+    service = Service(r'C:\\chromedriver.exe')
+    driver = webdriver.Chrome(service = service)
 
-    driver = webdriver.Chrome(
-        service=Service(ChromeDriverManager().install()),
-        options=chrome_options
-)
 
     url_main = 'https://join.kortennis.or.kr/index.do'
     url_tournaments = 'https://join.kortennis.or.kr/sportsForAll/sportsForAll.do?_code=10078'
@@ -264,59 +263,16 @@ def KTA():
     # import json
     # # print(json.dumps(kta_result, ensure_ascii=False, indent=2))
     return kta_result
-
-    # 1. 인증
-    scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-    creds = ServiceAccountCredentials.from_json_keyfile_name("C:\\nimble-ally-440704-s8-cf38eae9319f.json", scope)
-    client = gspread.authorize(creds)
-
-    # 2. 스프레드시트 & 시트 열기
-    sheet = client.open(sheet_name)
-    source_ws = sheet.worksheet(source_title)
-
-    try:
-        target_ws = sheet.worksheet(target_title)
-    except gspread.exceptions.WorksheetNotFound:
-        target_ws = sheet.add_worksheet(title=target_title, rows="1000", cols="20")
-
-    # 3. 전체 데이터 가져오기
-    all_rows = source_ws.get_all_values()
-    if not all_rows:
-        print("⚠️ 소스 시트에 데이터 없음.")
-        return
-
-    header = all_rows[0]
-    data_rows = all_rows[1:]
-
-    # 4. 조건에 맞는 행 필터링 (현원 < 정원)
-    available_rows = []
-    for row in data_rows:
-        try:
-            current = int(row[8])  # I열 (현원)
-            capacity = int(row[9]) # J열 (정원)
-            if current < capacity:
-                available_rows.append(row)
-        except (IndexError, ValueError):
-            continue  # 값이 없거나 숫자가 아닌 경우 무시
-
-    # 5. '가능' 시트에 붙여 넣기 (헤더 + 행 추가)
-    if available_rows:
-        existing = target_ws.get_all_values()
-        if not existing:
-            target_ws.update("A1", [header])  # 헤더 없으면 추가
-
-        start_row = len(existing) + 1
-        target_ws.update(f"A{start_row}", available_rows)
-        print(f"✅ {len(available_rows)}개 행이 '{target_title}' 시트에 추가됨.")
-    else:
-        print("ℹ️ 조건을 만족하는 행이 없음.")
 def KATO():
     chrome_options = Options()
     chrome_options.add_experimental_option("detach", True)
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
+    chrome_options.add_argument('--ignore-certificate-errors')  # ← 이 줄 추가
+    chrome_options.add_experimental_option("excludeSwitches", ["enable-logging"])
+    service = Service(r'C:\\chromedriver.exe')
+    driver = webdriver.Chrome(service = service)
+
     driver.get("https://www.kato.kr/")
-    wait = WebDriverWait(driver, 10)
-    time.sleep(3)
+    time.sleep(2)
 
     # 대회 버튼들 수집
     containers = driver.find_elements(By.CSS_SELECTOR, "div.gtco-services.gtco-section")
@@ -405,9 +361,18 @@ if __name__ == "__main__":
     start_time = time.time()  # 시작 시간 기록
 
     # 결과 수집
+
+    print("✅ KATA 시작")
     kata_result = KATA()
+    print("✅ KATA 완료")
+
+    print("✅ KTA 시작")
     kta_result = KTA()
+    print("✅ KTA 완료")
+
+    print("✅ KATO 시작")
     kato_result = KATO()
+    print("✅ KATO 완료")
 
     # 통합 결과
     all_results = kata_result + kta_result + kato_result
