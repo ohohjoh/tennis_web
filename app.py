@@ -15,7 +15,7 @@ def load_data_with_timestamp():
     if os.path.exists(JSON_PATH):
         with open(JSON_PATH, "r", encoding="utf-8") as f:
             data = json.load(f)
-            return data.get("data", []), data.get("last_updated", "알 수 없음")
+            return data.get("data", []), data.get("executed_at", "알 수 없음")
     print("🚫 JSON 파일을 찾을 수 없습니다:", JSON_PATH)
     return [], "알 수 없음"
 
