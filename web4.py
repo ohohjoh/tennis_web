@@ -15,6 +15,7 @@ import chromedriver_autoinstaller
 import os
 import subprocess
 
+
 log_dir = os.path.join(os.getcwd(), "logs")
 os.makedirs(log_dir, exist_ok=True)
 logging.basicConfig(
@@ -473,13 +474,17 @@ def git_commit_and_push():
         token = os.environ["GH_TOKEN"]
         remote_url = f"https://{token}@github.com/{repo}.git"
 
-        subprocess.run(["git", "push", remote_url], check=True)
+        # ✅ remote 주소를 명시적으로 설정!
+        subprocess.run(["git", "remote", "set-url", "origin", remote_url], check=True)
+
+        subprocess.run(["git", "push", "origin", "main"], check=True)
         logging.info("✅ GitHub push 완료")
     except Exception as e:
         logging.error(f"❌ GitHub push 실패: {e}")
 
 
 if __name__ == "__main__":
+    chromedriver_autoinstaller.install()  # ✅ 크롬 드라이버 자동 설치
     logging.info("=== 크롤링 작업 시작 ===")
     start_time = time.time()
 
