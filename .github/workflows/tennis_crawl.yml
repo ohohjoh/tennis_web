@@ -48,13 +48,13 @@ jobs:
           git remote set-url origin https://$GH_TOKEN@github.com/$GH_REPO.git
           git push origin main || echo "No changes pushed"
 
-      - name: 🧾 Upload Logs to Actions
-        if: always()
-        uses: actions/upload-artifact@v3.1.3
-        with:
-          name: crawler-logs
-          path: |
-            logs/crawler_log.txt
-            logs/errors.json
+      - name: 📁 Commit & Push logs
+        run: |
+          git config --global user.email "$GH_EMAIL"
+          git config --global user.name "$GH_NAME"
+          git add logs/crawler_log.txt logs/errors.json
+          git commit -m "📝 Auto-update logs" || echo "No log changes to commit"
+          git remote set-url origin https://$GH_TOKEN@github.com/$GH_REPO.git
+          git push origin main || echo "No log changes pushed"
 
       
