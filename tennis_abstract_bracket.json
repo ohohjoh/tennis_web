@@ -1,0 +1,636 @@
+[
+  {
+    "tournament": "ATP Barcelona",
+    "url": "https://www.tennisabstract.com/current/2025ATPBarcelona.html",
+    "bracket": {
+      "R16": [
+        {
+          "player1": "🇪🇸 Carlos Alcaraz",
+          "player2": "🇷🇸 Laslo Djere",
+          "score": "6-2 6-4",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇦🇺 Alex De Minaur",
+          "player2": "🇬🇧 Jacob Fearnley",
+          "score": "6-1 6-2",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇬🇷 Stefanos Tsitsipas",
+          "player2": "🇺🇸 Sebastian Korda",
+          "score": "7-6(4) 6-4",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇫🇷 Arthur Fils",
+          "player2": "🇪🇸 Pedro Martinez",
+          "score": "6-3 6-2",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇷🇺 Karen Khachanov",
+          "player2": "🇪🇸 Jaume Munar",
+          "score": "7-5 6-4",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇪🇸 Alejandro Davidovich Fokina",
+          "player2": "🇷🇺 Andrey Rublev",
+          "score": "7-5 6-4",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇩🇰 Holger Rune",
+          "player2": "🇦🇷 Sebastian Baez",
+          "score": "4-6 6-1 6-2",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇳🇴 Casper Ruud",
+          "player2": "🇷🇸 Hamad Medjedovic",
+          "score": "7-5 7-5",
+          "winner": null,
+          "source": "completed"
+        }
+      ],
+      "R32": [
+        {
+          "player1": "🇪🇸 Carlos Alcaraz",
+          "player2": "🇺🇸 Ethan Quinn",
+          "score": "6-2 7-6(6)",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇷🇸 Laslo Djere",
+          "player2": "🇫🇷 Arthur Rinderknech",
+          "score": "6-7(2) 6-1 6-2",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇬🇧 Jacob Fearnley",
+          "player2": "🇪🇸 Roberto Carballes Baena",
+          "score": "6-1 7-5",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇦🇺 Alex De Minaur",
+          "player2": "🇦🇷 Tomas Martin Etcheverry",
+          "score": "6-4 6-4",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇬🇷 Stefanos Tsitsipas",
+          "player2": "🇺🇸 Reilly Opelka",
+          "score": "6-2 6-2",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇺🇸 Sebastian Korda",
+          "player2": "🇮🇹 Matteo Arnaldi",
+          "score": "3-6 6-3 6-2",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇪🇸 Pedro Martinez",
+          "player2": "🇺🇸 Brandon Nakashima",
+          "score": "7-5 5-7 6-4",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇫🇷 Arthur Fils",
+          "player2": "🇪🇸 Pablo Carreno Busta",
+          "score": "7-6(6) 6-3",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇪🇸 Jaume Munar",
+          "player2": "🇺🇸 Frances Tiafoe",
+          "score": "2-6 7-5 6-1",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇷🇺 Karen Khachanov",
+          "player2": "🇬🇧 Cameron Norrie",
+          "score": "6-7(3) 6-4 6-3",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇪🇸 Alejandro Davidovich Fokina",
+          "player2": "🇨🇭 Stan Wawrinka",
+          "score": "6-1 6-4",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇷🇺 Andrey Rublev",
+          "player2": "🇳🇱 Jesper De Jong",
+          "score": "6-1 6-3",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇩🇰 Holger Rune",
+          "player2": "🇪🇸 Albert Ramos",
+          "score": "7-5 6-4",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇦🇷 Sebastian Baez",
+          "player2": "🇧🇦 Damir Dzumhur",
+          "score": "6-1 7-5",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇷🇸 Hamad Medjedovic",
+          "player2": "🇫🇷 Giovanni Mpetshi Perricard",
+          "score": "7-5 7-6(6)",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇳🇴 Casper Ruud",
+          "player2": "🇨🇴 Daniel Elahi Galan",
+          "score": "6-4 6-3",
+          "winner": null,
+          "source": "completed"
+        }
+      ],
+      "Q2": [
+        {
+          "player1": "🇷🇸 Laslo Djere",
+          "player2": "🇪🇸 Daniel Rincon",
+          "score": "6-3 7-5",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇨🇴 Daniel Elahi Galan",
+          "player2": "🇬🇧 Jacob Fearnley",
+          "score": "7-5 6-4",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇬🇧 Cameron Norrie",
+          "player2": "🇧🇦 Damir Dzumhur",
+          "score": "7-6(5) 7-6(6)",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇺🇸 Ethan Quinn",
+          "player2": "🇭🇷 Borna Coric",
+          "score": "2-6 6-4 6-3",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇳🇱 Jesper De Jong",
+          "player2": "🇫🇷 Arthur Rinderknech",
+          "score": "6-3 7-5",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇷🇸 Hamad Medjedovic",
+          "player2": "🇨🇦 Gabriel Diallo",
+          "score": "6-4 6-4",
+          "winner": null,
+          "source": "completed"
+        }
+      ],
+      "Q1": [
+        {
+          "player1": "🇪🇸 Daniel Rincon",
+          "player2": "🇫🇷 Benjamin Bonzi",
+          "score": "6-2 6-4",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇷🇸 Laslo Djere",
+          "player2": "🇦🇷 Federico Coria",
+          "score": "7-5 0-0 RET",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇨🇴 Daniel Elahi Galan",
+          "player2": " Nikoloz Basilashvili",
+          "score": "6-3 6-3",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇬🇧 Jacob Fearnley",
+          "player2": " Leo Borg",
+          "score": "7-5 7-6(1)",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇧🇦 Damir Dzumhur",
+          "player2": "🇪🇸 Max Alcala Gurri",
+          "score": "7-6(4) 6-0",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇬🇧 Cameron Norrie",
+          "player2": "🇫🇷 Hugo Gaston",
+          "score": "6-2 6-3",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇭🇷 Borna Coric",
+          "player2": "🇮🇹 Mattia Bellucci",
+          "score": "6-2 6-4",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇺🇸 Ethan Quinn",
+          "player2": "🇫🇷 Corentin Moutet",
+          "score": "2-6 6-3 7-5",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇳🇱 Jesper De Jong",
+          "player2": "🇿🇦 Lloyd Harris",
+          "score": "6-3 7-6(0)",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇫🇷 Arthur Rinderknech",
+          "player2": " Jozef Kovalik",
+          "score": "7-6(2) 2-6 6-3",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇷🇸 Hamad Medjedovic",
+          "player2": " Hugo Dellien",
+          "score": "7-6(1) 4-6 6-3",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇨🇦 Gabriel Diallo",
+          "player2": "🇪🇸 Martin Landaluce",
+          "score": "6-2 6-4",
+          "winner": null,
+          "source": "completed"
+        }
+      ],
+      "QF": [
+        {
+          "player1": "🇪🇸 Carlos Alcaraz",
+          "player2": "🇦🇺 Alex De Minaur",
+          "score": "3-0",
+          "winner": null,
+          "source": "upcoming"
+        },
+        {
+          "player1": "🇬🇷 Stefanos Tsitsipas",
+          "player2": "🇫🇷 Arthur Fils",
+          "score": "0-2",
+          "winner": null,
+          "source": "upcoming"
+        },
+        {
+          "player1": "🇷🇺 Karen Khachanov",
+          "player2": "🇪🇸 Alejandro Davidovich Fokina",
+          "score": "1-2",
+          "winner": null,
+          "source": "upcoming"
+        },
+        {
+          "player1": "🇩🇰 Holger Rune",
+          "player2": "🇳🇴 Casper Ruud",
+          "score": "1-6",
+          "winner": null,
+          "source": "upcoming"
+        }
+      ]
+    }
+  },
+  {
+    "tournament": "ATP Munich",
+    "url": "https://www.tennisabstract.com/current/2025ATPMunich.html",
+    "bracket": {
+      "R16": [
+        {
+          "player1": "🇩🇪 Alexander Zverev",
+          "player2": "🇩🇪 Daniel Altmaier",
+          "score": "6-3 6-2",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇳🇱 Tallon Griekspoor",
+          "player2": "🇩🇪 Yannick Hanfmann",
+          "score": "7-6(3) 6-3",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇭🇺 Fabian Marozsan",
+          "player2": "🇫🇷 Ugo Humbert",
+          "score": "6-4 6-4",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇧🇪 Zizou Bergs",
+          "player2": "🇩🇪 Diego Dedura Palomero",
+          "score": "6-1 6-1",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇦🇷 Francisco Cerundolo",
+          "player2": "🇰🇿 Alexander Shevchenko",
+          "score": "6-3 6-2",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇧🇪 David Goffin",
+          "player2": "🇦🇷 Mariano Navone",
+          "score": "0-6 7-5 6-1",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇮🇹 Luciano Darderi",
+          "player2": "🇷🇸 Miomir Kecmanovic",
+          "score": "2-6 7-6(4) 6-4",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇺🇸 Ben Shelton",
+          "player2": "🇳🇱 Botic Van De Zandschulp",
+          "score": "7-6(1) 6-3",
+          "winner": null,
+          "source": "completed"
+        }
+      ],
+      "R32": [
+        {
+          "player1": "🇩🇪 Alexander Zverev",
+          "player2": "🇫🇷 Alexandre Muller",
+          "score": "6-4 6-1",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇩🇪 Daniel Altmaier",
+          "player2": "🇹🇼 Chun Hsin Tseng",
+          "score": "7-6(5) 7-6(5)",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇳🇱 Tallon Griekspoor",
+          "player2": "🇺🇸 Learner Tien",
+          "score": "6-4 6-2",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇩🇪 Yannick Hanfmann",
+          "player2": " Jakub Mensik",
+          "score": "7-6(4) 4-6 6-3",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇫🇷 Ugo Humbert",
+          "player2": " Nicolas Jarry",
+          "score": "4-6 6-3 6-2",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇭🇺 Fabian Marozsan",
+          "player2": "🇩🇪 Justin Engel",
+          "score": "6-4 6-1",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇧🇪 Zizou Bergs",
+          "player2": "🇰🇿 Alexander Bublik",
+          "score": "6-7(5) 6-4 7-5",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇩🇪 Diego Dedura Palomero",
+          "player2": "🇨🇦 Denis Shapovalov",
+          "score": "7-6(2) 3-0 RET",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇦🇷 Francisco Cerundolo",
+          "player2": "🇩🇪 Jan Lennard Struff",
+          "score": "6-0 6-2",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇰🇿 Alexander Shevchenko",
+          "player2": "🇮🇹 Flavio Cobolli",
+          "score": "6-7(2) 6-3 6-4",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇧🇪 David Goffin",
+          "player2": "🇬🇧 Billy Harris",
+          "score": "6-2 6-7(2) 6-4",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇦🇷 Mariano Navone",
+          "player2": "🇨🇦 Felix Auger Aliassime",
+          "score": "2-6 6-4 7-6(3)",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇮🇹 Luciano Darderi",
+          "player2": "🇦🇺 Christopher Oconnell",
+          "score": "7-6(3) 7-6(3)",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇷🇸 Miomir Kecmanovic",
+          "player2": "🇺🇸 Marcos Giron",
+          "score": "6-2 6-7(2) 7-6(9)",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇳🇱 Botic Van De Zandschulp",
+          "player2": "🇪🇸 Roberto Bautista Agut",
+          "score": "6-4 3-6 6-4",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇺🇸 Ben Shelton",
+          "player2": "🇭🇷 Borna Gojo",
+          "score": "4-6 7-6(6) 7-6(3)",
+          "winner": null,
+          "source": "completed"
+        }
+      ],
+      "Q2": [
+        {
+          "player1": "🇭🇷 Borna Gojo",
+          "player2": "🇰🇿 Alexander Shevchenko",
+          "score": "6-4 6-4",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇺🇸 Learner Tien",
+          "player2": "🇳🇱 Botic Van De Zandschulp",
+          "score": "6-2 6-2",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇰🇿 Alexander Bublik",
+          "player2": "🇩🇪 Diego Dedura Palomero",
+          "score": "6-3 6-3",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇹🇼 Chun Hsin Tseng",
+          "player2": "🇬🇧 Billy Harris",
+          "score": "4-6 7-6(5) 6-2",
+          "winner": null,
+          "source": "completed"
+        }
+      ],
+      "Q1": [
+        {
+          "player1": "🇭🇷 Borna Gojo",
+          "player2": "🇩🇪 Daniel Masur",
+          "score": "6-3 7-6(6)",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇰🇿 Alexander Shevchenko",
+          "player2": "🇦🇺 Rinky Hijikata",
+          "score": "6-4 1-6 6-3",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇺🇸 Learner Tien",
+          "player2": "🇩🇪 Henri Squire",
+          "score": "7-5 2-6 6-0",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇳🇱 Botic Van De Zandschulp",
+          "player2": "🇩🇪 Max Hans Rehberg",
+          "score": "6-3 6-1",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇰🇿 Alexander Bublik",
+          "player2": "🇨🇭 Alexander Ritschard",
+          "score": "6-2 6-3",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇩🇪 Diego Dedura Palomero",
+          "player2": "🇺🇸 Mackenzie Mcdonald",
+          "score": "6-3 6-1",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇹🇼 Chun Hsin Tseng",
+          "player2": "🇦🇺 Christopher Oconnell",
+          "score": "6-3 6-2",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇬🇧 Billy Harris",
+          "player2": "🇦🇺 Aleksandar Vukic",
+          "score": "3-6 6-3 6-4",
+          "winner": null,
+          "source": "completed"
+        }
+      ],
+      "QF": [
+        {
+          "player1": "🇩🇪 Alexander Zverev",
+          "player2": "🇳🇱 Tallon Griekspoor",
+          "score": "6-2",
+          "winner": null,
+          "source": "upcoming"
+        },
+        {
+          "player1": "🇭🇺 Fabian Marozsan",
+          "player2": "🇧🇪 Zizou Bergs",
+          "score": "1-0",
+          "winner": null,
+          "source": "upcoming"
+        },
+        {
+          "player1": "🇦🇷 Francisco Cerundolo",
+          "player2": "🇧🇪 David Goffin",
+          "score": null,
+          "winner": null,
+          "source": "upcoming"
+        },
+        {
+          "player1": "🇮🇹 Luciano Darderi",
+          "player2": "🇺🇸 Ben Shelton",
+          "score": null,
+          "winner": null,
+          "source": "upcoming"
+        }
+      ]
+    }
+  }
+]

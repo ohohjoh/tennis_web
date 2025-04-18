@@ -222,49 +222,71 @@
     /* ===============================
        윔블던 스타일 네비게이션
     =============================== */
-    /* 네비바 전체 배경 */
-  .main-navbar {
-    background-color: #2e5339;
-    padding: 1rem 0.8rem;
-    font-family: 'Playfair Display', 'Georgia', serif;
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-  }
+    .main-navbar {
+      background-color: #2e5339;
+      padding: 1rem 0.8rem;
+      font-family: 'Playfair Display', 'Georgia', serif;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+    }
 
-  /* 네비바 메뉴 감싸는 pill 박스 */
-  .nav-pill-wrapper {
-    background-color: #345d40;
-    border-radius: 50px;
-    padding: 0.3rem;
-    display: flex;
-    gap: 0.5rem;
-  }
+    .nav-pill-wrapper {
+      background-color: #345d40;
+      border-radius: 50px;
+      padding: 0.3rem;
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
 
-  /* 네비바 메뉴 링크 기본 */
-  .main-navbar .nav-link {
-    font-family: 'Pretendard Variable', sans-serif;
-    color: white;
-    font-weight: 600;
-    font-size: 0.95rem;
-    padding: 0.45rem 1.2rem;
-    border-radius: 50px;
-    transition: all 0.25s ease-in-out;
-  }
+    .main-navbar .nav-link {
+      font-family: 'Pretendard Variable', sans-serif;
+      color: white;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.45rem 1.2rem;
+      border-radius: 50px;
+      transition: all 0.25s ease-in-out;
+      white-space: nowrap;
+    }
 
-  /* 비선택 상태 (초록 배경) */
-  .main-navbar .nav-link:not(.active) {
-    background-color: #2e5339;
-    color: #ffffff;
-  }
+    .main-navbar .nav-link:not(.active) {
+      background-color: #2e5339;
+      color: #ffffff;
+    }
 
-  /* 선택된 메뉴 (흰 배경, 초록 텍스트) */
-  .main-navbar .nav-link.active {
-    background-color: #ffffff;
-    color: #2e5339;
-    font-weight: 700;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
+    .main-navbar .nav-link.active {
+      background-color: #ffffff;
+      color: #2e5339;
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      body.grass-theme {
+        background-color: #2e5339;
+      }
+
+      .main-navbar {
+        padding: 0.5rem 0.5rem;
+      }
+
+      .main-navbar .nav-link {
+        font-size: 0.72rem;
+        padding: 0.3rem 0.8rem;
+        border-radius: 30px;
+        flex-shrink: 0;
+      }
+
+      .nav-pill-wrapper {
+        gap: 0.3rem;
+        padding: 0.2rem;
+        flex-wrap: nowrap;
+      }
+    }
     </style>
     
   </style>
@@ -273,7 +295,8 @@
   <nav class="main-navbar shadow-sm">
     <div class="nav-pill-wrapper">
       <a class="nav-link {% if currentPath == 'index' %}active{% endif %}" href="/">Home</a>
-      <a class="nav-link {% if currentPath == 'tournament' %}active{% endif %}" href="/tournament">동호인 대회</a>
+      <a class="nav-link {% if currentPath == 'tournament_pro' %}active{% endif %}" href="/tournament_pro">프로 대회</a>
+      <a class="nav-link {% if currentPath == 'tournament' %}active{% endif %}" href="/tournament">아마 대회</a>
       <a class="nav-link {% if currentPath == 'court' %}active{% endif %}" href="/court-guide">코트 가이드</a>
       <a class="nav-link {% if currentPath == 'board' %}active{% endif %}" href="/board">게시판</a>
     </div>

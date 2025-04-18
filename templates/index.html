@@ -186,27 +186,15 @@
   </style>
 </head>
 <body class="grass-theme p-3">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded shadow mb-3">
-      <div class="container-fluid">
-        <a class="navbar-brand fw-bold" href="/">{{ page_title }}</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="/tournament">테니스 대회 현황</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/court-guide">코트 예약 가이드</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/board">익명 게시판</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+  <nav class="main-navbar shadow-sm">
+    <div class="nav-pill-wrapper">
+      <a class="nav-link {% if currentPath == 'index' %}active{% endif %}" href="/">Home</a>
+      <a class="nav-link {% if currentPath == 'tournament_pro' %}active{% endif %}" href="/tournament_pro">프로 대회</a>
+      <a class="nav-link {% if currentPath == 'tournament' %}active{% endif %}" href="/tournament">아마 대회</a>
+      <a class="nav-link {% if currentPath == 'court' %}active{% endif %}" href="/court-guide">코트 가이드</a>
+      <a class="nav-link {% if currentPath == 'board' %}active{% endif %}" href="/board">게시판</a>
+    </div>
+  </nav>
 
    <div class="card-section">
     <div class="desktop-header">
