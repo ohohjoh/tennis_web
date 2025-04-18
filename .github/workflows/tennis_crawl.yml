@@ -47,3 +47,14 @@ jobs:
           git commit -m "🤖 Auto-update tennis_results.json" || echo "No changes to commit"
           git remote set-url origin https://$GH_TOKEN@github.com/$GH_REPO.git
           git push origin main || echo "No changes pushed"
+
+      - name: 🧾 Upload Logs to Actions
+        if: always()
+        uses: actions/upload-artifact@v3.1.3
+        with:
+          name: crawler-logs
+          path: |
+            logs/crawler_log.txt
+            logs/errors.json
+
+      
