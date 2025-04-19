@@ -390,7 +390,7 @@ if __name__ == "__main__":
             save_error_to_json(err_msg, source=source)
             logging.error(f"{source} 중 치명적 오류 발생")
 
-    output_path = os.path.join(os.getcwd(), "tennis_tournaments_results.json")
+    output_path = os.path.join(os.getcwd(), "tennis_tournaments_ama.json")
     try:
         kst = pytz.timezone("Asia/Seoul")
         now_kst = datetime.now(kst).strftime("%Y-%m-%d %H:%M:%S")
