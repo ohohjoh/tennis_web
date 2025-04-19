@@ -39,11 +39,11 @@ jobs:
       - name: ▶️ Run web4.py
         run: python web4.py
 
-      - name: 📀 Commit & Push tennis_results.json
+      - name: 📀 Commit & Push tennis_tournaments_results.json
         run: |
           git config --global user.email "$GH_EMAIL"
           git config --global user.name "$GH_NAME"
-          git add tennis_results.json
+          git add tennis_tournaments_results.json
           git commit -m "🤖 Auto-update tennis_results.json" || echo "No changes to commit"
           git remote set-url origin https://$GH_TOKEN@github.com/$GH_REPO.git
           git push origin main || echo "No changes pushed"
