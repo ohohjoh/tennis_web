@@ -1,128 +1,28 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>ATP Draw Viewer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <title>🎾 ATP Draw Viewer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.6/dist/web/variable/pretendardvariable-dynamic-subset.css" />
   <style>
     body {
-      font-family:
-        'Pretendard Variable',
-        'Apple Color Emoji',
-        'Segoe UI Emoji',
-        'Noto Color Emoji',
-        sans-serif;
-      background-color: #f0f4f0;
-      padding: 0;
-      margin: 0;
+      font-family: 'Pretendard Variable', sans-serif;
+      min-height: 100vh;
     }
-  
-    .bracket-scroll-wrapper {
-      display: flex;
-      flex-direction: row;
-      overflow-x: auto;
-      gap: 1rem;
-      padding: 1rem 0;
-      margin: 0;
+    body.grass-theme {
+      background-color: #2e5339;
+      color: #fff;
     }
-  
-    .bracket-section {
-      width: 100%;
-      min-width: 560px;
-      max-width: 720px;
-      flex-shrink: 0;
-      background: white;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      height: 66vh;
-      overflow-y: auto;
-    }
-  
-    .bracket-title {
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: #2e5339;
-      margin-bottom: 0.75rem;
-    }
-  
-    .bracket-container {
-      display: flex;
-      overflow-x: auto;
-      overflow-y: hidden;
-      gap: 0.5rem;
-      padding-bottom: 1rem;
-      -webkit-overflow-scrolling: touch;
-      touch-action: pan-x;
-      scroll-snap-type: x mandatory;
-    }
-  
-    .round-column {
-      min-width: 130px;
-      flex-shrink: 0;
-      position: relative;
-    }
-  
-    .round-header {
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: #2b2b2b;
-      text-align: center;
-      margin-bottom: 0.3rem;
-      position: sticky;
-      top: 0;
-      background-color: white;
-      z-index: 10;
-      padding: 0.3rem;
-      border-bottom: 1px solid #ccc;
-    }
-  
-    .match-box {
-      background-color: #f8f9fa;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      padding: 0.25rem 0.5rem;
-      margin-bottom: 0.4rem;
-      font-size: 0.72rem;
-      line-height: 1.3;
-    }
-  
-    .match-box .player {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-  
-    .score {
-      font-size: 0.7rem;
-      color: #666;
-      flex-shrink: 0;
-      margin-left: 0.25rem;
-      text-align: right;
-    }
-  
-    .winner {
-      color: #5c2e91 !important;
-      font-weight: bold !important;
-    }
-  
-    .upcoming {
-      background-color: #f0e8ff;
-    }
-  
-    /* ===============================
-       윔블던 스타일 네비게이션
-    =============================== */
     .main-navbar {
       background-color: #2e5339;
       padding: 1rem 0.8rem;
       font-family: 'Playfair Display', 'Georgia', serif;
-      z-index: 1000;
       display: flex;
       justify-content: center;
     }
-  
     .nav-pill-wrapper {
       background-color: #345d40;
       border-radius: 50px;
@@ -131,9 +31,7 @@
       gap: 0.5rem;
       overflow-x: auto;
       white-space: nowrap;
-      -webkit-overflow-scrolling: touch;
     }
-  
     .main-navbar .nav-link {
       font-family: 'Pretendard Variable', sans-serif;
       color: white;
@@ -144,80 +42,108 @@
       transition: all 0.25s ease-in-out;
       white-space: nowrap;
     }
-  
-    .main-navbar .nav-link:not(.active) {
-      background-color: #2e5339;
-      color: #ffffff;
-    }
-  
     .main-navbar .nav-link.active {
       background-color: #ffffff;
       color: #2e5339;
       font-weight: 700;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
-  
-    @media (max-width: 768px) {
-      body.grass-theme {
-        background-color: #2e5339;
-      }
-  
-      .main-navbar {
-        padding: 0.5rem 0.5rem;
-      }
-  
-      .main-navbar .nav-link {
-        font-size: 0.72rem;
-        padding: 0.3rem 0.8rem;
-        border-radius: 30px;
-        flex-shrink: 0;
-      }
-  
-      .nav-pill-wrapper {
-        gap: 0.3rem;
-        padding: 0.2rem;
-        flex-wrap: nowrap;
-      }
-  
-      .bracket-scroll-wrapper {
-        flex-direction: column;
-        overflow-x: visible;
-      }
-  
-      .bracket-section {
-        width: 100%;
-        height: 33vh;
-        padding: 0.5rem;
-      }
-  
-      .bracket-container {
-        overflow-x: auto;
-        max-height: calc(33vh - 2.5rem);
-      }
-  
-      .match-box {
-        font-size: 0.6rem;
-        padding: 0.15rem 0.3rem;
-        margin-bottom: 0.25rem;
-      }
-  
-      .bracket-title {
-        font-size: 1rem;
-      }
-  
-      .round-column {
-        min-width: 120px;
-      }
-  
-      .round-header {
-        font-size: 0.75rem;
-        color: #2b2b2b;
-      }
+    .schedule-scroll-container {
+      display: flex;
+      justify-content: center;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+    .schedule-grid {
+      display: grid;
+      grid-auto-flow: column;
+      grid-template-rows: repeat(2, auto);
+      gap: 0.75rem;
+      width: max-content;
+    }
+    .schedule-item {
+      width: 160px;
+    }
+    .today-card {
+      background-color: #ffffff;
+      border: 2px solid #2e5339;
+      font-size: 0.75rem;
+      padding: 0.6rem 0.75rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+    }
+    .badge.bg-success {
+      background-color: #2e5339;
+      font-size: 0.65rem;
+      padding: 0.25em 0.5em;
+    }
+    .text-dark {
+      color: #212529 !important;
+    }
+    .schedule-title {
+      color: #2e5339;
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0.5rem 0 0.75rem;
+      text-align: center;
+    }
+    .bracket-section {
+      background: #ffffff;
+      color: #2b2b2b;
+      padding: 1rem;
+      width: 100%;
+      height: 40vh;
+      display: flex;                /* ✅ 추가 */
+      flex-direction: column;       /* ✅ 추가 */
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      margin-bottom: 2rem;
+    }
+    .bracket-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+    }
+    .round-column {
+      min-width: 130px;
+      flex-shrink: 0;
+    }
+    .round-header {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #2b2b2b;
+      text-align: center;
+      margin-bottom: 0.3rem;
+      border-bottom: 1px solid #ccc;
+    }
+    .match-box {
+      background-color: #f8f9fa;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 0.25rem 0.5rem;
+      margin-bottom: 0.4rem;
+      font-size: 0.72rem;
+    }
+    .match-box .player {
+      display: flex;
+      justify-content: space-between;
+    }
+    .winner {
+      color: #5c2e91;
+      font-weight: bold;
+    }
+    .upcoming {
+      background-color: #f0e8ff;
+    }
+    .wimbledon-divider {
+      border: none;
+      border-top: 0.01px solid #356859;
+      width: 100%;
+      max-width: 960px;
+      margin: 0.5rem auto 0.3rem auto;  /* 위 1rem, 아래 0.5rem */
     }
   </style>
-  
 </head>
-<body class="grass-theme p-0">
+<body class="grass-theme">
   <nav class="main-navbar shadow-sm">
     <div class="nav-pill-wrapper">
       <a class="nav-link {% if currentPath == 'index' %}active{% endif %}" href="/">Home</a>
@@ -227,10 +153,46 @@
       <a class="nav-link {% if currentPath == 'board' %}active{% endif %}" href="/board">게시판</a>
     </div>
   </nav>
-  <div class="bracket-scroll-wrapper">
+
+  <!-- 📅 오늘의 ATP 경기 일정 (2행 + 가로 스크롤) -->
+  <div class="container-fluid py-2" style="background-color: #ffffff; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
+    {% if schedule %}
+      <p class="schedule-title">🎾 오늘 예정된 경기 ({{ schedule_date }})</p>
+      <div class="schedule-scroll-container">
+        <div class="schedule-grid">
+          {% for match in schedule %}
+            <div class="schedule-item">
+              <div class="today-card">
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                  <div class="d-flex align-items-center">
+                    <small class="text-muted me-1">KST</small>
+                    <strong class="text-dark">{{ match.time_kst }}</strong>
+                  </div>
+                  <span class="badge bg-success">{{ match.tournament }}</span>
+                </div>
+                <div class="text-dark small">{{ match.players }}</div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% else %}
+      <p class="text-white">오늘 예정된 ATP 경기가 없습니다.</p>
+    {% endif %}
+  </div>
+  <!-- 🟢 윔블던 스타일 초록 구분선 -->
+  <hr class="wimbledon-divider" />
+
+  <div id="tournament-cards">
     {% for tournament in data %}
-      <div class="bracket-section">
-        <h5 class="bracket-title">{{ tournament.tournament }}</h5>
+      <div class="bracket-section tournament-card" data-tid="{{ loop.index0 }}" style="{% if loop.index0 != 0 %}display: none;{% endif %}">
+        <div class="d-flex gap-2 filter-area justify-content-center mb-3 flex-wrap">
+          {% for t in data %}
+            <button class="btn btn-outline-dark btn-sm filter-btn tournament-btn {% if t.tournament == tournament.tournament %}active{% endif %}" data-tid="{{ loop.index0 }}">
+              {{ t.tournament }}
+            </button>
+          {% endfor %}
+        </div>
         <div class="bracket-container">
           {% for round in ['R32', 'R16', 'QF', 'SF', 'F'] %}
             {% if tournament.bracket is defined and tournament.bracket.get(round) %}
@@ -239,17 +201,11 @@
                 {% for match in tournament.bracket[round] %}
                   <div class="match-box {% if match.source == 'upcoming' %}upcoming{% endif %}">
                     <div class="player">
-                      <span class="{% if match.source != 'upcoming' and match.winner|int == 0 %}winner{% endif %}">
-                        {{ match.player1 }}
-                      </span>
-                      {% if match.source != 'upcoming' and match.score %}
-                        <span class="score">{{ match.score }}</span>
-                      {% endif %}
+                      <span class="{% if match.source != 'upcoming' and match.winner|int == 0 %}winner{% endif %}">{{ match.player1 }}</span>
+                      {% if match.source != 'upcoming' and match.score %}<span class="score">{{ match.score }}</span>{% endif %}
                     </div>
                     <div class="player">
-                      <span class="{% if match.source != 'upcoming' and match.winner|int == 1 %}winner{% endif %}">
-                        {{ match.player2 }}
-                      </span>
+                      <span class="{% if match.source != 'upcoming' and match.winner|int == 1 %}winner{% endif %}">{{ match.player2 }}</span>
                     </div>
                   </div>
                 {% endfor %}
@@ -262,25 +218,43 @@
   </div>
 
   <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.bracket-container').forEach(container => {
-        container.scrollLeft = container.scrollWidth;
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.tournament-card');
+      const buttons = document.querySelectorAll('.tournament-btn');
+
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const tid = btn.dataset.tid;
+          cards.forEach(card => card.style.display = 'none');
+          document.querySelector(`.tournament-card[data-tid="${tid}"]`).style.display = 'block';
+          document.querySelectorAll('.tournament-btn').forEach(b => b.classList.remove('active'));
+          document.querySelectorAll(`.tournament-btn[data-tid="${tid}"]`).forEach(b => b.classList.add('active'));
+        });
       });
     });
-    function setActiveButton(buttonId) {
-      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-      const btn = document.getElementById(buttonId);
-      if (btn) btn.classList.add('active');
-    }
-    window.addEventListener("DOMContentLoaded", () => {
-      const path = window.location.pathname;
-      document.querySelectorAll('.main-navbar .nav-link').forEach(link => {
-        if (link.getAttribute('href') === path) {
-          link.classList.add('active');
-        }
+    document.addEventListener('DOMContentLoaded', () => {
+      // 기존 토글 코드 유지
+      const cards = document.querySelectorAll('.tournament-card');
+      const buttons = document.querySelectorAll('.tournament-btn');
+
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const tid = btn.dataset.tid;
+          cards.forEach(card => card.style.display = 'none');
+          document.querySelector(`.tournament-card[data-tid="${tid}"]`).style.display = 'block';
+          document.querySelectorAll('.tournament-btn').forEach(b => b.classList.remove('active'));
+          document.querySelectorAll(`.tournament-btn[data-tid="${tid}"]`).forEach(b => b.classList.add('active'));
+
+          // 👉 브라켓 스크롤 맨 오른쪽으로
+          const bracket = document.querySelector(`.tournament-card[data-tid="${tid}"] .bracket-container`);
+          if (bracket) bracket.scrollLeft = bracket.scrollWidth;
+        });
       });
+
+      // ✅ 처음 로딩 시 첫 번째 브라켓도 오른쪽 정렬
+      const firstBracket = document.querySelector('.bracket-container');
+      if (firstBracket) firstBracket.scrollLeft = firstBracket.scrollWidth;
     });
   </script>
-
 </body>
 </html>

@@ -1,0 +1,25 @@
+{
+  "date": "2025-04-19",
+  "matches": [
+    {
+      "time_kst": "22:30",
+      "players": "Khachanov K. - Rune H.",
+      "tournament": "Barcelona"
+    },
+    {
+      "time_kst": "01:00",
+      "players": "Alcaraz C. - Fils A.",
+      "tournament": "Barcelona"
+    },
+    {
+      "time_kst": "22:30",
+      "players": "Cerundolo F. - Shelton B.",
+      "tournament": "Munich"
+    },
+    {
+      "time_kst": "00:00",
+      "players": "Zverev A. - Marozsan F.",
+      "tournament": "Munich"
+    }
+  ]
+}

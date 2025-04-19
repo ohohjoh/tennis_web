@@ -4,6 +4,36 @@
     "url": "https://www.tennisabstract.com/current/2025ATPBarcelona.html",
     "upcoming": [
       {
+        "round": "SF",
+        "player1": {
+          "seed": "1",
+          "name": "Carlos Alcaraz",
+          "country": "ESP"
+        },
+        "player2": {
+          "seed": "7",
+          "name": "Arthur Fils",
+          "country": "FRA"
+        },
+        "score": "1-0"
+      },
+      {
+        "round": "SF",
+        "player1": {
+          "seed": null,
+          "name": "Karen Khachanov",
+          "country": "RUS"
+        },
+        "player2": {
+          "seed": "6",
+          "name": "Holger Rune",
+          "country": "DEN"
+        },
+        "score": null
+      }
+    ],
+    "completed": [
+      {
         "round": "QF",
         "player1": {
           "seed": "1",
@@ -15,21 +45,21 @@
           "name": "Alex De Minaur",
           "country": "AUS"
         },
-        "score": "3-0"
+        "score": "7-5 6-3"
       },
       {
         "round": "QF",
         "player1": {
-          "seed": "3",
-          "name": "Stefanos Tsitsipas",
-          "country": "GRE"
-        },
-        "player2": {
           "seed": "7",
           "name": "Arthur Fils",
           "country": "FRA"
         },
-        "score": "0-2"
+        "player2": {
+          "seed": "3",
+          "name": "Stefanos Tsitsipas",
+          "country": "GRE"
+        },
+        "score": "2-0 RET"
       },
       {
         "round": "QF",
@@ -43,7 +73,7 @@
           "name": "Alejandro Davidovich Fokina",
           "country": "ESP"
         },
-        "score": "1-2"
+        "score": "6-4 7-5"
       },
       {
         "round": "QF",
@@ -57,10 +87,8 @@
           "name": "Casper Ruud",
           "country": "NOR"
         },
-        "score": "1-6"
-      }
-    ],
-    "completed": [
+        "score": "6-4 6-2"
+      },
       {
         "round": "R16",
         "player1": {
@@ -656,6 +684,36 @@
     "url": "https://www.tennisabstract.com/current/2025ATPMunich.html",
     "upcoming": [
       {
+        "round": "SF",
+        "player1": {
+          "seed": "1",
+          "name": "Alexander Zverev",
+          "country": "GER"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Fabian Marozsan",
+          "country": "HUN"
+        },
+        "score": "1-0"
+      },
+      {
+        "round": "SF",
+        "player1": {
+          "seed": "5",
+          "name": "Francisco Cerundolo",
+          "country": "ARG"
+        },
+        "player2": {
+          "seed": "2",
+          "name": "Ben Shelton",
+          "country": "USA"
+        },
+        "score": "0-1"
+      }
+    ],
+    "completed": [
+      {
         "round": "QF",
         "player1": {
           "seed": "1",
@@ -667,7 +725,7 @@
           "name": "Tallon Griekspoor",
           "country": "NED"
         },
-        "score": "6-2"
+        "score": "6-7(6) 7-6(3) 6-4"
       },
       {
         "round": "QF",
@@ -681,7 +739,7 @@
           "name": "Zizou Bergs",
           "country": "BEL"
         },
-        "score": "1-0"
+        "score": "6-3 7-6(4)"
       },
       {
         "round": "QF",
@@ -695,24 +753,22 @@
           "name": "David Goffin",
           "country": "BEL"
         },
-        "score": null
+        "score": "6-2 6-4"
       },
       {
         "round": "QF",
         "player1": {
-          "seed": null,
-          "name": "Luciano Darderi",
-          "country": "ITA"
-        },
-        "player2": {
           "seed": "2",
           "name": "Ben Shelton",
           "country": "USA"
         },
-        "score": null
-      }
-    ],
-    "completed": [
+        "player2": {
+          "seed": null,
+          "name": "Luciano Darderi",
+          "country": "ITA"
+        },
+        "score": "6-4 6-3"
+      },
       {
         "round": "R16",
         "player1": {

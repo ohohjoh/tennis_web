@@ -15,9 +15,10 @@ def country_flag(code):
 
 # 현재 app.py 기준 경로로 json 지정
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-JSON_PATH = os.path.join(BASE_DIR, "tennis_tournaments_results.json")
+JSON_PATH = os.path.join(BASE_DIR, "tennis_tournaments_ama.json")
 JSON_PATH2 = os.path.join(BASE_DIR, "tenniscourt_with_guide.json")
 JSON_BRACKET = os.path.join(BASE_DIR, "tennis_abstract_bracket.json")
+JSON_PRO_SCHEDULE = os.path.join(BASE_DIR, "tennis_tournaments_pro_schedules.json")
 
 def load_data_with_timestamp():
     if os.path.exists(JSON_PATH):
@@ -41,6 +42,13 @@ def load_abstract_bracket():
     print("🚫 브래킷 JSON 파일을 찾을 수 없습니다:", JSON_BRACKET)
     return []
 
+def load_pro_schedule():
+    if os.path.exists(JSON_PRO_SCHEDULE):
+        with open(JSON_PRO_SCHEDULE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    print("🚫 프로 스케줄 JSON 파일을 찾을 수 없습니다:", JSON_PRO_SCHEDULE)
+    return {"date": "알 수 없음", "matches": []}
+
 @app.route("/")
 def index():
     data, last_modified = load_data_with_timestamp()
@@ -63,11 +71,14 @@ def tournament():
 
 @app.route("/tournament_pro")
 def tournaments_pro():
-    data = load_abstract_bracket()
+    bracket_data = load_abstract_bracket()                  # 브래킷 드로우
+    schedule_data = load_pro_schedule()                     # 오늘의 경기 일정
     return render_template(
         "tournament_pro.html",
-        data=data,
-        page_title="🎾 ATP 드로우 시각화"
+        data=bracket_data,
+        schedule=schedule_data["matches"],
+        schedule_date=schedule_data["date"],
+        page_title="🎾 ATP 드로우 및 일정"
     )
 
 @app.route("/court-guide")

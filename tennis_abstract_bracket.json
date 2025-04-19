@@ -3,6 +3,36 @@
     "tournament": "ATP Barcelona",
     "url": "https://www.tennisabstract.com/current/2025ATPBarcelona.html",
     "bracket": {
+      "QF": [
+        {
+          "player1": "🇪🇸 Carlos Alcaraz",
+          "player2": "🇦🇺 Alex De Minaur",
+          "score": "7-5 6-3",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇫🇷 Arthur Fils",
+          "player2": "🇬🇷 Stefanos Tsitsipas",
+          "score": "2-0 RET",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇷🇺 Karen Khachanov",
+          "player2": "🇪🇸 Alejandro Davidovich Fokina",
+          "score": "6-4 7-5",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇩🇰 Holger Rune",
+          "player2": "🇳🇴 Casper Ruud",
+          "score": "6-4 6-2",
+          "winner": null,
+          "source": "completed"
+        }
+      ],
       "R16": [
         {
           "player1": "🇪🇸 Carlos Alcaraz",
@@ -305,34 +335,20 @@
           "source": "completed"
         }
       ],
-      "QF": [
+      "SF": [
         {
           "player1": "🇪🇸 Carlos Alcaraz",
-          "player2": "🇦🇺 Alex De Minaur",
-          "score": "3-0",
-          "winner": null,
-          "source": "upcoming"
-        },
-        {
-          "player1": "🇬🇷 Stefanos Tsitsipas",
           "player2": "🇫🇷 Arthur Fils",
-          "score": "0-2",
+          "score": "1-0",
           "winner": null,
-          "source": "upcoming"
+          "source": "completed"
         },
         {
           "player1": "🇷🇺 Karen Khachanov",
-          "player2": "🇪🇸 Alejandro Davidovich Fokina",
-          "score": "1-2",
+          "player2": "🇩🇰 Holger Rune",
+          "score": null,
           "winner": null,
-          "source": "upcoming"
-        },
-        {
-          "player1": "🇩🇰 Holger Rune",
-          "player2": "🇳🇴 Casper Ruud",
-          "score": "1-6",
-          "winner": null,
-          "source": "upcoming"
+          "source": "completed"
         }
       ]
     }
@@ -341,6 +357,36 @@
     "tournament": "ATP Munich",
     "url": "https://www.tennisabstract.com/current/2025ATPMunich.html",
     "bracket": {
+      "QF": [
+        {
+          "player1": "🇩🇪 Alexander Zverev",
+          "player2": "🇳🇱 Tallon Griekspoor",
+          "score": "6-7(6) 7-6(3) 6-4",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇭🇺 Fabian Marozsan",
+          "player2": "🇧🇪 Zizou Bergs",
+          "score": "6-3 7-6(4)",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇦🇷 Francisco Cerundolo",
+          "player2": "🇧🇪 David Goffin",
+          "score": "6-2 6-4",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇺🇸 Ben Shelton",
+          "player2": "🇮🇹 Luciano Darderi",
+          "score": "6-4 6-3",
+          "winner": null,
+          "source": "completed"
+        }
+      ],
       "R16": [
         {
           "player1": "🇩🇪 Alexander Zverev",
@@ -601,34 +647,20 @@
           "source": "completed"
         }
       ],
-      "QF": [
+      "SF": [
         {
           "player1": "🇩🇪 Alexander Zverev",
-          "player2": "🇳🇱 Tallon Griekspoor",
-          "score": "6-2",
-          "winner": null,
-          "source": "upcoming"
-        },
-        {
-          "player1": "🇭🇺 Fabian Marozsan",
-          "player2": "🇧🇪 Zizou Bergs",
+          "player2": "🇭🇺 Fabian Marozsan",
           "score": "1-0",
           "winner": null,
-          "source": "upcoming"
+          "source": "completed"
         },
         {
           "player1": "🇦🇷 Francisco Cerundolo",
-          "player2": "🇧🇪 David Goffin",
-          "score": null,
-          "winner": null,
-          "source": "upcoming"
-        },
-        {
-          "player1": "🇮🇹 Luciano Darderi",
           "player2": "🇺🇸 Ben Shelton",
-          "score": null,
+          "score": "0-1",
           "winner": null,
-          "source": "upcoming"
+          "source": "completed"
         }
       ]
     }
