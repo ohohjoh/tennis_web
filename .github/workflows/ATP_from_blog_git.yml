@@ -26,7 +26,7 @@ jobs:
 
       - name: 🚀 Run Tennis Crawler
         run: |
-          python tennis_crawler.py
+          python ATP_from_blog_git.py
 
       - name: 📤 Commit & Push Results
         run: |
