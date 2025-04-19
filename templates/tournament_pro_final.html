@@ -125,10 +125,10 @@
       overflow-x: auto;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
-      /* border-radius: 12px; → ❌ 제거 */
+      border-radius: 12px;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
       margin-bottom: 2rem;
-      display: block;
+      display: block; /* flex → block으로 바꿔야 스크롤 자연스러움 */
       position: relative;
     }
 
@@ -341,13 +341,11 @@
 
   <div id="tournament-cards">
     {% for tournament in data %}
-      <div class="tournament-card" data-tid="{{ loop.index0 }}" style="{% if loop.index0 != 0 %}display: none;{% endif %}">
+      <div class="bracket-section tournament-card" data-tid="{{ loop.index0 }}" style="{% if loop.index0 != 0 %}display: none;{% endif %}">
   
-        <!-- ✅ 고정 탭 버튼 wrapper -->
-        <div class="bracket-tab-header" style="position: sticky; top: 60px; z-index: 50; background: #ffffff;">
-          <div class="d-flex gap-2 filter-area justify-content-center flex-wrap"
-            style="padding: 1rem 0 0rem 0; position: sticky; top: 60px; z-index: 50; background: #ffffff;">
-
+        <!-- ✅ 탭 버튼 sticky wrapper -->
+        <div class="bracket-tab-header">
+          <div class="d-flex gap-2 filter-area justify-content-center flex-wrap" style="margin-bottom: 0.25rem;">
             {% for t in data %}
               <button class="btn btn-outline-dark btn-sm filter-btn tournament-btn {% if t.tournament == tournament.tournament %}active{% endif %}" data-tid="{{ loop.index0 }}">
                 {{ t.tournament }}
@@ -356,53 +354,50 @@
           </div>
         </div>
   
-        <!-- ✅ 브래킷 본문 -->
-        <div class="bracket-section">
-          <div class="bracket-container"
-               style="
-                 overflow-x: auto;
-                 overflow-y: auto;
-                 -webkit-overflow-scrolling: touch;
-                 display: flex;
-                 flex-direction: row;
-                 gap: 1rem;
-                 width: 100%;
-                 min-width: fit-content;
-                 height: 360px;
-               ">
-            {% for round in ['R32', 'R16', 'QF', 'SF', 'F'] %}
-              {% if tournament.bracket is defined and tournament.bracket.get(round) %}
-                <div class="round-column" style="min-width: 200px; flex-shrink: 0;">
-                  <div class="round-header" style="position: sticky; top: 0; z-index: 2; background: white;">
-                    {{ round_labels[round] if round_labels is defined else round }}
-                  </div>
-                  {% for match in tournament.bracket[round] %}
-                    <div class="match-box {% if match.source == 'upcoming' %}upcoming{% endif %}"
-                         data-bs-toggle="modal"
-                         data-bs-target="#scoreModal"
-                         data-player1="{{ match.player1 }}"
-                         data-player2="{{ match.player2 }}"
-                         data-score="{{ match.score }}"
-                         data-winner="{{ match.winner }}">
-                      <div class="player">
-                        <span class="{% if match.source != 'upcoming' and match.winner|int == 0 %}winner{% endif %}">{{ match.player1 }}</span>
-                      </div>
-                      <div class="player">
-                        <span class="{% if match.source != 'upcoming' and match.winner|int == 1 %}winner{% endif %}">{{ match.player2 }}</span>
-                      </div>
-                    </div>
-                  {% endfor %}
-                </div>
-              {% endif %}
-            {% endfor %}
-          </div>
-        </div>
+        <!-- ✅ 스크롤 가능한 bracket-container -->
+        <div class="bracket-container"
+             style="
+               overflow-x: scroll;
+               overflow-y: scroll;
+               -webkit-overflow-scrolling: touch;
+               display: flex;
+               flex-direction: row;
+               gap: 1rem;
+               width: 100%;
+               min-width: fit-content;
+               height: 360px;
+             ">
   
+          {% for round in ['R32', 'R16', 'QF', 'SF', 'F'] %}
+            {% if tournament.bracket is defined and tournament.bracket.get(round) %}
+              <div class="round-column" style="min-width: 200px; flex-shrink: 0;">
+                <!-- ✅ 라운드 제목 sticky 설정 -->
+                <div class="round-header" style="position: sticky; top: 0; z-index: 2; background: white;">
+                  {{ round_labels[round] if round_labels is defined else round }}
+                </div>
+                {% for match in tournament.bracket[round] %}
+                  <div class="match-box {% if match.source == 'upcoming' %}upcoming{% endif %}"
+                       data-bs-toggle="modal"
+                       data-bs-target="#scoreModal"
+                       data-player1="{{ match.player1 }}"
+                       data-player2="{{ match.player2 }}"
+                       data-score="{{ match.score }}"
+                       data-winner="{{ match.winner }}">
+                    <div class="player">
+                      <span class="{% if match.source != 'upcoming' and match.winner|int == 0 %}winner{% endif %}">{{ match.player1 }}</span>
+                    </div>
+                    <div class="player">
+                      <span class="{% if match.source != 'upcoming' and match.winner|int == 1 %}winner{% endif %}">{{ match.player2 }}</span>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
       </div>
     {% endfor %}
   </div>
-  
-  
   
   
   <!-- 📦 점수 모달 -->
