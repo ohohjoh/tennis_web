@@ -4,6 +4,22 @@
     "url": "https://www.tennisabstract.com/current/2025ATPBarcelona.html",
     "upcoming": [
       {
+        "round": "F",
+        "player1": {
+          "seed": "1",
+          "name": "Carlos Alcaraz",
+          "country": "ESP"
+        },
+        "player2": {
+          "seed": "6",
+          "name": "Holger Rune",
+          "country": "DEN"
+        },
+        "score": "2-1"
+      }
+    ],
+    "completed": [
+      {
         "round": "SF",
         "player1": {
           "seed": "1",
@@ -15,24 +31,22 @@
           "name": "Arthur Fils",
           "country": "FRA"
         },
-        "score": "1-0"
+        "score": "6-2 6-4"
       },
       {
         "round": "SF",
         "player1": {
-          "seed": null,
-          "name": "Karen Khachanov",
-          "country": "RUS"
-        },
-        "player2": {
           "seed": "6",
           "name": "Holger Rune",
           "country": "DEN"
         },
-        "score": null
-      }
-    ],
-    "completed": [
+        "player2": {
+          "seed": null,
+          "name": "Karen Khachanov",
+          "country": "RUS"
+        },
+        "score": "6-3 6-2"
+      },
       {
         "round": "QF",
         "player1": {
@@ -684,6 +698,22 @@
     "url": "https://www.tennisabstract.com/current/2025ATPMunich.html",
     "upcoming": [
       {
+        "round": "F",
+        "player1": {
+          "seed": "1",
+          "name": "Alexander Zverev",
+          "country": "GER"
+        },
+        "player2": {
+          "seed": "2",
+          "name": "Ben Shelton",
+          "country": "USA"
+        },
+        "score": "1-0"
+      }
+    ],
+    "completed": [
+      {
         "round": "SF",
         "player1": {
           "seed": "1",
@@ -695,24 +725,22 @@
           "name": "Fabian Marozsan",
           "country": "HUN"
         },
-        "score": "1-0"
+        "score": "7-6(3) 6-3"
       },
       {
         "round": "SF",
         "player1": {
-          "seed": "5",
-          "name": "Francisco Cerundolo",
-          "country": "ARG"
-        },
-        "player2": {
           "seed": "2",
           "name": "Ben Shelton",
           "country": "USA"
         },
-        "score": "0-1"
-      }
-    ],
-    "completed": [
+        "player2": {
+          "seed": "5",
+          "name": "Francisco Cerundolo",
+          "country": "ARG"
+        },
+        "score": "2-6 7-6(7) 6-4"
+      },
       {
         "round": "QF",
         "player1": {

@@ -3,6 +3,22 @@
     "tournament": "ATP Barcelona",
     "url": "https://www.tennisabstract.com/current/2025ATPBarcelona.html",
     "bracket": {
+      "SF": [
+        {
+          "player1": "🇪🇸 Carlos Alcaraz",
+          "player2": "🇫🇷 Arthur Fils",
+          "score": "6-2 6-4",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇩🇰 Holger Rune",
+          "player2": "🇷🇺 Karen Khachanov",
+          "score": "6-3 6-2",
+          "winner": null,
+          "source": "completed"
+        }
+      ],
       "QF": [
         {
           "player1": "🇪🇸 Carlos Alcaraz",
@@ -335,20 +351,13 @@
           "source": "completed"
         }
       ],
-      "SF": [
+      "F": [
         {
           "player1": "🇪🇸 Carlos Alcaraz",
-          "player2": "🇫🇷 Arthur Fils",
-          "score": "1-0",
-          "winner": null,
-          "source": "completed"
-        },
-        {
-          "player1": "🇷🇺 Karen Khachanov",
           "player2": "🇩🇰 Holger Rune",
           "score": null,
           "winner": null,
-          "source": "completed"
+          "source": "upcoming"
         }
       ]
     }
@@ -357,6 +366,22 @@
     "tournament": "ATP Munich",
     "url": "https://www.tennisabstract.com/current/2025ATPMunich.html",
     "bracket": {
+      "SF": [
+        {
+          "player1": "🇩🇪 Alexander Zverev",
+          "player2": "🇭🇺 Fabian Marozsan",
+          "score": "7-6(3) 6-3",
+          "winner": null,
+          "source": "completed"
+        },
+        {
+          "player1": "🇺🇸 Ben Shelton",
+          "player2": "🇦🇷 Francisco Cerundolo",
+          "score": "2-6 7-6(7) 6-4",
+          "winner": null,
+          "source": "completed"
+        }
+      ],
       "QF": [
         {
           "player1": "🇩🇪 Alexander Zverev",
@@ -647,20 +672,13 @@
           "source": "completed"
         }
       ],
-      "SF": [
+      "F": [
         {
           "player1": "🇩🇪 Alexander Zverev",
-          "player2": "🇭🇺 Fabian Marozsan",
-          "score": "1-0",
-          "winner": null,
-          "source": "completed"
-        },
-        {
-          "player1": "🇦🇷 Francisco Cerundolo",
           "player2": "🇺🇸 Ben Shelton",
-          "score": "0-1",
+          "score": null,
           "winner": null,
-          "source": "completed"
+          "source": "upcoming"
         }
       ]
     }

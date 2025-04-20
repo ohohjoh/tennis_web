@@ -71,7 +71,8 @@
     }
   
     .schedule-item {
-      width: 160px;
+      width: 240px;  /* ✅ 더 넓게 */
+      flex-shrink: 0;
     }
   
     .today-card {
@@ -81,6 +82,8 @@
       padding: 0.6rem 0.75rem;
       border-radius: 10px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+      white-space: normal;       /* ✅ 줄바꿈 허용 */
+      word-break: keep-all;      /* ✅ 단어 중간 줄바꿈 방지 */
     }
   
     .badge.bg-success {
@@ -317,23 +320,29 @@
           {% for match in schedule %}
             <div class="schedule-item">
               <div class="today-card">
+                <!-- 1️⃣ 날짜 + 시간 -->
                 <div class="d-flex justify-content-between align-items-center mb-1">
+                  <span class="text-muted small">{{ match.date_kst }}</span>
                   <div class="d-flex align-items-center">
                     <small class="text-muted me-1">KST</small>
                     <strong class="text-dark">{{ match.time_kst }}</strong>
                   </div>
-                  <span class="badge bg-success">{{ match.tournament }}</span>
                 </div>
-                <div class="text-dark small">{{ match.players }}</div>
+                <!-- 2️⃣ 대회명 + 선수 -->
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="badge bg-success">{{ match.tournament }}</span>
+                  <div class="text-dark small text-end">{{ match.players }}</div>
+                </div>
               </div>
             </div>
           {% endfor %}
         </div>
       </div>
     {% else %}
-      <p class="text-white">오늘 예정된 ATP 경기가 없습니다.</p>
+    <p style="color: #5c2e91; font-weight: 600;">🎾 ATP 경기를 업데이트 중이에요!!</p>
     {% endif %}
   </div>
+  
 
   <hr class="wimbledon-divider" />
 

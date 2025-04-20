@@ -9,6 +9,8 @@ import traceback
 import logging
 from collections import defaultdict
 from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
+
 
 # 📋 로그 설정
 base_dir = os.path.dirname(os.path.abspath(__file__))
@@ -53,7 +55,7 @@ def save_error_to_json(error_trace, source="Unknown"):
 # 📂 결과 저장
 def save_results_to_json(data, filename):
     try:
-        output_path = os.path.join(os.getcwd(), filename)
+        output_path = os.path.join(base_dir, filename)  # ✅ 변경
         with open(output_path, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
         logging.info(f"✅ 결과 저장 완료: {output_path}")
@@ -61,7 +63,7 @@ def save_results_to_json(data, filename):
         logging.error("❌ 결과 저장 실패")
         save_error_to_json(traceback.format_exc(), source="Result Saving")
         exit(1)
-
+        
 # HTML 파싱 관련 함수들
 
 def extract_match_html(js_var_name, html):
@@ -116,19 +118,57 @@ def fetch_current_tournaments():
     return tournament_data
 
 def convert_to_bracket_format(data):
-    ISO3_TO_ISO2 = {"ESP": "ES", "AUS": "AU", "GBR": "GB", "GRE": "GR", "FRA": "FR", "RUS": "RU", "USA": "US", "DEN": "DK", "NOR": "NO", "SRB": "RS", "ARG": "AR", "ITA": "IT", "SUI": "CH", "NED": "NL", "BEL": "BE", "HUN": "HU", "GER": "DE", "COL": "CO", "CAN": "CA", "BIH": "BA", "CRO": "HR", "KAZ": "KZ", "TPE": "TW", "CHN": "CN", "JPN": "JP", "RSA": "ZA"}
-    def flag(c): return ''.join([chr(ord(x)+127397) for x in ISO3_TO_ISO2.get(c, '')])
+    ISO3_TO_ISO2 = {
+        "ESP": "ES", "AUS": "AU", "GBR": "GB", "GRE": "GR", "FRA": "FR", "RUS": "RU",
+        "USA": "US", "DEN": "DK", "NOR": "NO", "SRB": "RS", "ARG": "AR", "ITA": "IT",
+        "SUI": "CH", "NED": "NL", "BEL": "BE", "HUN": "HU", "GER": "DE", "COL": "CO",
+        "CAN": "CA", "BIH": "BA", "CRO": "HR", "KAZ": "KZ", "TPE": "TW", "CHN": "CN",
+        "JPN": "JP", "RSA": "ZA"
+    }
+
+    def flag(c):
+        return ''.join([chr(ord(x) + 127397) for x in ISO3_TO_ISO2.get(c, '')])
+
     bracket_data = []
     for tournament in data:
         round_dict = defaultdict(list)
-        for match in tournament.get("completed", []) + tournament.get("upcoming", []):
+        for match in tournament.get("completed", []):
             p1, p2 = match["player1"], match["player2"]
-            round_dict[match["round"]].append({"player1": f"{flag(p1['country'])} {p1['name']}", "player2": f"{flag(p2['country'])} {p2['name']}", "score": match.get("score"), "winner": match.get("winner"), "source": match.get("source", "completed")})
-        bracket_data.append({"tournament": tournament["tournament"], "url": tournament["url"], "bracket": dict(round_dict)})
+            round_dict[match["round"]].append({
+                "player1": f"{flag(p1['country'])} {p1['name']}",
+                "player2": f"{flag(p2['country'])} {p2['name']}",
+                "score": match.get("score"),
+                "winner": match.get("winner", None),
+                "source": "completed"
+            })
+        for match in tournament.get("upcoming", []):
+            p1, p2 = match["player1"], match["player2"]
+            round_dict[match["round"]].append({
+                "player1": f"{flag(p1['country'])} {p1['name']}",
+                "player2": f"{flag(p2['country'])} {p2['name']}",
+                "score": None,
+                "winner": None,
+                "source": "upcoming"
+            })
+        bracket_data.append({
+            "tournament": tournament["tournament"],
+            "url": tournament["url"],
+            "bracket": dict(round_dict)
+        })
     return bracket_data
 
-def fetch_today_atp_schedule_from_dom():
-    today = datetime.utcnow() + timedelta(hours=9)
+def extract_date_from_html(soup):
+    tz_link = soup.select_one("div#tzLink a")
+    if tz_link:
+        date_match = re.search(r"(\d{2})\.(\d{2})\.", tz_link.text)
+        if date_match:
+            day, month = date_match.groups()
+            today = datetime.utcnow() + timedelta(hours=9)
+            return f"{today.year}-{month}-{day}"
+    return (datetime.utcnow() + timedelta(hours=9)).strftime("%Y-%m-%d")
+
+def fetch_all_atp_schedule_from_dom():
+    today = datetime.utcnow() + timedelta(hours=9)  # 한국시간
     url = f"https://www.tennisexplorer.com/matches/?year={today.year}&month={today.month}&day={today.day}&type=atp-single"
     headers = {"User-Agent": "Mozilla/5.0"}
     res = requests.get(url, headers=headers)
@@ -143,6 +183,7 @@ def fetch_today_atp_schedule_from_dom():
         row = rows[i]
         classes = row.get("class", [])
 
+        # ✅ 대회명 (한 줄로 colspan=2)
         if row.find("td", colspan="2"):
             td = row.find("td", colspan="2")
             a = td.find("a")
@@ -151,28 +192,34 @@ def fetch_today_atp_schedule_from_dom():
             i += 1
             continue
 
+        # ✅ 매치 정보 (2행 구성)
         if "fRow" in classes or row.find("td", class_="first time"):
             try:
                 time_td = row.select_one("td.first.time")
                 player1_td = row.select_one("td.t-name a")
-                time_utc = time_td.text.strip() if time_td else ""
+                time_utc_str = time_td.text.strip() if time_td else ""
                 player1 = player1_td.text.strip() if player1_td else ""
 
                 row2 = rows[i + 1] if i + 1 < len(rows) else None
                 player2_td = row2.select_one("td.t-name a") if row2 else None
                 player2 = player2_td.text.strip() if player2_td else ""
 
-                match = re.match(r"(\d{1,2}):(\d{2})", time_utc)
+                # 시간 정규식 매칭
+                match = re.match(r"(\d{1,2}):(\d{2})", time_utc_str)
                 if match:
                     hour, minute = map(int, match.groups())
-                    match_time_utc = datetime(today.year, today.month, today.day, hour, minute)
-                    match_time_kst = match_time_utc + timedelta(hours=9)
-                    time_kst = match_time_kst.strftime("%H:%M")
-                else:
-                    time_kst = time_utc
+                    match_datetime_eu = datetime(today.year, today.month, today.day, hour, minute, tzinfo=ZoneInfo("Europe/Berlin"))
+                    match_datetime_utc = match_datetime_eu.astimezone(ZoneInfo("UTC"))
+                    match_datetime_kst = match_datetime_utc.astimezone(ZoneInfo("Asia/Seoul"))
 
-                if player1 and player2 and time_kst:
-                    matches.append({"time_kst": time_kst, "players": f"{player1} - {player2}", "tournament": current_tournament})
+                    matches.append({
+                        "date_kst": match_datetime_kst.strftime("%Y-%m-%d"),
+                        "time_kst": match_datetime_kst.strftime("%H:%M"),
+                        "date_utc": match_datetime_utc.strftime("%Y-%m-%d"),
+                        "time_utc": match_datetime_utc.strftime("%H:%M"),
+                        "players": f"{player1} - {player2}",
+                        "tournament": current_tournament
+                    })
 
                 i += 2
             except Exception as e:
@@ -181,26 +228,45 @@ def fetch_today_atp_schedule_from_dom():
         else:
             i += 1
 
-    result = {"date_kst": today.strftime("%Y-%m-%d"), "last_updated": datetime.now().strftime("%Y-%m-%d %H:%M"), "matches": matches}
+    # ✅ 저장
+    result = {
+        "last_updated": datetime.now().strftime("%Y-%m-%d %H:%M"),
+        "matches": matches
+    }
 
-    output_path = os.path.join(os.getcwd(), "tennis_explorer_schedule.json")
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    output_path = os.path.join(base_dir, "tennis_explorer_schedule.json")
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=2)
+
     print(f"✅ {len(matches)} matches saved to tennis_explorer_schedule.json")
+
+def normalize(text):
+    """소문자, 숫자만 남기고 나머지는 제거"""
+    return re.sub(r'[^a-z0-9]', '', text.lower())
 
 def filter_today_matches_by_abstract_partial(today_data, bracket_data, output_filename="tennis_tournaments_pro_schedules.json"):
     matched_matches = []
+
     for match in today_data.get("matches", []):
-        today_tournament = match.get("tournament", "").strip().lower()
+        today_tournament_raw = match.get("tournament", "")
+        today_tournament = normalize(today_tournament_raw)
+
         for bracket in bracket_data:
-            bracket_tournament = bracket["tournament"].strip().lower()
-            if today_tournament and today_tournament in bracket_tournament:
+            bracket_tournament_raw = bracket.get("tournament", "")
+            bracket_tournament = normalize(bracket_tournament_raw)
+
+            if today_tournament and (today_tournament in bracket_tournament or bracket_tournament in today_tournament):
                 matched_matches.append(match)
                 break
 
-    output_path = os.path.join(os.getcwd(), output_filename)
+    # ✅ date_kst를 matches에서 꺼냄
+    date_kst = today_data["matches"][0].get("date_kst") if today_data.get("matches") else None
+
+    output_path = os.path.join(base_dir, output_filename)
     with open(output_path, "w", encoding="utf-8") as f:
-        json.dump({"date": today_data.get("date_kst"), "matches": matched_matches}, f, ensure_ascii=False, indent=2)
+        json.dump({"date": date_kst, "matches": matched_matches}, f, ensure_ascii=False, indent=2)
+
     print(f"✅ 매칭된 경기 저장 완료: {output_path}")
     return matched_matches
 
@@ -226,9 +292,9 @@ if __name__ == "__main__":
     bracket_formatted = convert_to_bracket_format(atp_only)
     save_results_to_json(bracket_formatted, "tennis_abstract_bracket.json")
 
-    fetch_today_atp_schedule_from_dom()
+    fetch_all_atp_schedule_from_dom()
 
-    today_path = os.path.join(os.getcwd(), "tennis_explorer_schedule.json")
+    today_path = os.path.join(base_dir, "tennis_explorer_schedule.json") 
     if os.path.exists(today_path):
         with open(today_path, "r", encoding="utf-8") as f:
             today_data = json.load(f)
