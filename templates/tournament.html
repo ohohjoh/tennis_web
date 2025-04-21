@@ -265,6 +265,16 @@
     @media (min-width: 769px) {
       .mobile-only { display: none; }
     }
+    .new-badge {
+      color: #fff;
+      background-color: #facc15; /* 노란색 */
+      padding: 0.1rem 0.4rem;
+      margin-left: 0.3rem;
+      font-size: 0.7rem;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
   </style>
   
 </head>
@@ -366,7 +376,7 @@
     
       function filterAndRender(keyword = null, excludeKeywords = false) {
         let filtered = rawData;
-    
+
         if (keyword) {
           if (excludeKeywords) {
             filtered = filtered.filter(item =>
@@ -378,11 +388,15 @@
             );
           }
         }
-    
+
         if (document.getElementById("openingOnly").checked) {
-          filtered = filtered.filter(item => (parseInt(item['현원']) || 0) < (parseInt(item['정원']) || 0));
+          filtered = filtered.filter(item => {
+            const isSingles = (item['종류'] || '') === '단식';
+            if (isSingles) return true;  // 단식은 필터 무시
+            return (parseInt(item['현원']) || 0) < (parseInt(item['정원']) || 0);
+          });
         }
-    
+
         render(filtered);
       }
     
@@ -406,20 +420,16 @@
       }
     
       function filterSingles() {
-      currentFilter = '단식';
+        currentFilter = '단식';
 
-      // ✅ 종류가 단식인 데이터만 필터링
-      let filtered = rawData.filter(item =>
-        (item['종류'] || '') === '단식'
-      );
+        let filtered = rawData.filter(item =>
+          (item['종류'] || '') === '단식'
+        );
 
-      if (document.getElementById("openingOnly").checked) {
-        filtered = filtered.filter(item => (parseInt(item['현원']) || 0) < (parseInt(item['정원']) || 0));
+        // ❗ Opening 필터는 단식에 적용하지 않음 (단식은 그대로 유지)
+        renderSingles(filtered);
+        setActiveButton('btn-단식');
       }
-
-      renderSingles(filtered);  // 단식 전용 렌더링
-      setActiveButton('btn-단식');
-    }
     
       function applyFilters() {
         if (currentFilter === 'all') return showAll();
@@ -431,19 +441,22 @@
       function handleSearch() {
         const keyword = document.getElementById("searchInput").value.trim();
         const opening = document.getElementById("openingOnly").checked;
-    
+
         let filtered = rawData.filter(item =>
           Object.values(item).some(val => (val || '').toString().includes(keyword))
         );
-    
+
         if (opening) {
-          filtered = filtered.filter(item => (parseInt(item['현원']) || 0) < (parseInt(item['정원']) || 0));
+          filtered = filtered.filter(item => {
+            const isSingles = (item['종류'] || '') === '단식';
+            if (isSingles) return true;  // 단식은 필터 무시
+            return (parseInt(item['현원']) || 0) < (parseInt(item['정원']) || 0);
+          });
         }
-    
+
         render(filtered);
         setActiveButton('');
       }
-    
       function setActiveButton(buttonId) {
         document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
         const btn = document.getElementById(buttonId);
@@ -472,16 +485,19 @@
           const capacity = parseInt(item['정원']) || 0;
           const percentage = capacity > 0 ? Math.round((current / capacity) * 100) : 0;
           const progressColor = percentage >= 100 ? 'progress-red' : percentage >= 70 ? 'progress-yellow' : 'progress-green';
-    
+
           const division = (item['부서'] || '').includes('단식')
             ? (item['그룹'] ? `${item['그룹']}그룹` : '단식')
             : item['부서'] || '';
-    
+
+          const isNewItem = isNew(item);
+          const title = `${item['대회명'] || ''}${isNewItem ? ' <span class="new-badge">NEW!!</span>' : ''}`;
+
           const row = document.createElement("tr");
           row.innerHTML = `
             <td class="td-period">${item['대회기간'] || ''}</td>
             <td class="td-division">${division}</td>
-            <td class="td-title">${item['대회명'] || ''}</td>
+            <td class="td-title">${title}</td>
             <td class="td-location">${item['장소'] || ''}</td>
             <td>
               <div class="progress">
@@ -495,26 +511,29 @@
           tbody.appendChild(row);
         });
       }
-    
+
       function renderMobileCards(data) {
         const cardsContainer = document.getElementById("mobile-cards");
         cardsContainer.innerHTML = "";
-    
+
         data.forEach((item, idx) => {
           const current = parseInt(item['현원']) || 0;
           const capacity = parseInt(item['정원']) || 0;
           const percentage = capacity > 0 ? Math.round((current / capacity) * 100) : 0;
           const progressColor = percentage >= 100 ? 'progress-red' : percentage >= 70 ? 'progress-yellow' : 'progress-green';
-    
+
           const division = (item['부서'] || '').includes('단식')
             ? (item['그룹'] ? `${item['그룹']}그룹` : '단식')
             : item['부서'] || '';
-    
+
+          const isNewItem = isNew(item);
+          const title = `${item['대회명'] || ''}${isNewItem ? ' <span class="new-badge">NEW!!</span>' : ''}`;
+
           const div = document.createElement("div");
           div.className = "mobile-card";
           div.innerHTML = `
             <div class="text-center text-muted mb-1" style="font-size:0.75rem">${idx + 1} / ${data.length}</div>
-            <h6>${item['대회명']}</h6>
+            <h6>${title}</h6>
             <p><i class="bi bi-calendar"></i> ${item['대회기간']}</p>
             <p><i class="bi bi-people"></i> ${division}</p>
             ${item['장소'] ? `<p><i class="bi bi-geo-alt"></i> ${item['장소']}</p>` : ''}
@@ -531,12 +550,11 @@
           cardsContainer.appendChild(div);
         });
       }
-    
+
       function renderSingles(data) {
         const tbody = document.getElementById("desktop-tbody");
         const cardsContainer = document.getElementById("mobile-cards");
-    
-        // ✅ 단식 전용 테이블 헤더로 변경
+
         document.querySelector(".table thead").innerHTML = `
           <tr>
             <th>대회기간</th>
@@ -546,30 +564,36 @@
             <th>신청</th>
           </tr>
         `;
-    
+
         tbody.innerHTML = "";
         cardsContainer.innerHTML = "";
-    
+
         data.forEach(item => {
           const division = item['그룹'] ? `${item['그룹']}그룹` : '단식';
+          const isNewItem = isNew(item);
+          const title = `${item['대회명'] || ''}${isNewItem ? ' <span class="new-badge">NEW!!</span>' : ''}`;
+
           const row = document.createElement("tr");
           row.innerHTML = `
             <td class="td-period">${item['대회기간'] || ''}</td>
             <td class="td-division">${division}</td>
-            <td class="td-title">${item['대회명'] || ''}</td>
+            <td class="td-title">${title}</td>
             <td>${getAgencyLogo(item['주관사'])}</td>
             <td><a href="${item['참가신청 링크']}" target="_blank">신청</a></td>
           `;
           tbody.appendChild(row);
         });
-    
+
         data.forEach((item, idx) => {
           const division = item['그룹'] ? `${item['그룹']}그룹` : '단식';
+          const isNewItem = isNew(item);
+          const title = `${item['대회명'] || ''}${isNewItem ? ' <span class="new-badge">NEW!!</span>' : ''}`;
+
           const div = document.createElement("div");
           div.className = "mobile-card";
           div.innerHTML = `
             <div class="text-center text-muted mb-1" style="font-size:0.75rem">${idx + 1} / ${data.length}</div>
-            <h6>${item['대회명']}</h6>
+            <h6>${title}</h6>
             <p><i class="bi bi-calendar"></i> ${item['대회기간']}</p>
             <p><i class="bi bi-people"></i> ${division}</p>
             <p><i class="bi bi-person-badge"></i> ${getAgencyLogo(item['주관사'])}</p>
@@ -580,6 +604,7 @@
           cardsContainer.appendChild(div);
         });
       }
+
     
       function getAgencyLogo(name) {
         const map = {
@@ -605,6 +630,13 @@
           }
         });
       });
+      function isNew(item) {
+        if (!item['new_updated']) return false;
+        const now = new Date();
+        const updated = new Date(item['new_updated']);
+        const diffHours = (now - updated) / (1000 * 60 * 60);
+        return diffHours <= 48;
+      }
     </script>
     
     

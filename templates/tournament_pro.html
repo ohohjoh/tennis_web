@@ -284,6 +284,11 @@
       background-color: #dee2e6;
       color: #333;
     }
+
+    .loser {
+      text-decoration: line-through;
+      opacity: 0.6;
+    }
   
     @media (max-width: 768px) {
       .main-navbar {
@@ -391,20 +396,33 @@
                     {{ round_labels[round] if round_labels is defined else round }}
                   </div>
                   {% for match in tournament.bracket[round] %}
-                    <div class="match-box {% if match.source == 'upcoming' %}upcoming{% endif %}"
-                         data-bs-toggle="modal"
-                         data-bs-target="#scoreModal"
-                         data-player1="{{ match.player1 }}"
-                         data-player2="{{ match.player2 }}"
-                         data-score="{{ match.score }}"
-                         data-winner="{{ match.winner }}">
-                      <div class="player">
-                        <span class="{% if match.source != 'upcoming' and match.winner|int == 0 %}winner{% endif %}">{{ match.player1 }}</span>
-                      </div>
-                      <div class="player">
-                        <span class="{% if match.source != 'upcoming' and match.winner|int == 1 %}winner{% endif %}">{{ match.player2 }}</span>
-                      </div>
+                  <div class="match-box {% if match.source == 'upcoming' %}upcoming{% endif %}"
+                        data-bs-toggle="modal"
+                        data-bs-target="#scoreModal"
+                        data-player1="{{ match.player1 }}"
+                        data-player2="{{ match.player2 }}"
+                        data-score="{{ match.score }}"
+                        data-winner="{{ match.winner }}"
+                        data-source="{{ match.source }}">
+                    
+                    <div class="player">
+                      <span class="
+                        {% if match.source != 'upcoming' %}
+                          {% if match.winner|int == 0 %}winner
+                          {% else %}loser{% endif %}
+                        {% endif %}
+                      ">{{ match.player1 }}</span>
                     </div>
+                    
+                    <div class="player">
+                      <span class="
+                        {% if match.source != 'upcoming' %}
+                          {% if match.winner|int == 1 %}winner
+                          {% else %}loser{% endif %}
+                        {% endif %}
+                      ">{{ match.player2 }}</span>
+                    </div>
+                  </div>
                   {% endfor %}
                 </div>
               {% endif %}
@@ -470,9 +488,19 @@
         const player2 = triggerBox.getAttribute('data-player2') || '';
         const score = triggerBox.getAttribute('data-score') || '';
         const matchWinner = parseInt(triggerBox.getAttribute('data-winner'), 10);
+        const source = triggerBox.getAttribute('data-source') || '';
 
         const modalScores = modal.querySelector('#modalScores');
         modalScores.innerHTML = '';
+
+        // ✅ upcoming이면 안내 메시지만 표시하고 종료
+        if (source === 'upcoming' || !score) {
+          const msg = document.createElement('div');
+          msg.className = 'text-muted';
+          msg.textContent = '아직 결과가 등록되지 않았습니다.';
+          modalScores.appendChild(msg);
+          return;
+        }
 
         const p1Scores = [];
         const p2Scores = [];
@@ -511,8 +539,8 @@
 
         modalScores.appendChild(createPlayerRow(player1, p1Scores, matchWinner === 0));
         modalScores.appendChild(createPlayerRow(player2, p2Scores, matchWinner === 1));
-
       });
+
     });
   </script>
 </body>
