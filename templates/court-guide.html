@@ -13,33 +13,81 @@
         background-color: #2e5339;
         color: #fff;
       }
-      .top-nav {
+    
+      /* 공통 폰트 */
+      body {
+        font-family: 'Pretendard Variable', sans-serif;
+      }
+    
+      /* 윔블던 스타일 네비게이션 */
+      .main-navbar {
         background-color: #2e5339;
-        padding: 0.5rem 1rem;
+        padding: 0.5rem 0.5rem;
+        font-family: 'Playfair Display', 'Georgia', serif;
+        display: flex;
+        justify-content: center;
+        will-change: transform;
+        transition: none !important;
         position: sticky;
         top: 0;
         z-index: 1000;
       }
-      .top-nav .logo {
-        font-weight: bold;
-        font-size: 1.25rem;
+    
+      .nav-pill-wrapper {
+        background-color: #345d40;
+        border-radius: 50px;
+        padding: 0.3rem;
+        display: flex;
+        gap: 0.5rem;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
       }
-      .top-nav .tabs button {
-        font-size: 0.8rem;
-        padding: 0.3rem 0.75rem;
+    
+      .main-navbar .nav-link {
+        font-family: 'Pretendard Variable', sans-serif;
+        font-weight: 600;
+        font-size: 0.92rem; /* ✅ 살짝 조정 */
+        padding: 0.4rem 1rem; /* ✅ 통일된 패딩 */
+        border-radius: 50px;
+        transition: all 0.2s ease-in-out;
+        white-space: nowrap;
+        line-height: 1.1; /* ✅ 조정 시 시각적으로 더 안정적 */
       }
-      .bottom-nav {
+    
+      .main-navbar .nav-link:not(.active) {
         background-color: #2e5339;
-        color: white;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        z-index: 1000;
-        font-size: 0.75rem;
+        color: #ffffff;
       }
-      .bottom-nav .nav-item small {
-        font-size: 0.65rem;
+    
+      .main-navbar .nav-link.active {
+        background-color: #ffffff;
+        color: #2e5339;
+        font-weight: 700;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       }
+    
+      /* 반응형 네비 */
+      @media (max-width: 768px) {
+        .main-navbar {
+          padding: 0.5rem 0.5rem;
+        }
+    
+        .main-navbar .nav-link {
+          font-size: 0.72rem;
+          padding: 0.3rem 0.8rem;
+          border-radius: 30px;
+          flex-shrink: 0;
+        }
+    
+        .nav-pill-wrapper {
+          gap: 0.3rem;
+          padding: 0.2rem;
+          flex-wrap: nowrap;
+        }
+      }
+    
+      /* 코트 카드 */
       .court-card {
         background-color: #fff;
         color: #2b2b2b;
@@ -49,12 +97,14 @@
         box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
         min-height: 300px;
       }
+    
       .court-card h5 {
         font-size: 1rem;
         color: #5c2e91;
         font-weight: bold;
         margin-bottom: 0.5rem;
       }
+    
       .court-card img {
         width: 100%;
         max-height: 130px;
@@ -62,10 +112,13 @@
         border-radius: 12px;
         margin-bottom: 0.5rem;
       }
+    
       .court-card p {
         font-size: 0.85rem;
         margin-bottom: 0.1rem;
       }
+    
+      /* 버튼 */
       .btn-reserve {
         background-color: #5c2e91;
         color: #fff;
@@ -73,9 +126,12 @@
         font-size: 0.85rem;
         padding: 0.4rem 0.75rem;
       }
+    
       .btn-reserve:hover {
         background-color: #4a1e7e;
       }
+    
+      /* 슬라이더 */
       .mobile-slider {
         display: flex;
         justify-content: flex-start;
@@ -87,109 +143,77 @@
         padding: 0 1rem 0.5rem;
         scroll-padding-left: 1rem;
       }
+    
       .mobile-slider > div {
         scroll-snap-align: start;
         flex: 0 0 80vw;
         max-width: 80vw;
         min-width: 80vw;
       }
+    
+      /* 뱃지 스타일 */
+      .info-box {
+        border: 1px solid #5c2e91;
+      }
+    
+      /* 디바이스 대응 */
       @media (min-width: 768px) {
         .mobile-only { display: none !important; }
       }
+    
       @media (max-width: 767px) {
         .desktop-only { display: none !important; }
+    
         .court-card {
           padding: 1rem;
           font-size: 0.9rem;
         }
+    
         .court-card p {
           font-size: 0.85rem;
         }
+    
         .btn-reserve {
           font-size: 0.85rem;
         }
       }
-      .info-box {
-        border: 1px solid #5c2e91;
-      }
-          /* ===============================
-       윔블던 스타일 네비게이션
-    =============================== */
-    .main-navbar {
-      background-color: #2e5339;
-      padding: 1rem 0.8rem;
-      font-family: 'Playfair Display', 'Georgia', serif;
-      z-index: 1000;
-      display: flex;
-      justify-content: center;
-    }
-
-    .nav-pill-wrapper {
-      background-color: #345d40;
-      border-radius: 50px;
-      padding: 0.3rem;
-      display: flex;
-      gap: 0.5rem;
-      overflow-x: auto;
-      white-space: nowrap;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .main-navbar .nav-link {
-      font-family: 'Pretendard Variable', sans-serif;
-      color: white;
-      font-weight: 600;
-      font-size: 0.95rem;
-      padding: 0.45rem 1.2rem;
-      border-radius: 50px;
-      transition: all 0.25s ease-in-out;
-      white-space: nowrap;
-    }
-
-    .main-navbar .nav-link:not(.active) {
-      background-color: #2e5339;
-      color: #ffffff;
-    }
-
-    .main-navbar .nav-link.active {
-      background-color: #ffffff;
-      color: #2e5339;
-      font-weight: 700;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    @media (max-width: 768px) {
-      body.grass-theme {
-        background-color: #2e5339;
-      }
-
-      .main-navbar {
-        padding: 0.5rem 0.5rem;
-      }
-
-      .main-navbar .nav-link {
-        font-size: 0.72rem;
+      /* ✅ 필터 버튼 안정적인 스타일 */
+      .filter-btn {
+        font-family: 'Pretendard Variable', sans-serif;
+        font-size: 0.85rem;
         padding: 0.3rem 0.8rem;
         border-radius: 30px;
-        flex-shrink: 0;
+        background-color: #2e5339;
+        color: #ffffff;
+        border: none;
+        transition: all 0.25s ease-in-out;
       }
 
-      .nav-pill-wrapper {
-        gap: 0.3rem;
-        padding: 0.2rem;
-        flex-wrap: nowrap;
+      .filter-btn.active {
+        background-color: #ffffff;
+        color: #2e5339;
+        font-weight: 700;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       }
-    }
+
+      .filter-btn:focus,
+      .filter-btn:active {
+        outline: none;
+        box-shadow: none;
+        transform: none;
+      }
     </style>
+    
+    
   </head>
   <body class="grass-theme p-0">
     <nav class="main-navbar shadow-sm">
       <div class="nav-pill-wrapper">
-        <a class="nav-link" href="/">Home</a>
-        <a class="nav-link" href="/tournament_pro">프로 대회</a>
-        <a class="nav-link" href="/tournament">아마 대회</a>
-        <a class="nav-link" href="/court-guide">코트 가이드</a>
-        <a class="nav-link" href="/board">게시판</a>
+        <a class="nav-link {% if currentPath == 'index' %}active{% endif %}" href="/">Home</a>
+        <a class="nav-link {% if currentPath == 'tournament_pro' %}active{% endif %}" href="/tournament_pro">프로 대회</a>
+        <a class="nav-link {% if currentPath == 'tournament' %}active{% endif %}" href="/tournament">아마 대회</a>
+        <a class="nav-link {% if currentPath == 'court' %}active{% endif %}" href="/court-guide">코트 가이드</a>
+        <a class="nav-link {% if currentPath == 'board' %}active{% endif %}" href="/board">게시판</a>
       </div>
     </nav>
 
@@ -514,18 +538,7 @@
   const d = new Date(iso);
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')} ` +
          `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
-}
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const path = window.location.pathname;
-    document.querySelectorAll('.main-navbar .nav-link').forEach(link => {
-      const href = link.getAttribute('href');
-      if (href === path) {
-        link.classList.add('active');
-      }
-    });
-  });
-
+}  
 
   </script>
   

@@ -2,23 +2,22 @@
   {
     "tournament": "ATP Barcelona",
     "url": "https://www.tennisabstract.com/current/2025ATPBarcelona.html",
-    "upcoming": [
+    "upcoming": [],
+    "completed": [
       {
         "round": "F",
         "player1": {
-          "seed": "1",
-          "name": "Carlos Alcaraz",
-          "country": "ESP"
-        },
-        "player2": {
           "seed": "6",
           "name": "Holger Rune",
           "country": "DEN"
         },
-        "score": "2-1"
-      }
-    ],
-    "completed": [
+        "player2": {
+          "seed": "1",
+          "name": "Carlos Alcaraz",
+          "country": "ESP"
+        },
+        "score": "7-6(6) 6-2"
+      },
       {
         "round": "SF",
         "player1": {
@@ -696,7 +695,8 @@
   {
     "tournament": "ATP Munich",
     "url": "https://www.tennisabstract.com/current/2025ATPMunich.html",
-    "upcoming": [
+    "upcoming": [],
+    "completed": [
       {
         "round": "F",
         "player1": {
@@ -709,10 +709,8 @@
           "name": "Ben Shelton",
           "country": "USA"
         },
-        "score": "1-0"
-      }
-    ],
-    "completed": [
+        "score": "6-2 6-4"
+      },
       {
         "round": "SF",
         "player1": {

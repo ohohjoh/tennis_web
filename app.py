@@ -88,7 +88,8 @@ def court_guide():
     for entry in raw_data:
         grouped[entry['장소명']].append(entry)
 
-    return render_template("court-guide.html", data=grouped, page_title="🗓️ 코트 예약 가이드")
+    return render_template("court-guide.html", data=grouped, page_title="🗓️ 코트 예약 가이드",     currentPath="court"  # ✅ 이 줄 추가!
+)
 
 @app.route("/board")
 def board():

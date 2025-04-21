@@ -7,6 +7,7 @@ from bs4 import BeautifulSoup
 import os
 import traceback
 import logging
+import time
 from collections import defaultdict
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
@@ -170,8 +171,26 @@ def extract_date_from_html(soup):
 def fetch_all_atp_schedule_from_dom():
     today = datetime.utcnow() + timedelta(hours=9)  # 한국시간
     url = f"https://www.tennisexplorer.com/matches/?year={today.year}&month={today.month}&day={today.day}&type=atp-single"
-    headers = {"User-Agent": "Mozilla/5.0"}
-    res = requests.get(url, headers=headers)
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Connection": "keep-alive"
+    }
+    time.sleep(2)
+    for _ in range(3):
+        try:
+            time.sleep(2)
+            res = requests.get(url, headers=headers, timeout=10)
+            res.raise_for_status()
+            break
+        except requests.exceptions.RequestException as e:
+            logging.warning(f"🔁 요청 재시도 중... {e}")
+    else:
+        logging.error("❌ 요청 실패: tennisexplorer.com")
+        save_error_to_json("Connection failed 3 times", source="tennisexplorer.com")
+        return
+    
     soup = BeautifulSoup(res.text, "html.parser")
 
     matches = []
@@ -293,6 +312,7 @@ if __name__ == "__main__":
     save_results_to_json(bracket_formatted, "tennis_abstract_bracket.json")
 
     fetch_all_atp_schedule_from_dom()
+
 
     today_path = os.path.join(base_dir, "tennis_explorer_schedule.json") 
     if os.path.exists(today_path):

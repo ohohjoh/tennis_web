@@ -20,10 +20,15 @@
   
     .main-navbar {
       background-color: #2e5339;
-      padding: 1rem 0.8rem;
+      padding: 0.5rem 0.5rem;
       font-family: 'Playfair Display', 'Georgia', serif;
       display: flex;
       justify-content: center;
+      will-change: transform;
+      transition: none !important;
+      position: sticky; /* 또는 fixed, 필요시 */
+      top: 0;
+      z-index: 1000;
     }
   
     .nav-pill-wrapper {
@@ -301,7 +306,7 @@
   </style>
   
 </head>
-<body class="grass-theme">
+<body class="grass-theme p-0">
   <nav class="main-navbar shadow-sm">
     <div class="nav-pill-wrapper">
       <a class="nav-link {% if currentPath == 'index' %}active{% endif %}" href="/">Home</a>
@@ -432,6 +437,14 @@
   <!-- JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const path = window.location.pathname;
+      document.querySelectorAll('.main-navbar .nav-link').forEach(link => {
+        if (link.getAttribute('href') === path) {
+          link.classList.add('active');
+        }
+      });
+    });
     document.addEventListener('DOMContentLoaded', () => {
       // 버튼으로 카드 전환
       const cards = document.querySelectorAll('.tournament-card');
