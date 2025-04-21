@@ -60,3 +60,5 @@
 2025-04-21 16:05:04,952 - WARNING - 🔁 요청 재시도 중... ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None))
 2025-04-21 16:05:04,953 - ERROR - ❌ 요청 실패: tennisexplorer.com
 2025-04-21 16:05:04,955 - ERROR - ❌ 에러 저장 완료: tennisexplorer.com
+2025-04-21 07:19:47,642 - INFO - ✅ 결과 저장 완료: /home/runner/work/tennis_web/tennis_web/tennis_abstract_ATP_only.json
+2025-04-21 07:19:47,643 - INFO - ✅ 결과 저장 완료: /home/runner/work/tennis_web/tennis_web/tennis_abstract_bracket.json
