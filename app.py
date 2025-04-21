@@ -38,9 +38,10 @@ def load_data2():
 def load_abstract_bracket():
     if os.path.exists(JSON_BRACKET):
         with open(JSON_BRACKET, "r", encoding="utf-8") as f:
-            return json.load(f)
+            data = json.load(f)
+            return data.get("data", []), data.get("executed_at", "알 수 없음")
     print("🚫 브래킷 JSON 파일을 찾을 수 없습니다:", JSON_BRACKET)
-    return []
+    return [], "알 수 없음"
 
 def load_pro_schedule():
     if os.path.exists(JSON_PRO_SCHEDULE):
@@ -53,7 +54,7 @@ def load_pro_schedule():
 def index():
     data, last_modified = load_data_with_timestamp()
     return render_template(
-        "tournament.html",
+        "index.html",
         data=data,
         page_title="🎾 테니스 대회 현황",
         last_modified=last_modified
@@ -71,14 +72,16 @@ def tournament():
 
 @app.route("/tournament_pro")
 def tournaments_pro():
-    bracket_data = load_abstract_bracket()                  # 브래킷 드로우
-    schedule_data = load_pro_schedule()                     # 오늘의 경기 일정
+    bracket_data, last_modified = load_abstract_bracket()     # 브래킷 + 시간
+    schedule_data = load_pro_schedule()                       # 오늘의 경기 일정
     return render_template(
         "tournament_pro.html",
         data=bracket_data,
         schedule=schedule_data["matches"],
         schedule_date=schedule_data["date"],
-        page_title="🎾 ATP 드로우 및 일정"
+        last_modified=last_modified,                          # ⏰ 시간 전달
+        page_title="🎾 ATP 드로우 및 일정",
+        currentPath="tournament_pro"                          # ✅ 네비바용
     )
 
 @app.route("/court-guide")
