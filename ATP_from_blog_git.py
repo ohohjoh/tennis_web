@@ -54,11 +54,21 @@ def save_error_to_json(error_trace, source="Unknown"):
         logging.error(f"❗ 에러 저장 실패: {e}")
 
 # 📂 결과 저장
-def save_results_to_json(data, filename):
+def save_results_to_json(data, filename, add_executed_at=False):
     try:
-        output_path = os.path.join(base_dir, filename)  # ✅ 변경
+        output_path = os.path.join(base_dir, filename)
+
+        if add_executed_at:
+            result = {
+                "executed_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                "data": data
+            }
+        else:
+            result = data
+
         with open(output_path, "w", encoding="utf-8") as f:
-            json.dump(data, f, ensure_ascii=False, indent=2)
+            json.dump(result, f, ensure_ascii=False, indent=2)
+
         logging.info(f"✅ 결과 저장 완료: {output_path}")
     except Exception:
         logging.error("❌ 결과 저장 실패")
@@ -309,7 +319,7 @@ if __name__ == "__main__":
     save_results_to_json(atp_only, "tennis_abstract_ATP_only.json")
 
     bracket_formatted = convert_to_bracket_format(atp_only)
-    save_results_to_json(bracket_formatted, "tennis_abstract_bracket.json")
+    save_results_to_json(bracket_formatted, "tennis_abstract_bracket.json", add_executed_at=True)
 
     fetch_all_atp_schedule_from_dom()
 
