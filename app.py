@@ -3,6 +3,7 @@ import json
 import os
 from collections import defaultdict
 from datetime import datetime
+from flask import Flask, render_template, jsonify, request
 
 app = Flask(__name__)
 
@@ -94,14 +95,37 @@ def court_guide():
     return render_template("court-guide.html", data=grouped, page_title="🗓️ 코트 예약 가이드",     currentPath="court"  # ✅ 이 줄 추가!
 )
 
-@app.route("/board")
+@app.route("/board", methods=["GET", "POST"])
 def board():
-    try:
-        with open("posts.json", "r", encoding="utf-8") as f:
-            posts = json.load(f)
-    except FileNotFoundError:
-        posts = []
-    return render_template("board.html", posts=posts, page_title="💬익명 게시판")
+    if request.method == "POST":
+        try:
+            data = request.get_json()
+            content = data.get("content", "").strip()
+            if not content:
+                return jsonify({"error": "내용이 비어 있습니다"}), 400
+
+            posts = []
+            if os.path.exists("posts.json"):
+                with open("posts.json", "r", encoding="utf-8") as f:
+                    posts = json.load(f)
+
+            posts.insert(0, content)
+
+            with open("posts.json", "w", encoding="utf-8") as f:
+                json.dump(posts, f, ensure_ascii=False, indent=2)
+
+            return jsonify({"content": content})
+
+        except Exception as e:
+            return jsonify({"error": str(e)}), 500
+
+    else:
+        try:
+            with open("posts.json", "r", encoding="utf-8") as f:
+                posts = json.load(f)
+        except FileNotFoundError:
+            posts = []
+        return render_template("board.html", posts=posts, page_title="🌲테나무숲")
 
 @app.route("/api/data")
 def api_data():
