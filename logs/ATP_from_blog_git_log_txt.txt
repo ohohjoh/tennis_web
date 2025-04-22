@@ -132,3 +132,10 @@
 2025-04-22 13:23:35,645 - WARNING - 🔁 요청 재시도 중... ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None))
 2025-04-22 13:23:35,646 - ERROR - ❌ 요청 실패: tennisexplorer.com
 2025-04-22 13:23:35,647 - ERROR - ❌ 에러 저장 완료: tennisexplorer.com
+2025-04-22 16:42:11,668 - INFO - ✅ 결과 저장 완료: c:\Python313\Scripts\tennis_web\tennis_abstract_ATPandWTA.json
+2025-04-22 16:42:11,670 - INFO - ✅ 결과 저장 완료: c:\Python313\Scripts\tennis_web\tennis_abstract_bracket.json
+2025-04-22 16:42:16,858 - WARNING - 🔁 요청 재시도 중... ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None))
+2025-04-22 16:42:19,141 - WARNING - 🔁 요청 재시도 중... ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None))
+2025-04-22 16:42:21,442 - WARNING - 🔁 요청 재시도 중... ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None))
+2025-04-22 16:42:21,442 - ERROR - ❌ 요청 실패: tennisexplorer.com
+2025-04-22 16:42:21,446 - ERROR - ❌ 에러 저장 완료: tennisexplorer.com

@@ -8,347 +8,360 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.6/dist/web/variable/pretendardvariable-dynamic-subset.css" />
   <style>
-    body {
-      font-family: 'Pretendard Variable', sans-serif;
-      min-height: 100vh;
-    }
+  body {
+    font-family: 'Pretendard Variable', sans-serif;
+    min-height: 100vh;
+  }
   
-    body.grass-theme {
-      background-color: #2e5339;
-      color: #fff;
-    }
+  body.grass-theme {
+    background-color: #2e5339;
+    color: #fff;
+  }
   
-    .main-navbar {
-      background-color: #2e5339;
-      padding: 0.5rem 0.5rem;
-      font-family: 'Playfair Display', 'Georgia', serif;
-      display: flex;
-      justify-content: center;
-      will-change: transform;
-      transition: none !important;
-      position: sticky; /* 또는 fixed, 필요시 */
-      top: 0;
-      z-index: 1000;
-    }
+  .main-navbar {
+    background-color: #2e5339;
+    padding: 0.5rem 0.5rem;
+    font-family: 'Playfair Display', 'Georgia', serif;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
   
-    .nav-pill-wrapper {
-      background-color: #345d40;
-      border-radius: 50px;
-      padding: 0.3rem;
-      display: flex;
-      gap: 0.5rem;
-      overflow-x: auto;
-      white-space: nowrap;
-      -webkit-overflow-scrolling: touch;
-    }
+  .nav-pill-wrapper {
+    background-color: #345d40;
+    border-radius: 50px;
+    padding: 0.3rem;
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
   
-    .main-navbar .nav-link {
-      font-family: 'Pretendard Variable', sans-serif;
-      color: white;
-      font-weight: 600;
-      font-size: 0.95rem;
-      padding: 0.45rem 1.2rem;
-      border-radius: 50px;
-      transition: all 0.25s ease-in-out;
-      white-space: nowrap;
-    }
+  .main-navbar .nav-link {
+    font-family: 'Pretendard Variable', sans-serif;
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.45rem 1.2rem;
+    border-radius: 50px;
+    transition: all 0.25s ease-in-out;
+    white-space: nowrap;
+  }
   
-    .main-navbar .nav-link.active {
-      background-color: #ffffff;
-      color: #2e5339;
-      font-weight: 700;
-    }
+  .main-navbar .nav-link.active {
+    background-color: #ffffff;
+    color: #2e5339;
+    font-weight: 700;
+  }
   
-    /* ✅ 오늘 경기 스케줄 */
-    .schedule-scroll-container {
-      justify-content: flex-start; 
-      display: flex;
-      overflow-x: auto;
-      padding: 0.5rem 0;
-    }
+  .schedule-scroll-container {
+    justify-content: flex-start; 
+    display: flex;
+    overflow-x: auto;
+    padding: 0.5rem 0;
+  }
   
-    .schedule-grid {
-      display: grid;
-      grid-auto-flow: column;
-      grid-template-rows: repeat(2, auto);
-      gap: 0.75rem;
-      width: max-content;
-    }
+  .schedule-grid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(2, auto);
+    gap: 0.75rem;
+    width: max-content;
+  }
   
-    .schedule-item {
-      width: 240px;  /* ✅ 더 넓게 */
-      flex-shrink: 0;
-    }
+  .schedule-item {
+    width: 240px;
+    flex-shrink: 0;
+  }
   
-    .today-card {
-      background-color: #ffffff;
-      border: 2px solid #2e5339;
-      font-size: 0.75rem;
-      padding: 0.6rem 0.75rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.06);
-      white-space: normal;       /* ✅ 줄바꿈 허용 */
-      word-break: keep-all;      /* ✅ 단어 중간 줄바꿈 방지 */
-    }
+  .today-card {
+    background-color: #ffffff;
+    border: 2px solid #2e5339;
+    font-size: 0.75rem;
+    padding: 0.6rem 0.75rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+    white-space: normal;
+    word-break: keep-all;
+  }
   
-    .badge.bg-success {
-      background-color: #2e5339;
-      font-size: 0.65rem;
-      padding: 0.25em 0.5em;
-    }
+  .badge.bg-success {
+    background-color: #2e5339;
+    font-size: 0.65rem;
+    padding: 0.25em 0.5em;
+  }
   
-    .text-dark {
-      color: #212529 !important;
-    }
+  .text-dark {
+    color: #212529 !important;
+  }
   
-    .schedule-title {
-      color: #2e5339;
-      font-size: 1rem;
-      font-weight: 600;
-      margin: 0.5rem 0 0.75rem;
-      text-align: center;
-    }
-    .tournament-card {
-      border-radius: 12px;               /* ✅ 둥글게 만들기 */
-      overflow: hidden;                  /* ✅ 내부 둥근 모서리와 매끄럽게 연결 */
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05); /* ✅ 시각적 카드 효과 */
-      background-color: #ffffff;         /* ✅ 배경색 지정 */
-      margin-bottom: 2rem;               /* ✅ 간격 주기 */
-    }
-    /* ✅ 브래킷 카드 */
-    .bracket-tab-header {
-      position: sticky;
-      top: 0;
-      background-color: #fff;
-      z-index: 30;
-      padding-bottom: 0.1rem;
-      border-top-left-radius: 12px;    /* ✅ 좌측 위 둥글게 */
-      border-top-right-radius: 12px;   /* ✅ 우측 위 둥글게 */
-    }
+  .schedule-title {
+    color: #2e5339;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0.5rem 0 0.75rem;
+    text-align: center;
+  }
   
-    .round-header {
-      position: sticky;
-      top: 3rem;
-      background-color: #fff;
-      z-index: 20;
-    }
-    .tournament-btn:hover {
-      background-color: #5c2e91;
-      color: #fff;
-      border-color: #5c2e91;
-      transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    }
-    .bracket-section {
-      background: #ffffff;
-      color: #2b2b2b;
-      padding: 1rem;
-      width: 100%;
-      overflow-x: auto;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-      /* border-radius: 12px; → ❌ 제거 */
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-      margin-bottom: 2rem;
-      display: block;
-      position: relative;
-      border-radius: 12px; /* ✅ 여기에 추가 */
-    }
+  .tournament-card {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    background-color: #ffffff;
+    margin-bottom: 0.5rem;
+  }
+  
+  .bracket-tab-header {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    z-index: 30;
+    padding-bottom: 0.1rem;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    margin-bottom: 0.3rem; /* ✅ 이 부분 추가 */
+  }
+  
+  .round-header {
+    position: sticky;
+    top: 3rem;
+    background-color: #fff;
+    z-index: 20;
+  }
+  
+  .tournament-btn:hover {
+    background-color: #5c2e91;
+    color: #fff;
+    border-color: #5c2e91;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
+  
+  .tournament-btn.active {
+    background-color: #5c2e91;
+    color: white;
+    font-weight: 700;
+    border-color: #5c2e91;
+  }
+  
+  .bracket-section {
+    background: #ffffff;
+    color: #2b2b2b;
+    padding: 1rem;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+    position: relative;
+    border-radius: 12px;
+  }
+  
+  .bracket-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 1rem;
+  }
+  
+  .round-column {
+    scroll-snap-align: start;
+    min-width: 200px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  
+  .filter-area {
+    display: flex;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    scrollbar-width: none;
+    justify-content: center;
+    justify-content: flex-start; /* ✅ 이거 추가! 왼쪽 정렬 */
+    scroll-padding-left: 0.5rem; /* ✅ 시작할 때 살짝 여유 */
+  }
+  
+  .filter-area::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .filter-btn {
+    font-size: 0.7rem;
+    padding: 0.35rem 0.75rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  
+  .match-box {
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.72rem;
+    cursor: pointer;
+  }
+  
+  .match-box .player {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .winner {
+    color: #5c2e91;
+    font-weight: bold;
+  }
+  
+  .upcoming {
+    background-color: #f0e8ff;
+  }
+  
+  .wimbledon-divider {
+    border: none;
+    border-top: 0.01px solid #356859;
+    width: 100%;
+    max-width: 960px;
+    margin: 0.5rem auto 0.3rem auto;
+  }
+  
+  /* 유튜브 섹션 스타일 */
+  .youtube-wrapper {
+    background-color: #ffffff;
+    border: 2px solid #2e5339;
+    border-radius: 12px;
+    padding: 0.75rem;
+    max-height: 420px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+  
+  #youtubeVideoContainer {
+    display: flex;
+    gap: 0.75rem;
+    scroll-snap-type: x mandatory;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+  
+  .youtube-card {
+    flex: 0 0 auto;
+    width: 220px;  /* 기존 180px → 220px */
+    scroll-snap-align: start;
+  }
 
-    .bracket-container {
-      display: flex;
-      flex-direction: row;
-      gap: 1rem;
-      overflow-x: auto;
-      overflow-y: hidden;
-      -webkit-overflow-scrolling: touch;
-      scroll-snap-type: x mandatory;      /* ✅ snap 적용 */
-      scroll-padding-left: 1rem;          /* ✅ 시작점 기준 */
-    }
+  .youtube-card .card {
+    border-radius: 12px;
+    overflow: hidden;
+  }
 
+  .youtube-card .card-img-top {
+    height: 130px;
+    object-fit: cover;
+  }
 
-    .round-column {
-      scroll-snap-align: start;           /* ✅ 개별 라운드가 snap 포인트 */
-      min-width: 200px;
-      flex-shrink: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-    .filter-area {
-      padding: 0.5rem 1rem;       /* 좌우 여백 통일 */
-      gap: 0.5rem;                /* 버튼 사이 간격 */
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
-    .filter-area {
-      display: flex;
-      flex-wrap: nowrap !important;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      gap: 0.5rem;
-      padding: 0.5rem 0.5rem;
-      scrollbar-width: none;  /* Firefox */
-    }
-    .filter-area::-webkit-scrollbar {
-      display: none; /* Chrome/Safari */
-    }
-
-    .filter-btn {
-      font-size: 0.7rem;
-      padding: 0.35rem 0.75rem;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
+  .youtube-card .card-body {
+    padding: 0.75rem;
+  }
   
-    .round-header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background-color: #fff;
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-align: center;
-      padding: 0.4rem 0;
-      border-bottom: 1px solid #ccc;
-    }
-  
-    .bracket-tab-header .filter-area {
-      margin-bottom: 0.25rem !important;
-    }
-  
-    .match-box {
-      background-color: #f8f9fa;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      padding: 0.25rem 0.5rem;
-      font-size: 0.72rem;
-      flex-shrink: 0;
-      cursor: pointer;
-    }
-  
-    .match-box .player {
-      display: flex;
-      justify-content: space-between;
-    }
-  
-    .winner {
-      color: #5c2e91;
-      font-weight: bold;
-    }
-  
-    .upcoming {
-      background-color: #f0e8ff;
-    }
-  
-    .wimbledon-divider {
-      border: none;
-      border-top: 0.01px solid #356859;
-      width: 100%;
-      max-width: 960px;
-      margin: 0.5rem auto 0.3rem auto;
-    }
-
-    /* 모든 브라우저에서 스크롤 바가 보이도록 설정 */
-  .bracket-container::-webkit-scrollbar {
-      height: 8px;
-    }
-
-  .bracket-container::-webkit-scrollbar-track {
+  #youtubeVideoContainer::-webkit-scrollbar {
+    height: 8px;
+  }
+  #youtubeVideoContainer::-webkit-scrollbar-track {
     background: #eee;
     border-radius: 8px;
   }
-
-  .bracket-container::-webkit-scrollbar-thumb {
+  #youtubeVideoContainer::-webkit-scrollbar-thumb {
     background-color: #888;
     border-radius: 8px;
   }
-
-  .bracket-container::-webkit-scrollbar-thumb:hover {
+  #youtubeVideoContainer::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
-
-  /* Firefox */
-  .bracket-container {
+  #youtubeVideoContainer {
     scrollbar-width: thin;
     scrollbar-color: #888 #eee;
   }
   
-    /* ✅ 모달 - 점수 표시용 */
-    .modal-content,
-    .modal-content * {
-      color: #050505 !important;
-    }
+  /* 뉴스 제목 보라색 */
+  .news-list h6 {
+    color: #5c2e91 !important;
+    font-weight: 700;
+  }
   
-    .custom-modal-size {
-      max-width: 300px;
-      width: 95%;
-    }
-  
-    .player-name {
-      max-width: 200px;
-      flex-shrink: 0;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      font-weight: 600;
-      color: #212529;
-    }
-  
-    .player-score-row {
-      display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 0.75rem;
-      margin-bottom: 0.5rem;
-      align-items: center;
-    }
-  
-    .score-box {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-  
-    .badge {
-      font-size: 0.75rem;
-      padding: 0.4em 0.65em;
-      border-radius: 6px;
-      font-weight: 500;
-    }
-  
-    .badge-win {
-      background-color: #2e5339;
-      color: white;
-    }
-  
-    .badge-lose {
-      background-color: #dee2e6;
-      color: #333;
+  /* 모바일 대응 */
+  @media (max-width: 768px) {
+    .container-fluid.py-2,
+    .container-fluid.d-flex.flex-row {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
     }
 
-    .loser {
-      text-decoration: line-through;
-      opacity: 0.6;
+    .youtube-wrapper,
+    #newsContainer {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+  }
+  
+  
+    .main-navbar .nav-link {
+      font-size: 0.72rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 30px;
+      flex-shrink: 0;
     }
   
-    @media (max-width: 768px) {
-      .main-navbar {
-        padding: 0.5rem 0.5rem;
-      }
-  
-      .main-navbar .nav-link {
-        font-size: 0.72rem;
-        padding: 0.3rem 0.8rem;
-        border-radius: 30px;
-        flex-shrink: 0;
-      }
-  
-      .nav-pill-wrapper {
-        gap: 0.3rem;
-        padding: 0.2rem;
-        flex-wrap: nowrap;
-      }
+    .nav-pill-wrapper {
+      gap: 0.3rem;
+      padding: 0.2rem;
+      flex-wrap: nowrap;
+      justify-content: flex-start; /* ✅ 요거 추가! */
+      scroll-padding-left: 0.5rem; /* ✅ 옵션으로 자연스러운 시작 위치 */
     }
+  
+    #youtubeVideoContainer,
+    #newsContainer {
+      max-height: 420px;
+      overflow-y: auto;
+    }
+    .nav-pill-wrapper::-webkit-scrollbar {
+      display: none; /* 모바일에서는 스크롤바 안 보이게 */
+    }
+  
+  a {
+    color: #26442f;
+  }
+  a:hover {
+    text-decoration: underline;
+    color: #5c2e91;
+  }
+  @media (max-width: 768px) {
+    .container-fluid.d-flex.flex-row {
+      flex-direction: column !important; /* ✅ 수직 배치 */
+    }
+
+    .youtube-wrapper,
+    #newsContainer {
+      width: 100% !important;
+      max-height: unset;  /* ✅ 높이 제한 해제 */
+      height: auto;        /* ✅ 유동적 높이 */
+      margin-bottom: 1rem;
+    }
+  }
   </style>
   
 </head>
@@ -501,125 +514,165 @@
   </div>
 
 
-  <div class="container-fluid mt-0 px-0">
-    {% if youtube_data and youtube_data|length > 0 %}
-  
-      <!-- 🎾 유튜브 카드 컨테이너 (1줄 횡스크롤) -->
-      <div id="youtubeVideoContainer" class="d-flex overflow-auto gap-3 pb-2" style="scroll-snap-type: x mandatory;">
-        {% for entry in youtube_data %}
-          {% for video in entry["videos"] %}
-          <div class="youtube-card" data-tournament="{{ video['tournament'] }}" style="flex: 0 0 auto; width: 150px; scroll-snap-align: start;">
-              <a href="https://www.youtube.com/watch?v={{ video['videoId'] }}" target="_blank" class="text-decoration-none">
-                <div class="card shadow-sm" style="border: 1px solid #e0e0e0; border-radius: 12px; background-color: #fff;">
-                  <img src="{{ video['thumbnail'] }}" class="card-img-top" alt="{{ video['title'] }}" style="border-top-left-radius: 12px; border-top-right-radius: 12px;">
-                  <div class="card-body p-1">
-                    <div class="card-title" style="font-size: 0.75rem; font-weight: 600; color: #333;">
-                      {{ video['title'][:38] }}{% if video['title']|length > 38 %}...{% endif %}
-                    </div>
-                    <div style="font-size: 0.65rem; color: #777;">📺 {{ video['channel'] }}</div>
-                    <div style="font-size: 0.6rem; color: #999;">🕒 {{ video['publishedAt'][:10] }}</div>
-                  </div>
-                </div>
-              </a>
+  <!-- 🎾 영상 + 뉴스 섹션 -->
+  <div class="container-fluid d-flex flex-row gap-3 px-3 py-3" style="align-items: flex-start; min-height: 420px;">
+    
+<div class="youtube-wrapper" style="flex-basis: 50%; flex-grow: 1; background-color: #ffffff; border: 2px solid #2e5339; border-radius: 12px; padding: 0.75rem; height: 420px; display: flex; flex-direction: column;">
+  <h5 id="youtubeTitle" style="font-weight: 700; color: #a020f0; margin-bottom: 0.75rem;">
+    📺 {{ youtube_data[0].tournament }} 관련 영상
+  </h5>
+  <div id="youtubeVideoContainer"
+  class="d-flex gap-2 px-1"
+  style="overflow-x: auto; scroll-snap-type: x mandatory; flex-grow: 1;">
+  {% for entry in youtube_data %}
+    {% for video in entry["videos"] %}
+      <div class="youtube-card" data-tournament="{{ video['tournament'] }}">
+        <a href="https://www.youtube.com/watch?v={{ video['videoId'] }}" target="_blank" class="text-decoration-none">
+          <div class="card shadow-sm" style="border-radius: 12px; overflow: hidden;">
+            <img src="{{ video['thumbnail'] }}" class="card-img-top" alt="{{ video['title'] }}">
+            <div class="card-body p-2">
+              <div class="card-title" style="font-size: 0.75rem; font-weight: 600; color: #333;">
+                {{ video['title'][:38] }}{% if video['title']|length > 38 %}...{% endif %}
+              </div>
+              <div style="font-size: 0.65rem; color: #777;">📺 {{ video['channel'] }}</div>
+              <div style="font-size: 0.6rem; color: #999;">🕒 {{ video['publishedAt'][:10] }}</div>
             </div>
-          {% endfor %}
-        {% endfor %}
+          </div>
+        </a>
       </div>
-    {% else %}
-      <p style="color: #5c2e91;">유튜브 영상 데이터를 불러오는 중입니다 🎾</p>
-    {% endif %}
+    {% endfor %}
+  {% endfor %}
+</div>
+</div>
 
-      <!-- ✅ 바로 여기에 삽입 -->
-      <div class="d-flex justify-content-center mt-3 mb-4">
-        <div style="font-size: 0.85rem; color: #ffffff; border: 1px solid #5c2e91; border-radius: 8px; padding: 0.3rem 0.75rem;">
-          ⏰ 데이터 기준: {{ last_modified }}
-        </div>
-      </div>
+
+    <!-- 📰 뉴스 리스트 섹션 (오른쪽) -->
+    <div id="newsContainer" style="flex-basis: 50%; flex-grow: 1; max-height: 420px; overflow-y: auto; background-color: #ffffff; border-radius: 12px; padding: 1rem;">      
+      {% for entry in youtube_data %}
+        {% if entry.articles %}
+          <div class="news-list" data-tournament="{{ entry.tournament }}">
+            <h5 style="font-weight: 700; color: #a020f0;">📰 {{ entry.tournament }} 관련 뉴스</h5>
+            <br>
+            <ul class="ps-3" style="font-size: 0.85rem; line-height: 1.7;">
+              {% for article in entry.articles %}
+                <li class="mb-2">
+                  <a href="{{ article.link }}" target="_blank" style="font-weight: 600; color: #26442f; text-decoration: none;">
+                    {{ article.title_ko }}
+                  </a><br>
+                  <span style="font-size: 0.72rem; color: #666;">
+                    🗓 {{ article.published[:10] }} · {{ article.source }}
+                  </span>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
   </div>
   
 
   <!-- JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    window.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener('DOMContentLoaded', () => {
       const path = window.location.pathname;
+  
+      // ✅ 현재 경로 활성화
       document.querySelectorAll('.main-navbar .nav-link').forEach(link => {
         if (link.getAttribute('href') === path) {
           link.classList.add('active');
         }
       });
-    });
-
-    document.addEventListener('DOMContentLoaded', () => {
+  
+      // ✅ 처음 로딩 시 뉴스 전체 보이게
+      document.querySelectorAll('.news-list').forEach(news => {
+        news.style.display = 'block';
+      });
+  
+      // ✅ 토너먼트 버튼 클릭 시 필터링 (영상 + 뉴스)
+      document.querySelectorAll('.tournament-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const filter = btn.dataset.filter;
+  
+          // 👉 버튼 active 클래스 관리
+          document.querySelectorAll('.tournament-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+  
+          // 👉 유튜브 제목 업데이트
+          const youtubeTitle = document.getElementById('youtubeTitle');
+          if (youtubeTitle) {
+            youtubeTitle.textContent = `📺 ${filter} 관련 영상`;
+          }
+  
+          // 👉 유튜브 필터
+          document.querySelectorAll('.youtube-card').forEach(card => {
+            card.style.display = (card.dataset.tournament === filter) ? 'block' : 'none';
+          });
+  
+          // 👉 뉴스 필터
+          document.querySelectorAll('.news-list').forEach(news => {
+            news.style.display = (news.dataset.tournament === filter) ? 'block' : 'none';
+          });
+        });
+      });
+  
       const bracketModal = document.getElementById('bracketModal');
       let currentFilter = 'all';
-
+  
       bracketModal.addEventListener('show.bs.modal', function (event) {
         const triggerBtn = event.relatedTarget;
         const tid = triggerBtn.getAttribute('data-tid');
         const filterTournament = triggerBtn.getAttribute('data-title');
-
+  
         const sourceBracket = document.querySelector(`.tournament-card[data-tid="${tid}"] .bracket-section`);
         const modalTitle = bracketModal.querySelector('#bracketModalLabel');
         const modalBody = document.getElementById('modalBracketContainer');
-
+  
         if (sourceBracket && modalBody && modalTitle) {
           modalTitle.textContent = filterTournament;
           modalBody.innerHTML = sourceBracket.outerHTML;
           modalBody.querySelector('.bracket-section')?.classList.remove('d-none');
         }
-
-        // ✅ 유튜브 필터 적용
+  
+        // 유튜브 필터
         document.querySelectorAll('.youtube-card').forEach(card => {
           const t = card.dataset.tournament;
           card.style.display = (t === filterTournament) ? 'block' : 'none';
         });
-
+  
+        // 뉴스 필터
+        document.querySelectorAll('.news-list').forEach(news => {
+          news.style.display = (news.dataset.tournament === filterTournament) ? 'block' : 'none';
+        });
+  
         currentFilter = filterTournament;
       });
-
-      // ✅ 모달 닫을 때에도 필터 유지
+  
+      // ✅ 모달이 완전히 열린 후 → 결승 쪽 보이기
+      bracketModal.addEventListener('shown.bs.modal', function () {
+      const modalBody = document.getElementById('modalBracketContainer');
+      const scrollTarget = modalBody.querySelector('.bracket-container');
+      if (scrollTarget) {
+        requestAnimationFrame(() => {
+          scrollTarget.scrollLeft = scrollTarget.scrollWidth;
+        });
+      }
+    });
+  
       bracketModal.addEventListener('hide.bs.modal', function () {
         document.querySelectorAll('.youtube-card').forEach(card => {
           const t = card.dataset.tournament;
           card.style.display = (currentFilter === 'all' || t === currentFilter) ? 'block' : 'none';
         });
-      });
-
-      // ✅ 네비게이션 활성화
-      const path = window.location.pathname;
-      document.querySelectorAll('.main-navbar .nav-link').forEach(link => {
-        if (link.getAttribute('href') === path) {
-          link.classList.add('active');
-        }
-      });
-    });
-
-
-
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const buttons = document.querySelectorAll('.youtube-filter');
-      const cards = document.querySelectorAll('.youtube-card');
-
-      buttons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          buttons.forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-
-          const filter = btn.dataset.filter;
-
-          cards.forEach(card => {
-            const tournament = card.dataset.tournament;
-            if (filter === 'all' || tournament === filter) {
-              card.style.display = 'block';
-            } else {
-              card.style.display = 'none';
-            }
-          });
+  
+        document.querySelectorAll('.news-list').forEach(news => {
+          const t = news.dataset.tournament;
+          news.style.display = (currentFilter === 'all' || t === currentFilter) ? 'block' : 'none';
         });
       });
     });
   </script>
+
 </body>
 </html>

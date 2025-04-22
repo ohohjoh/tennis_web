@@ -12,6 +12,7 @@ from collections import defaultdict
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 from dotenv import load_dotenv
+import feedparser
 
 # 🔑 환경변수 로드
 load_dotenv()
@@ -355,6 +356,73 @@ def fetch_and_save_youtube_results_from_bracket(bracket_json_path="tennis_abstra
 
     print(f"✅ 유튜브 검색 결과 저장 완료: {output_filename}")
 
+# ✅ Google Translate API (v2) 직접 호출 방식
+def translate_text(text, target="ko"):
+    url = "https://translation.googleapis.com/language/translate/v2"
+    params = {
+        "q": text,
+        "target": target,
+        "format": "text",
+        "key": API_KEY
+    }
+    response = requests.post(url, data=params)
+    result = response.json()
+
+    if "data" in result:
+        return result["data"]["translations"][0]["translatedText"]
+    else:
+        print(f"❌ 번역 실패: {text} / 에러: {result}")
+        return text
+
+# ✅ 뉴스 RSS에서 기사 가져오기
+def fetch_articles_for_tournament(tournament_name, max_results=10, days_limit=2):
+    query = f"{tournament_name} tennis"
+    url = f"https://news.google.com/rss/search?q={query.replace(' ', '+')}&hl=en-US&gl=US&ceid=US:en"
+    feed = feedparser.parse(url)
+    articles = []
+    cutoff_date = datetime.utcnow() - timedelta(days=days_limit)
+
+    for entry in feed.entries[:20]:
+        try:
+            published = datetime(*entry.published_parsed[:6])
+        except:
+            continue
+
+        if published < cutoff_date:
+            continue
+
+        title_en = entry.title.strip()
+        title_ko = translate_text(title_en)
+
+        articles.append({
+            "title_en": title_en,
+            "title_ko": title_ko,
+            "link": entry.link,
+            "published": published.isoformat(),
+            "source": entry.get("source", {}).get("title", "unknown")
+        })
+
+        if len(articles) >= max_results:
+            break
+
+    return articles
+
+# ✅ JSON 파일 업데이트
+def add_articles_to_json(json_path):
+    with open(json_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    for item in data.get("results", []):
+        tournament_name = item.get("tournament")
+        print(f"🔍 {tournament_name} 뉴스 수집 중...")
+        item["articles"] = fetch_articles_for_tournament(tournament_name)
+
+    data["executed_at"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    with open(json_path, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+
+    print("✅ 모든 기사 저장 완료!")
 
 if __name__ == "__main__":
     print("🎾 테니스 크롤링 시작")
@@ -399,6 +467,8 @@ if __name__ == "__main__":
 
     # 5. 유튜브 검색 결과 저장
     fetch_and_save_youtube_results_from_bracket()
-
+    # 6. 기사 및 번역기사 관련 결과 저장
+    add_articles_to_json("tennis_tournaments_pro_youtube.json")
+    
     print("✅ 전체 작업 완료")
 
