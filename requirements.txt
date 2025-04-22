@@ -8,3 +8,4 @@ gspread
 gunicorn
 chromedriver-autoinstaller
 pytz
+feedparser
