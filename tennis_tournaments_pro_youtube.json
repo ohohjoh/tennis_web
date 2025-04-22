@@ -1,17 +1,9 @@
 {
-  "executed_at": "2025-04-22 16:42:41",
+  "executed_at": "2025-04-22 09:31:41",
   "results": [
     {
       "tournament": "ATP Barcelona",
       "videos": [
-        {
-          "tournament": "ATP Barcelona",
-          "title": "Rune vs Khachanov; Alcaraz vs Fils | Barcelona 2025 Semi-Final Highlights",
-          "channel": "Tennis TV",
-          "videoId": "_ZX3vIl7_vw",
-          "thumbnail": "https://i.ytimg.com/vi/_ZX3vIl7_vw/mqdefault.jpg",
-          "publishedAt": "2025-04-19T16:25:49Z"
-        },
         {
           "tournament": "ATP Barcelona",
           "title": "Ruud, Tsitsipas, Rune All in Action | Barcelona 2025 Highlights Day 3",
@@ -30,14 +22,6 @@
         },
         {
           "tournament": "ATP Barcelona",
-          "title": "Holger Rune vs Karen Khachanov Highlights | Barcelona 2025",
-          "channel": "Tennis TV",
-          "videoId": "1Dfq-Snaygo",
-          "thumbnail": "https://i.ytimg.com/vi/1Dfq-Snaygo/mqdefault.jpg",
-          "publishedAt": "2025-04-19T13:01:46Z"
-        },
-        {
-          "tournament": "ATP Barcelona",
           "title": "Casper Ruud vs Holger Rune Highlights | Barcelona 2025",
           "channel": "Tennis TV",
           "videoId": "J0G1Khxf80g",
@@ -46,11 +30,11 @@
         },
         {
           "tournament": "ATP Barcelona",
-          "title": "Carlos Alcaraz vs Holger Rune For The Title! 🏆 | Barcelona 2025 Final Highlights",
+          "title": "Stefanos Tsitsipas vs Sebastian Korda Match Highlights | Barcelona 2025",
           "channel": "Tennis TV",
-          "videoId": "fZh5q73PX6A",
-          "thumbnail": "https://i.ytimg.com/vi/fZh5q73PX6A/mqdefault.jpg",
-          "publishedAt": "2025-04-20T16:58:29Z"
+          "videoId": "LfkzCwrFFM4",
+          "thumbnail": "https://i.ytimg.com/vi/LfkzCwrFFM4/mqdefault.jpg",
+          "publishedAt": "2025-04-16T16:26:39Z"
         },
         {
           "tournament": "ATP Barcelona",
@@ -59,6 +43,22 @@
           "videoId": "6Ei3MwfDink",
           "thumbnail": "https://i.ytimg.com/vi/6Ei3MwfDink/mqdefault.jpg",
           "publishedAt": "2025-04-18T17:00:00Z"
+        },
+        {
+          "tournament": "ATP Barcelona",
+          "title": "Holger Rune vs Karen Khachanov Highlights | Barcelona 2025",
+          "channel": "Tennis TV",
+          "videoId": "1Dfq-Snaygo",
+          "thumbnail": "https://i.ytimg.com/vi/1Dfq-Snaygo/mqdefault.jpg",
+          "publishedAt": "2025-04-19T13:01:46Z"
+        },
+        {
+          "tournament": "ATP Barcelona",
+          "title": "Carlos Alcaraz vs Holger Rune For The Title! 🏆 | Barcelona 2025 Final Highlights",
+          "channel": "Tennis TV",
+          "videoId": "fZh5q73PX6A",
+          "thumbnail": "https://i.ytimg.com/vi/fZh5q73PX6A/mqdefault.jpg",
+          "publishedAt": "2025-04-20T16:58:29Z"
         }
       ],
       "articles": [
@@ -77,32 +77,46 @@
           "source": "Tennis.com"
         },
         {
-          "title_en": "Highlights: Rune stuns Alcaraz for Barcelona title - ATP Tour",
-          "title_ko": "하이라이트: 룬, 알카라즈를 상대로 바르셀로나 타이틀 획득 - ATP 투어",
-          "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPeXpCYml5Mk1oOHkyMlJIWUhZakQ3NlZuMmQyTk9ZTmRCQWZBY3pVSzRpd2RqZXJ3cVVCcXRMXzNPczlWeHFkRlJjTGw3bFVKcUNncnM2XzN0WG80UHFOb1VQemZsUXJQZVN5UmlwT0FlZDBQVkZYcE1tczdidXJhS3RYcThCZXcwWlFpN1J6NDk?oc=5",
-          "published": "2025-04-20T16:14:39",
-          "source": "ATP Tour"
+          "title_en": "Carlos Alcaraz stunned by Holger Rune in the Barcelona Open final as Alexander Zverev wins in Munich - Sky Sports",
+          "title_ko": "바르셀로나 오픈 결승전에서 홀거 룬이 카를로스 알카라스를 꺾고 알렉산더 즈베레프가 뮌헨에서 우승 - 스카이 스포츠",
+          "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxPMGJPM215NWZlaTgzcGprVjA5anJvdDgzWF9yUC03dUdLODlISGE2dzA2NXlQeWJIaGs2aUtrVVBsYkZYcmpDUmFkdS1Uc3hxWm04dm5PbWF6X3p2STEzY29ZVXNYMkxIcHp3VXVkU3VlOE4yWXdUSW4weVRRMGVEaVJUa19CUG8tMXRSa0VYeXVRU2llcURRX3ZhRml0QWE3dmdtVmREZ055dkF0VUJSVVpNLU1Sb1VYOWRnRS16QnRyTC01Z2ZUOUJQS2d2b2tnZGg4ajVaVFdSUk9CM0Z3Rlo2dGVUN0Nm0gHuAUFVX3lxTE8wdlI5cG16T2RWVl9aWmdkbDhnLWx3RGlqTlpyMG1qQTNpWnVUMkxZVTd3d2xBdmlzWFNpcThDQ3RTWm16dEMxWEdOenpCaV91bWt5ZzdvMU44eGJndTUtRTdiRmZHMmtNWkJXMW9ybDA1cWJrUEttaVdGVDBjNWNGbmZxMDVnSFBWWmtDMDVnc29qUXlTaGY1TmdiN0VoOWVvN1U4OVduVGJMdDdNU0MxZmU5a0NSODEwRktRaHBmM2FsWUQtNnZGTUY1Tk1MMDd6azdQTzlfYlJpdktuQnhlSWRNTi1xdTFHdzEyeHc?oc=5",
+          "published": "2025-04-20T19:52:30",
+          "source": "Sky Sports"
         },
         {
-          "title_en": "Hot Shot: Air Holger! Rune's slam-dunk finish in Barcelona final - ATP Tour",
-          "title_ko": "핫샷: 에어 홀거! 루네, 바르셀로나 결승에서 덩크슛 성공 - ATP 투어",
-          "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNUHdqV1N3bkVkRk5XU1BMa3Fza04xRWdvYVN2c2t6Tk9uZHBnZHhrV29Wcm54eW9qNnNHU2tnVF9FbFVyT1BNYXo5dTlrb1dWeFR3M2ZJZVlMblZLaW1UaThkOWh6RGtMNHJSTkR3TENhaEh2R0psbzFuZmZZT2htUG4wazVtRVdtN0E3NVc1Rk9URWx6TjZzMTRUcXpZQjg?oc=5",
-          "published": "2025-04-20T15:03:33",
-          "source": "ATP Tour"
-        },
-        {
-          "title_en": "Alcaraz on Nadal, who wrote him after Barcelona final: ‘I bow at his feet’ - ATP Tour",
-          "title_ko": "알카라즈, 바르셀로나 결승전 후 자신에게 편지를 쓴 나달에 대해 \"그의 발 앞에 절합니다\" - ATP 투어",
-          "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBYZDQxZmJvQ2NPelg5MnNOWUdKWVJFcFFwNU9md1Rqdl9WOHQ3YmtuaWVGYlYtR3JjaEZEMGowM1pHLUVlRHl1RExTQkFpN0hCdEJlUGptLWJxUi1BeDZ2VHk1UUYzQU9TUmUyM3ZMUXo2d3hYbnl0Yw?oc=5",
-          "published": "2025-04-20T20:33:17",
-          "source": "ATP Tour"
-        },
-        {
-          "title_en": "ATP roundup: Holger Rune upsets Carlos Alcaraz in Barcelona - Reuters",
-          "title_ko": "ATP 라운드업: 홀거 룬, 바르셀로나에서 카를로스 알카라스를 화나게 하다 - 로이터",
-          "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOSkQySTNteDR6aWpQSF9yRDgzakpjaXRvTEdXYmR4S28wSklzb0l4NkhqZUdzMjdNRmVsUXRVWXRWR00xcnFPNWpGU0tfVld2VGwxemR3ZkpVTklIeW80WHFIbHB4emVkeG9lQ1FPWFRzZHJoTmhOUDVSYmZJOFZxUVdWaVNDbVNsRllPZEVPQksyeUVYdFA2R3NPUVg5WDdnS3ozWGUyMmY?oc=5",
-          "published": "2025-04-20T16:50:28",
+          "title_en": "Alcaraz's respect for Nadal grows after clay swing takes its toll - Reuters",
+          "title_ko": "클레이 스윙으로 인한 타격 이후 알카라즈, 나달에 대한 존경심 커져 - 로이터",
+          "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNaEUyWU1GLTdsNGR2YTlPR1FXSjhBd2dHMWtSdDc4SDU0dkFrcTFrVEFwMDhjRGVacXFONmlpbW1kb0hkdDdfZU5WRkNIVEhqOXduRnpuWDlhME9CZGMtOHdNN1lCSFI4SlN0TnB5RHZkRUZHNU1EUzB3N24wX1J1emJJcXY4YkMyMkp3UklmU1AyNnBrTm5tV1RpV1Z2Zk5OUk9JRUVzd2xWaFZKQkVB?oc=5",
+          "published": "2025-04-21T04:35:00",
           "source": "Reuters"
+        },
+        {
+          "title_en": "Carlos Alcaraz says what has happened to him because of Rafael Nadal that 'really shouldn't be the case' - The Tennis Gazette",
+          "title_ko": "카를로스 알카라스는 라파엘 나달 때문에 자신에게 일어난 일이 \"실제로 일어나서는 안 될 일\"이라고 말했습니다. - 테니스 가제트",
+          "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNd2lZU1dpd2VyYXlySUpuTkdKUUxweXE2U3ZxRTlncFdYYy1nNlN5cDcwclFXRm13c1NDenB3c3k5V3lKUUNKeE9DV2hndWUtM1RQRC0xSG9pY0hJczJEZ2M3cy1WTzJDSGpMYUdFZ0tPTGFMb3g0YThxdEhLZm9oVWVFeDF2M3I2WFphSzN2S2V2R2V4UXpFaWxFd1FxMW1HdFFzUDhnUnRXRXBWRVB2NHNySXM2bUNJS0lpdi04ZWhJM2tFTUZxbUh5VVVqRmIxWjdGRkozbw?oc=5",
+          "published": "2025-04-20T10:00:00",
+          "source": "The Tennis Gazette"
+        },
+        {
+          "title_en": "'I Bow Down'-Carlos Alcaraz Lauds Rafael Nadal After Barcelona Loss - Athlon Sports",
+          "title_ko": "'나는 몸을 굽힌다' - 카를로스 알카라즈, 바르셀로나 패배 후 라파엘 나달 칭찬 - Athlon Sports",
+          "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQXzdRZW1MdTNIOEhIb2ZKVUJ4ZFBTTko0dEIwazR0YWhOVjFmZzB3c3JtbkhWVFozeFpZRGNjdTFvQkZhejR0bHFwQkNsRzNBQXUyMjJxQUVzWUtFaGFRQURXUFpkWEVfeHFXaS1pWnZjemk3azduc3JkbFljbGdRWnpDWGt2b2ZOaUZ3MVZMa2t2U01wREdPNGZMQ3NTZw?oc=5",
+          "published": "2025-04-20T18:37:42",
+          "source": "Athlon Sports"
+        },
+        {
+          "title_en": "Sunday’s ATP Tennis Winners: Alexander Zverev in Munich, Holger Rune in Barcelona - Sportscasting",
+          "title_ko": "일요일 ATP 테니스 우승자: 뮌헨의 알렉산더 즈베레프, 바르셀로나의 홀거 룬 - 스포츠캐스팅",
+          "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPSkNGd0dKN1JZcDdMazVidC1LV0tXV2NZU2d3SEpFaktBVkdsOE1vdjNoU3J2R1UxU2c2am0tN2txNGh5RWJDdTVyRV9jejY5UjF6RjBTRDNQSW50SnV3WkxqRnU1T2JUOHNqUGV0SWFZVGUwMzBBN3BaOHN2MlVaZVJVSEszMnhib1JrbUFkOGZFenM?oc=5",
+          "published": "2025-04-20T17:04:07",
+          "source": "Sportscasting"
+        },
+        {
+          "title_en": "Rune upsets Alcaraz for Barcelona title - ATP Tour",
+          "title_ko": "루네, 알카라즈를 꺾고 바르셀로나 타이틀 획득 - ATP 투어",
+          "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9mZVk3dVU0QWIwQW5LWTRsOFZ6cHJEWTBvSmpaUUpuU2trSThQOU54RS05UExLVXFqSlo5Vjk2YWl6LThXNHphaXM2R2h0Sk5nTXZTdjJJYmRhT3QzdVFEa2MtRUxZc3E2ZzFqaFlrQVZnVGs?oc=5",
+          "published": "2025-04-20T16:41:15",
+          "source": "ATP Tour"
         }
       ]
     },
@@ -135,22 +149,6 @@
         },
         {
           "tournament": "ATP Munich",
-          "title": "Francisco Cerundolo vs Ben Shelton Semi-Final Highlights | Munich 2025",
-          "channel": "Tennis TV",
-          "videoId": "dgxOxDksh6Y",
-          "thumbnail": "https://i.ytimg.com/vi/dgxOxDksh6Y/mqdefault.jpg",
-          "publishedAt": "2025-04-19T14:31:58Z"
-        },
-        {
-          "tournament": "ATP Munich",
-          "title": "Alexander Zverev vs Tallon Griekspoor EPIC Match! | Munich 2025",
-          "channel": "Tennis TV",
-          "videoId": "i121Y8CeF_4",
-          "thumbnail": "https://i.ytimg.com/vi/i121Y8CeF_4/mqdefault.jpg",
-          "publishedAt": "2025-04-18T15:59:17Z"
-        },
-        {
-          "tournament": "ATP Munich",
           "title": "17 Year-Old Dedura-Palomero Records FIRST ATP Tour Win Over Shapovalov | Munich 2025 Highlights",
           "channel": "Tennis TV",
           "videoId": "AqUwIMdV26s",
@@ -159,17 +157,33 @@
         },
         {
           "tournament": "ATP Munich",
+          "title": "Francisco Cerundolo vs Ben Shelton Semi-Final Highlights | Munich 2025",
+          "channel": "Tennis TV",
+          "videoId": "dgxOxDksh6Y",
+          "thumbnail": "https://i.ytimg.com/vi/dgxOxDksh6Y/mqdefault.jpg",
+          "publishedAt": "2025-04-19T14:31:58Z"
+        },
+        {
+          "tournament": "ATP Munich",
           "title": "Luciano Darderi vs Ben Shelton For A Spot In The Semi-Finals! | Munich 2025 Highlights",
           "channel": "Tennis TV",
           "videoId": "nWdaWafS7jA",
           "thumbnail": "https://i.ytimg.com/vi/nWdaWafS7jA/mqdefault.jpg",
           "publishedAt": "2025-04-18T12:17:33Z"
+        },
+        {
+          "tournament": "ATP Munich",
+          "title": "Auger-Aliassime, Mensik, Humbert &amp;  Shapovalov Feature | Munich 2025 Highlights Day 2",
+          "channel": "Tennis TV",
+          "videoId": "ZheGJMT7Fds",
+          "thumbnail": "https://i.ytimg.com/vi/ZheGJMT7Fds/mqdefault.jpg",
+          "publishedAt": "2025-04-15T18:17:34Z"
         }
       ],
       "articles": [
         {
           "title_en": "Trinity Rodman Makes Her Players' Box Debut at Ben Shelton’s BMW Open Semifinals Match in Munich - people.com",
-          "title_ko": "트리니티 로드먼, 뮌헨에서 열린 벤 셸턴의 BMW 오픈 준결승전에서 플레이어스 박스 데뷔 - people.com",
+          "title_ko": "트리니티 로드먼, 뮌헨에서 열린 벤 셸턴의 BMW 오픈 준결승전에서 선수 박스 데뷔 - people.com",
           "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQUEkwUExvaEhHTkhKVWY4RWF5MWZxWi1IRDFkWDZLZU9GTnRKRUFXX3FDX1RVN0k0eEJ6TGNOelg3SkdYNkVuUEkzR2lwbENQQ19nYV9CNTY3Vk9EVS1oWkk1b2FwMjVLbF90cXdoRUtyTmkyZkphVFRYTXBNeHRpd0Y5V1h3Zw?oc=5",
           "published": "2025-04-20T16:07:02",
           "source": "people.com"
@@ -196,6 +210,13 @@
           "source": "ATP Tour"
         },
         {
+          "title_en": "Highlights: Zverev defeats Shelton for third Munich title - ATP Tour",
+          "title_ko": "하이라이트: 즈베레프, 셸턴 꺾고 뮌헨 3번째 우승 - ATP 투어",
+          "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPRWpydUNpVlVER1o5cVhROGVGUk95Q1pjLUlEY0JkMjVRcW9YS1ZIOGt4a3dsVUNFRUNyd0hXNEZscHpaQTBiQm5BdHJzblZuV3VoVzRCd2w4bzlud0ZXVngwdTNraUktYkF5ejZRc1FEbUZ4YWdKZE9KdXRqU0RHSUpkdlRZUnFWS1RxVjVobmVsTGc?oc=5",
+          "published": "2025-04-20T13:16:45",
+          "source": "ATP Tour"
+        },
+        {
           "title_en": "Alexander Zverev sends message to Ben Shelton after beating him in the Munich Open final - The Tennis Gazette",
           "title_ko": "알렉산더 즈베레프, 뮌헨 오픈 결승에서 벤 셸턴 꺾고 우승 후 메시지 전달 - 테니스 가제트",
           "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQdTJfeFVJOU8xZmduQTduZTc3dThHenA0VGZHYkxiem1Qd2N6bWl3QVBGQVVWZ1ozc0ZtNjRFNWY3UlNHRWx0Sk8xem9TdGRUZmVxcElvR0I5YklLVkxnRWpodkxEbzlqNGR6b3RjWVVNdEpyT1d4VXphSkEwUl9jTU9Xbkdvb3I5RDMxeUZZblZlZ2lCMEJodm0xbmFwTnZIODNwUlF0N1hqTWlqR0lUdEJwbUNfamdqQ1lSQ2t4SlFuY1hQYVE?oc=5",
@@ -203,11 +224,11 @@
           "source": "The Tennis Gazette"
         },
         {
-          "title_en": "Zverev surges past Shelton, completes Munich hat-trick - ATP Tour",
-          "title_ko": "즈베레프, 셸턴을 누르고 뮌헨 해트트릭 완성 - ATP 투어",
-          "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE5ERkZGZzJDVjN4Rk96ZmNjazg1cy1Nb2tKcDhCQWtNR1ZSRmdHUHBBQ2NiazlweHc4NlZVLVRHWW5FdGFFek1FS0hrMjZnS0JRRVQxMFNueWpPUWJoUlZBbDgxcVVEaE9STVRwVXhwZWs3Zw?oc=5",
-          "published": "2025-04-20T12:58:15",
-          "source": "ATP Tour"
+          "title_en": "Alexander Zverev downs Ben Shelton to win third Munich title - AP News",
+          "title_ko": "알렉산더 즈베레프, 벤 셸턴 꺾고 뮌헨 3번째 우승 - AP 뉴스",
+          "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOZHpEMHd4dmpRZ0NNTnZJd3ZxdWNfVFkyX29wUTZVanRCYTRVRkxzSUxPd21VOUdlbm9ZRE9KZFJGR0N6TTJ5NWFpcFdLTDFGWWEyV1dCc1IzVDJKQTJmaWV2S0xrZmlfX1ZhSDJUSU56ZzRSZGU4QlJVQjg2MjFtUnhnQk4tU1c2QmhLc2IzRWRidw?oc=5",
+          "published": "2025-04-20T17:26:00",
+          "source": "AP News"
         }
       ]
     },
@@ -232,19 +253,19 @@
         },
         {
           "tournament": "ATP Madrid",
+          "title": "EALA vs TOMOVA • WTA Madrid 2025 • LIVE Tennis Watchalong",
+          "channel": "TENNIS TALK with Cam Williams",
+          "videoId": "nM5iYHqYXcs",
+          "thumbnail": "https://i.ytimg.com/vi/nM5iYHqYXcs/mqdefault_live.jpg",
+          "publishedAt": "2025-04-22T04:46:46Z"
+        },
+        {
+          "tournament": "ATP Madrid",
           "title": "Djokovic, Alcaraz SF Clash | Zverev Tough Draw at Madrid 2025 | Tennis News",
           "channel": "TENNIS TALK with Cam Williams",
           "videoId": "IdwhAJzFtUI",
           "thumbnail": "https://i.ytimg.com/vi/IdwhAJzFtUI/mqdefault.jpg",
           "publishedAt": "2025-04-21T14:30:11Z"
-        },
-        {
-          "tournament": "ATP Madrid",
-          "title": "Carlos Alcaraz vs Holger Rune For The Title! 🏆 | Barcelona 2025 Final Highlights",
-          "channel": "Tennis TV",
-          "videoId": "fZh5q73PX6A",
-          "thumbnail": "https://i.ytimg.com/vi/fZh5q73PX6A/mqdefault.jpg",
-          "publishedAt": "2025-04-20T16:58:29Z"
         },
         {
           "tournament": "ATP Madrid",
@@ -256,19 +277,19 @@
         },
         {
           "tournament": "ATP Madrid",
-          "title": "Aryna Sabalenka vs. Jelena Ostapenko | 2025 Stuttgart Final | WTA Match Highlights",
-          "channel": "WTA",
-          "videoId": "N2cluO5m4p0",
-          "thumbnail": "https://i.ytimg.com/vi/N2cluO5m4p0/mqdefault.jpg",
-          "publishedAt": "2025-04-21T13:24:58Z"
+          "title": "The WILDEST Clay Match Ever?! 🤯 Moutet vs Shang in a 4-Hour THRILLER | Madrid 2024 Highlights",
+          "channel": "Tennis TV",
+          "videoId": "phgpbkYYLI8",
+          "thumbnail": "https://i.ytimg.com/vi/phgpbkYYLI8/mqdefault.jpg",
+          "publishedAt": "2025-04-21T13:01:24Z"
         },
         {
           "tournament": "ATP Madrid",
-          "title": "Zverev Takes on Shelton For The 🏆  | Munich 2025 Final Highlights",
-          "channel": "Tennis TV",
-          "videoId": "LzmuVk-cwLk",
-          "thumbnail": "https://i.ytimg.com/vi/LzmuVk-cwLk/mqdefault.jpg",
-          "publishedAt": "2025-04-20T14:13:30Z"
+          "title": "Alcaraz Injury ahead of Madrid 2025 | Tennis News",
+          "channel": "TENNIS TALK with Cam Williams",
+          "videoId": "TAe4Jdra1WQ",
+          "thumbnail": "https://i.ytimg.com/vi/TAe4Jdra1WQ/mqdefault.jpg",
+          "publishedAt": "2025-04-20T18:00:23Z"
         }
       ],
       "articles": [
@@ -294,10 +315,10 @@
           "source": "Olympics.com"
         },
         {
-          "title_en": "ATP Mutua Madrid Open Masters 1000: Dates, schedule, and draw - The Grandstand",
-          "title_ko": "ATP 무투아 마드리드 오픈 마스터스 1000: 날짜, 일정 및 추첨 - 그랜드스탠드",
-          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPVlJqdURhaVZQbkptOC1pSGdwOXdyZmtoZ2VTUFZKeEFDZ0VwUVY2ekFlUEdyVHY0aDdGVUNyRHJmZW96V2wzOUFrY1hfT0VYRkYzcFRkSDh6MXJUMEJseXU2X3VUemFVZzFvMWgxZVV3RVNybjFkdVA1bVhqdl9UMzM1S3FWMmlJUERNd09sLXVRcWFFelYydA?oc=5",
-          "published": "2025-04-20T20:02:17",
+          "title_en": "2025 Mutua Madrid Open preview, picks, and predictions - The Grandstand",
+          "title_ko": "2025년 무투아 마드리드 오픈 미리보기, 선택 및 예측 - The Grandstand",
+          "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5TeWM4WGlNbkhDdW5OVHRyZVNPc2diandfWjg5MXVySHFGVFJQdVdPQ2FaRVB0RUxGZUZUTVNCZ0N3VlpnUWpicUJINm9XZWF4U3JQaTZZSF9hbjNpYnJyYkZhVjB2QjdJdzhWSmdaTFdaQTk3aHhlXw?oc=5",
+          "published": "2025-04-22T03:23:35",
           "source": "The Grandstand"
         },
         {
@@ -308,6 +329,13 @@
           "source": "Tennis.com"
         },
         {
+          "title_en": "Novak Djokovic to be dumped out of Madrid Open early - our predictions - Tennis365",
+          "title_ko": "노박 조코비치, 마드리드 오픈 조기 탈락 가능성 - Tennis365 예측",
+          "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQYlBnZmNKaXJUdHpkRjJ5Z3lqdGxhMlZ2V0JCZ2hmaWhGVEV4TFJXbVJhaktES25sMXd2UU1LLVI5ci1BZ3VkWnJoM1k4U1ctY1FmMzhwNzkxYlBxVzRUX3kwNWV6VkJJRFdqYU01UmtrbWhTVUhkai0zUUQwcWhHZHNJZWw0TVI1LTRWd0dhUmZmc0RuUkVpWVBPOA?oc=5",
+          "published": "2025-04-22T09:00:13",
+          "source": "Tennis365"
+        },
+        {
           "title_en": "Stream Mutua Madrid Open 2025 Official Coverage - Tennis Connected",
           "title_ko": "Mutua Madrid Open 2025 공식 중계 스트리밍 - Tennis Connected",
           "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQcnd0eEpGd0hhLTg1Z1hrYUxDNVN5bEpvOEVwQTg3OWcyekpMSmFHTC1LUVJMQUZHbXBVTTI4cllqSFV4U2wtTm5uZkdhNHp2S3JzVExxRWg4OEpCRlBqT1FTXy1ZMjcxMEsySE1xNy1VTy1hZjlVMGM2NlNlc25DY0l3?oc=5",
@@ -315,11 +343,18 @@
           "source": "Tennis Connected"
         },
         {
-          "title_en": "Novak Djokovic Gets Easy Draw at 2025 Madrid Open - Sports Illustrated",
-          "title_ko": "노박 조코비치, 2025 마드리드 오픈에서 쉬운 조추첨 통과 - 스포츠 일러스트레이티드",
-          "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOZTJHTmg4NXRleTBWRG9MWWVBRURwTWE0SG4yTm9WVmNuc3JQYUJxeVRFektCWVphQW9UbEZWWUlNM0xjV2s4M0J2YjZwczZkNUVvTFhCQ2l0dEpqaFhUQjN4QWpLanQ4OUdFeXBqR0F3aklfMHNFdnY5RENGMmFEd25HczQxWDU5U29uYw?oc=5",
-          "published": "2025-04-21T12:33:50",
-          "source": "Sports Illustrated"
+          "title_en": "Nadal reveals his favorite for the Mutua Madrid Open 2025 - Punto de Break",
+          "title_ko": "나달, 2025년 무투아 마드리드 오픈 우승 후보 공개 - 브레이크 포인트",
+          "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxORDVrQkdobllDemZnYWVXcTlSWmhyZVJOcXlaODNCR3BWbHdjeEFIc0VUaGgwME1Dck9tQU9vVExWSnVQekVTZ3FITE53UWRuZ1FPWENUZzdwTHZpWEJMYW5vN3Nod19EaVVGZ2NUcGVhQmhwTEExVzZ1ZVZ1a1pMQTJoT3FvY2VwYjVpSlRuTmhOd3p2SG9YTmJIdGFObkV1ZkE?oc=5",
+          "published": "2025-04-21T21:40:00",
+          "source": "Punto de Break"
+        },
+        {
+          "title_en": "ATP Mutua Madrid Open Masters 1000: Dates, schedule, and draw - The Grandstand",
+          "title_ko": "ATP 무투아 마드리드 오픈 마스터스 1000: 날짜, 일정 및 추첨 - 그랜드스탠드",
+          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPVlJqdURhaVZQbkptOC1pSGdwOXdyZmtoZ2VTUFZKeEFDZ0VwUVY2ekFlUEdyVHY0aDdGVUNyRHJmZW96V2wzOUFrY1hfT0VYRkYzcFRkSDh6MXJUMEJseXU2X3VUemFVZzFvMWgxZVV3RVNybjFkdVA1bVhqdl9UMzM1S3FWMmlJUERNd09sLXVRcWFFelYydA?oc=5",
+          "published": "2025-04-20T20:02:17",
+          "source": "The Grandstand"
         },
         {
           "title_en": "Mutua Madrid Open 2025: Men’s and Women’s Qualifying Draws - Tennis Connected",
@@ -327,20 +362,6 @@
           "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQTEVaeS1RUkFxRlpmdEtOVzg5c2M1MEJhandyNFN0VkRFTklLRWlLYl9EV1QwajJ0aFNzLWlPOWoxZE5Tb3Fsd3VmT1VkZy1FZzhvQ1Axd1ZtNEFERE5JbzM4eGxSV1Zub2IwckEwUV9BemR0RmJpZ0RnWVhETjBza2NOcVA0RDdITGpjZA?oc=5",
           "published": "2025-04-20T15:56:59",
           "source": "Tennis Connected"
-        },
-        {
-          "title_en": "Madrid Open: Four Players Withdraw From Event - Last Word On Sports",
-          "title_ko": "마드리드 오픈: 4명의 선수가 대회에서 기권 - 스포츠에 대한 마지막 말",
-          "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOSS1VZ1B6QjdnZzBtaVpOUUdGbmU2ZlYwSlhUYWV0SzFrNU1URXVYNHFLTy1FQlFaTnB5SjM5bGVScWs2UzFjbktMUVRsWkhaTDlvMGc3cTVBWkRYMllSdFplWkp1cVlBZ1MyNk9iNmd2b3VRMnJHS2xqZEZ3MHRZb0RYMDROTGVaS1UyQmF4ZHBpNHpfYTJF?oc=5",
-          "published": "2025-04-21T11:01:48",
-          "source": "Last Word On Sports"
-        },
-        {
-          "title_en": "Djokovic training under Murray's watch in Madrid - ATP Tour",
-          "title_ko": "조코비치, 마드리드에서 머레이 감독 지휘 아래 훈련 - ATP 투어",
-          "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFAzbDR4QzJfMWZiWjdpRFhNYVJaRG1BUDhHdk52SHhhc3hvVk5TMzFsTEFlZlhKZHM4cm5LX3VXNlZ6S3pDeUdzVldkMllFODVWUzdUR2FKSzlpWG5mWW5MNUVZeTdXYjlNbUVjLUJ3?oc=5",
-          "published": "2025-04-20T14:59:22",
-          "source": "ATP Tour"
         }
       ]
     },
@@ -381,19 +402,19 @@
         },
         {
           "tournament": "WTA Stuttgart",
-          "title": "Aryna Sabalenka vs. Jasmine Paolini | 2025 Stuttgart Semifinal | WTA Match Highlights",
-          "channel": "WTA",
-          "videoId": "fj0Y2gk_3EA",
-          "thumbnail": "https://i.ytimg.com/vi/fj0Y2gk_3EA/mqdefault.jpg",
-          "publishedAt": "2025-04-20T15:02:30Z"
+          "title": "TENNIS CONTROVERSY! UMPIRE STUNNED AS SABALENKA USES IPHONE DURING MATCH | STUTTGART OPEN VS MERTENS",
+          "channel": "Best Muscle Video",
+          "videoId": "8arTXXiOv3E",
+          "thumbnail": "https://i.ytimg.com/vi/8arTXXiOv3E/mqdefault.jpg",
+          "publishedAt": "2025-04-19T16:56:04Z"
         },
         {
           "tournament": "WTA Stuttgart",
-          "title": "Aryna Sabalenka vs. Jelena Ostapenko Finals Highlights Stuttgart 2025",
-          "channel": "Tennis Highlights",
-          "videoId": "LuxdTmog1MY",
-          "thumbnail": "https://i.ytimg.com/vi/LuxdTmog1MY/mqdefault.jpg",
-          "publishedAt": "2025-04-21T12:10:10Z"
+          "title": "Super start in Stuttgart #wta #tennis #sports #womenssports",
+          "channel": "WTA",
+          "videoId": "PFYXA4Qe6sQ",
+          "thumbnail": "https://i.ytimg.com/vi/PFYXA4Qe6sQ/mqdefault.jpg",
+          "publishedAt": "2025-04-19T11:51:24Z"
         },
         {
           "tournament": "WTA Stuttgart",
@@ -441,6 +462,13 @@
           "source": "WTA Tennis"
         },
         {
+          "title_en": "Return Winner! Jelena Ostapenko overpowers Aryna Sabalenka, wins Stuttgart - Tennis.com",
+          "title_ko": "우승자 복귀! 옐레나 오스타펜코, 아리나 사발렌카 제압하고 슈투트가르트 우승 - Tennis.com",
+          "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNdGpoMm9kQ0ZDU2ctSEVLeE00bWpROTNWWkxaSTNrMzZTNlljbXRKUlJwTHVqS29vcGFWTnpJc2Q2OVU4WS0xcFNFTzlDMTVFamJLcHhVeGtBRjNWZHdsaEtpNkVDTnFqb1FSbWMwMHk0THNxT3VyZTZmck9qXzRaQ0JMc3gyWUtqczhWbEp5Uk1VVk1EazNQSHdzWDdsVVJkTlQ2aFVWdGYwdnM?oc=5",
+          "published": "2025-04-21T12:41:39",
+          "source": "Tennis.com"
+        },
+        {
           "title_en": "Jelena Ostapenko routs Aryna Sabalenka, completing remarkable week in Stuttgart - Tennis.com",
           "title_ko": "옐레나 오스타펜코, 아리나 사발렌카 꺾고 슈투트가르트에서 놀라운 한 주 마무리 - Tennis.com",
           "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNYU9yaGhvVEFYSkc5Z2xkaVVVMzMya1FoQ05BbjB6dUFCTzVVMkpXX2lNREt4MURHU01FUUxUNVo5OVBMYlhMN29TcnczbkhoSVBGOXgzcEpadjUwQ2tKQU54MEpjbm1uXzg0SUI5MzlyWnFhcTI0RzUtd1FoU2Q1SFRmNi1CaDctUWJnX0l3?oc=5",
@@ -463,31 +491,16 @@
         },
         {
           "title_en": "Sabalenka, Ostapenko power into Stuttgart final showdown - WTA Tennis",
-          "title_ko": "사발렌카, 오스타펜코가 슈투트가르트 결승전 진출 - WTA 테니스",
+          "title_ko": "사발렌카, 오스타펜코가 슈투트가르트 최종 대결에 진출 - WTA 테니스",
           "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOY0hsZGRCVDYzaUxSWnpnWms2NnFDTVl3dWphRXM5b3BTdWZCX2czNlMyemNnQlR6WFpTN29ZRDhRaUp5ZV91eXV2UFQ4TndGMG9HLXRMN1AyNHJ5WkxlOV9PWU9DV2RpdGVJUVpIX0h1SzhKdjZzcURRM0xnWXB6anB0V3lFd0tsMElWR04zNndUQU9ubDlXV1pB?oc=5",
           "published": "2025-04-20T16:30:00",
           "source": "WTA Tennis"
-        },
-        {
-          "title_en": "Return Winner! Jelena Ostapenko overpowers Aryna Sabalenka, wins Stuttgart - Tennis.com",
-          "title_ko": "우승자 복귀! 옐레나 오스타펜코, 아리나 사발렌카 제압하고 슈투트가르트 우승 - Tennis.com",
-          "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNdGpoMm9kQ0ZDU2ctSEVLeE00bWpROTNWWkxaSTNrMzZTNlljbXRKUlJwTHVqS29vcGFWTnpJc2Q2OVU4WS0xcFNFTzlDMTVFamJLcHhVeGtBRjNWZHdsaEtpNkVDTnFqb1FSbWMwMHk0THNxT3VyZTZmck9qXzRaQ0JMc3gyWUtqczhWbEp5Uk1VVk1EazNQSHdzWDdsVVJkTlQ2aFVWdGYwdnM?oc=5",
-          "published": "2025-04-21T12:41:39",
-          "source": "Tennis.com"
         }
       ]
     },
     {
       "tournament": "WTA Rouen",
       "videos": [
-        {
-          "tournament": "WTA Rouen",
-          "title": "Elina Svitolina vs. Olga Danilovic | 2025 Rouen Final | WTA Match Highlights",
-          "channel": "WTA",
-          "videoId": "BZ-KbkHNu7A",
-          "thumbnail": "https://i.ytimg.com/vi/BZ-KbkHNu7A/mqdefault.jpg",
-          "publishedAt": "2025-04-20T16:27:37Z"
-        },
         {
           "tournament": "WTA Rouen",
           "title": "Gracheva, Parks, Sakkari in action on Day 2 of Rouen | WTA Match Highlights",
@@ -498,11 +511,11 @@
         },
         {
           "tournament": "WTA Rouen",
-          "title": "Elina Svitolina vs. Elena-Gabriela Ruse |  2025 Rouen Semifinal| WTA Match Highlights",
+          "title": "Elina Svitolina vs. Olga Danilovic | 2025 Rouen Final | WTA Match Highlights",
           "channel": "WTA",
-          "videoId": "7cvMgP-6uGg",
-          "thumbnail": "https://i.ytimg.com/vi/7cvMgP-6uGg/mqdefault.jpg",
-          "publishedAt": "2025-04-19T16:34:12Z"
+          "videoId": "BZ-KbkHNu7A",
+          "thumbnail": "https://i.ytimg.com/vi/BZ-KbkHNu7A/mqdefault.jpg",
+          "publishedAt": "2025-04-20T16:27:37Z"
         },
         {
           "tournament": "WTA Rouen",
@@ -519,6 +532,14 @@
           "videoId": "IGQq8Ib7HCU",
           "thumbnail": "https://i.ytimg.com/vi/IGQq8Ib7HCU/mqdefault.jpg",
           "publishedAt": "2025-04-17T19:56:59Z"
+        },
+        {
+          "tournament": "WTA Rouen",
+          "title": "Elina Svitolina vs. Elena-Gabriela Ruse |  2025 Rouen Semifinal| WTA Match Highlights",
+          "channel": "WTA",
+          "videoId": "7cvMgP-6uGg",
+          "thumbnail": "https://i.ytimg.com/vi/7cvMgP-6uGg/mqdefault.jpg",
+          "publishedAt": "2025-04-19T16:34:12Z"
         },
         {
           "tournament": "WTA Rouen",
@@ -553,18 +574,18 @@
           "source": "Daily Express"
         },
         {
-          "title_en": "Svitolina secures first title in nearly two years after defeating Danilovic in Rouen - Flashscore.com",
-          "title_ko": "스비톨리나, 루앙에서 다닐로비치 꺾고 2년 만에 첫 우승 확정 - Flashscore.com",
-          "link": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxNVFFucnJqNmlzYXpra1hLTC1EWmVCLVFFZjBXQ01aeUozT2NrbHFZeFlpOUJ6N3hjM2duWC1JcFRWQ3lRTzFXNEg0b2RRbFc3dUdKZ0Y4NmptbnFOT0pJVEpZeGo4UjRmX1VMSjhpZVdiYmNGcnF0NVBHdmVvUXZvSmRNVnl5MFZOVmhFbi15U0JQa1B2T182dUJiT2ZfNkMwejBsaU1pR21fS2NPdDVRTGhrMVI4YlVzTkJJVEFZeDRlVi03RGNHU3VMUWhrSTE4Mk1Vd1dPeUtQcEpRNFloUU1fUnl1Zw?oc=5",
-          "published": "2025-04-20T18:52:01",
-          "source": "Flashscore.com"
-        },
-        {
           "title_en": "Ukrainian tennis star Elina Svitolina wins 1st title in 2 years at Rouen tournament - The Kyiv Independent",
           "title_ko": "우크라이나 테니스 스타 엘리나 스비톨리나, 루앙 대회에서 2년 만에 첫 우승 - The Kyiv Independent",
           "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNaEFmdkFoT0JZa2poTjBGSnRtU0tZMVJnbDBqa0dpaXVEYm0xbWVzN2VPWU40YklnRndxSmR0WUFLV1JQNXpqaWxoY0lBclVxRHFmSE9pc2laU1VkQ0d3eEpMT0dXWGVieXY4WGtWbGNFb2FHNnNmWmpwenNtQWZKNWNLVWpNSzBoMlJFb1AyaUdScks2ZGEzRnRrNi1IcUwxTWVScFJHZjRmOVJoSnBDdXVB?oc=5",
           "published": "2025-04-20T17:48:38",
           "source": "The Kyiv Independent"
+        },
+        {
+          "title_en": "Svitolina secures first title in nearly two years after defeating Danilovic in Rouen - Flashscore.com",
+          "title_ko": "스비톨리나, 루앙에서 다닐로비치 꺾고 2년 만에 첫 우승 확정 - Flashscore.com",
+          "link": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxNVFFucnJqNmlzYXpra1hLTC1EWmVCLVFFZjBXQ01aeUozT2NrbHFZeFlpOUJ6N3hjM2duWC1JcFRWQ3lRTzFXNEg0b2RRbFc3dUdKZ0Y4NmptbnFOT0pJVEpZeGo4UjRmX1VMSjhpZVdiYmNGcnF0NVBHdmVvUXZvSmRNVnl5MFZOVmhFbi15U0JQa1B2T182dUJiT2ZfNkMwejBsaU1pR21fS2NPdDVRTGhrMVI4YlVzTkJJVEFZeDRlVi03RGNHU3VMUWhrSTE4Mk1Vd1dPeUtQcEpRNFloUU1fUnl1Zw?oc=5",
+          "published": "2025-04-20T18:52:01",
+          "source": "Flashscore.com"
         },
         {
           "title_en": "FIRST TITLE SINCE 2023! Elina Svitolina triumphs over Olga Danilovic in Rouen - Tennis.com",
@@ -588,6 +609,20 @@
           "source": "WTA Tennis"
         },
         {
+          "title_en": "WTA Rouen Day 4 Predictions Including Elina Svitolina vs Anhelina Kalinina - MSN",
+          "title_ko": "WTA 루앙 4일차 경기 예측 (엘리나 스비톨리나 vs 안헬리나 칼리니나 포함) - MSN",
+          "link": "https://news.google.com/rss/articles/CBMi2gJBVV95cUxNZ09JdzhMb0VuX2YtMkMzZ3M0b09XMW8xdTEtaldYNTMtQzFjeU1YeVZQa1VBMUswcFByeERYUHFDVDRfdGlEaTNuWnJreWVxOFB3YTlHcGZrYURHZEVXdEZrNXc4bnJjd1RyOFU2UDJEMzIzZ1M2ejR1dURFeE4wcDFmZ3VRVmFxNU1veWpNckhFMWlHVVc4Zk9pRDgyRXg5LWl4M1dPblIzcGZ2VVRqYXMwMG5FWlJKRk9BVkVFaEFmYW0tUjVyODA5WGhVeVNkaFc2cnk3RXRhYUJOQUw0X3gwaVJzS3A2RjQ1M3F5UWZNc01XWVFyb3g1RnVHdS1SQldNM2JMc05SQlF2ZlBVWldIbElBeUVlanI3YzBjZWctNXJxVGlGZ283czZCWFRFbW5lNWRiUTJLYmtSc3E5UmR0VmdRRkR4bDliQmlsUEhvaUg4ajI5VFVn?oc=5",
+          "published": "2025-04-21T17:01:38",
+          "source": "MSN"
+        },
+        {
+          "title_en": "WTA Rouen Final Prediction Elina Svitolina vs Olga Danilovic - MSN",
+          "title_ko": "WTA 루앙 최종 예측 Elina Svitolina 대 Olga Danilovic - MSN",
+          "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxObTByNnh2cHB6a1AtaFFTVGZiQTU5cGg1V2tfb0doVlFZSElOMEVtMk1TbGhpNWNKWU5KLVFOM0NVWFVpVDQybHpSdXFRc2Qtd0VHVXpzMU1IWFZ0YmRlamZrTkt1R2taRW1OaTl5cVp3b0szVko4Qk0wd2o3ZkxOcU9OUG8yc0s3MjMybEpYSGs4QlhiQ2F3QlExdzg4UDFnRlhLNC1XSFVxRWI5WXdxLTVB?oc=5",
+          "published": "2025-04-21T23:17:10",
+          "source": "MSN"
+        },
+        {
           "title_en": "Champions Reel: How Elina Svitolina won Rouen 2025 - WTA Tennis",
           "title_ko": "챔피언 영상: Elina Svitolina가 2025년 루앙에서 우승한 방법 - WTA 테니스",
           "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQYmp4R0NTQ29kMmh0czRnLWx3azNWSG50Q2g3WnZHNFBTZUFXR0NVMzdWYXh6UUwxOHhmUElzT2MwajRiQTd6emNXY3RHeFNYaGxVQldKa2NBb3lWZTJQQWlhZ2ZPcVRmUUUxaWY1R0FxRFBHM0F4QWdXbzlkZ2xoaE8tOWgzRUNTRlVYajY3ZHVRb0ZZ?oc=5",
@@ -601,19 +636,19 @@
       "videos": [
         {
           "tournament": "WTA Oeiras 125",
-          "title": "Alexandra Eala beats Anouk Koevermans in Oeiras Open first round #wta #wtatour #tennis #livetennis",
-          "channel": "Talking Tennis",
-          "videoId": "ungFow5ha-E",
-          "thumbnail": "https://i.ytimg.com/vi/ungFow5ha-E/mqdefault.jpg",
-          "publishedAt": "2025-04-15T11:08:22Z"
-        },
-        {
-          "tournament": "WTA Oeiras 125",
           "title": "Alex Eala vs Panna Udvardy Rd. 2 Full Highlights | WTA Oeiras Ladies Open 2025",
           "channel": "PASSIONATE GAMER",
           "videoId": "yM-x53Z9kko",
           "thumbnail": "https://i.ytimg.com/vi/yM-x53Z9kko/mqdefault.jpg",
           "publishedAt": "2025-04-17T11:12:05Z"
+        },
+        {
+          "tournament": "WTA Oeiras 125",
+          "title": "Alexandra Eala beats Anouk Koevermans in Oeiras Open first round #wta #wtatour #tennis #livetennis",
+          "channel": "Talking Tennis",
+          "videoId": "ungFow5ha-E",
+          "thumbnail": "https://i.ytimg.com/vi/ungFow5ha-E/mqdefault.jpg",
+          "publishedAt": "2025-04-15T11:08:22Z"
         },
         {
           "tournament": "WTA Oeiras 125",
@@ -625,14 +660,6 @@
         },
         {
           "tournament": "WTA Oeiras 125",
-          "title": "Alex Eala wagi vs Anouk Koevermans sa Oeiras Portugal Open | TV Patrol",
-          "channel": "ABS-CBN News",
-          "videoId": "E1S1nUNjAzE",
-          "thumbnail": "https://i.ytimg.com/vi/E1S1nUNjAzE/mqdefault.jpg",
-          "publishedAt": "2025-04-15T12:58:40Z"
-        },
-        {
-          "tournament": "WTA Oeiras 125",
           "title": "Alexandra Eala 2R WTA Oeiras Open 125",
           "channel": "Federação Portuguesa de Ténis",
           "videoId": "WMfpFHrdILQ",
@@ -641,19 +668,27 @@
         },
         {
           "tournament": "WTA Oeiras 125",
-          "title": "Alex Eala vs Anouk Koevermans Highlights (Resumption due to rain) ! WTA Oeiras Ladies Open 2025",
-          "channel": "Guil Signe",
-          "videoId": "ErSZjWPrCzQ",
-          "thumbnail": "https://i.ytimg.com/vi/ErSZjWPrCzQ/mqdefault.jpg",
-          "publishedAt": "2025-04-15T12:07:14Z"
-        },
-        {
-          "tournament": "WTA Oeiras 125",
           "title": "Volynets takes the first set 6-1 over Waltert in Oeiras Ladies Open semi-final #wta125 #live tennis",
           "channel": "Talking Tennis",
           "videoId": "IPuJWReIXS8",
           "thumbnail": "https://i.ytimg.com/vi/IPuJWReIXS8/mqdefault.jpg",
           "publishedAt": "2025-04-19T17:16:04Z"
+        },
+        {
+          "tournament": "WTA Oeiras 125",
+          "title": "Alex Eala saves two match points vs Panna Udvardy in Oeiras Ladies Open 2025 #tennis #wta",
+          "channel": "Talking Tennis",
+          "videoId": "17BdUWGxTTM",
+          "thumbnail": "https://i.ytimg.com/vi/17BdUWGxTTM/mqdefault.jpg",
+          "publishedAt": "2025-04-17T11:35:21Z"
+        },
+        {
+          "tournament": "WTA Oeiras 125",
+          "title": "Oeiras Ladies Open Eala books spot in last 16 new update",
+          "channel": "Boxter Fighter News",
+          "videoId": "6Jh7AVlIfFk",
+          "thumbnail": "https://i.ytimg.com/vi/6Jh7AVlIfFk/mqdefault.jpg",
+          "publishedAt": "2025-04-16T06:24:35Z"
         }
       ],
       "articles": [
