@@ -61,8 +61,8 @@
   
     /* ✅ 오늘 경기 스케줄 */
     .schedule-scroll-container {
+      justify-content: flex-start; 
       display: flex;
-      justify-content: center;
       overflow-x: auto;
       padding: 0.5rem 0;
     }
@@ -108,14 +108,22 @@
       margin: 0.5rem 0 0.75rem;
       text-align: center;
     }
-  
+    .tournament-card {
+      border-radius: 12px;               /* ✅ 둥글게 만들기 */
+      overflow: hidden;                  /* ✅ 내부 둥근 모서리와 매끄럽게 연결 */
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05); /* ✅ 시각적 카드 효과 */
+      background-color: #ffffff;         /* ✅ 배경색 지정 */
+      margin-bottom: 2rem;               /* ✅ 간격 주기 */
+    }
     /* ✅ 브래킷 카드 */
     .bracket-tab-header {
       position: sticky;
       top: 0;
       background-color: #fff;
       z-index: 30;
-      padding-bottom: 0.5rem;
+      padding-bottom: 0.1rem;
+      border-top-left-radius: 12px;    /* ✅ 좌측 위 둥글게 */
+      border-top-right-radius: 12px;   /* ✅ 우측 위 둥글게 */
     }
   
     .round-header {
@@ -124,7 +132,12 @@
       background-color: #fff;
       z-index: 20;
     }
-  
+    .tournament-btn:hover {
+      background-color: #5c2e91;
+      color: #fff;
+      border-color: #5c2e91;
+      transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    }
     .bracket-section {
       background: #ffffff;
       color: #2b2b2b;
@@ -138,26 +151,54 @@
       margin-bottom: 2rem;
       display: block;
       position: relative;
+      border-radius: 12px; /* ✅ 여기에 추가 */
     }
 
     .bracket-container {
       display: flex;
       flex-direction: row;
       gap: 1rem;
-      min-width: max-content; /* 브래킷 너비 초과를 위해 */
-      width: max-content;
       overflow-x: auto;
       overflow-y: hidden;
       -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;      /* ✅ snap 적용 */
+      scroll-padding-left: 1rem;          /* ✅ 시작점 기준 */
     }
 
 
     .round-column {
+      scroll-snap-align: start;           /* ✅ 개별 라운드가 snap 포인트 */
       min-width: 200px;
       flex-shrink: 0;
       display: flex;
       flex-direction: column;
       gap: 0.4rem;
+    }
+    .filter-area {
+      padding: 0.5rem 1rem;       /* 좌우 여백 통일 */
+      gap: 0.5rem;                /* 버튼 사이 간격 */
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .filter-area {
+      display: flex;
+      flex-wrap: nowrap !important;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      gap: 0.5rem;
+      padding: 0.5rem 0.5rem;
+      scrollbar-width: none;  /* Firefox */
+    }
+    .filter-area::-webkit-scrollbar {
+      display: none; /* Chrome/Safari */
+    }
+
+    .filter-btn {
+      font-size: 0.7rem;
+      padding: 0.35rem 0.75rem;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
   
     .round-header {
@@ -322,9 +363,10 @@
     </div>
   </nav>
 
+
   <div class="container-fluid py-2" style="background-color: #ffffff; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
     {% if schedule %}
-      <p class="schedule-title">🎾 오늘 예정된 경기 ({{ schedule_date }})</p>
+      <!-- <p class="schedule-title">🎾 오늘 예정된 경기 ({{ schedule_date }})</p> -->
       <div class="schedule-scroll-container">
         <div class="schedule-grid">
           {% for match in schedule %}
@@ -364,19 +406,23 @@
   
         <!-- ✅ 고정 탭 버튼 wrapper -->
         <div class="bracket-tab-header" style="position: sticky; top: 60px; z-index: 50; background: #ffffff;">
-          <div class="d-flex gap-2 filter-area justify-content-center flex-wrap"
-            style="padding: 1rem 0 0rem 0; position: sticky; top: 60px; z-index: 50; background: #ffffff;">
-
+          <div class="filter-area"
+              style="padding: 0.5rem 0.5rem 0.01rem 0.5rem; position: sticky; top: 60px; z-index: 50; background: #ffffff;">
+          
             {% for t in data %}
-              <button class="btn btn-outline-dark btn-sm filter-btn tournament-btn {% if t.tournament == tournament.tournament %}active{% endif %}" data-tid="{{ loop.index0 }}">
-                {{ t.tournament }}
-              </button>
+            <button class="btn btn-outline-dark btn-sm filter-btn tournament-btn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#bracketModal"
+                  data-tid="{{ loop.index0 }}"
+                  data-title="{{ t.tournament }}"
+                  data-filter="{{ t.tournament }}">
+            {{ t.tournament }}
+          </button>
             {% endfor %}
           </div>
         </div>
-  
-        <!-- ✅ 브래킷 본문 -->
-        <div class="bracket-section">
+        
+        <div class="bracket-section d-none">
           <div class="bracket-container"
                style="
                  overflow-x: auto;
@@ -433,29 +479,64 @@
       </div>
     {% endfor %}
   </div>
-  <!-- ✅ 바로 여기에 삽입 -->
-  <div class="d-flex justify-content-center mt-3 mb-4">
-    <div style="font-size: 0.85rem; color: #ffffff; border: 1px solid #5c2e91; border-radius: 8px; padding: 0.3rem 0.75rem;">
-      ⏰ 데이터 기준: {{ last_modified }}
-    </div>
-  </div>
+
+
   
   
-  
-  <!-- 📦 점수 모달 -->
-  <div class="modal fade" id="scoreModal" tabindex="-1" aria-labelledby="scoreModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-sm custom-modal-size">
+  <!-- 📦 브라켓 전체 모달 -->
+  <div class="modal fade" id="bracketModal" tabindex="-1" aria-labelledby="bracketModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" style="max-width: 1000px;">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="scoreModalLabel">경기 상세 점수</h5>
+          <h5 class="modal-title" id="bracketModalLabel">브라켓 보기</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="닫기"></button>
         </div>
-        <div class="modal-body text-start">
-          <div id="modalScores" class="d-flex flex-column gap-2"></div>
+        <div class="modal-body px-3 py-2">
+          <div id="modalBracketContainer" style="overflow-x: auto; white-space: nowrap;">
+            <!-- JS로 삽입될 브래킷 -->
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+
+  <div class="container-fluid mt-0 px-0">
+    {% if youtube_data and youtube_data|length > 0 %}
+  
+      <!-- 🎾 유튜브 카드 컨테이너 (1줄 횡스크롤) -->
+      <div id="youtubeVideoContainer" class="d-flex overflow-auto gap-3 pb-2" style="scroll-snap-type: x mandatory;">
+        {% for entry in youtube_data %}
+          {% for video in entry["videos"] %}
+          <div class="youtube-card" data-tournament="{{ video['tournament'] }}" style="flex: 0 0 auto; width: 150px; scroll-snap-align: start;">
+              <a href="https://www.youtube.com/watch?v={{ video['videoId'] }}" target="_blank" class="text-decoration-none">
+                <div class="card shadow-sm" style="border: 1px solid #e0e0e0; border-radius: 12px; background-color: #fff;">
+                  <img src="{{ video['thumbnail'] }}" class="card-img-top" alt="{{ video['title'] }}" style="border-top-left-radius: 12px; border-top-right-radius: 12px;">
+                  <div class="card-body p-1">
+                    <div class="card-title" style="font-size: 0.75rem; font-weight: 600; color: #333;">
+                      {{ video['title'][:38] }}{% if video['title']|length > 38 %}...{% endif %}
+                    </div>
+                    <div style="font-size: 0.65rem; color: #777;">📺 {{ video['channel'] }}</div>
+                    <div style="font-size: 0.6rem; color: #999;">🕒 {{ video['publishedAt'][:10] }}</div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+        {% endfor %}
+      </div>
+    {% else %}
+      <p style="color: #5c2e91;">유튜브 영상 데이터를 불러오는 중입니다 🎾</p>
+    {% endif %}
+
+      <!-- ✅ 바로 여기에 삽입 -->
+      <div class="d-flex justify-content-center mt-3 mb-4">
+        <div style="font-size: 0.85rem; color: #ffffff; border: 1px solid #5c2e91; border-radius: 8px; padding: 0.3rem 0.75rem;">
+          ⏰ 데이터 기준: {{ last_modified }}
+        </div>
+      </div>
+  </div>
+  
 
   <!-- JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -468,87 +549,77 @@
         }
       });
     });
+
     document.addEventListener('DOMContentLoaded', () => {
-      // 버튼으로 카드 전환
-      const cards = document.querySelectorAll('.tournament-card');
-      const buttons = document.querySelectorAll('.tournament-btn');
+      const bracketModal = document.getElementById('bracketModal');
+      let currentFilter = 'all';
+
+      bracketModal.addEventListener('show.bs.modal', function (event) {
+        const triggerBtn = event.relatedTarget;
+        const tid = triggerBtn.getAttribute('data-tid');
+        const filterTournament = triggerBtn.getAttribute('data-title');
+
+        const sourceBracket = document.querySelector(`.tournament-card[data-tid="${tid}"] .bracket-section`);
+        const modalTitle = bracketModal.querySelector('#bracketModalLabel');
+        const modalBody = document.getElementById('modalBracketContainer');
+
+        if (sourceBracket && modalBody && modalTitle) {
+          modalTitle.textContent = filterTournament;
+          modalBody.innerHTML = sourceBracket.outerHTML;
+          modalBody.querySelector('.bracket-section')?.classList.remove('d-none');
+        }
+
+        // ✅ 유튜브 필터 적용
+        document.querySelectorAll('.youtube-card').forEach(card => {
+          const t = card.dataset.tournament;
+          card.style.display = (t === filterTournament) ? 'block' : 'none';
+        });
+
+        currentFilter = filterTournament;
+      });
+
+      // ✅ 모달 닫을 때에도 필터 유지
+      bracketModal.addEventListener('hide.bs.modal', function () {
+        document.querySelectorAll('.youtube-card').forEach(card => {
+          const t = card.dataset.tournament;
+          card.style.display = (currentFilter === 'all' || t === currentFilter) ? 'block' : 'none';
+        });
+      });
+
+      // ✅ 네비게이션 활성화
+      const path = window.location.pathname;
+      document.querySelectorAll('.main-navbar .nav-link').forEach(link => {
+        if (link.getAttribute('href') === path) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const buttons = document.querySelectorAll('.youtube-filter');
+      const cards = document.querySelectorAll('.youtube-card');
 
       buttons.forEach(btn => {
         btn.addEventListener('click', () => {
-          const tid = btn.dataset.tid;
-          cards.forEach(card => card.style.display = 'none');
-          document.querySelector(`.tournament-card[data-tid="${tid}"]`).style.display = 'block';
-
           buttons.forEach(b => b.classList.remove('active'));
-          document.querySelectorAll(`.tournament-btn[data-tid="${tid}"]`).forEach(b => b.classList.add('active'));
-        });
-      });
+          btn.classList.add('active');
 
-      // 점수 모달
-      const modal = document.getElementById('scoreModal');
-      modal.addEventListener('show.bs.modal', function (event) {
-        const triggerBox = event.relatedTarget;
+          const filter = btn.dataset.filter;
 
-        const player1 = triggerBox.getAttribute('data-player1') || '';
-        const player2 = triggerBox.getAttribute('data-player2') || '';
-        const score = triggerBox.getAttribute('data-score') || '';
-        const matchWinner = parseInt(triggerBox.getAttribute('data-winner'), 10);
-        const source = triggerBox.getAttribute('data-source') || '';
-
-        const modalScores = modal.querySelector('#modalScores');
-        modalScores.innerHTML = '';
-
-        // ✅ upcoming이면 안내 메시지만 표시하고 종료
-        if (source === 'upcoming' || !score) {
-          const msg = document.createElement('div');
-          msg.className = 'text-muted';
-          msg.textContent = '아직 결과가 등록되지 않았습니다.';
-          modalScores.appendChild(msg);
-          return;
-        }
-
-        const p1Scores = [];
-        const p2Scores = [];
-
-        const setScores = score.split(' ');
-        setScores.forEach(set => {
-          const [p1, p2] = set.split('-');
-          if (p1 && p2) {
-            p1Scores.push(p1);
-            p2Scores.push(p2);
-          }
-        });
-
-        function createPlayerRow(name, scores, isWinner) {
-          const row = document.createElement('div');
-          row.className = 'player-score-row d-grid align-items-center';
-
-          const nameSpan = document.createElement('div');
-          nameSpan.className = 'player-name';
-          nameSpan.textContent = name;
-
-          const scoreBox = document.createElement('div');
-          scoreBox.className = 'score-box d-flex gap-2 flex-wrap';
-
-          scores.forEach(s => {
-            const badge = document.createElement('span');
-            badge.className = `badge ${isWinner ? 'badge-win' : 'badge-lose'}`;
-            badge.textContent = s;
-            scoreBox.appendChild(badge);
+          cards.forEach(card => {
+            const tournament = card.dataset.tournament;
+            if (filter === 'all' || tournament === filter) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
           });
-
-          row.appendChild(nameSpan);
-          row.appendChild(scoreBox);
-          return row;
-        }
-
-        modalScores.appendChild(createPlayerRow(player1, p1Scores, matchWinner === 0));
-        modalScores.appendChild(createPlayerRow(player2, p2Scores, matchWinner === 1));
+        });
       });
-
     });
   </script>
-</body>
-</html>
 </body>
 </html>

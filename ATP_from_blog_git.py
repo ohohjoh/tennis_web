@@ -11,7 +11,12 @@ import time
 from collections import defaultdict
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
+from dotenv import load_dotenv
 
+# 🔑 환경변수 로드
+load_dotenv()
+API_KEY = os.getenv("YOUTUBE_API_KEY")
+SEARCH_URL = "https://www.googleapis.com/youtube/v3/search"
 
 # 📋 로그 설정
 base_dir = os.path.dirname(os.path.abspath(__file__))
@@ -299,8 +304,62 @@ def filter_today_matches_by_abstract_partial(today_data, bracket_data, output_fi
     print(f"✅ 매칭된 경기 저장 완료: {output_path}")
     return matched_matches
 
+def fetch_youtube_videos(query, max_results=7):
+    params = {
+        "key": API_KEY,
+        "part": "snippet",
+        "q": query,
+        "type": "video",
+        "maxResults": max_results,
+        "order": "relevance"
+    }
+    res = requests.get(SEARCH_URL, params=params)
+    if res.status_code == 200:
+        return res.json().get("items", [])
+    else:
+        print(f"❌ {query} 검색 실패: {res.status_code}")
+        return []
+
+def fetch_and_save_youtube_results_from_bracket(bracket_json_path="tennis_abstract_bracket.json", output_filename="tennis_tournaments_pro_youtube.json"):
+    try:
+        with open(bracket_json_path, "r", encoding="utf-8") as f:
+            bracket_data = json.load(f)
+    except FileNotFoundError:
+        print(f"❌ 파일 없음: {bracket_json_path}")
+        return
+
+    tournaments = [item["tournament"] for item in bracket_data.get("data", [])]
+
+    all_results = []
+    for name in tournaments:
+        print(f"🔍 {name} 관련 영상 검색 중...")
+        items = fetch_youtube_videos(f"{name} tennis")
+        videos = [{
+            "tournament": name,
+            "title": item["snippet"]["title"],
+            "channel": item["snippet"]["channelTitle"],
+            "videoId": item["id"]["videoId"],
+            "thumbnail": item["snippet"]["thumbnails"]["medium"]["url"],
+            "publishedAt": item["snippet"]["publishedAt"]
+        } for item in items]
+        all_results.append({
+            "tournament": name,
+            "videos": videos
+        })
+
+    with open(output_filename, "w", encoding="utf-8") as f:
+        json.dump({
+            "executed_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "results": all_results
+        }, f, ensure_ascii=False, indent=2)
+
+    print(f"✅ 유튜브 검색 결과 저장 완료: {output_filename}")
+
+
 if __name__ == "__main__":
     print("🎾 테니스 크롤링 시작")
+
+    # 1. 대회 정보 수집
     tournaments = fetch_current_tournaments()
     result = []
 
@@ -311,23 +370,35 @@ if __name__ == "__main__":
             html = res.text
             upcoming = parse_matches(extract_match_html("upcomingSingles", html))
             completed = parse_matches(extract_match_html("completedSingles", html))
-            result.append({"tournament": t["tournament"], "url": t["url"], "upcoming": upcoming, "completed": completed})
+            result.append({
+                "tournament": t["tournament"],
+                "url": t["url"],
+                "upcoming": upcoming,
+                "completed": completed
+            })
         except Exception:
             save_error_to_json(traceback.format_exc(), source=t["tournament"])
 
+    # 2. ATP/WTA 분리 및 저장
     atp_only = [r for r in result if "ATP" in r["tournament"]]
-    save_results_to_json(atp_only, "tennis_abstract_ATP_only.json")
+    wta_only = [r for r in result if "WTA" in r["tournament"]]
+    atp_wta_both = atp_only + wta_only
+    save_results_to_json(atp_wta_both, "tennis_abstract_ATPandWTA.json")
 
-    bracket_formatted = convert_to_bracket_format(atp_only)
+    # 3. 브래킷 변환 및 저장
+    bracket_formatted = convert_to_bracket_format(atp_wta_both)
     save_results_to_json(bracket_formatted, "tennis_abstract_bracket.json", add_executed_at=True)
 
+    # 4. 오늘 경기 일정 수집 및 매칭
     fetch_all_atp_schedule_from_dom()
-
-
     today_path = os.path.join(base_dir, "tennis_explorer_schedule.json") 
     if os.path.exists(today_path):
         with open(today_path, "r", encoding="utf-8") as f:
             today_data = json.load(f)
         filter_today_matches_by_abstract_partial(today_data, bracket_formatted)
 
+    # 5. 유튜브 검색 결과 저장
+    fetch_and_save_youtube_results_from_bracket()
+
     print("✅ 전체 작업 완료")
+

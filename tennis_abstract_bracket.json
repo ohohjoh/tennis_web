@@ -1,5 +1,5 @@
 {
-  "executed_at": "2025-04-21 18:36:20",
+  "executed_at": "2025-04-22 13:23:26",
   "data": [
     {
       "tournament": "ATP Barcelona",
@@ -679,6 +679,1471 @@
             "player1": "🇬🇧 Billy Harris",
             "player2": "🇦🇺 Aleksandar Vukic",
             "score": "3-6 6-3 6-4",
+            "winner": null,
+            "source": "completed"
+          }
+        ]
+      }
+    },
+    {
+      "tournament": "ATP Madrid",
+      "url": "https://www.tennisabstract.com/current/2025ATPMadrid.html",
+      "bracket": {
+        "Q1": [
+          {
+            "player1": "🇩🇪 Daniel Altmaier",
+            "player2": "🇫🇷 Luca Van Assche",
+            "score": "7-6(10) 6-4",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇨🇴 Daniel Elahi Galan",
+            "player2": "🇩🇪 Diego Dedura Palomero",
+            "score": "6-7(7) 6-4 6-1",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇬🇧 Jacob Fearnley",
+            "player2": "🇷🇺 Pavel Kotov",
+            "score": "4-6 6-4 6-1",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": " Hugo Dellien",
+            "player2": "🇫🇷 Adrian Mannarino",
+            "score": "6-3 7-6(8)",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇨🇦 Gabriel Diallo",
+            "player2": "🇺🇸 Nicolas Moreno De Alboran",
+            "score": "6-3 6-3",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇭🇷 Borna Coric",
+            "player2": " Otto Virtanen",
+            "score": "6-7(1) 7-5 6-2",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇫🇷 Hugo Gaston",
+            "player2": "🇩🇪 Yannick Hanfmann",
+            "score": "7-6(6) 4-6 6-4",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇮🇹 Luca Nardi",
+            "player2": " Manas Dhamne",
+            "score": "6-4 6-4",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇦🇺 Rinky Hijikata",
+            "player2": "🇿🇦 Lloyd Harris",
+            "score": "6-4 6-7(11) 4-1 RET",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇮🇹 Fabio Fognini",
+            "player2": "🇨🇭 Alexander Ritschard",
+            "score": "6-1 7-6(6)",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇳🇱 Botic Van De Zandschulp",
+            "player2": "🇫🇷 Moise Kouame",
+            "score": "6-3 6-2",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇦🇷 Juan Manuel Cerundolo",
+            "player2": " Thiago Seyboth Wild",
+            "score": "6-4 6-4",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇭🇷 Borna Gojo",
+            "player2": "🇭🇺 Marton Fucsovics",
+            "score": "2-6 6-3 6-2",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇨🇭 Jerome Kym",
+            "player2": "🇺🇸 Mackenzie Mcdonald",
+            "score": "4-6 0-2 RET",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": " Kamil Majchrzak",
+            "player2": "🇺🇸 Darwin Blanch",
+            "score": "6-1 6-4",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇩🇰 Elmer Moller",
+            "player2": "🇺🇸 Nishesh Basavareddy",
+            "score": "6-1 6-1",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": " Thiago Monteiro",
+            "player2": "🇺🇸 Mitchell Krueger",
+            "score": "7-5 6-3",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇺🇸 Ethan Quinn",
+            "player2": "🇬🇧 Billy Harris",
+            "score": "6-3 6-4",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇺🇸 Tristan Boyer",
+            "player2": "🇳🇱 Jesper De Jong",
+            "score": "3-6 7-6(4) 6-4",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇫🇷 Harold Mayot",
+            "player2": "🇰🇿 Alexander Shevchenko",
+            "score": "6-2 7-5",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": " Vit Kopriva",
+            "player2": "🇦🇷 Roman Andres Burruchaga",
+            "score": "7-5 5-7 6-4",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇫🇷 Valentin Royer",
+            "player2": "🇯🇵 Taro Daniel",
+            "score": "6-3 6-2",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇷🇸 Dusan Lajovic",
+            "player2": "🇦🇷 Thiago Agustin Tirante",
+            "score": "6-3 7-6(6)",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": " Cristian Garin",
+            "player2": "🇹🇼 Chun Hsin Tseng",
+            "score": "2-6 6-3 7-5",
+            "winner": null,
+            "source": "completed"
+          }
+        ],
+        "Q2": [
+          {
+            "player1": "🇩🇪 Daniel Altmaier",
+            "player2": "🇨🇴 Daniel Elahi Galan",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": "🇬🇧 Jacob Fearnley",
+            "player2": " Hugo Dellien",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": "🇨🇦 Gabriel Diallo",
+            "player2": "🇭🇷 Borna Coric",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": "🇫🇷 Hugo Gaston",
+            "player2": "🇮🇹 Luca Nardi",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": "🇦🇺 Rinky Hijikata",
+            "player2": "🇮🇹 Fabio Fognini",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": "🇳🇱 Botic Van De Zandschulp",
+            "player2": "🇦🇷 Juan Manuel Cerundolo",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": "🇭🇷 Borna Gojo",
+            "player2": "🇨🇭 Jerome Kym",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": " Kamil Majchrzak",
+            "player2": "🇩🇰 Elmer Moller",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": " Thiago Monteiro",
+            "player2": "🇺🇸 Ethan Quinn",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": "🇺🇸 Tristan Boyer",
+            "player2": "🇫🇷 Harold Mayot",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": " Vit Kopriva",
+            "player2": "🇫🇷 Valentin Royer",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": "🇷🇸 Dusan Lajovic",
+            "player2": " Cristian Garin",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          }
+        ],
+        "R1": [
+          {
+            "player1": "🇪🇸 Roberto Bautista Agut",
+            "player2": "🇪🇸 Jaume Munar",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": " Nuno Borges",
+            "player2": "🇪🇸 Pablo Carreno Busta",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": "🇫🇷 Corentin Moutet",
+            "player2": " (q)",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": "🇦🇷 Francisco Comesana",
+            "player2": "🇪🇸 Pedro Martinez",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": "🇫🇷 Giovanni Mpetshi Perricard",
+            "player2": "🇦🇷 Mariano Navone",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": "🇪🇸 Roberto Carballes Baena",
+            "player2": "🇦🇺 Jordan Thompson",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": "🇺🇸 Alex Michelsen",
+            "player2": "🇰🇿 Alexander Bublik",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": "🇫🇷 Gael Monfils",
+            "player2": " (q)",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": "🇦🇺 Christopher Oconnell",
+            "player2": "🇦🇷 Camilo Ugo Carabelli",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": "🇫🇷 Benjamin Bonzi",
+            "player2": "🇭🇷 Marin Cilic",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": "🇮🇹 Federico Cina",
+            "player2": " Coleman Wong",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": "🇷🇺 Roman Safiullin",
+            "player2": "🇫🇷 Arthur Rinderknech",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": "🇷🇸 Laslo Djere",
+            "player2": " (q)",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": "🇺🇸 Aleksandar Kovacevic",
+            "player2": " (q)",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": " Sebastian Ofner",
+            "player2": " (q)",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": "🇭🇺 Fabian Marozsan",
+            "player2": "🇮🇹 Flavio Cobolli",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": "🇳🇱 Tallon Griekspoor",
+            "player2": " (q)",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": "🇺🇸 Learner Tien",
+            "player2": "🇺🇸 Marcos Giron",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": "🇺🇸 Reilly Opelka",
+            "player2": " (q)",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": " Joao Fonseca",
+            "player2": " (q)",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": "🇫🇷 Quentin Halys",
+            "player2": "🇮🇹 Luciano Darderi",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": "🇧🇪 David Goffin",
+            "player2": "🇫🇷 Alexandre Muller",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": "🇧🇦 Damir Dzumhur",
+            "player2": "🇮🇹 Mattia Bellucci",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": "🇮🇹 Matteo Arnaldi",
+            "player2": " (q)",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": "🇮🇹 Lorenzo Sonego",
+            "player2": "🇷🇸 Miomir Kecmanovic",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": "🇦🇺 Aleksandar Vukic",
+            "player2": "🇯🇵 Kei Nishikori",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": "🇩🇪 Jan Lennard Struff",
+            "player2": " (q)",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": "🇦🇷 Tomas Martin Etcheverry",
+            "player2": "🇷🇸 Hamad Medjedovic",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": " Nicolas Jarry",
+            "player2": " (q)",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": "🇨🇳 Bu Yunchaokete",
+            "player2": " (q)",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": "🇪🇸 Martin Landaluce",
+            "player2": "🇬🇧 Cameron Norrie",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          },
+          {
+            "player1": "🇧🇪 Zizou Bergs",
+            "player2": "🇯🇵 Yoshihito Nishioka",
+            "score": null,
+            "winner": null,
+            "source": "upcoming"
+          }
+        ]
+      }
+    },
+    {
+      "tournament": "WTA Stuttgart",
+      "url": "https://www.tennisabstract.com/current/2025WTAStuttgart.html",
+      "bracket": {
+        "F": [
+          {
+            "player1": " Jelena Ostapenko",
+            "player2": " Aryna Sabalenka",
+            "score": "64 61",
+            "winner": null,
+            "source": "completed"
+          }
+        ],
+        "SF": [
+          {
+            "player1": " Aryna Sabalenka",
+            "player2": "🇮🇹 Jasmine Paolini",
+            "score": "75 64",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": " Jelena Ostapenko",
+            "player2": "🇷🇺 Ekaterina Alexandrova",
+            "score": "64 64",
+            "winner": null,
+            "source": "completed"
+          }
+        ],
+        "QF": [
+          {
+            "player1": " Aryna Sabalenka",
+            "player2": "🇧🇪 Elise Mertens",
+            "score": "64 61",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇮🇹 Jasmine Paolini",
+            "player2": "🇺🇸 Coco Gauff",
+            "score": "64 63",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇷🇺 Ekaterina Alexandrova",
+            "player2": "🇺🇸 Jessica Pegula",
+            "score": "60 64",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": " Jelena Ostapenko",
+            "player2": " Iga Swiatek",
+            "score": "63 36 62",
+            "winner": null,
+            "source": "completed"
+          }
+        ],
+        "R2": [
+          {
+            "player1": " Aryna Sabalenka",
+            "player2": " Anastasia Potapova (RUS) W/O",
+            "score": null,
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇧🇪 Elise Mertens",
+            "player2": "🇷🇺 Diana Shnaider",
+            "score": "62 76(5)",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇺🇸 Coco Gauff",
+            "player2": "🇩🇪 Ella Seidel",
+            "score": "61 61",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇮🇹 Jasmine Paolini",
+            "player2": "🇩🇪 Jule Niemeier",
+            "score": "61 75",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇷🇺 Ekaterina Alexandrova",
+            "player2": "🇷🇺 Mirra Andreeva",
+            "score": "63 62",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇺🇸 Jessica Pegula",
+            "player2": " Magdalena Frech",
+            "score": "61 61",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": " Jelena Ostapenko",
+            "player2": "🇺🇸 Emma Navarro",
+            "score": "75 36 62",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": " Iga Swiatek",
+            "player2": "🇭🇷 Jana Fett",
+            "score": "62 62",
+            "winner": null,
+            "source": "completed"
+          }
+        ],
+        "R1": [
+          {
+            "player1": "🇷🇺 Anastasia Potapova",
+            "player2": "🇩🇰 Clara Tauson",
+            "score": "26 76(8) 63",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇧🇪 Elise Mertens",
+            "player2": " Aliaksandra Sasnovich",
+            "score": "76(3) 62",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇷🇺 Diana Shnaider",
+            "player2": "🇷🇺 Veronika Kudermetova",
+            "score": "57 62 63",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇩🇪 Ella Seidel",
+            "player2": "🇩🇪 Tatjana Maria",
+            "score": "36 76(2) 64",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇩🇪 Jule Niemeier",
+            "player2": "🇩🇪 Laura Siegemund",
+            "score": "46 63 64",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇮🇹 Jasmine Paolini",
+            "player2": "🇩🇪 Eva Lys",
+            "score": "62 61",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇷🇺 Mirra Andreeva",
+            "player2": "🇷🇺 Erika Andreeva",
+            "score": "62 10 RET",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇷🇺 Ekaterina Alexandrova",
+            "player2": "🇷🇺 Liudmila Samsonova",
+            "score": "63 63",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": " Magdalena Frech",
+            "player2": "🇮🇹 Sara Errani",
+            "score": "75 46 76(5)",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇺🇸 Emma Navarro",
+            "player2": " Beatriz Haddad Maia",
+            "score": "63 60",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": " Jelena Ostapenko",
+            "player2": " Dayana Yastremska",
+            "score": "63 30 RET",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇭🇷 Jana Fett",
+            "player2": "🇭🇷 Donna Vekic",
+            "score": "76(2) 64",
+            "winner": null,
+            "source": "completed"
+          }
+        ],
+        "Q2": [
+          {
+            "player1": " Dayana Yastremska",
+            "player2": "🇩🇪 Ella Seidel",
+            "score": "63 64",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇷🇺 Veronika Kudermetova",
+            "player2": "🇮🇹 Sara Errani",
+            "score": "61 62",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": " Aliaksandra Sasnovich",
+            "player2": "🇷🇺 Erika Andreeva",
+            "score": "61 64",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇭🇷 Jana Fett",
+            "player2": "🇪🇸 Rebeka Masarova",
+            "score": "67(5) 76(4) 76(5)",
+            "winner": null,
+            "source": "completed"
+          }
+        ],
+        "Q1": [
+          {
+            "player1": " Dayana Yastremska",
+            "player2": "🇭🇷 Ana Konjuh",
+            "score": "61 64",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇩🇪 Ella Seidel",
+            "player2": "🇧🇪 Yanina Wickmayer",
+            "score": "61 64",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇷🇺 Veronika Kudermetova",
+            "player2": " Kathinka Von Deichmann",
+            "score": "63 62",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇮🇹 Sara Errani",
+            "player2": "🇩🇪 Nastasja Schunk",
+            "score": "26 64 63",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇷🇺 Erika Andreeva",
+            "player2": "🇩🇪 Mariella Thamm",
+            "score": "63 64",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": " Aliaksandra Sasnovich",
+            "player2": "🇺🇸 Louisa Chirico",
+            "score": "60 64",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇭🇷 Jana Fett",
+            "player2": " Yuliia Starodubtseva",
+            "score": "76(4) 63",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇪🇸 Rebeka Masarova",
+            "player2": "🇨🇳 (ALT)Shuai Zhang",
+            "score": "62 61",
+            "winner": null,
+            "source": "completed"
+          }
+        ]
+      }
+    },
+    {
+      "tournament": "WTA Rouen",
+      "url": "https://www.tennisabstract.com/current/2025WTARouen.html",
+      "bracket": {
+        "F": [
+          {
+            "player1": " Elina Svitolina",
+            "player2": "🇷🇸 Olga Danilovic",
+            "score": "64 76(8)",
+            "winner": null,
+            "source": "completed"
+          }
+        ],
+        "SF": [
+          {
+            "player1": " Elina Svitolina",
+            "player2": " Elena Gabriela Ruse",
+            "score": "60 62",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇷🇸 Olga Danilovic",
+            "player2": "🇳🇱 Suzan Lamens",
+            "score": "64 64",
+            "winner": null,
+            "source": "completed"
+          }
+        ],
+        "QF": [
+          {
+            "player1": " Elina Svitolina",
+            "player2": "🇪🇸 Jessica Bouzas Maneiro",
+            "score": "63 62",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": " Elena Gabriela Ruse",
+            "player2": "🇫🇷 Jessika Ponchet",
+            "score": "62 62",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇷🇸 Olga Danilovic",
+            "player2": "🇯🇵 Moyuka Uchijima",
+            "score": "76(9) 46 61",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇳🇱 Suzan Lamens",
+            "player2": "🇫🇷 Tiantsoa Sarah Rakotomanga Rajaonah",
+            "score": "63 63",
+            "winner": null,
+            "source": "completed"
+          }
+        ],
+        "R2": [
+          {
+            "player1": " Elina Svitolina",
+            "player2": " Anhelina Kalinina",
+            "score": "64 60",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇪🇸 Jessica Bouzas Maneiro",
+            "player2": "🇫🇷 Varvara Gracheva",
+            "score": "63 63",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇫🇷 Jessika Ponchet",
+            "player2": "🇫🇷 Fiona Ferro",
+            "score": "76(4) 64",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": " Elena Gabriela Ruse",
+            "player2": "🇮🇹 Camilla Rosatello",
+            "score": "60 64",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇯🇵 Moyuka Uchijima",
+            "player2": "🇫🇷 Lois Boisson",
+            "score": "16 76(4) 64",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇷🇸 Olga Danilovic",
+            "player2": " Linda Fruhvirtova",
+            "score": "62 36 64",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇫🇷 Tiantsoa Sarah Rakotomanga Rajaonah",
+            "player2": " Jaqueline Cristian",
+            "score": "62 63",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇳🇱 Suzan Lamens",
+            "player2": " Linda Noskova",
+            "score": "64 61",
+            "winner": null,
+            "source": "completed"
+          }
+        ],
+        "R1": [
+          {
+            "player1": " Elina Svitolina",
+            "player2": "🇨🇭 Jil Teichmann",
+            "score": "64 62",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": " Anhelina Kalinina",
+            "player2": "🇯🇵 Nao Hibino",
+            "score": "60 64",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇪🇸 Jessica Bouzas Maneiro",
+            "player2": "🇬🇷 Maria Sakkari",
+            "score": "60 36 63",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇫🇷 Varvara Gracheva",
+            "player2": "🇬🇧 Sonay Kartal",
+            "score": "63 62",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇫🇷 Fiona Ferro",
+            "player2": "🇺🇸 Mccartney Kessler",
+            "score": "67(8) 62 75",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇫🇷 Jessika Ponchet",
+            "player2": "🇫🇷 Margaux Rouvroy",
+            "score": "62 64",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": " Elena Gabriela Ruse",
+            "player2": "🇫🇷 Elsa Jacquemot",
+            "score": "16 61 64",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇮🇹 Camilla Rosatello",
+            "player2": "🇺🇸 Alycia Parks",
+            "score": "62 63",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇯🇵 Moyuka Uchijima",
+            "player2": "🇮🇹 Nuria Brancaccio",
+            "score": "36 62 61",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇫🇷 Lois Boisson",
+            "player2": "🇬🇧 Harriet Dart",
+            "score": "60 63",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": " Linda Fruhvirtova",
+            "player2": "🇷🇺 Anna Blinkova",
+            "score": "67(5) 64 75",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇷🇸 Olga Danilovic",
+            "player2": "🇷🇸 Aleksandra Krunic",
+            "score": "57 60 63",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇫🇷 Tiantsoa Sarah Rakotomanga Rajaonah",
+            "player2": "🇮🇹 Lucia Bronzetti",
+            "score": "62 63",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": " Jaqueline Cristian",
+            "player2": "🇫🇷 Diane Parry",
+            "score": "64 63",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇳🇱 Suzan Lamens",
+            "player2": "🇨🇦 Bianca Andreescu",
+            "score": "61 46 76(2)",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": " Linda Noskova",
+            "player2": "🇺🇸 Bernarda Pera",
+            "score": "46 76(5) 64",
+            "winner": null,
+            "source": "completed"
+          }
+        ],
+        "Q2": [
+          {
+            "player1": "🇫🇷 Tiantsoa Sarah Rakotomanga Rajaonah",
+            "player2": "🇫🇷 Jessika Ponchet",
+            "score": "76(1) 64",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇷🇸 Aleksandra Krunic",
+            "player2": " Linda Fruhvirtova",
+            "score": "67(6) 75 63",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇫🇷 Fiona Ferro",
+            "player2": "🇫🇷 Manon Leonard",
+            "score": "75 62",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇮🇹 Camilla Rosatello",
+            "player2": "🇮🇹 Nuria Brancaccio",
+            "score": "62 26 63",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇯🇵 Nao Hibino",
+            "player2": "🇦🇺 Tina Nadine Smith",
+            "score": "64 64",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇫🇷 Margaux Rouvroy",
+            "player2": "🇫🇷 Tiphanie Fiquet",
+            "score": "61 63",
+            "winner": null,
+            "source": "completed"
+          }
+        ],
+        "Q1": [
+          {
+            "player1": "🇫🇷 Jessika Ponchet",
+            "player2": "🇫🇷 Astrid Lew Yan Foon",
+            "score": "64 46 63",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇫🇷 Tiantsoa Sarah Rakotomanga Rajaonah",
+            "player2": "🇬🇧 Emily Appleton",
+            "score": "62 76(0)",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": " Linda Fruhvirtova",
+            "player2": "🇮🇹 Jessica Pieri",
+            "score": "46 62 60",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇷🇸 Aleksandra Krunic",
+            "player2": "🇧🇪 Lara Salden",
+            "score": "75 64",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇫🇷 Manon Leonard",
+            "player2": "🇮🇹 Dalila Spiteri",
+            "score": "64 75",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇫🇷 Fiona Ferro",
+            "player2": "🇫🇷 Emeline Dartron",
+            "score": "36 76(0) 61",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇮🇹 Nuria Brancaccio",
+            "player2": "🇫🇷 Nahia Berecoechea",
+            "score": "46 75 61",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇮🇹 Camilla Rosatello",
+            "player2": "🇫🇷 Diana Martynov",
+            "score": "63 75",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇯🇵 Nao Hibino",
+            "player2": "🇫🇷 Yasmine Mansouri",
+            "score": "57 64 75",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇦🇺 Tina Nadine Smith",
+            "player2": " Nadiya Kolb",
+            "score": "63 62",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇫🇷 Tiphanie Fiquet",
+            "player2": "🇨🇦 Carol Zhao",
+            "score": "64 62",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇫🇷 Margaux Rouvroy",
+            "player2": "🇷🇺 Ekaterina Yashina",
+            "score": "63 62",
+            "winner": null,
+            "source": "completed"
+          }
+        ]
+      }
+    },
+    {
+      "tournament": "WTA Oeiras 125",
+      "url": "https://www.tennisabstract.com/current/2025WTAOeiras125.html",
+      "bracket": {
+        "F": [
+          {
+            "player1": "🇭🇺 Dalma Galfi",
+            "player2": "🇺🇸 Katie Volynets",
+            "score": "46 61 62",
+            "winner": null,
+            "source": "completed"
+          }
+        ],
+        "SF": [
+          {
+            "player1": "🇭🇺 Dalma Galfi",
+            "player2": "🇺🇸 Varvara Lepchenko",
+            "score": "64 63",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇺🇸 Katie Volynets",
+            "player2": "🇨🇭 Simona Waltert",
+            "score": "61 64",
+            "winner": null,
+            "source": "completed"
+          }
+        ],
+        "QF": [
+          {
+            "player1": "🇭🇺 Dalma Galfi",
+            "player2": "🇭🇺 Panna Udvardy",
+            "score": "76(8) 61",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇺🇸 Varvara Lepchenko",
+            "player2": "🇷🇺 Elena Pridankina",
+            "score": "63 46 62",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇨🇭 Simona Waltert",
+            "player2": "🇷🇸 Nina Stojanovic",
+            "score": "64 76(5)",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇺🇸 Katie Volynets",
+            "player2": " Victoria Jimenez Kasintseva",
+            "score": "62 61",
+            "winner": null,
+            "source": "completed"
+          }
+        ],
+        "R2": [
+          {
+            "player1": "🇭🇺 Panna Udvardy",
+            "player2": " Alexandra Eala",
+            "score": "76(4) 64",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇭🇺 Dalma Galfi",
+            "player2": "🇯🇵 Sara Saito",
+            "score": "61 62",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇷🇺 Elena Pridankina",
+            "player2": "🇭🇺 Anna Bondar",
+            "score": "62 26 60",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇺🇸 Varvara Lepchenko",
+            "player2": " Sinja Kraus",
+            "score": "75 62",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇷🇸 Nina Stojanovic",
+            "player2": "🇬🇧 Francesca Jones",
+            "score": "26 63 75",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇨🇭 Simona Waltert",
+            "player2": "🇮🇹 Elisabetta Cocciaretto",
+            "score": "63 36 63",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": " Victoria Jimenez Kasintseva",
+            "player2": "🇷🇸 Lola Radivojevic",
+            "score": "76(2) 46 63",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇺🇸 Katie Volynets",
+            "player2": " Tamara Zidansek",
+            "score": "64 63",
+            "winner": null,
+            "source": "completed"
+          }
+        ],
+        "R1": [
+          {
+            "player1": " Alexandra Eala",
+            "player2": "🇳🇱 Anouk Koevermans",
+            "score": "63 64",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇭🇺 Panna Udvardy",
+            "player2": "🇳🇱 Lian Tran",
+            "score": "61 63",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇯🇵 Sara Saito",
+            "player2": " Jesika Maleckova",
+            "score": "16 76(4) 62",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇭🇺 Dalma Galfi",
+            "player2": " Maja Chwalinska",
+            "score": "64 75",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇭🇺 Anna Bondar",
+            "player2": " Francisca Jorge",
+            "score": "64 75",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇷🇺 Elena Pridankina",
+            "player2": "🇺🇸 Carson Branstine",
+            "score": "64 62",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": " Sinja Kraus",
+            "player2": " Dominika Salkova",
+            "score": "63 62",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇺🇸 Varvara Lepchenko",
+            "player2": "🇷🇺 Alevtina Ibragimova",
+            "score": "75 63",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇬🇧 Francesca Jones",
+            "player2": "🇩🇪 Noma Noha Akugue",
+            "score": "67(5) 61 64",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇷🇸 Nina Stojanovic",
+            "player2": " Angelina Voloshchuk",
+            "score": "75 62",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇨🇭 Simona Waltert",
+            "player2": " Matilde Jorge",
+            "score": "64 46 64",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇮🇹 Elisabetta Cocciaretto",
+            "player2": " Ines Murta",
+            "score": "63 60",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": " Victoria Jimenez Kasintseva",
+            "player2": "🇨🇳 Yue Yuan",
+            "score": "46 63 76(4)",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇷🇸 Lola Radivojevic",
+            "player2": " Patricia Maria Tig",
+            "score": "64 61",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": " Tamara Zidansek",
+            "player2": "🇩🇪 Mona Barthel",
+            "score": "76(5) 76(2)",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇺🇸 Katie Volynets",
+            "player2": "🇮🇹 Georgia Pedone",
+            "score": "62 61",
+            "winner": null,
+            "source": "completed"
+          }
+        ],
+        "Q2": [
+          {
+            "player1": "🇳🇱 Lian Tran",
+            "player2": "🇺🇸 Carson Branstine",
+            "score": "62 36 63",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": " Jesika Maleckova",
+            "player2": " Patricia Maria Tig",
+            "score": "62 61",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇷🇺 Alevtina Ibragimova",
+            "player2": " Kristina Dmitruk",
+            "score": "36 75 62",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇩🇪 Noma Noha Akugue",
+            "player2": "🇭🇷 Lucija Ciric Bagaric",
+            "score": "61 75",
+            "winner": null,
+            "source": "completed"
+          }
+        ],
+        "Q1": [
+          {
+            "player1": "🇺🇸 Carson Branstine",
+            "player2": " Ana Filipa Santos",
+            "score": "61 61",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇳🇱 Lian Tran",
+            "player2": " Teresa Poppe",
+            "score": "61 60",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": " Patricia Maria Tig",
+            "player2": "🇷🇺 Amina Anshba",
+            "score": "62 63",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": " Jesika Maleckova",
+            "player2": " Amalia Suciu",
+            "score": "62 61",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": " Kristina Dmitruk",
+            "player2": " Rutuja Bhosale",
+            "score": "63 64",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇷🇺 Alevtina Ibragimova",
+            "player2": "🇪🇸 Celia Cervino Ruiz",
+            "score": "63 61",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇩🇪 Noma Noha Akugue",
+            "player2": "🇭🇺 Luca Udvardy",
+            "score": "62 46 63",
+            "winner": null,
+            "source": "completed"
+          },
+          {
+            "player1": "🇭🇷 Lucija Ciric Bagaric",
+            "player2": " Analu Freitas",
+            "score": "61 61",
             "winner": null,
             "source": "completed"
           }

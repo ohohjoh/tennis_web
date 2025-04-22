@@ -1,0 +1,4119 @@
+[
+  {
+    "tournament": "ATP Barcelona",
+    "url": "https://www.tennisabstract.com/current/2025ATPBarcelona.html",
+    "upcoming": [],
+    "completed": [
+      {
+        "round": "F",
+        "player1": {
+          "seed": "6",
+          "name": "Holger Rune",
+          "country": "DEN"
+        },
+        "player2": {
+          "seed": "1",
+          "name": "Carlos Alcaraz",
+          "country": "ESP"
+        },
+        "score": "7-6(6) 6-2"
+      },
+      {
+        "round": "SF",
+        "player1": {
+          "seed": "1",
+          "name": "Carlos Alcaraz",
+          "country": "ESP"
+        },
+        "player2": {
+          "seed": "7",
+          "name": "Arthur Fils",
+          "country": "FRA"
+        },
+        "score": "6-2 6-4"
+      },
+      {
+        "round": "SF",
+        "player1": {
+          "seed": "6",
+          "name": "Holger Rune",
+          "country": "DEN"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Karen Khachanov",
+          "country": "RUS"
+        },
+        "score": "6-3 6-2"
+      },
+      {
+        "round": "QF",
+        "player1": {
+          "seed": "1",
+          "name": "Carlos Alcaraz",
+          "country": "ESP"
+        },
+        "player2": {
+          "seed": "5",
+          "name": "Alex De Minaur",
+          "country": "AUS"
+        },
+        "score": "7-5 6-3"
+      },
+      {
+        "round": "QF",
+        "player1": {
+          "seed": "7",
+          "name": "Arthur Fils",
+          "country": "FRA"
+        },
+        "player2": {
+          "seed": "3",
+          "name": "Stefanos Tsitsipas",
+          "country": "GRE"
+        },
+        "score": "2-0 RET"
+      },
+      {
+        "round": "QF",
+        "player1": {
+          "seed": null,
+          "name": "Karen Khachanov",
+          "country": "RUS"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Alejandro Davidovich Fokina",
+          "country": "ESP"
+        },
+        "score": "6-4 7-5"
+      },
+      {
+        "round": "QF",
+        "player1": {
+          "seed": "6",
+          "name": "Holger Rune",
+          "country": "DEN"
+        },
+        "player2": {
+          "seed": "2",
+          "name": "Casper Ruud",
+          "country": "NOR"
+        },
+        "score": "6-4 6-2"
+      },
+      {
+        "round": "R16",
+        "player1": {
+          "seed": "1",
+          "name": "Carlos Alcaraz",
+          "country": "ESP"
+        },
+        "player2": {
+          "seed": "Q",
+          "name": "Laslo Djere",
+          "country": "SRB"
+        },
+        "score": "6-2 6-4"
+      },
+      {
+        "round": "R16",
+        "player1": {
+          "seed": "5",
+          "name": "Alex De Minaur",
+          "country": "AUS"
+        },
+        "player2": {
+          "seed": "LL",
+          "name": "Jacob Fearnley",
+          "country": "GBR"
+        },
+        "score": "6-1 6-2"
+      },
+      {
+        "round": "R16",
+        "player1": {
+          "seed": "3",
+          "name": "Stefanos Tsitsipas",
+          "country": "GRE"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Sebastian Korda",
+          "country": "USA"
+        },
+        "score": "7-6(4) 6-4"
+      },
+      {
+        "round": "R16",
+        "player1": {
+          "seed": "7",
+          "name": "Arthur Fils",
+          "country": "FRA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Pedro Martinez",
+          "country": "ESP"
+        },
+        "score": "6-3 6-2"
+      },
+      {
+        "round": "R16",
+        "player1": {
+          "seed": null,
+          "name": "Karen Khachanov",
+          "country": "RUS"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Jaume Munar",
+          "country": "ESP"
+        },
+        "score": "7-5 6-4"
+      },
+      {
+        "round": "R16",
+        "player1": {
+          "seed": null,
+          "name": "Alejandro Davidovich Fokina",
+          "country": "ESP"
+        },
+        "player2": {
+          "seed": "4",
+          "name": "Andrey Rublev",
+          "country": "RUS"
+        },
+        "score": "7-5 6-4"
+      },
+      {
+        "round": "R16",
+        "player1": {
+          "seed": "6",
+          "name": "Holger Rune",
+          "country": "DEN"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Sebastian Baez",
+          "country": "ARG"
+        },
+        "score": "4-6 6-1 6-2"
+      },
+      {
+        "round": "R16",
+        "player1": {
+          "seed": "2",
+          "name": "Casper Ruud",
+          "country": "NOR"
+        },
+        "player2": {
+          "seed": "Q",
+          "name": "Hamad Medjedovic",
+          "country": "SRB"
+        },
+        "score": "7-5 7-5"
+      },
+      {
+        "round": "R32",
+        "player1": {
+          "seed": "1",
+          "name": "Carlos Alcaraz",
+          "country": "ESP"
+        },
+        "player2": {
+          "seed": "Q",
+          "name": "Ethan Quinn",
+          "country": "USA"
+        },
+        "score": "6-2 7-6(6)"
+      },
+      {
+        "round": "R32",
+        "player1": {
+          "seed": "Q",
+          "name": "Laslo Djere",
+          "country": "SRB"
+        },
+        "player2": {
+          "seed": "LL",
+          "name": "Arthur Rinderknech",
+          "country": "FRA"
+        },
+        "score": "6-7(2) 6-1 6-2"
+      },
+      {
+        "round": "R32",
+        "player1": {
+          "seed": "LL",
+          "name": "Jacob Fearnley",
+          "country": "GBR"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Roberto Carballes Baena",
+          "country": "ESP"
+        },
+        "score": "6-1 7-5"
+      },
+      {
+        "round": "R32",
+        "player1": {
+          "seed": "5",
+          "name": "Alex De Minaur",
+          "country": "AUS"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Tomas Martin Etcheverry",
+          "country": "ARG"
+        },
+        "score": "6-4 6-4"
+      },
+      {
+        "round": "R32",
+        "player1": {
+          "seed": "3",
+          "name": "Stefanos Tsitsipas",
+          "country": "GRE"
+        },
+        "player2": {
+          "seed": "PR",
+          "name": "Reilly Opelka",
+          "country": "USA"
+        },
+        "score": "6-2 6-2"
+      },
+      {
+        "round": "R32",
+        "player1": {
+          "seed": null,
+          "name": "Sebastian Korda",
+          "country": "USA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Matteo Arnaldi",
+          "country": "ITA"
+        },
+        "score": "3-6 6-3 6-2"
+      },
+      {
+        "round": "R32",
+        "player1": {
+          "seed": null,
+          "name": "Pedro Martinez",
+          "country": "ESP"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Brandon Nakashima",
+          "country": "USA"
+        },
+        "score": "7-5 5-7 6-4"
+      },
+      {
+        "round": "R32",
+        "player1": {
+          "seed": "7",
+          "name": "Arthur Fils",
+          "country": "FRA"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Pablo Carreno Busta",
+          "country": "ESP"
+        },
+        "score": "7-6(6) 6-3"
+      },
+      {
+        "round": "R32",
+        "player1": {
+          "seed": null,
+          "name": "Jaume Munar",
+          "country": "ESP"
+        },
+        "player2": {
+          "seed": "9",
+          "name": "Frances Tiafoe",
+          "country": "USA"
+        },
+        "score": "2-6 7-5 6-1"
+      },
+      {
+        "round": "R32",
+        "player1": {
+          "seed": null,
+          "name": "Karen Khachanov",
+          "country": "RUS"
+        },
+        "player2": {
+          "seed": "Q",
+          "name": "Cameron Norrie",
+          "country": "GBR"
+        },
+        "score": "6-7(3) 6-4 6-3"
+      },
+      {
+        "round": "R32",
+        "player1": {
+          "seed": null,
+          "name": "Alejandro Davidovich Fokina",
+          "country": "ESP"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Stan Wawrinka",
+          "country": "SUI"
+        },
+        "score": "6-1 6-4"
+      },
+      {
+        "round": "R32",
+        "player1": {
+          "seed": "4",
+          "name": "Andrey Rublev",
+          "country": "RUS"
+        },
+        "player2": {
+          "seed": "Q",
+          "name": "Jesper De Jong",
+          "country": "NED"
+        },
+        "score": "6-1 6-3"
+      },
+      {
+        "round": "R32",
+        "player1": {
+          "seed": "6",
+          "name": "Holger Rune",
+          "country": "DEN"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Albert Ramos",
+          "country": "ESP"
+        },
+        "score": "7-5 6-4"
+      },
+      {
+        "round": "R32",
+        "player1": {
+          "seed": null,
+          "name": "Sebastian Baez",
+          "country": "ARG"
+        },
+        "player2": {
+          "seed": "LL",
+          "name": "Damir Dzumhur",
+          "country": "BIH"
+        },
+        "score": "6-1 7-5"
+      },
+      {
+        "round": "R32",
+        "player1": {
+          "seed": "Q",
+          "name": "Hamad Medjedovic",
+          "country": "SRB"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Giovanni Mpetshi Perricard",
+          "country": "FRA"
+        },
+        "score": "7-5 7-6(6)"
+      },
+      {
+        "round": "R32",
+        "player1": {
+          "seed": "2",
+          "name": "Casper Ruud",
+          "country": "NOR"
+        },
+        "player2": {
+          "seed": "Q",
+          "name": "Daniel Elahi Galan",
+          "country": "COL"
+        },
+        "score": "6-4 6-3"
+      },
+      {
+        "round": "Q2",
+        "player1": {
+          "seed": "10",
+          "name": "Laslo Djere",
+          "country": "SRB"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Daniel Rincon",
+          "country": "ESP"
+        },
+        "score": "6-3 7-5"
+      },
+      {
+        "round": "Q2",
+        "player1": {
+          "seed": null,
+          "name": "Daniel Elahi Galan",
+          "country": "COL"
+        },
+        "player2": {
+          "seed": "7",
+          "name": "Jacob Fearnley",
+          "country": "GBR"
+        },
+        "score": "7-5 6-4"
+      },
+      {
+        "round": "Q2",
+        "player1": {
+          "seed": null,
+          "name": "Cameron Norrie",
+          "country": "GBR"
+        },
+        "player2": {
+          "seed": "3",
+          "name": "Damir Dzumhur",
+          "country": "BIH"
+        },
+        "score": "7-6(5) 7-6(6)"
+      },
+      {
+        "round": "Q2",
+        "player1": {
+          "seed": "Alt",
+          "name": "Ethan Quinn",
+          "country": "USA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Borna Coric",
+          "country": "CRO"
+        },
+        "score": "2-6 6-4 6-3"
+      },
+      {
+        "round": "Q2",
+        "player1": {
+          "seed": null,
+          "name": "Jesper De Jong",
+          "country": "NED"
+        },
+        "player2": {
+          "seed": "8",
+          "name": "Arthur Rinderknech",
+          "country": "FRA"
+        },
+        "score": "6-3 7-5"
+      },
+      {
+        "round": "Q2",
+        "player1": {
+          "seed": "6",
+          "name": "Hamad Medjedovic",
+          "country": "SRB"
+        },
+        "player2": {
+          "seed": "11",
+          "name": "Gabriel Diallo",
+          "country": "CAN"
+        },
+        "score": "6-4 6-4"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "WC",
+          "name": "Daniel Rincon",
+          "country": "ESP"
+        },
+        "player2": {
+          "seed": "1",
+          "name": "Benjamin Bonzi",
+          "country": "FRA"
+        },
+        "score": "6-2 6-4"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "10",
+          "name": "Laslo Djere",
+          "country": "SRB"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Federico Coria",
+          "country": "ARG"
+        },
+        "score": "7-5 0-0 RET"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": null,
+          "name": "Daniel Elahi Galan",
+          "country": "COL"
+        },
+        "player2": {
+          "seed": "Alt",
+          "name": "Nikoloz Basilashvili",
+          "country": "GEO"
+        },
+        "score": "6-3 6-3"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "7",
+          "name": "Jacob Fearnley",
+          "country": "GBR"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Leo Borg",
+          "country": "SWE"
+        },
+        "score": "7-5 7-6(1)"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "3",
+          "name": "Damir Dzumhur",
+          "country": "BIH"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Max Alcala Gurri",
+          "country": "ESP"
+        },
+        "score": "7-6(4) 6-0"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": null,
+          "name": "Cameron Norrie",
+          "country": "GBR"
+        },
+        "player2": {
+          "seed": "12",
+          "name": "Hugo Gaston",
+          "country": "FRA"
+        },
+        "score": "6-2 6-3"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": null,
+          "name": "Borna Coric",
+          "country": "CRO"
+        },
+        "player2": {
+          "seed": "4",
+          "name": "Mattia Bellucci",
+          "country": "ITA"
+        },
+        "score": "6-2 6-4"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "Alt",
+          "name": "Ethan Quinn",
+          "country": "USA"
+        },
+        "player2": {
+          "seed": "9",
+          "name": "Corentin Moutet",
+          "country": "FRA"
+        },
+        "score": "2-6 6-3 7-5"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": null,
+          "name": "Jesper De Jong",
+          "country": "NED"
+        },
+        "player2": {
+          "seed": "Alt",
+          "name": "Lloyd Harris",
+          "country": "RSA"
+        },
+        "score": "6-3 7-6(0)"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "8",
+          "name": "Arthur Rinderknech",
+          "country": "FRA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Jozef Kovalik",
+          "country": "SVK"
+        },
+        "score": "7-6(2) 2-6 6-3"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "6",
+          "name": "Hamad Medjedovic",
+          "country": "SRB"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Hugo Dellien",
+          "country": "BOL"
+        },
+        "score": "7-6(1) 4-6 6-3"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "11",
+          "name": "Gabriel Diallo",
+          "country": "CAN"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Martin Landaluce",
+          "country": "ESP"
+        },
+        "score": "6-2 6-4"
+      }
+    ]
+  },
+  {
+    "tournament": "ATP Munich",
+    "url": "https://www.tennisabstract.com/current/2025ATPMunich.html",
+    "upcoming": [],
+    "completed": [
+      {
+        "round": "F",
+        "player1": {
+          "seed": "1",
+          "name": "Alexander Zverev",
+          "country": "GER"
+        },
+        "player2": {
+          "seed": "2",
+          "name": "Ben Shelton",
+          "country": "USA"
+        },
+        "score": "6-2 6-4"
+      },
+      {
+        "round": "SF",
+        "player1": {
+          "seed": "1",
+          "name": "Alexander Zverev",
+          "country": "GER"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Fabian Marozsan",
+          "country": "HUN"
+        },
+        "score": "7-6(3) 6-3"
+      },
+      {
+        "round": "SF",
+        "player1": {
+          "seed": "2",
+          "name": "Ben Shelton",
+          "country": "USA"
+        },
+        "player2": {
+          "seed": "5",
+          "name": "Francisco Cerundolo",
+          "country": "ARG"
+        },
+        "score": "2-6 7-6(7) 6-4"
+      },
+      {
+        "round": "QF",
+        "player1": {
+          "seed": "1",
+          "name": "Alexander Zverev",
+          "country": "GER"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Tallon Griekspoor",
+          "country": "NED"
+        },
+        "score": "6-7(6) 7-6(3) 6-4"
+      },
+      {
+        "round": "QF",
+        "player1": {
+          "seed": null,
+          "name": "Fabian Marozsan",
+          "country": "HUN"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Zizou Bergs",
+          "country": "BEL"
+        },
+        "score": "6-3 7-6(4)"
+      },
+      {
+        "round": "QF",
+        "player1": {
+          "seed": "5",
+          "name": "Francisco Cerundolo",
+          "country": "ARG"
+        },
+        "player2": {
+          "seed": null,
+          "name": "David Goffin",
+          "country": "BEL"
+        },
+        "score": "6-2 6-4"
+      },
+      {
+        "round": "QF",
+        "player1": {
+          "seed": "2",
+          "name": "Ben Shelton",
+          "country": "USA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Luciano Darderi",
+          "country": "ITA"
+        },
+        "score": "6-4 6-3"
+      },
+      {
+        "round": "R16",
+        "player1": {
+          "seed": "1",
+          "name": "Alexander Zverev",
+          "country": "GER"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Daniel Altmaier",
+          "country": "GER"
+        },
+        "score": "6-3 6-2"
+      },
+      {
+        "round": "R16",
+        "player1": {
+          "seed": null,
+          "name": "Tallon Griekspoor",
+          "country": "NED"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Yannick Hanfmann",
+          "country": "GER"
+        },
+        "score": "7-6(3) 6-3"
+      },
+      {
+        "round": "R16",
+        "player1": {
+          "seed": null,
+          "name": "Fabian Marozsan",
+          "country": "HUN"
+        },
+        "player2": {
+          "seed": "4",
+          "name": "Ugo Humbert",
+          "country": "FRA"
+        },
+        "score": "6-4 6-4"
+      },
+      {
+        "round": "R16",
+        "player1": {
+          "seed": null,
+          "name": "Zizou Bergs",
+          "country": "BEL"
+        },
+        "player2": {
+          "seed": "LL",
+          "name": "Diego Dedura Palomero",
+          "country": "GER"
+        },
+        "score": "6-1 6-1"
+      },
+      {
+        "round": "R16",
+        "player1": {
+          "seed": "5",
+          "name": "Francisco Cerundolo",
+          "country": "ARG"
+        },
+        "player2": {
+          "seed": "LL",
+          "name": "Alexander Shevchenko",
+          "country": "KAZ"
+        },
+        "score": "6-3 6-2"
+      },
+      {
+        "round": "R16",
+        "player1": {
+          "seed": null,
+          "name": "David Goffin",
+          "country": "BEL"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Mariano Navone",
+          "country": "ARG"
+        },
+        "score": "0-6 7-5 6-1"
+      },
+      {
+        "round": "R16",
+        "player1": {
+          "seed": null,
+          "name": "Luciano Darderi",
+          "country": "ITA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Miomir Kecmanovic",
+          "country": "SRB"
+        },
+        "score": "2-6 7-6(4) 6-4"
+      },
+      {
+        "round": "R16",
+        "player1": {
+          "seed": "2",
+          "name": "Ben Shelton",
+          "country": "USA"
+        },
+        "player2": {
+          "seed": "LL",
+          "name": "Botic Van De Zandschulp",
+          "country": "NED"
+        },
+        "score": "7-6(1) 6-3"
+      },
+      {
+        "round": "R32",
+        "player1": {
+          "seed": "1",
+          "name": "Alexander Zverev",
+          "country": "GER"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Alexandre Muller",
+          "country": "FRA"
+        },
+        "score": "6-4 6-1"
+      },
+      {
+        "round": "R32",
+        "player1": {
+          "seed": "WC",
+          "name": "Daniel Altmaier",
+          "country": "GER"
+        },
+        "player2": {
+          "seed": "Q",
+          "name": "Chun Hsin Tseng",
+          "country": "TPE"
+        },
+        "score": "7-6(5) 7-6(5)"
+      },
+      {
+        "round": "R32",
+        "player1": {
+          "seed": null,
+          "name": "Tallon Griekspoor",
+          "country": "NED"
+        },
+        "player2": {
+          "seed": "Q",
+          "name": "Learner Tien",
+          "country": "USA"
+        },
+        "score": "6-4 6-2"
+      },
+      {
+        "round": "R32",
+        "player1": {
+          "seed": "WC",
+          "name": "Yannick Hanfmann",
+          "country": "GER"
+        },
+        "player2": {
+          "seed": "6",
+          "name": "Jakub Mensik",
+          "country": "CZE"
+        },
+        "score": "7-6(4) 4-6 6-3"
+      },
+      {
+        "round": "R32",
+        "player1": {
+          "seed": "4",
+          "name": "Ugo Humbert",
+          "country": "FRA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Nicolas Jarry",
+          "country": "CHI"
+        },
+        "score": "4-6 6-3 6-2"
+      },
+      {
+        "round": "R32",
+        "player1": {
+          "seed": null,
+          "name": "Fabian Marozsan",
+          "country": "HUN"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Justin Engel",
+          "country": "GER"
+        },
+        "score": "6-4 6-1"
+      },
+      {
+        "round": "R32",
+        "player1": {
+          "seed": null,
+          "name": "Zizou Bergs",
+          "country": "BEL"
+        },
+        "player2": {
+          "seed": "Q",
+          "name": "Alexander Bublik",
+          "country": "KAZ"
+        },
+        "score": "6-7(5) 6-4 7-5"
+      },
+      {
+        "round": "R32",
+        "player1": {
+          "seed": "LL",
+          "name": "Diego Dedura Palomero",
+          "country": "GER"
+        },
+        "player2": {
+          "seed": "8",
+          "name": "Denis Shapovalov",
+          "country": "CAN"
+        },
+        "score": "7-6(2) 3-0 RET"
+      },
+      {
+        "round": "R32",
+        "player1": {
+          "seed": "5",
+          "name": "Francisco Cerundolo",
+          "country": "ARG"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Jan Lennard Struff",
+          "country": "GER"
+        },
+        "score": "6-0 6-2"
+      },
+      {
+        "round": "R32",
+        "player1": {
+          "seed": "LL",
+          "name": "Alexander Shevchenko",
+          "country": "KAZ"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Flavio Cobolli",
+          "country": "ITA"
+        },
+        "score": "6-7(2) 6-3 6-4"
+      },
+      {
+        "round": "R32",
+        "player1": {
+          "seed": null,
+          "name": "David Goffin",
+          "country": "BEL"
+        },
+        "player2": {
+          "seed": "LL",
+          "name": "Billy Harris",
+          "country": "GBR"
+        },
+        "score": "6-2 6-7(2) 6-4"
+      },
+      {
+        "round": "R32",
+        "player1": {
+          "seed": null,
+          "name": "Mariano Navone",
+          "country": "ARG"
+        },
+        "player2": {
+          "seed": "3",
+          "name": "Felix Auger Aliassime",
+          "country": "CAN"
+        },
+        "score": "2-6 6-4 7-6(3)"
+      },
+      {
+        "round": "R32",
+        "player1": {
+          "seed": null,
+          "name": "Luciano Darderi",
+          "country": "ITA"
+        },
+        "player2": {
+          "seed": "LL",
+          "name": "Christopher Oconnell",
+          "country": "AUS"
+        },
+        "score": "7-6(3) 7-6(3)"
+      },
+      {
+        "round": "R32",
+        "player1": {
+          "seed": null,
+          "name": "Miomir Kecmanovic",
+          "country": "SRB"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Marcos Giron",
+          "country": "USA"
+        },
+        "score": "6-2 6-7(2) 7-6(9)"
+      },
+      {
+        "round": "R32",
+        "player1": {
+          "seed": "LL",
+          "name": "Botic Van De Zandschulp",
+          "country": "NED"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Roberto Bautista Agut",
+          "country": "ESP"
+        },
+        "score": "6-4 3-6 6-4"
+      },
+      {
+        "round": "R32",
+        "player1": {
+          "seed": "2",
+          "name": "Ben Shelton",
+          "country": "USA"
+        },
+        "player2": {
+          "seed": "Q",
+          "name": "Borna Gojo",
+          "country": "CRO"
+        },
+        "score": "4-6 7-6(6) 7-6(3)"
+      },
+      {
+        "round": "Q2",
+        "player1": {
+          "seed": "PR",
+          "name": "Borna Gojo",
+          "country": "CRO"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Alexander Shevchenko",
+          "country": "KAZ"
+        },
+        "score": "6-4 6-4"
+      },
+      {
+        "round": "Q2",
+        "player1": {
+          "seed": "2",
+          "name": "Learner Tien",
+          "country": "USA"
+        },
+        "player2": {
+          "seed": "7",
+          "name": "Botic Van De Zandschulp",
+          "country": "NED"
+        },
+        "score": "6-2 6-2"
+      },
+      {
+        "round": "Q2",
+        "player1": {
+          "seed": "3",
+          "name": "Alexander Bublik",
+          "country": "KAZ"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Diego Dedura Palomero",
+          "country": "GER"
+        },
+        "score": "6-3 6-3"
+      },
+      {
+        "round": "Q2",
+        "player1": {
+          "seed": null,
+          "name": "Chun Hsin Tseng",
+          "country": "TPE"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Billy Harris",
+          "country": "GBR"
+        },
+        "score": "4-6 7-6(5) 6-2"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "PR",
+          "name": "Borna Gojo",
+          "country": "CRO"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Daniel Masur",
+          "country": "GER"
+        },
+        "score": "6-3 7-6(6)"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": null,
+          "name": "Alexander Shevchenko",
+          "country": "KAZ"
+        },
+        "player2": {
+          "seed": "6",
+          "name": "Rinky Hijikata",
+          "country": "AUS"
+        },
+        "score": "6-4 1-6 6-3"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "2",
+          "name": "Learner Tien",
+          "country": "USA"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Henri Squire",
+          "country": "GER"
+        },
+        "score": "7-5 2-6 6-0"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "7",
+          "name": "Botic Van De Zandschulp",
+          "country": "NED"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Max Hans Rehberg",
+          "country": "GER"
+        },
+        "score": "6-3 6-1"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "3",
+          "name": "Alexander Bublik",
+          "country": "KAZ"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Alexander Ritschard",
+          "country": "SUI"
+        },
+        "score": "6-2 6-3"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "WC",
+          "name": "Diego Dedura Palomero",
+          "country": "GER"
+        },
+        "player2": {
+          "seed": "8",
+          "name": "Mackenzie Mcdonald",
+          "country": "USA"
+        },
+        "score": "6-3 6-1"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": null,
+          "name": "Chun Hsin Tseng",
+          "country": "TPE"
+        },
+        "player2": {
+          "seed": "4",
+          "name": "Christopher Oconnell",
+          "country": "AUS"
+        },
+        "score": "6-3 6-2"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": null,
+          "name": "Billy Harris",
+          "country": "GBR"
+        },
+        "player2": {
+          "seed": "5",
+          "name": "Aleksandar Vukic",
+          "country": "AUS"
+        },
+        "score": "3-6 6-3 6-4"
+      }
+    ]
+  },
+  {
+    "tournament": "ATP Madrid",
+    "url": "https://www.tennisabstract.com/current/2025ATPMadrid.html",
+    "upcoming": [
+      {
+        "round": "Q2",
+        "player1": {
+          "seed": "1",
+          "name": "Daniel Altmaier",
+          "country": "GER"
+        },
+        "player2": {
+          "seed": "24",
+          "name": "Daniel Elahi Galan",
+          "country": "COL"
+        },
+        "score": "3-2"
+      },
+      {
+        "round": "Q2",
+        "player1": {
+          "seed": "2",
+          "name": "Jacob Fearnley",
+          "country": "GBR"
+        },
+        "player2": {
+          "seed": "14",
+          "name": "Hugo Dellien",
+          "country": "BOL"
+        },
+        "score": null
+      },
+      {
+        "round": "Q2",
+        "player1": {
+          "seed": "3",
+          "name": "Gabriel Diallo",
+          "country": "CAN"
+        },
+        "player2": {
+          "seed": "20",
+          "name": "Borna Coric",
+          "country": "CRO"
+        },
+        "score": "1-0"
+      },
+      {
+        "round": "Q2",
+        "player1": {
+          "seed": "4",
+          "name": "Hugo Gaston",
+          "country": "FRA"
+        },
+        "player2": {
+          "seed": "15",
+          "name": "Luca Nardi",
+          "country": "ITA"
+        },
+        "score": null
+      },
+      {
+        "round": "Q2",
+        "player1": {
+          "seed": "5",
+          "name": "Rinky Hijikata",
+          "country": "AUS"
+        },
+        "player2": {
+          "seed": "22",
+          "name": "Fabio Fognini",
+          "country": "ITA"
+        },
+        "score": null
+      },
+      {
+        "round": "Q2",
+        "player1": {
+          "seed": "6",
+          "name": "Botic Van De Zandschulp",
+          "country": "NED"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Juan Manuel Cerundolo",
+          "country": "ARG"
+        },
+        "score": "0-2"
+      },
+      {
+        "round": "Q2",
+        "player1": {
+          "seed": "PR",
+          "name": "Borna Gojo",
+          "country": "CRO"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Jerome Kym",
+          "country": "SUI"
+        },
+        "score": null
+      },
+      {
+        "round": "Q2",
+        "player1": {
+          "seed": "8",
+          "name": "Kamil Majchrzak",
+          "country": "POL"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Elmer Moller",
+          "country": "DEN"
+        },
+        "score": null
+      },
+      {
+        "round": "Q2",
+        "player1": {
+          "seed": "9",
+          "name": "Thiago Monteiro",
+          "country": "BRA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Ethan Quinn",
+          "country": "USA"
+        },
+        "score": null
+      },
+      {
+        "round": "Q2",
+        "player1": {
+          "seed": null,
+          "name": "Tristan Boyer",
+          "country": "USA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Harold Mayot",
+          "country": "FRA"
+        },
+        "score": null
+      },
+      {
+        "round": "Q2",
+        "player1": {
+          "seed": "11",
+          "name": "Vit Kopriva",
+          "country": "CZE"
+        },
+        "player2": {
+          "seed": "23",
+          "name": "Valentin Royer",
+          "country": "FRA"
+        },
+        "score": "1-0"
+      },
+      {
+        "round": "Q2",
+        "player1": {
+          "seed": "12",
+          "name": "Dusan Lajovic",
+          "country": "SRB"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Cristian Garin",
+          "country": "CHI"
+        },
+        "score": "1-2"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Roberto Bautista Agut",
+          "country": "ESP"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Jaume Munar",
+          "country": "ESP"
+        },
+        "score": "2-1"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Nuno Borges",
+          "country": "POR"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Pablo Carreno Busta",
+          "country": "ESP"
+        },
+        "score": null
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Corentin Moutet",
+          "country": "FRA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "(q)",
+          "country": null
+        },
+        "score": null
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Francisco Comesana",
+          "country": "ARG"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Pedro Martinez",
+          "country": "ESP"
+        },
+        "score": null
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Giovanni Mpetshi Perricard",
+          "country": "FRA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Mariano Navone",
+          "country": "ARG"
+        },
+        "score": "1-0"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Roberto Carballes Baena",
+          "country": "ESP"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Jordan Thompson",
+          "country": "AUS"
+        },
+        "score": "0-1"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Alex Michelsen",
+          "country": "USA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Alexander Bublik",
+          "country": "KAZ"
+        },
+        "score": null
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Gael Monfils",
+          "country": "FRA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "(q)",
+          "country": null
+        },
+        "score": null
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Christopher Oconnell",
+          "country": "AUS"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Camilo Ugo Carabelli",
+          "country": "ARG"
+        },
+        "score": null
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Benjamin Bonzi",
+          "country": "FRA"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Marin Cilic",
+          "country": "CRO"
+        },
+        "score": "0-1"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": "WC",
+          "name": "Federico Cina",
+          "country": "ITA"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Coleman Wong",
+          "country": "HKG"
+        },
+        "score": null
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Roman Safiullin",
+          "country": "RUS"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Arthur Rinderknech",
+          "country": "FRA"
+        },
+        "score": "2-0"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Laslo Djere",
+          "country": "SRB"
+        },
+        "player2": {
+          "seed": null,
+          "name": "(q)",
+          "country": null
+        },
+        "score": null
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Aleksandar Kovacevic",
+          "country": "USA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "(q)",
+          "country": null
+        },
+        "score": null
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": "PR",
+          "name": "Sebastian Ofner",
+          "country": "AUT"
+        },
+        "player2": {
+          "seed": null,
+          "name": "(q)",
+          "country": null
+        },
+        "score": null
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Fabian Marozsan",
+          "country": "HUN"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Flavio Cobolli",
+          "country": "ITA"
+        },
+        "score": "1-0"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Tallon Griekspoor",
+          "country": "NED"
+        },
+        "player2": {
+          "seed": null,
+          "name": "(q)",
+          "country": null
+        },
+        "score": null
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Learner Tien",
+          "country": "USA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Marcos Giron",
+          "country": "USA"
+        },
+        "score": null
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": "PR",
+          "name": "Reilly Opelka",
+          "country": "USA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "(q)",
+          "country": null
+        },
+        "score": null
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Joao Fonseca",
+          "country": "BRA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "(q)",
+          "country": null
+        },
+        "score": null
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Quentin Halys",
+          "country": "FRA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Luciano Darderi",
+          "country": "ITA"
+        },
+        "score": null
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "David Goffin",
+          "country": "BEL"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Alexandre Muller",
+          "country": "FRA"
+        },
+        "score": null
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Damir Dzumhur",
+          "country": "BIH"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Mattia Bellucci",
+          "country": "ITA"
+        },
+        "score": "0-1"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Matteo Arnaldi",
+          "country": "ITA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "(q)",
+          "country": null
+        },
+        "score": null
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Lorenzo Sonego",
+          "country": "ITA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Miomir Kecmanovic",
+          "country": "SRB"
+        },
+        "score": "4-2"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Aleksandar Vukic",
+          "country": "AUS"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Kei Nishikori",
+          "country": "JPN"
+        },
+        "score": null
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Jan Lennard Struff",
+          "country": "GER"
+        },
+        "player2": {
+          "seed": null,
+          "name": "(q)",
+          "country": null
+        },
+        "score": null
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Tomas Martin Etcheverry",
+          "country": "ARG"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Hamad Medjedovic",
+          "country": "SRB"
+        },
+        "score": "1-0"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Nicolas Jarry",
+          "country": "CHI"
+        },
+        "player2": {
+          "seed": null,
+          "name": "(q)",
+          "country": null
+        },
+        "score": null
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Bu Yunchaokete",
+          "country": "CHN"
+        },
+        "player2": {
+          "seed": null,
+          "name": "(q)",
+          "country": null
+        },
+        "score": null
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": "WC",
+          "name": "Martin Landaluce",
+          "country": "ESP"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Cameron Norrie",
+          "country": "GBR"
+        },
+        "score": null
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Zizou Bergs",
+          "country": "BEL"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Yoshihito Nishioka",
+          "country": "JPN"
+        },
+        "score": null
+      }
+    ],
+    "completed": [
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "1",
+          "name": "Daniel Altmaier",
+          "country": "GER"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Luca Van Assche",
+          "country": "FRA"
+        },
+        "score": "7-6(10) 6-4"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "24",
+          "name": "Daniel Elahi Galan",
+          "country": "COL"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Diego Dedura Palomero",
+          "country": "GER"
+        },
+        "score": "6-7(7) 6-4 6-1"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "2",
+          "name": "Jacob Fearnley",
+          "country": "GBR"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Pavel Kotov",
+          "country": "RUS"
+        },
+        "score": "4-6 6-4 6-1"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "14",
+          "name": "Hugo Dellien",
+          "country": "BOL"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Adrian Mannarino",
+          "country": "FRA"
+        },
+        "score": "6-3 7-6(8)"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "3",
+          "name": "Gabriel Diallo",
+          "country": "CAN"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Nicolas Moreno De Alboran",
+          "country": "USA"
+        },
+        "score": "6-3 6-3"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "20",
+          "name": "Borna Coric",
+          "country": "CRO"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Otto Virtanen",
+          "country": "FIN"
+        },
+        "score": "6-7(1) 7-5 6-2"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "4",
+          "name": "Hugo Gaston",
+          "country": "FRA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Yannick Hanfmann",
+          "country": "GER"
+        },
+        "score": "7-6(6) 4-6 6-4"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "15",
+          "name": "Luca Nardi",
+          "country": "ITA"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Manas Dhamne",
+          "country": "IND"
+        },
+        "score": "6-4 6-4"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "5",
+          "name": "Rinky Hijikata",
+          "country": "AUS"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Lloyd Harris",
+          "country": "RSA"
+        },
+        "score": "6-4 6-7(11) 4-1 RET"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "22",
+          "name": "Fabio Fognini",
+          "country": "ITA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Alexander Ritschard",
+          "country": "SUI"
+        },
+        "score": "6-1 7-6(6)"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "6",
+          "name": "Botic Van De Zandschulp",
+          "country": "NED"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Moise Kouame",
+          "country": "FRA"
+        },
+        "score": "6-3 6-2"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": null,
+          "name": "Juan Manuel Cerundolo",
+          "country": "ARG"
+        },
+        "player2": {
+          "seed": "21",
+          "name": "Thiago Seyboth Wild",
+          "country": "BRA"
+        },
+        "score": "6-4 6-4"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "PR",
+          "name": "Borna Gojo",
+          "country": "CRO"
+        },
+        "player2": {
+          "seed": "7",
+          "name": "Marton Fucsovics",
+          "country": "HUN"
+        },
+        "score": "2-6 6-3 6-2"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": null,
+          "name": "Jerome Kym",
+          "country": "SUI"
+        },
+        "player2": {
+          "seed": "13",
+          "name": "Mackenzie Mcdonald",
+          "country": "USA"
+        },
+        "score": "4-6 0-2 RET"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "8",
+          "name": "Kamil Majchrzak",
+          "country": "POL"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Darwin Blanch",
+          "country": "USA"
+        },
+        "score": "6-1 6-4"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": null,
+          "name": "Elmer Moller",
+          "country": "DEN"
+        },
+        "player2": {
+          "seed": "19",
+          "name": "Nishesh Basavareddy",
+          "country": "USA"
+        },
+        "score": "6-1 6-1"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "9",
+          "name": "Thiago Monteiro",
+          "country": "BRA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Mitchell Krueger",
+          "country": "USA"
+        },
+        "score": "7-5 6-3"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": null,
+          "name": "Ethan Quinn",
+          "country": "USA"
+        },
+        "player2": {
+          "seed": "18",
+          "name": "Billy Harris",
+          "country": "GBR"
+        },
+        "score": "6-3 6-4"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": null,
+          "name": "Tristan Boyer",
+          "country": "USA"
+        },
+        "player2": {
+          "seed": "10",
+          "name": "Jesper De Jong",
+          "country": "NED"
+        },
+        "score": "3-6 7-6(4) 6-4"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": null,
+          "name": "Harold Mayot",
+          "country": "FRA"
+        },
+        "player2": {
+          "seed": "17",
+          "name": "Alexander Shevchenko",
+          "country": "KAZ"
+        },
+        "score": "6-2 7-5"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "11",
+          "name": "Vit Kopriva",
+          "country": "CZE"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Roman Andres Burruchaga",
+          "country": "ARG"
+        },
+        "score": "7-5 5-7 6-4"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "23",
+          "name": "Valentin Royer",
+          "country": "FRA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Taro Daniel",
+          "country": "JPN"
+        },
+        "score": "6-3 6-2"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "12",
+          "name": "Dusan Lajovic",
+          "country": "SRB"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Thiago Agustin Tirante",
+          "country": "ARG"
+        },
+        "score": "6-3 7-6(6)"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": null,
+          "name": "Cristian Garin",
+          "country": "CHI"
+        },
+        "player2": {
+          "seed": "16",
+          "name": "Chun Hsin Tseng",
+          "country": "TPE"
+        },
+        "score": "2-6 6-3 7-5"
+      }
+    ]
+  },
+  {
+    "tournament": "WTA Stuttgart",
+    "url": "https://www.tennisabstract.com/current/2025WTAStuttgart.html",
+    "upcoming": [],
+    "completed": [
+      {
+        "round": "F",
+        "player1": {
+          "seed": null,
+          "name": "Jelena Ostapenko",
+          "country": "LAT"
+        },
+        "player2": {
+          "seed": "1",
+          "name": "Aryna Sabalenka",
+          "country": "BLR"
+        },
+        "score": "64 61"
+      },
+      {
+        "round": "SF",
+        "player1": {
+          "seed": "1",
+          "name": "Aryna Sabalenka",
+          "country": "BLR"
+        },
+        "player2": {
+          "seed": "5",
+          "name": "Jasmine Paolini",
+          "country": "ITA"
+        },
+        "score": "75 64"
+      },
+      {
+        "round": "SF",
+        "player1": {
+          "seed": null,
+          "name": "Jelena Ostapenko",
+          "country": "LAT"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Ekaterina Alexandrova",
+          "country": "RUS"
+        },
+        "score": "64 64"
+      },
+      {
+        "round": "QF",
+        "player1": {
+          "seed": "1",
+          "name": "Aryna Sabalenka",
+          "country": "BLR"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Elise Mertens",
+          "country": "BEL"
+        },
+        "score": "64 61"
+      },
+      {
+        "round": "QF",
+        "player1": {
+          "seed": "5",
+          "name": "Jasmine Paolini",
+          "country": "ITA"
+        },
+        "player2": {
+          "seed": "4",
+          "name": "Coco Gauff",
+          "country": "USA"
+        },
+        "score": "64 63"
+      },
+      {
+        "round": "QF",
+        "player1": {
+          "seed": null,
+          "name": "Ekaterina Alexandrova",
+          "country": "RUS"
+        },
+        "player2": {
+          "seed": "3",
+          "name": "Jessica Pegula",
+          "country": "USA"
+        },
+        "score": "60 64"
+      },
+      {
+        "round": "QF",
+        "player1": {
+          "seed": null,
+          "name": "Jelena Ostapenko",
+          "country": "LAT"
+        },
+        "player2": {
+          "seed": "2",
+          "name": "Iga Swiatek",
+          "country": "POL"
+        },
+        "score": "63 36 62"
+      },
+      {
+        "round": "R2",
+        "player1": {
+          "seed": "1",
+          "name": "Aryna Sabalenka",
+          "country": "BLR"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Anastasia Potapova (RUS) W/O",
+          "country": null
+        },
+        "score": null
+      },
+      {
+        "round": "R2",
+        "player1": {
+          "seed": null,
+          "name": "Elise Mertens",
+          "country": "BEL"
+        },
+        "player2": {
+          "seed": "8",
+          "name": "Diana Shnaider",
+          "country": "RUS"
+        },
+        "score": "62 76(5)"
+      },
+      {
+        "round": "R2",
+        "player1": {
+          "seed": "4",
+          "name": "Coco Gauff",
+          "country": "USA"
+        },
+        "player2": {
+          "seed": "LL",
+          "name": "Ella Seidel",
+          "country": "GER"
+        },
+        "score": "61 61"
+      },
+      {
+        "round": "R2",
+        "player1": {
+          "seed": "5",
+          "name": "Jasmine Paolini",
+          "country": "ITA"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Jule Niemeier",
+          "country": "GER"
+        },
+        "score": "61 75"
+      },
+      {
+        "round": "R2",
+        "player1": {
+          "seed": null,
+          "name": "Ekaterina Alexandrova",
+          "country": "RUS"
+        },
+        "player2": {
+          "seed": "6",
+          "name": "Mirra Andreeva",
+          "country": "RUS"
+        },
+        "score": "63 62"
+      },
+      {
+        "round": "R2",
+        "player1": {
+          "seed": "3",
+          "name": "Jessica Pegula",
+          "country": "USA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Magdalena Frech",
+          "country": "POL"
+        },
+        "score": "61 61"
+      },
+      {
+        "round": "R2",
+        "player1": {
+          "seed": null,
+          "name": "Jelena Ostapenko",
+          "country": "LAT"
+        },
+        "player2": {
+          "seed": "7",
+          "name": "Emma Navarro",
+          "country": "USA"
+        },
+        "score": "75 36 62"
+      },
+      {
+        "round": "R2",
+        "player1": {
+          "seed": "2",
+          "name": "Iga Swiatek",
+          "country": "POL"
+        },
+        "player2": {
+          "seed": "Q",
+          "name": "Jana Fett",
+          "country": "CRO"
+        },
+        "score": "62 62"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Anastasia Potapova",
+          "country": "RUS"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Clara Tauson",
+          "country": "DEN"
+        },
+        "score": "26 76(8) 63"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Elise Mertens",
+          "country": "BEL"
+        },
+        "player2": {
+          "seed": "Q",
+          "name": "Aliaksandra Sasnovich",
+          "country": "BLR"
+        },
+        "score": "76(3) 62"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": "8",
+          "name": "Diana Shnaider",
+          "country": "RUS"
+        },
+        "player2": {
+          "seed": "Q",
+          "name": "Veronika Kudermetova",
+          "country": "RUS"
+        },
+        "score": "57 62 63"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": "LL",
+          "name": "Ella Seidel",
+          "country": "GER"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Tatjana Maria",
+          "country": "GER"
+        },
+        "score": "36 76(2) 64"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": "WC",
+          "name": "Jule Niemeier",
+          "country": "GER"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Laura Siegemund",
+          "country": "GER"
+        },
+        "score": "46 63 64"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": "5",
+          "name": "Jasmine Paolini",
+          "country": "ITA"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Eva Lys",
+          "country": "GER"
+        },
+        "score": "62 61"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": "6",
+          "name": "Mirra Andreeva",
+          "country": "RUS"
+        },
+        "player2": {
+          "seed": "LL",
+          "name": "Erika Andreeva",
+          "country": "RUS"
+        },
+        "score": "62 10 RET"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Ekaterina Alexandrova",
+          "country": "RUS"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Liudmila Samsonova",
+          "country": "RUS"
+        },
+        "score": "63 63"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Magdalena Frech",
+          "country": "POL"
+        },
+        "player2": {
+          "seed": "LL",
+          "name": "Sara Errani",
+          "country": "ITA"
+        },
+        "score": "75 46 76(5)"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": "7",
+          "name": "Emma Navarro",
+          "country": "USA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Beatriz Haddad Maia",
+          "country": "BRA"
+        },
+        "score": "63 60"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Jelena Ostapenko",
+          "country": "LAT"
+        },
+        "player2": {
+          "seed": "Q",
+          "name": "Dayana Yastremska",
+          "country": "UKR"
+        },
+        "score": "63 30 RET"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": "Q",
+          "name": "Jana Fett",
+          "country": "CRO"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Donna Vekic",
+          "country": "CRO"
+        },
+        "score": "76(2) 64"
+      },
+      {
+        "round": "Q2",
+        "player1": {
+          "seed": "1",
+          "name": "Dayana Yastremska",
+          "country": "UKR"
+        },
+        "player2": {
+          "seed": "6",
+          "name": "Ella Seidel",
+          "country": "GER"
+        },
+        "score": "63 64"
+      },
+      {
+        "round": "Q2",
+        "player1": {
+          "seed": "2",
+          "name": "Veronika Kudermetova",
+          "country": "RUS"
+        },
+        "player2": {
+          "seed": "8",
+          "name": "Sara Errani",
+          "country": "ITA"
+        },
+        "score": "61 62"
+      },
+      {
+        "round": "Q2",
+        "player1": {
+          "seed": "5",
+          "name": "Aliaksandra Sasnovich",
+          "country": "BLR"
+        },
+        "player2": {
+          "seed": "3",
+          "name": "Erika Andreeva",
+          "country": "RUS"
+        },
+        "score": "61 64"
+      },
+      {
+        "round": "Q2",
+        "player1": {
+          "seed": null,
+          "name": "Jana Fett",
+          "country": "CRO"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Rebeka Masarova",
+          "country": "ESP"
+        },
+        "score": "67(5) 76(4) 76(5)"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "1",
+          "name": "Dayana Yastremska",
+          "country": "UKR"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Ana Konjuh",
+          "country": "CRO"
+        },
+        "score": "61 64"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "6",
+          "name": "Ella Seidel",
+          "country": "GER"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Yanina Wickmayer",
+          "country": "BEL"
+        },
+        "score": "61 64"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "2",
+          "name": "Veronika Kudermetova",
+          "country": "RUS"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Kathinka Von Deichmann",
+          "country": "LIE"
+        },
+        "score": "63 62"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "8",
+          "name": "Sara Errani",
+          "country": "ITA"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Nastasja Schunk",
+          "country": "GER"
+        },
+        "score": "26 64 63"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "3",
+          "name": "Erika Andreeva",
+          "country": "RUS"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Mariella Thamm",
+          "country": "GER"
+        },
+        "score": "63 64"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "5",
+          "name": "Aliaksandra Sasnovich",
+          "country": "BLR"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Louisa Chirico",
+          "country": "USA"
+        },
+        "score": "60 64"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": null,
+          "name": "Jana Fett",
+          "country": "CRO"
+        },
+        "player2": {
+          "seed": "4",
+          "name": "Yuliia Starodubtseva",
+          "country": "UKR"
+        },
+        "score": "76(4) 63"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": null,
+          "name": "Rebeka Masarova",
+          "country": "ESP"
+        },
+        "player2": {
+          "seed": null,
+          "name": "(ALT)Shuai Zhang",
+          "country": "CHN"
+        },
+        "score": "62 61"
+      }
+    ]
+  },
+  {
+    "tournament": "WTA Rouen",
+    "url": "https://www.tennisabstract.com/current/2025WTARouen.html",
+    "upcoming": [],
+    "completed": [
+      {
+        "round": "F",
+        "player1": {
+          "seed": "1",
+          "name": "Elina Svitolina",
+          "country": "UKR"
+        },
+        "player2": {
+          "seed": "3",
+          "name": "Olga Danilovic",
+          "country": "SRB"
+        },
+        "score": "64 76(8)"
+      },
+      {
+        "round": "SF",
+        "player1": {
+          "seed": "1",
+          "name": "Elina Svitolina",
+          "country": "UKR"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Elena Gabriela Ruse",
+          "country": "ROU"
+        },
+        "score": "60 62"
+      },
+      {
+        "round": "SF",
+        "player1": {
+          "seed": "3",
+          "name": "Olga Danilovic",
+          "country": "SRB"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Suzan Lamens",
+          "country": "NED"
+        },
+        "score": "64 64"
+      },
+      {
+        "round": "QF",
+        "player1": {
+          "seed": "1",
+          "name": "Elina Svitolina",
+          "country": "UKR"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Jessica Bouzas Maneiro",
+          "country": "ESP"
+        },
+        "score": "63 62"
+      },
+      {
+        "round": "QF",
+        "player1": {
+          "seed": null,
+          "name": "Elena Gabriela Ruse",
+          "country": "ROU"
+        },
+        "player2": {
+          "seed": "LL",
+          "name": "Jessika Ponchet",
+          "country": "FRA"
+        },
+        "score": "62 62"
+      },
+      {
+        "round": "QF",
+        "player1": {
+          "seed": "3",
+          "name": "Olga Danilovic",
+          "country": "SRB"
+        },
+        "player2": {
+          "seed": "5",
+          "name": "Moyuka Uchijima",
+          "country": "JPN"
+        },
+        "score": "76(9) 46 61"
+      },
+      {
+        "round": "QF",
+        "player1": {
+          "seed": null,
+          "name": "Suzan Lamens",
+          "country": "NED"
+        },
+        "player2": {
+          "seed": "Q",
+          "name": "Tiantsoa Sarah Rakotomanga Rajaonah",
+          "country": "FRA"
+        },
+        "score": "63 63"
+      },
+      {
+        "round": "R2",
+        "player1": {
+          "seed": "1",
+          "name": "Elina Svitolina",
+          "country": "UKR"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Anhelina Kalinina",
+          "country": "UKR"
+        },
+        "score": "64 60"
+      },
+      {
+        "round": "R2",
+        "player1": {
+          "seed": null,
+          "name": "Jessica Bouzas Maneiro",
+          "country": "ESP"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Varvara Gracheva",
+          "country": "FRA"
+        },
+        "score": "63 63"
+      },
+      {
+        "round": "R2",
+        "player1": {
+          "seed": "LL",
+          "name": "Jessika Ponchet",
+          "country": "FRA"
+        },
+        "player2": {
+          "seed": "Q",
+          "name": "Fiona Ferro",
+          "country": "FRA"
+        },
+        "score": "76(4) 64"
+      },
+      {
+        "round": "R2",
+        "player1": {
+          "seed": null,
+          "name": "Elena Gabriela Ruse",
+          "country": "ROU"
+        },
+        "player2": {
+          "seed": "Q",
+          "name": "Camilla Rosatello",
+          "country": "ITA"
+        },
+        "score": "60 64"
+      },
+      {
+        "round": "R2",
+        "player1": {
+          "seed": "5",
+          "name": "Moyuka Uchijima",
+          "country": "JPN"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Lois Boisson",
+          "country": "FRA"
+        },
+        "score": "16 76(4) 64"
+      },
+      {
+        "round": "R2",
+        "player1": {
+          "seed": "3",
+          "name": "Olga Danilovic",
+          "country": "SRB"
+        },
+        "player2": {
+          "seed": "LL",
+          "name": "Linda Fruhvirtova",
+          "country": "CZE"
+        },
+        "score": "62 36 64"
+      },
+      {
+        "round": "R2",
+        "player1": {
+          "seed": "Q",
+          "name": "Tiantsoa Sarah Rakotomanga Rajaonah",
+          "country": "FRA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Jaqueline Cristian",
+          "country": "ROU"
+        },
+        "score": "62 63"
+      },
+      {
+        "round": "R2",
+        "player1": {
+          "seed": null,
+          "name": "Suzan Lamens",
+          "country": "NED"
+        },
+        "player2": {
+          "seed": "2",
+          "name": "Linda Noskova",
+          "country": "CZE"
+        },
+        "score": "64 61"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": "1",
+          "name": "Elina Svitolina",
+          "country": "UKR"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Jil Teichmann",
+          "country": "SUI"
+        },
+        "score": "64 62"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Anhelina Kalinina",
+          "country": "UKR"
+        },
+        "player2": {
+          "seed": "Q",
+          "name": "Nao Hibino",
+          "country": "JPN"
+        },
+        "score": "60 64"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Jessica Bouzas Maneiro",
+          "country": "ESP"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Maria Sakkari",
+          "country": "GRE"
+        },
+        "score": "60 36 63"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Varvara Gracheva",
+          "country": "FRA"
+        },
+        "player2": {
+          "seed": "8",
+          "name": "Sonay Kartal",
+          "country": "GBR"
+        },
+        "score": "63 62"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": "Q",
+          "name": "Fiona Ferro",
+          "country": "FRA"
+        },
+        "player2": {
+          "seed": "4",
+          "name": "Mccartney Kessler",
+          "country": "USA"
+        },
+        "score": "67(8) 62 75"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": "LL",
+          "name": "Jessika Ponchet",
+          "country": "FRA"
+        },
+        "player2": {
+          "seed": "Q",
+          "name": "Margaux Rouvroy",
+          "country": "FRA"
+        },
+        "score": "62 64"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Elena Gabriela Ruse",
+          "country": "ROU"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Elsa Jacquemot",
+          "country": "FRA"
+        },
+        "score": "16 61 64"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": "Q",
+          "name": "Camilla Rosatello",
+          "country": "ITA"
+        },
+        "player2": {
+          "seed": "6",
+          "name": "Alycia Parks",
+          "country": "USA"
+        },
+        "score": "62 63"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": "5",
+          "name": "Moyuka Uchijima",
+          "country": "JPN"
+        },
+        "player2": {
+          "seed": "LL",
+          "name": "Nuria Brancaccio",
+          "country": "ITA"
+        },
+        "score": "36 62 61"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": "WC",
+          "name": "Lois Boisson",
+          "country": "FRA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Harriet Dart",
+          "country": "GBR"
+        },
+        "score": "60 63"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": "LL",
+          "name": "Linda Fruhvirtova",
+          "country": "CZE"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Anna Blinkova",
+          "country": "RUS"
+        },
+        "score": "67(5) 64 75"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": "3",
+          "name": "Olga Danilovic",
+          "country": "SRB"
+        },
+        "player2": {
+          "seed": "Q",
+          "name": "Aleksandra Krunic",
+          "country": "SRB"
+        },
+        "score": "57 60 63"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": "Q",
+          "name": "Tiantsoa Sarah Rakotomanga Rajaonah",
+          "country": "FRA"
+        },
+        "player2": {
+          "seed": "7",
+          "name": "Lucia Bronzetti",
+          "country": "ITA"
+        },
+        "score": "62 63"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Jaqueline Cristian",
+          "country": "ROU"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Diane Parry",
+          "country": "FRA"
+        },
+        "score": "64 63"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Suzan Lamens",
+          "country": "NED"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Bianca Andreescu",
+          "country": "CAN"
+        },
+        "score": "61 46 76(2)"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": "2",
+          "name": "Linda Noskova",
+          "country": "CZE"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Bernarda Pera",
+          "country": "USA"
+        },
+        "score": "46 76(5) 64"
+      },
+      {
+        "round": "Q2",
+        "player1": {
+          "seed": "9",
+          "name": "Tiantsoa Sarah Rakotomanga Rajaonah",
+          "country": "FRA"
+        },
+        "player2": {
+          "seed": "1",
+          "name": "Jessika Ponchet",
+          "country": "FRA"
+        },
+        "score": "76(1) 64"
+      },
+      {
+        "round": "Q2",
+        "player1": {
+          "seed": "8",
+          "name": "Aleksandra Krunic",
+          "country": "SRB"
+        },
+        "player2": {
+          "seed": "2",
+          "name": "Linda Fruhvirtova",
+          "country": "CZE"
+        },
+        "score": "67(6) 75 63"
+      },
+      {
+        "round": "Q2",
+        "player1": {
+          "seed": null,
+          "name": "Fiona Ferro",
+          "country": "FRA"
+        },
+        "player2": {
+          "seed": "3",
+          "name": "Manon Leonard",
+          "country": "FRA"
+        },
+        "score": "75 62"
+      },
+      {
+        "round": "Q2",
+        "player1": {
+          "seed": "10",
+          "name": "Camilla Rosatello",
+          "country": "ITA"
+        },
+        "player2": {
+          "seed": "4",
+          "name": "Nuria Brancaccio",
+          "country": "ITA"
+        },
+        "score": "62 26 63"
+      },
+      {
+        "round": "Q2",
+        "player1": {
+          "seed": "5",
+          "name": "Nao Hibino",
+          "country": "JPN"
+        },
+        "player2": {
+          "seed": "12",
+          "name": "Tina Nadine Smith",
+          "country": "AUS"
+        },
+        "score": "64 64"
+      },
+      {
+        "round": "Q2",
+        "player1": {
+          "seed": "7",
+          "name": "Margaux Rouvroy",
+          "country": "FRA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Tiphanie Fiquet",
+          "country": "FRA"
+        },
+        "score": "61 63"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "1",
+          "name": "Jessika Ponchet",
+          "country": "FRA"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Astrid Lew Yan Foon",
+          "country": "FRA"
+        },
+        "score": "64 46 63"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "9",
+          "name": "Tiantsoa Sarah Rakotomanga Rajaonah",
+          "country": "FRA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Emily Appleton",
+          "country": "GBR"
+        },
+        "score": "62 76(0)"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "2",
+          "name": "Linda Fruhvirtova",
+          "country": "CZE"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Jessica Pieri",
+          "country": "ITA"
+        },
+        "score": "46 62 60"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "8",
+          "name": "Aleksandra Krunic",
+          "country": "SRB"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Lara Salden",
+          "country": "BEL"
+        },
+        "score": "75 64"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "3",
+          "name": "Manon Leonard",
+          "country": "FRA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Dalila Spiteri",
+          "country": "ITA"
+        },
+        "score": "64 75"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": null,
+          "name": "Fiona Ferro",
+          "country": "FRA"
+        },
+        "player2": {
+          "seed": "11",
+          "name": "Emeline Dartron",
+          "country": "FRA"
+        },
+        "score": "36 76(0) 61"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "4",
+          "name": "Nuria Brancaccio",
+          "country": "ITA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Nahia Berecoechea",
+          "country": "FRA"
+        },
+        "score": "46 75 61"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "10",
+          "name": "Camilla Rosatello",
+          "country": "ITA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Diana Martynov",
+          "country": "FRA"
+        },
+        "score": "63 75"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "5",
+          "name": "Nao Hibino",
+          "country": "JPN"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Yasmine Mansouri",
+          "country": "FRA"
+        },
+        "score": "57 64 75"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "12",
+          "name": "Tina Nadine Smith",
+          "country": "AUS"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Nadiya Kolb",
+          "country": "UKR"
+        },
+        "score": "63 62"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": null,
+          "name": "Tiphanie Fiquet",
+          "country": "FRA"
+        },
+        "player2": {
+          "seed": "6",
+          "name": "Carol Zhao",
+          "country": "CAN"
+        },
+        "score": "64 62"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "7",
+          "name": "Margaux Rouvroy",
+          "country": "FRA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Ekaterina Yashina",
+          "country": "RUS"
+        },
+        "score": "63 62"
+      }
+    ]
+  },
+  {
+    "tournament": "WTA Oeiras 125",
+    "url": "https://www.tennisabstract.com/current/2025WTAOeiras125.html",
+    "upcoming": [],
+    "completed": [
+      {
+        "round": "F",
+        "player1": {
+          "seed": null,
+          "name": "Dalma Galfi",
+          "country": "HUN"
+        },
+        "player2": {
+          "seed": "2",
+          "name": "Katie Volynets",
+          "country": "USA"
+        },
+        "score": "46 61 62"
+      },
+      {
+        "round": "SF",
+        "player1": {
+          "seed": null,
+          "name": "Dalma Galfi",
+          "country": "HUN"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Varvara Lepchenko",
+          "country": "USA"
+        },
+        "score": "64 63"
+      },
+      {
+        "round": "SF",
+        "player1": {
+          "seed": "2",
+          "name": "Katie Volynets",
+          "country": "USA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Simona Waltert",
+          "country": "SUI"
+        },
+        "score": "61 64"
+      },
+      {
+        "round": "QF",
+        "player1": {
+          "seed": null,
+          "name": "Dalma Galfi",
+          "country": "HUN"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Panna Udvardy",
+          "country": "HUN"
+        },
+        "score": "76(8) 61"
+      },
+      {
+        "round": "QF",
+        "player1": {
+          "seed": null,
+          "name": "Varvara Lepchenko",
+          "country": "USA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Elena Pridankina",
+          "country": "RUS"
+        },
+        "score": "63 46 62"
+      },
+      {
+        "round": "QF",
+        "player1": {
+          "seed": null,
+          "name": "Simona Waltert",
+          "country": "SUI"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Nina Stojanovic",
+          "country": "SRB"
+        },
+        "score": "64 76(5)"
+      },
+      {
+        "round": "QF",
+        "player1": {
+          "seed": "2",
+          "name": "Katie Volynets",
+          "country": "USA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Victoria Jimenez Kasintseva",
+          "country": "AND"
+        },
+        "score": "62 61"
+      },
+      {
+        "round": "R2",
+        "player1": {
+          "seed": null,
+          "name": "Panna Udvardy",
+          "country": "HUN"
+        },
+        "player2": {
+          "seed": "1",
+          "name": "Alexandra Eala",
+          "country": "PHI"
+        },
+        "score": "76(4) 64"
+      },
+      {
+        "round": "R2",
+        "player1": {
+          "seed": null,
+          "name": "Dalma Galfi",
+          "country": "HUN"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Sara Saito",
+          "country": "JPN"
+        },
+        "score": "61 62"
+      },
+      {
+        "round": "R2",
+        "player1": {
+          "seed": null,
+          "name": "Elena Pridankina",
+          "country": "RUS"
+        },
+        "player2": {
+          "seed": "4",
+          "name": "Anna Bondar",
+          "country": "HUN"
+        },
+        "score": "62 26 60"
+      },
+      {
+        "round": "R2",
+        "player1": {
+          "seed": null,
+          "name": "Varvara Lepchenko",
+          "country": "USA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Sinja Kraus",
+          "country": "AUT"
+        },
+        "score": "75 62"
+      },
+      {
+        "round": "R2",
+        "player1": {
+          "seed": null,
+          "name": "Nina Stojanovic",
+          "country": "SRB"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Francesca Jones",
+          "country": "GBR"
+        },
+        "score": "26 63 75"
+      },
+      {
+        "round": "R2",
+        "player1": {
+          "seed": null,
+          "name": "Simona Waltert",
+          "country": "SUI"
+        },
+        "player2": {
+          "seed": "3",
+          "name": "Elisabetta Cocciaretto",
+          "country": "ITA"
+        },
+        "score": "63 36 63"
+      },
+      {
+        "round": "R2",
+        "player1": {
+          "seed": null,
+          "name": "Victoria Jimenez Kasintseva",
+          "country": "AND"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Lola Radivojevic",
+          "country": "SRB"
+        },
+        "score": "76(2) 46 63"
+      },
+      {
+        "round": "R2",
+        "player1": {
+          "seed": "2",
+          "name": "Katie Volynets",
+          "country": "USA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Tamara Zidansek",
+          "country": "SLO"
+        },
+        "score": "64 63"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": "1",
+          "name": "Alexandra Eala",
+          "country": "PHI"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Anouk Koevermans",
+          "country": "NED"
+        },
+        "score": "63 64"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Panna Udvardy",
+          "country": "HUN"
+        },
+        "player2": {
+          "seed": "Q",
+          "name": "Lian Tran",
+          "country": "NED"
+        },
+        "score": "61 63"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Sara Saito",
+          "country": "JPN"
+        },
+        "player2": {
+          "seed": "Q",
+          "name": "Jesika Maleckova",
+          "country": "CZE"
+        },
+        "score": "16 76(4) 62"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Dalma Galfi",
+          "country": "HUN"
+        },
+        "player2": {
+          "seed": "8",
+          "name": "Maja Chwalinska",
+          "country": "POL"
+        },
+        "score": "64 75"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": "4",
+          "name": "Anna Bondar",
+          "country": "HUN"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Francisca Jorge",
+          "country": "POR"
+        },
+        "score": "64 75"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Elena Pridankina",
+          "country": "RUS"
+        },
+        "player2": {
+          "seed": "LL",
+          "name": "Carson Branstine",
+          "country": "USA"
+        },
+        "score": "64 62"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Sinja Kraus",
+          "country": "AUT"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Dominika Salkova",
+          "country": "CZE"
+        },
+        "score": "63 62"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Varvara Lepchenko",
+          "country": "USA"
+        },
+        "player2": {
+          "seed": "Q",
+          "name": "Alevtina Ibragimova",
+          "country": "RUS"
+        },
+        "score": "75 63"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Francesca Jones",
+          "country": "GBR"
+        },
+        "player2": {
+          "seed": "Q",
+          "name": "Noma Noha Akugue",
+          "country": "GER"
+        },
+        "score": "67(5) 61 64"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Nina Stojanovic",
+          "country": "SRB"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Angelina Voloshchuk",
+          "country": "POR"
+        },
+        "score": "75 62"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Simona Waltert",
+          "country": "SUI"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Matilde Jorge",
+          "country": "POR"
+        },
+        "score": "64 46 64"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": "3",
+          "name": "Elisabetta Cocciaretto",
+          "country": "ITA"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Ines Murta",
+          "country": "POR"
+        },
+        "score": "63 60"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Victoria Jimenez Kasintseva",
+          "country": "AND"
+        },
+        "player2": {
+          "seed": "5",
+          "name": "Yue Yuan",
+          "country": "CHN"
+        },
+        "score": "46 63 76(4)"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Lola Radivojevic",
+          "country": "SRB"
+        },
+        "player2": {
+          "seed": "LL",
+          "name": "Patricia Maria Tig",
+          "country": "ROU"
+        },
+        "score": "64 61"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": null,
+          "name": "Tamara Zidansek",
+          "country": "SLO"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Mona Barthel",
+          "country": "GER"
+        },
+        "score": "76(5) 76(2)"
+      },
+      {
+        "round": "R1",
+        "player1": {
+          "seed": "2",
+          "name": "Katie Volynets",
+          "country": "USA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Georgia Pedone",
+          "country": "ITA"
+        },
+        "score": "62 61"
+      },
+      {
+        "round": "Q2",
+        "player1": {
+          "seed": "7",
+          "name": "Lian Tran",
+          "country": "NED"
+        },
+        "player2": {
+          "seed": "1",
+          "name": "Carson Branstine",
+          "country": "USA"
+        },
+        "score": "62 36 63"
+      },
+      {
+        "round": "Q2",
+        "player1": {
+          "seed": "8",
+          "name": "Jesika Maleckova",
+          "country": "CZE"
+        },
+        "player2": {
+          "seed": "2",
+          "name": "Patricia Maria Tig",
+          "country": "ROU"
+        },
+        "score": "62 61"
+      },
+      {
+        "round": "Q2",
+        "player1": {
+          "seed": "6",
+          "name": "Alevtina Ibragimova",
+          "country": "RUS"
+        },
+        "player2": {
+          "seed": "3",
+          "name": "Kristina Dmitruk",
+          "country": "BLR"
+        },
+        "score": "36 75 62"
+      },
+      {
+        "round": "Q2",
+        "player1": {
+          "seed": "4",
+          "name": "Noma Noha Akugue",
+          "country": "GER"
+        },
+        "player2": {
+          "seed": "5",
+          "name": "Lucija Ciric Bagaric",
+          "country": "CRO"
+        },
+        "score": "61 75"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "1",
+          "name": "Carson Branstine",
+          "country": "USA"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Ana Filipa Santos",
+          "country": "POR"
+        },
+        "score": "61 61"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "7",
+          "name": "Lian Tran",
+          "country": "NED"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Teresa Poppe",
+          "country": null
+        },
+        "score": "61 60"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "2",
+          "name": "Patricia Maria Tig",
+          "country": "ROU"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Amina Anshba",
+          "country": "RUS"
+        },
+        "score": "62 63"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "8",
+          "name": "Jesika Maleckova",
+          "country": "CZE"
+        },
+        "player2": {
+          "seed": "WC",
+          "name": "Amalia Suciu",
+          "country": "POR"
+        },
+        "score": "62 61"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "3",
+          "name": "Kristina Dmitruk",
+          "country": "BLR"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Rutuja Bhosale",
+          "country": "IND"
+        },
+        "score": "63 64"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "6",
+          "name": "Alevtina Ibragimova",
+          "country": "RUS"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Celia Cervino Ruiz",
+          "country": "ESP"
+        },
+        "score": "63 61"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "4",
+          "name": "Noma Noha Akugue",
+          "country": "GER"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Luca Udvardy",
+          "country": "HUN"
+        },
+        "score": "62 46 63"
+      },
+      {
+        "round": "Q1",
+        "player1": {
+          "seed": "5",
+          "name": "Lucija Ciric Bagaric",
+          "country": "CRO"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Analu Freitas",
+          "country": "POR"
+        },
+        "score": "61 61"
+      }
+    ]
+  }
+]

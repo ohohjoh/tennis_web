@@ -1,9 +1,8 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
 import json
 import os
 from collections import defaultdict
 from datetime import datetime
-from flask import Flask, render_template, jsonify, request
 
 app = Flask(__name__)
 
@@ -20,6 +19,7 @@ JSON_PATH = os.path.join(BASE_DIR, "tennis_tournaments_ama.json")
 JSON_PATH2 = os.path.join(BASE_DIR, "tenniscourt_with_guide.json")
 JSON_BRACKET = os.path.join(BASE_DIR, "tennis_abstract_bracket.json")
 JSON_PRO_SCHEDULE = os.path.join(BASE_DIR, "tennis_tournaments_pro_schedules.json")
+JSON_PRO_YOUTUBE = os.path.join(BASE_DIR, "tennis_tournaments_pro_youtube.json")
 
 def load_data_with_timestamp():
     if os.path.exists(JSON_PATH):
@@ -51,6 +51,13 @@ def load_pro_schedule():
     print("🚫 프로 스케줄 JSON 파일을 찾을 수 없습니다:", JSON_PRO_SCHEDULE)
     return {"date": "알 수 없음", "matches": []}
 
+def load_pro_youtube():
+    if os.path.exists(JSON_PRO_YOUTUBE):
+        with open(JSON_PRO_YOUTUBE, "r", encoding="utf-8") as f:
+            return json.load(f).get("results", [])
+    print("🚫 유튜브 JSON 파일을 찾을 수 없습니다:", JSON_PRO_YOUTUBE)
+    return []
+
 @app.route("/")
 def index():
     data, last_modified = load_data_with_timestamp()
@@ -73,16 +80,21 @@ def tournament():
 
 @app.route("/tournament_pro")
 def tournaments_pro():
-    bracket_data, last_modified = load_abstract_bracket()     # 브래킷 + 시간
-    schedule_data = load_pro_schedule()                       # 오늘의 경기 일정
+    bracket_data, last_modified = load_abstract_bracket()
+    schedule_data = load_pro_schedule()
+    youtube_data = load_pro_youtube()
+
+    print("🎥 유튜브 데이터:", json.dumps(youtube_data, indent=2, ensure_ascii=False))  # ✅ 확인용
+
     return render_template(
         "tournament_pro.html",
         data=bracket_data,
         schedule=schedule_data["matches"],
         schedule_date=schedule_data["date"],
-        last_modified=last_modified,                          # ⏰ 시간 전달
+        last_modified=last_modified,
+        youtube_data=youtube_data,
         page_title="🎾 ATP 드로우 및 일정",
-        currentPath="tournament_pro"                          # ✅ 네비바용
+        currentPath="tournament_pro"
     )
 
 @app.route("/court-guide")
@@ -92,8 +104,7 @@ def court_guide():
     for entry in raw_data:
         grouped[entry['장소명']].append(entry)
 
-    return render_template("court-guide.html", data=grouped, page_title="🗓️ 코트 예약 가이드",     currentPath="court"  # ✅ 이 줄 추가!
-)
+    return render_template("court-guide.html", data=grouped, page_title="🗓️ 코트 예약 가이드", currentPath="court")
 
 @app.route("/board", methods=["GET", "POST"])
 def board():
