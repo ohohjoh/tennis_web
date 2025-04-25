@@ -424,6 +424,55 @@ def add_articles_to_json(json_path):
 
     print("✅ 모든 기사 저장 완료!")
 
+def add_summary_to_youtube_json(youtube_filename="tennis_tournaments_pro_youtube.json", combined_filename="static/combined_tennis_tournaments_2025.json"):
+    youtube_path = os.path.join(base_dir, youtube_filename)
+    combined_path = os.path.join(base_dir, combined_filename)
+
+    # 파일 불러오기
+    try:
+        with open(youtube_path, "r", encoding="utf-8") as f:
+            youtube_data = json.load(f)
+        with open(combined_path, "r", encoding="utf-8") as f:
+            combined_data = json.load(f)
+    except Exception:
+        logging.error("❌ summary 처리용 파일 열기 실패")
+        save_error_to_json(traceback.format_exc(), source="add_summary_to_youtube_json")
+        return
+
+    def clean_name(name):
+        return name.replace("ATP", "").replace("WTA", "").strip().lower()
+
+    def generate_summary(t):
+        return f"{t['Tournament']}는 {t['Period']} 동안 {t['Country']} {t['City']}에서 열리는 {t['Surface']} 코트 {t['Tour']} 대회입니다."
+
+    for item in youtube_data.get("results", []):
+        raw_name = item.get("tournament", "")
+        base_name = clean_name(raw_name)
+
+        matched = None
+        # 1차: Tournament 이름 기준
+        for t in combined_data:
+            tour_name = clean_name(t["Tournament"])
+            if base_name == tour_name or base_name in tour_name or tour_name in base_name:
+                matched = t
+                break
+
+        # 2차: City 기준
+        if not matched:
+            for t in combined_data:
+                city = t.get("City", "").lower()
+                if city and (city in base_name or base_name in city):
+                    matched = t
+                    break
+
+        item["summary"] = generate_summary(matched) if matched else f"❌ {raw_name}에 대한 대회 정보를 찾을 수 없습니다."
+
+    # 저장
+    with open(youtube_path, "w", encoding="utf-8") as f:
+        json.dump(youtube_data, f, ensure_ascii=False, indent=2)
+
+    logging.info("✅ summary 정보가 성공적으로 추가되었습니다.")
+
 if __name__ == "__main__":
     print("🎾 테니스 크롤링 시작")
 
@@ -467,7 +516,11 @@ if __name__ == "__main__":
 
     # 5. 유튜브 검색 결과 저장
     fetch_and_save_youtube_results_from_bracket()
-    # 6. 기사 및 번역기사 관련 결과 저장
+
+    # 6. summary 필드 추가
+    add_summary_to_youtube_json()
+
+    # 7. 기사 및 번역기사 관련 결과 저장
     add_articles_to_json("tennis_tournaments_pro_youtube.json")
     
     print("✅ 전체 작업 완료")
