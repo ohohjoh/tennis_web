@@ -1,17 +1,9 @@
 {
-  "executed_at": "2025-04-25 19:02:09",
+  "executed_at": "2025-04-25 10:04:36",
   "results": [
     {
       "tournament": "ATP Madrid",
       "videos": [
-        {
-          "tournament": "ATP Madrid",
-          "title": "Fonseca Returns To Action; Nishikori, Sonego &amp; Norrie Feature | Madrid 2025 Day 2 Highlights",
-          "channel": "Tennis TV",
-          "videoId": "uO5QJm52Cts",
-          "thumbnail": "https://i.ytimg.com/vi/uO5QJm52Cts/mqdefault.jpg",
-          "publishedAt": "2025-04-24T21:03:39Z"
-        },
         {
           "tournament": "ATP Madrid",
           "title": "Joao Fonseca Returns To ATP Tour vs Elmer Moller! | Madrid 2025 Highlights",
@@ -19,6 +11,14 @@
           "videoId": "ttrMa9155f8",
           "thumbnail": "https://i.ytimg.com/vi/ttrMa9155f8/mqdefault.jpg",
           "publishedAt": "2025-04-24T17:41:48Z"
+        },
+        {
+          "tournament": "ATP Madrid",
+          "title": "Fonseca Returns To Action; Nishikori, Sonego &amp; Norrie Feature | Madrid 2025 Day 2 Highlights",
+          "channel": "Tennis TV",
+          "videoId": "uO5QJm52Cts",
+          "thumbnail": "https://i.ytimg.com/vi/uO5QJm52Cts/mqdefault.jpg",
+          "publishedAt": "2025-04-24T21:03:39Z"
         },
         {
           "tournament": "ATP Madrid",
@@ -30,19 +30,11 @@
         },
         {
           "tournament": "ATP Madrid",
-          "title": "Andreeva vs. Bouzkova Highlights Mutua Madrid Open 2025",
-          "channel": "Tennis Highlights",
-          "videoId": "bmnLYMjk1Tg",
-          "thumbnail": "https://i.ytimg.com/vi/bmnLYMjk1Tg/mqdefault.jpg",
-          "publishedAt": "2025-04-24T12:28:16Z"
-        },
-        {
-          "tournament": "ATP Madrid",
-          "title": "Carlos Alcaraz Withdraws From The 2025 Mutua Madrid Open 😕",
+          "title": "Novak Djokovic &amp; Arthur Fils Full Practice Set! | Madrid 2025",
           "channel": "Tennis TV",
-          "videoId": "UDtPni7iXHk",
-          "thumbnail": "https://i.ytimg.com/vi/UDtPni7iXHk/mqdefault.jpg",
-          "publishedAt": "2025-04-24T11:30:45Z"
+          "videoId": "N6vZjcCUZAk",
+          "thumbnail": "https://i.ytimg.com/vi/N6vZjcCUZAk/mqdefault.jpg",
+          "publishedAt": "2025-04-24T15:52:21Z"
         },
         {
           "tournament": "ATP Madrid",
@@ -54,19 +46,27 @@
         },
         {
           "tournament": "ATP Madrid",
+          "title": "Andreeva vs. Bouzkova Highlights Mutua Madrid Open 2025",
+          "channel": "Tennis Highlights",
+          "videoId": "bmnLYMjk1Tg",
+          "thumbnail": "https://i.ytimg.com/vi/bmnLYMjk1Tg/mqdefault.jpg",
+          "publishedAt": "2025-04-24T12:28:16Z"
+        },
+        {
+          "tournament": "ATP Madrid",
+          "title": "Carlos Alcaraz Explains Withdrawal From 2025 Mutua Madrid Open",
+          "channel": "Tennis TV",
+          "videoId": "m4sU3F2KlxI",
+          "thumbnail": "https://i.ytimg.com/vi/m4sU3F2KlxI/mqdefault.jpg",
+          "publishedAt": "2025-04-24T12:08:44Z"
+        },
+        {
+          "tournament": "ATP Madrid",
           "title": "Anastasija Sevastova vs Jelena Ostapenko Game Highlights | Mutua Madrid Open 2025",
           "channel": "Tennis Highlights",
           "videoId": "vgwWN68eGC4",
           "thumbnail": "https://i.ytimg.com/vi/vgwWN68eGC4/mqdefault.jpg",
           "publishedAt": "2025-04-24T15:53:50Z"
-        },
-        {
-          "tournament": "ATP Madrid",
-          "title": "Iga Swiatek vs. Alexandra Eala FULL Highlights | Mutua Madrid Open 2025",
-          "channel": "Tennis Highlights",
-          "videoId": "Xrf5HQuIK7o",
-          "thumbnail": "https://i.ytimg.com/vi/Xrf5HQuIK7o/mqdefault.jpg",
-          "publishedAt": "2025-04-24T16:00:12Z"
         },
         {
           "tournament": "ATP Madrid",
@@ -78,11 +78,19 @@
         },
         {
           "tournament": "ATP Madrid",
-          "title": "Maria Sakkari vs. Xinyu Wang Game Highlights | Mutua Madrid Open 2025",
-          "channel": "Tennis Highlights",
-          "videoId": "HIbSQzIWMSc",
-          "thumbnail": "https://i.ytimg.com/vi/HIbSQzIWMSc/mqdefault.jpg",
-          "publishedAt": "2025-04-23T13:51:45Z"
+          "title": "LIVE: Holger Rune &amp; Jakub Mensik Practice Live in Madrid; Scroll Back For FAA &amp; Popyrin",
+          "channel": "Tennis TV",
+          "videoId": "2-pm1wDM_tM",
+          "thumbnail": "https://i.ytimg.com/vi/2-pm1wDM_tM/mqdefault.jpg",
+          "publishedAt": "2025-04-24T12:15:02Z"
+        },
+        {
+          "tournament": "ATP Madrid",
+          "title": "🔴 [LIVE] ATP MADRID : ACARAZ, UN FORFAIT ET DES DOUTES ? (TENNIS)",
+          "channel": "Winamax",
+          "videoId": "GPBbh_oIf_g",
+          "thumbnail": "https://i.ytimg.com/vi/GPBbh_oIf_g/mqdefault.jpg",
+          "publishedAt": "2025-04-25T08:33:22Z"
         },
         {
           "tournament": "ATP Madrid",
@@ -91,14 +99,6 @@
           "videoId": "IHoqVBE-VvQ",
           "thumbnail": "https://i.ytimg.com/vi/IHoqVBE-VvQ/mqdefault.jpg",
           "publishedAt": "2025-04-24T14:18:48Z"
-        },
-        {
-          "tournament": "ATP Madrid",
-          "title": "Carlos Alcaraz Explains Withdrawal From 2025 Mutua Madrid Open",
-          "channel": "Tennis TV",
-          "videoId": "m4sU3F2KlxI",
-          "thumbnail": "https://i.ytimg.com/vi/m4sU3F2KlxI/mqdefault.jpg",
-          "publishedAt": "2025-04-24T12:08:44Z"
         }
       ],
       "summary": "Mutua Madrid Open는 23 April - 4 May, 2025 동안 Spain Madrid에서 열리는 Clay 코트 ATP 대회입니다.",
@@ -119,7 +119,7 @@
         },
         {
           "title_en": "Joao Fonseca claims current ATP player has the greatest serve of all time in tennis and he's not even ranked in the top 30 - The Tennis Gazette",
-          "title_ko": "조앙 폰세카는 현재 ATP 선수가 역대 테니스 역사상 최고의 서브를 가지고 있다고 주장하지만 그는 상위 30위 안에도 들지 못했습니다. - 테니스 가제트",
+          "title_ko": "조앙 폰세카는 현재 ATP 선수가 역대 테니스 역사상 최고의 서브를 가지고 있다고 주장하지만 그는 30위 안에도 들지 못했습니다. - 테니스 가제트",
           "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBPWDFKY1B4MDdoVEZaVUFJLWNHbGpJdXFteWs1QmhqTDVkZFlzWnZYOGVibUttNi1FSGRMTXBQdFo1VHMzc3JpcWJBUkRBUXB5NmpLNHhSMA?oc=5",
           "published": "2025-04-24T10:00:00",
           "source": "The Tennis Gazette"
@@ -154,7 +154,7 @@
         },
         {
           "title_en": "The identity of the player who will replace Alcaraz at the Mutua Madrid Open 2025 has been revealed - Punto de Break",
-          "title_ko": "2025년 무투아 마드리드 오픈에서 알카라스를 대체할 선수의 신원이 공개되었습니다. - Punto de Break",
+          "title_ko": "2025년 무투아 마드리드 오픈에서 알카라스를 대체할 선수의 신원이 공개되었습니다 - Punto de Break",
           "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOUGNtYW9senViZTlmWkhIMG9rUTVZck4xSWlXeFVxQ21wODlJUHpNM3QzeTV3cGttaHhvQmNQbUhVSjU5ZmFKOFFQRU9YenF1VEphdG9TWkJXSTd0SnJBZ1RRbWs3amxmelFlbFVKOGItVEZoRG5TOVhHcTBqa2NocFFvYXRrejdCbkxndjl5cHRiSDRZQTcyaXAtdm9NMWpTRmtzT055Z0Fqc3ktcWhHTWhHT2x2TUdGdC1qbVMwZTVMYmJENURNVVhSam1wNVNtenJqWFU3YzYyUQ?oc=5",
           "published": "2025-04-24T12:14:27",
           "source": "Punto de Break"
@@ -220,11 +220,43 @@
         },
         {
           "tournament": "WTA Madrid",
+          "title": "Victoria Azarenka vs. Olga Danilovic | 2025 Madrid Round 1 | WTA Match Highlights",
+          "channel": "WTA",
+          "videoId": "9sJ3cWVHi3M",
+          "thumbnail": "https://i.ytimg.com/vi/9sJ3cWVHi3M/mqdefault.jpg",
+          "publishedAt": "2025-04-23T18:13:08Z"
+        },
+        {
+          "tournament": "WTA Madrid",
           "title": "Anastasija Sevastova vs Jelena Ostapenko Game Highlights | Mutua Madrid Open 2025",
           "channel": "Tennis Highlights",
           "videoId": "vgwWN68eGC4",
           "thumbnail": "https://i.ytimg.com/vi/vgwWN68eGC4/mqdefault.jpg",
           "publishedAt": "2025-04-24T15:53:50Z"
+        },
+        {
+          "tournament": "WTA Madrid",
+          "title": "Bencic, Potapova, &amp; Raducanu Take the Court on Day 2 in Madrid | WTA Match Highlights",
+          "channel": "WTA",
+          "videoId": "4Yq4Srjtj54",
+          "thumbnail": "https://i.ytimg.com/vi/4Yq4Srjtj54/mqdefault.jpg",
+          "publishedAt": "2025-04-23T19:22:43Z"
+        },
+        {
+          "tournament": "WTA Madrid",
+          "title": "ATP Madrid Predictions &amp; WTA Madrid Best Bets - Betting Weekly Tennis LIVE",
+          "channel": "Betting Weekly Studios",
+          "videoId": "sEBodYjTr94",
+          "thumbnail": "https://i.ytimg.com/vi/sEBodYjTr94/mqdefault.jpg",
+          "publishedAt": "2025-04-23T05:44:00Z"
+        },
+        {
+          "tournament": "WTA Madrid",
+          "title": "Viktoriya Tomova vs. Alexandra Eala | 2025 Madrid Round 1  | WTA Match Highlights",
+          "channel": "WTA",
+          "videoId": "LgY05vZPvas",
+          "thumbnail": "https://i.ytimg.com/vi/LgY05vZPvas/mqdefault.jpg",
+          "publishedAt": "2025-04-22T10:46:44Z"
         },
         {
           "tournament": "WTA Madrid",
@@ -241,38 +273,6 @@
           "videoId": "Ffv4u50XkeI",
           "thumbnail": "https://i.ytimg.com/vi/Ffv4u50XkeI/mqdefault.jpg",
           "publishedAt": "2025-04-23T14:44:22Z"
-        },
-        {
-          "tournament": "WTA Madrid",
-          "title": "Entrenamiento DÍA 2 WTA // #MMOPEN 2025",
-          "channel": "Mutua Madrid Open",
-          "videoId": "zg0r1YPwbZM",
-          "thumbnail": "https://i.ytimg.com/vi/zg0r1YPwbZM/mqdefault.jpg",
-          "publishedAt": "2025-04-22T20:36:10Z"
-        },
-        {
-          "tournament": "WTA Madrid",
-          "title": "Victoria Azarenka vs. Olga Danilovic | 2025 Madrid Round 1 | WTA Match Highlights",
-          "channel": "WTA",
-          "videoId": "9sJ3cWVHi3M",
-          "thumbnail": "https://i.ytimg.com/vi/9sJ3cWVHi3M/mqdefault.jpg",
-          "publishedAt": "2025-04-23T18:13:08Z"
-        },
-        {
-          "tournament": "WTA Madrid",
-          "title": "Viktoriya Tomova vs. Alexandra Eala | 2025 Madrid Round 1  | WTA Match Highlights",
-          "channel": "WTA",
-          "videoId": "LgY05vZPvas",
-          "thumbnail": "https://i.ytimg.com/vi/LgY05vZPvas/mqdefault.jpg",
-          "publishedAt": "2025-04-22T10:46:44Z"
-        },
-        {
-          "tournament": "WTA Madrid",
-          "title": "SWIATEK vs EALA • WTA Madrid 2025 • LIVE Tennis Watchalong",
-          "channel": "TENNIS TALK with Cam Williams",
-          "videoId": "vP1TGNUICCc",
-          "thumbnail": "https://i.ytimg.com/vi/vP1TGNUICCc/mqdefault.jpg",
-          "publishedAt": "2025-04-24T16:16:31Z"
         }
       ],
       "summary": "Mutua Madrid Open는 Apr 22 - May 4, 2025 동안 SPAIN MADRID에서 열리는 Clay 코트 WTA 대회입니다.",
@@ -321,7 +321,7 @@
         },
         {
           "title_en": "Iga Swiatek escapes Alexandra Eala in Madrid second round - Tennis.com",
-          "title_ko": "이가 스위아텍(Iga Swiatek)이 마드리드 2라운드에서 알렉산드라 에알라(Alexandra Eala)를 따돌렸다 - Tennis.com",
+          "title_ko": "Iga Swiatek이 마드리드 2라운드에서 Alexandra Eala를 탈출했습니다. - Tennis.com",
           "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxObWVqNjZsbmkxMU1pRmVlVlBUZS1QTVdTNURlNHd5cjdraTVxV3d1amtWVGx3MzBrbWtVZ3gxUExGZUl0OVBKei1QX3FSLXgzVm55cVp1T21XR3NZSFRRQVh6eTd4RlhwNDlGeWU3TDVlc1FiWDFNMlFnQ1dwVkI2blVIb0FLZEJPeVVIV1FWU2lCdG90LUxNdTFR?oc=5",
           "published": "2025-04-24T21:08:29",
           "source": "Tennis.com"
