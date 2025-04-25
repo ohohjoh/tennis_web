@@ -556,7 +556,7 @@
       <div class="schedule-scroll-container">
         <div class="schedule-grid">
           {% for match in schedule %}
-            <div class="schedule-item">
+          <div class="schedule-item" data-tournament="{{ match.tournament }}">
               <div class="today-card">
                 <!-- 1️⃣ 날짜 + 시간 -->
                 <div class="d-flex justify-content-between align-items-center mb-1">
@@ -771,7 +771,11 @@
         btn.addEventListener('click', () => {
           const tid = btn.getAttribute('data-tid');
           const title = btn.getAttribute('data-title');
-          
+          // ✅ 스케줄 카드 필터링
+          document.querySelectorAll('.schedule-item').forEach(card => {
+            const cardTournament = card.getAttribute('data-tournament');
+            card.style.display = (cardTournament === title) ? 'block' : 'none';
+          });
           // ✅ summary-box 업데이트
           const summaryBox = document.getElementById("summary-box");
           if (summaryBox && tournamentSummaries[title]) {

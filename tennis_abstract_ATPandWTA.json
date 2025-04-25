@@ -174,20 +174,6 @@
       {
         "round": "R2",
         "player1": {
-          "seed": "9",
-          "name": "Daniil Medvedev",
-          "country": "RUS"
-        },
-        "player2": {
-          "seed": null,
-          "name": "Laslo Djere",
-          "country": "SRB"
-        },
-        "score": "2-1"
-      },
-      {
-        "round": "R2",
-        "player1": {
           "seed": "Q",
           "name": "Juan Manuel Cerundolo",
           "country": "ARG"
@@ -453,6 +439,20 @@
       }
     ],
     "completed": [
+      {
+        "round": "R64",
+        "player1": {
+          "seed": "9",
+          "name": "Daniil Medvedev",
+          "country": "RUS"
+        },
+        "player2": {
+          "seed": null,
+          "name": "Laslo Djere (SRB) WO",
+          "country": null
+        },
+        "score": null
+      },
       {
         "round": "R128",
         "player1": {
@@ -1470,8 +1470,8 @@
       {
         "round": "R2",
         "player1": {
-          "seed": "9",
-          "name": "Paula Badosa",
+          "seed": "LL",
+          "name": "Cristina Bucsa",
           "country": "ESP"
         },
         "player2": {
@@ -1479,7 +1479,7 @@
           "name": "Veronika Kudermetova",
           "country": "RUS"
         },
-        "score": "2-4"
+        "score": "0-1"
       },
       {
         "round": "R2",

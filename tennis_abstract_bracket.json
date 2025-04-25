@@ -1,10 +1,19 @@
 {
-  "executed_at": "2025-04-25 09:21:21",
+  "executed_at": "2025-04-25 19:01:42",
   "data": [
     {
       "tournament": "ATP Madrid",
       "url": "https://www.tennisabstract.com/current/2025ATPMadrid.html",
       "bracket": {
+        "R64": [
+          {
+            "player1": "🇷🇺 Daniil Medvedev",
+            "player2": " Laslo Djere (SRB) WO",
+            "score": null,
+            "winner": null,
+            "source": "completed"
+          }
+        ],
         "R128": [
           {
             "player1": "🇪🇸 Roberto Bautista Agut",
@@ -573,13 +582,6 @@
             "source": "upcoming"
           },
           {
-            "player1": "🇷🇺 Daniil Medvedev",
-            "player2": "🇷🇸 Laslo Djere",
-            "score": null,
-            "winner": null,
-            "source": "upcoming"
-          },
-          {
             "player1": "🇦🇷 Juan Manuel Cerundolo",
             "player2": "🇨🇦 Felix Auger Aliassime",
             "score": null,
@@ -861,7 +863,7 @@
             "source": "upcoming"
           },
           {
-            "player1": "🇪🇸 Paula Badosa",
+            "player1": "🇪🇸 Cristina Bucsa",
             "player2": "🇷🇺 Veronika Kudermetova",
             "score": null,
             "winner": null,
