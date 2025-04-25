@@ -19,7 +19,7 @@ JSON_PATH = os.path.join(BASE_DIR, "tennis_tournaments_ama.json")
 JSON_PATH2 = os.path.join(BASE_DIR, "tenniscourt_with_guide.json")
 JSON_BRACKET = os.path.join(BASE_DIR, "tennis_abstract_bracket.json")
 JSON_PRO_SCHEDULE = os.path.join(BASE_DIR, "tennis_tournaments_pro_schedules.json")
-JSON_PRO_YOUTUBE = os.path.join(BASE_DIR, "tennis_tournaments_pro_youtube.json")
+JSON_PRO_YOUTUBE = os.path.join(BASE_DIR, "tennis_tournaments_pro_data.json")
 JSON_TOURNAMENT_INFO = os.path.join(BASE_DIR, "static", "combined_tennis_tournaments_2025.json")
 
 
@@ -56,9 +56,10 @@ def load_pro_schedule():
 def load_pro_youtube():
     if os.path.exists(JSON_PRO_YOUTUBE):
         with open(JSON_PRO_YOUTUBE, "r", encoding="utf-8") as f:
-            return json.load(f).get("results", [])
+            data = json.load(f)
+            return data.get("results", []), data.get("executed_at", "알 수 없음")
     print("🚫 유튜브 JSON 파일을 찾을 수 없습니다:", JSON_PRO_YOUTUBE)
-    return []
+    return [], "알 수 없음"
 
 def load_combined_tournaments():
     print("📁 load_combined_tournaments() 호출됨")
@@ -93,8 +94,8 @@ def tournament():
 def tournaments_pro():
     bracket_data, last_modified = load_abstract_bracket()
     schedule_data = load_pro_schedule()
-    youtube_data = load_pro_youtube()
-    tournament_info = load_combined_tournaments()
+    youtube_data, youtube_last_modified = load_pro_youtube()
+    
 
 
     return render_template(
@@ -104,7 +105,7 @@ def tournaments_pro():
         schedule_date=schedule_data["date"],
         last_modified=last_modified,
         youtube_data=youtube_data,
-        tournament_info=tournament_info,
+        youtube_last_modified=youtube_last_modified,
         page_title="🎾 ATP 드로우 및 일정",
         currentPath="tournament_pro"
     )

@@ -1,0 +1,746 @@
+[
+  {
+    "Tournament": "United Cup",
+    "City": "SYDNEY + PERTH",
+    "Country": "AUSTRALIA",
+    "Period": "Dec 27 - Jan 5, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 500"
+  },
+  {
+    "Tournament": "Brisbane International presented by Evie",
+    "City": "BRISBANE",
+    "Country": "AUSTRALIA",
+    "Period": "Dec 29 - Jan 5, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 500"
+  },
+  {
+    "Tournament": "ASB Classic",
+    "City": "AUCKLAND",
+    "Country": "NEW ZEALAND",
+    "Period": "Dec 30 - Jan 5, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 250"
+  },
+  {
+    "Tournament": "Workday Canberra International",
+    "City": "CANBERRA",
+    "Country": "AUSTRALIA",
+    "Period": "Dec 30 - Jan 4, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "Hobart International",
+    "City": "HOBART",
+    "Country": "AUSTRALIA",
+    "Period": "Jan 6 - Jan 11, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 250"
+  },
+  {
+    "Tournament": "Adelaide International",
+    "City": "ADELAIDE",
+    "Country": "AUSTRALIA",
+    "Period": "Jan 6 - Jan 11, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 500"
+  },
+  {
+    "Tournament": "Australian Open",
+    "City": "MELBOURNE",
+    "Country": "AUSTRALIA",
+    "Period": "Jan 12 - Jan 26, 2025",
+    "Surface": "Hard",
+    "Level": "Grand Slam"
+  },
+  {
+    "Tournament": "Upper Austria Ladies Linz",
+    "City": "LINZ",
+    "Country": "AUSTRIA",
+    "Period": "Jan 27 - Feb 2, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 500"
+  },
+  {
+    "Tournament": "Singapore Tennis Open",
+    "City": "SINGAPORE",
+    "Country": "SINGAPORE",
+    "Period": "Jan 27 - Feb 2, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 250"
+  },
+  {
+    "Tournament": "L&T Mumbai Open",
+    "City": "MUMBAI",
+    "Country": "INDIA",
+    "Period": "Feb 3 - Feb 9, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "Transylvania Open",
+    "City": "CLUJ-NAPOCA",
+    "Country": "ROMANIA",
+    "Period": "Feb 3 - Feb 9, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 250"
+  },
+  {
+    "Tournament": "Mubadala Abu Dhabi Open presented by Abu Dhabi Sports Council",
+    "City": "ABU DHABI",
+    "Country": "UNITED ARAB EMIRATES",
+    "Period": "Feb 3 - Feb 8, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 500"
+  },
+  {
+    "Tournament": "Qatar TotalEnergies Open 2025",
+    "City": "DOHA",
+    "Country": "QATAR",
+    "Period": "Feb 9 - Feb 15, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 1000"
+  },
+  {
+    "Tournament": "Cancun Tennis Open",
+    "City": "CANCUN",
+    "Country": "MEXICO",
+    "Period": "Feb 10 - Feb 15, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "Dubai Duty Free Tennis Championships",
+    "City": "DUBAI",
+    "Country": "UNITED ARAB EMIRATES",
+    "Period": "Feb 16 - Feb 22, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 1000"
+  },
+  {
+    "Tournament": "ATX Open",
+    "City": "AUSTIN",
+    "Country": "TX",
+    "Period": "Feb 24 - Mar 2, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 250"
+  },
+  {
+    "Tournament": "Mérida Open Akron",
+    "City": "MÉRIDA",
+    "Country": "MEXICO",
+    "Period": "Feb 24 - Mar 2, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 500"
+  },
+  {
+    "Tournament": "BNP Paribas Open",
+    "City": "INDIAN WELLS",
+    "Country": "CA",
+    "Period": "Mar 5 - Mar 16, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 1000"
+  },
+  {
+    "Tournament": "Miami Open presented by Itaú",
+    "City": "MIAMI",
+    "Country": "FL",
+    "Period": "Mar 18 - Mar 30, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 1000"
+  },
+  {
+    "Tournament": "Megasaray Hotels Open",
+    "City": "ANTALYA",
+    "Country": "TURKEY",
+    "Period": "Mar 18 - Mar 23, 2025",
+    "Surface": "Clay",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "Puerto Vallarta Open",
+    "City": "PUERTO VALLARTA",
+    "Country": "MEXICO",
+    "Period": "Mar 24 - Mar 30, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "Megasaray Hotels Open",
+    "City": "ANTALYA",
+    "Country": "TURKEY",
+    "Period": "Mar 25 - Mar 30, 2025",
+    "Surface": "Clay",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "Credit One Charleston Open",
+    "City": "CHARLESTON",
+    "Country": "SC",
+    "Period": "Mar 31 - Apr 6, 2025",
+    "Surface": "Clay",
+    "Level": "WTA 500"
+  },
+  {
+    "Tournament": "Copa Colsanitas Zurich presentado por VISA",
+    "City": "BOGOTA",
+    "Country": "COLOMBIA",
+    "Period": "Mar 31 - Apr 6, 2025",
+    "Surface": "Clay",
+    "Level": "WTA 250"
+  },
+  {
+    "Tournament": "Open Internacional Femení Solgironès",
+    "City": "LA BISBAL D'EMPORDÁ",
+    "Country": "SPAIN",
+    "Period": "Mar 31 - Apr 6, 2025",
+    "Surface": "Clay",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "Megasaray Hotels Open",
+    "City": "ANTALYA",
+    "Country": "TURKEY",
+    "Period": "Apr 1 - Apr 6, 2025",
+    "Surface": "Clay",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "Porsche Tennis Grand Prix",
+    "City": "STUTTGART",
+    "Country": "GERMANY",
+    "Period": "Apr 14 - Apr 21, 2025",
+    "Surface": "Clay",
+    "Level": "WTA 500"
+  },
+  {
+    "Tournament": "Oeiras Ladies Open",
+    "City": "OEIRAS",
+    "Country": "PORTUGAL",
+    "Period": "Apr 14 - Apr 20, 2025",
+    "Surface": "Clay",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "Open Capfinances Rouen Métropole",
+    "City": "ROUEN",
+    "Country": "FRANCE",
+    "Period": "Apr 14 - Apr 20, 2025",
+    "Surface": "Clay",
+    "Level": "WTA 250"
+  },
+  {
+    "Tournament": "Mutua Madrid Open",
+    "City": "MADRID",
+    "Country": "SPAIN",
+    "Period": "Apr 22 - May 4, 2025",
+    "Surface": "Clay",
+    "Level": "WTA 1000"
+  },
+  {
+    "Tournament": "L'Open 35 de Saint Malo",
+    "City": "SAINT MALO",
+    "Country": "FRANCE",
+    "Period": "Apr 28 - May 4, 2025",
+    "Surface": "Clay",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "Catalonia Open WTA 125",
+    "City": "VIC",
+    "Country": "SPAIN",
+    "Period": "Apr 28 - May 3, 2025",
+    "Surface": "Clay",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "Internazionali BNL d'Italia",
+    "City": "ROME",
+    "Country": "ITALY",
+    "Period": "May 6 - May 18, 2025",
+    "Surface": "Clay",
+    "Level": "WTA 1000"
+  },
+  {
+    "Tournament": "Parma Ladies Open presented by Iren",
+    "City": "PARMA",
+    "Country": "ITALY",
+    "Period": "May 12 - May 17, 2025",
+    "Surface": "Clay",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "Trophée Clarins",
+    "City": "PARIS",
+    "Country": "FRANCE",
+    "Period": "May 12 - May 18, 2025",
+    "Surface": "Clay",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "Internationaux de Strasbourg",
+    "City": "STRASBOURG",
+    "Country": "FRANCE",
+    "Period": "May 18 - May 24, 2025",
+    "Surface": "Clay",
+    "Level": "WTA 500"
+  },
+  {
+    "Tournament": "Grand Prix Sar La Princesse Lalla Meryem",
+    "City": "RABAT",
+    "Country": "MOROCCO",
+    "Period": "May 19 - May 24, 2025",
+    "Surface": "Clay",
+    "Level": "WTA 250"
+  },
+  {
+    "Tournament": "Roland Garros",
+    "City": "PARIS",
+    "Country": "FRANCE",
+    "Period": "May 25 - Jun 8, 2025",
+    "Surface": "Clay",
+    "Level": "Grand Slam"
+  },
+  {
+    "Tournament": "Lexus Birmingham Open",
+    "City": "BIRMINGHAM",
+    "Country": "GREAT BRITAIN",
+    "Period": "Jun 2 - Jun 8, 2025",
+    "Surface": "Grass",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "Open delle Puglie",
+    "City": "BARI",
+    "Country": "ITALY",
+    "Period": "Jun 2 - Jun 8, 2025",
+    "Surface": "Clay",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "Makarska Open",
+    "City": "MAKARSKA",
+    "Country": "CROATIA",
+    "Period": "Jun 3 - Jun 8, 2025",
+    "Surface": "Clay",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "Libéma Open",
+    "City": "'S-HERTOGENBOSCH",
+    "Country": "NETHERLANDS",
+    "Period": "Jun 9 - Jun 15, 2025",
+    "Surface": "Grass",
+    "Level": "WTA 250"
+  },
+  {
+    "Tournament": "The HSBC Championships",
+    "City": "LONDON",
+    "Country": "GREAT BRITAIN",
+    "Period": "Jun 9 - Jun 15, 2025",
+    "Surface": "Grass",
+    "Level": "WTA 500"
+  },
+  {
+    "Tournament": "Lexus Ilkley Open",
+    "City": "ILKLEY",
+    "Country": "GREAT BRITAIN",
+    "Period": "Jun 9 - Jun 15, 2025",
+    "Surface": "Grass",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "Grado Open",
+    "City": "GRADO",
+    "Country": "ITALY",
+    "Period": "Jun 9 - Jun 15, 2025",
+    "Surface": "Clay",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "BBVA Open Internacional de Valencia",
+    "City": "VALENCIA",
+    "Country": "SPAIN",
+    "Period": "Jun 9 - Jun 15, 2025",
+    "Surface": "Clay",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "Lexus Nottingham Open",
+    "City": "NOTTINGHAM",
+    "Country": "GREAT BRITAIN",
+    "Period": "Jun 16 - Jun 22, 2025",
+    "Surface": "Grass",
+    "Level": "WTA 250"
+  },
+  {
+    "Tournament": "Berlin Tennis Open",
+    "City": "BERLIN",
+    "Country": "GERMANY",
+    "Period": "Jun 16 - Jun 22, 2025",
+    "Surface": "Grass",
+    "Level": "WTA 500"
+  },
+  {
+    "Tournament": "Bad Homburg Open powered by Solarwatt",
+    "City": "BAD HOMBURG",
+    "Country": "GERMANY",
+    "Period": "Jun 22 - Jun 28, 2025",
+    "Surface": "Grass",
+    "Level": "WTA 500"
+  },
+  {
+    "Tournament": "Lexus Eastbourne Open",
+    "City": "EASTBOURNE",
+    "Country": "GREAT BRITAIN",
+    "Period": "Jun 23 - Jun 28, 2025",
+    "Surface": "Grass",
+    "Level": "WTA 250"
+  },
+  {
+    "Tournament": "The Championships, Wimbledon",
+    "City": "WIMBLEDON",
+    "Country": "GREAT BRITAIN",
+    "Period": "Jun 30 - Jul 13, 2025",
+    "Surface": "Grass",
+    "Level": "Grand Slam"
+  },
+  {
+    "Tournament": "Hall of Fame Open",
+    "City": "NEWPORT",
+    "Country": "RI",
+    "Period": "Jul 7 - Jul 13, 2025",
+    "Surface": "Grass",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "Nordea Open",
+    "City": "BASTAD",
+    "Country": "SWEDEN",
+    "Period": "Jul 7 - Jul 12, 2025",
+    "Surface": "Clay",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "Grand Est Open 88",
+    "City": "CONTREXEVILLE",
+    "Country": "FRANCE",
+    "Period": "Jul 7 - Jul 13, 2025",
+    "Surface": "Clay",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "Antico Tiro a Volo Open",
+    "City": "ROME",
+    "Country": "ITALY",
+    "Period": "Jul 14 - Jul 20, 2025",
+    "Surface": "Clay",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "Porto Ladies Open",
+    "City": "PORTO",
+    "Country": "PORTUGAL",
+    "Period": "Jul 14 - Jul 20, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "MSC Hamburg Ladies Open",
+    "City": "HAMBURG",
+    "Country": "GERMANY",
+    "Period": "Jul 14 - Jul 20, 2025",
+    "Surface": "Clay",
+    "Level": "WTA 250"
+  },
+  {
+    "Tournament": "UniCredit Iasi Open",
+    "City": "IASI",
+    "Country": "ROMANIA",
+    "Period": "Jul 14 - Jul 20, 2025",
+    "Surface": "Clay",
+    "Level": "WTA 250"
+  },
+  {
+    "Tournament": "Mubadala Citi DC Open",
+    "City": "WASHINGTON DC",
+    "Country": "DC",
+    "Period": "Jul 21 - Jul 27, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 500"
+  },
+  {
+    "Tournament": "Livesport Prague Open 2025",
+    "City": "PRAGUE",
+    "Country": "CZECH REPUBLIC",
+    "Period": "Jul 21 - Jul 26, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 250"
+  },
+  {
+    "Tournament": "36° Palermo Ladies Open",
+    "City": "PALERMO",
+    "Country": "ITALY",
+    "Period": "Jul 21 - Jul 27, 2025",
+    "Surface": "Clay",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "Omnium Banque Nationale présenté par Rogers",
+    "City": "MONTREAL",
+    "Country": "CANADA",
+    "Period": "Jul 27 - Aug 7, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 1000"
+  },
+  {
+    "Tournament": "Polish Open",
+    "City": "WARSAW",
+    "Country": "POLAND",
+    "Period": "Jul 28 - Aug 2, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "Cincinnati Open",
+    "City": "CINCINNATI",
+    "Country": "OH",
+    "Period": "Aug 7 - Aug 18, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 1000"
+  },
+  {
+    "Tournament": "Tennis in the Land powered by Rocket",
+    "City": "CLEVELAND",
+    "Country": "OH",
+    "Period": "Aug 17 - Aug 23, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 250"
+  },
+  {
+    "Tournament": "Abierto GNP Seguros 2025",
+    "City": "MONTERREY",
+    "Country": "MEXICO",
+    "Period": "Aug 18 - Aug 23, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 500"
+  },
+  {
+    "Tournament": "US Open",
+    "City": "NEW YORK",
+    "Country": "NY",
+    "Period": "Aug 24 - Sep 7, 2025",
+    "Surface": "Hard",
+    "Level": "Grand Slam"
+  },
+  {
+    "Tournament": "Montreux Nestlé Open",
+    "City": "MONTREUX",
+    "Country": "SWITZERLAND",
+    "Period": "Sep 1 - Sep 7, 2025",
+    "Surface": "Clay",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "Guadalajara 125 Open",
+    "City": "GUADALAJARA",
+    "Country": "MEXICO",
+    "Period": "Sep 1 - Sep 6, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "Open Internacional de San Sebastian",
+    "City": "SAN SEBASTIAN",
+    "Country": "SPAIN",
+    "Period": "Sep 8 - Sep 13, 2025",
+    "Surface": "Clay",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "WTA 2025 Zavarovalnica Sava Ljubljana",
+    "City": "LJUBLJANA",
+    "Country": "SLOVENIA",
+    "Period": "Sep 8 - Sep 14, 2025",
+    "Surface": "Clay",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "Jasmin Open Tunisia",
+    "City": "MONASTIR",
+    "Country": "TUNISIA",
+    "Period": "Sep 8 - Sep 14, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 250"
+  },
+  {
+    "Tournament": "Guadalajara Open Akron presented by Santander",
+    "City": "GUADALAJARA",
+    "Country": "MEXICO",
+    "Period": "Sep 8 - Sep 14, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 500"
+  },
+  {
+    "Tournament": "Korea Open",
+    "City": "SEOUL",
+    "Country": "KOREA",
+    "Period": "Sep 15 - Sep 21, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 500"
+  },
+  {
+    "Tournament": "Tolentino Open",
+    "City": "TOLENTINO",
+    "Country": "ITALY",
+    "Period": "Sep 15 - Sep 21, 2025",
+    "Surface": "Clay",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "Full Protein Caldas da Rainha Ladies Open",
+    "City": "CALDAS DA RAINHA",
+    "Country": "PORTUGAL",
+    "Period": "Sep 15 - Sep 21, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "China Open",
+    "City": "BEIJING",
+    "Country": "CHINA",
+    "Period": "Sep 24 - Oct 5, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 1000"
+  },
+  {
+    "Tournament": "Hong Kong 125 Open",
+    "City": "HONG KONG",
+    "Country": "CHINA",
+    "Period": "Sep 30 - Oct 5, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "Dongfeng Voyah · Wuhan Open",
+    "City": "WUHAN",
+    "Country": "CHINA",
+    "Period": "Oct 6 - Oct 12, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 1000"
+  },
+  {
+    "Tournament": "Mallorca Women's Tennis Championships",
+    "City": "MALLORCA",
+    "Country": "SPAIN",
+    "Period": "Oct 6 - Oct 12, 2025",
+    "Surface": "Clay",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "Olbia Open",
+    "City": "OLBIA",
+    "Country": "ITALY",
+    "Period": "Oct 6 - Oct 12, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "Kinoshita Group Japan Open",
+    "City": "OSAKA",
+    "Country": "JAPAN",
+    "Period": "Oct 13 - Oct 19, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 250"
+  },
+  {
+    "Tournament": "Abierto Tampico",
+    "City": "TAMPICO",
+    "Country": "MEXICO",
+    "Period": "Oct 13 - Oct 18, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "Ningbo Open",
+    "City": "NINGBO",
+    "Country": "CHINA",
+    "Period": "Oct 13 - Oct 19, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 500"
+  },
+  {
+    "Tournament": "Guangzhou Open",
+    "City": "GUANGZHOU",
+    "Country": "CHINA",
+    "Period": "Oct 20 - Oct 26, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 250"
+  },
+  {
+    "Tournament": "Toray Pan Pacific Open Tennis",
+    "City": "TOKYO",
+    "Country": "JAPAN",
+    "Period": "Oct 20 - Oct 26, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 500"
+  },
+  {
+    "Tournament": "Prudential Hong Kong Tennis Open",
+    "City": "HONG KONG",
+    "Country": "CHINA",
+    "Period": "Oct 27 - Nov 2, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 250"
+  },
+  {
+    "Tournament": "Jiangxi Open",
+    "City": "JIUJIANG",
+    "Country": "CHINA",
+    "Period": "Oct 27 - Nov 2, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 250"
+  },
+  {
+    "Tournament": "WTA Finals Riyadh",
+    "City": "RIYADH",
+    "Country": "SAUDI ARABIA",
+    "Period": "Nov 1 - Nov 8, 2025",
+    "Surface": "Hard",
+    "Level": "Finals"
+  },
+  {
+    "Tournament": "LP Open by IND",
+    "City": "COLINA",
+    "Country": "CHILE",
+    "Period": "Nov 17 - Nov 23, 2025",
+    "Surface": "Clay",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "IEB+ Argentina Open",
+    "City": "BUENOS AIRES",
+    "Country": "ARGENTINA",
+    "Period": "Nov 24 - Nov 30, 2025",
+    "Surface": "Clay",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "Open In Arte Angers Loire",
+    "City": "ANGERS",
+    "Country": "FRANCE",
+    "Period": "Dec 1 - Dec 7, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 125"
+  },
+  {
+    "Tournament": "Open BLS de Limoges",
+    "City": "LIMOGES",
+    "Country": "FRANCE",
+    "Period": "Dec 8 - Dec 14, 2025",
+    "Surface": "Hard",
+    "Level": "WTA 125"
+  }
+]

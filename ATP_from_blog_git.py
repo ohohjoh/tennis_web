@@ -285,6 +285,11 @@ def filter_today_matches_by_abstract_partial(today_data, bracket_data, output_fi
 
     for match in today_data.get("matches", []):
         today_tournament_raw = match.get("tournament", "")
+
+        # 🔥 challenger 필터 추가
+        if "challenger" in today_tournament_raw.lower():
+            continue  # 이 경기 무시하고 건너뜀
+
         today_tournament = normalize(today_tournament_raw)
 
         for bracket in bracket_data:
@@ -305,7 +310,7 @@ def filter_today_matches_by_abstract_partial(today_data, bracket_data, output_fi
     print(f"✅ 매칭된 경기 저장 완료: {output_path}")
     return matched_matches
 
-def fetch_youtube_videos(query, max_results=7):
+def fetch_youtube_videos(query, max_results=12):
     params = {
         "key": API_KEY,
         "part": "snippet",
@@ -321,7 +326,7 @@ def fetch_youtube_videos(query, max_results=7):
         print(f"❌ {query} 검색 실패: {res.status_code}")
         return []
 
-def fetch_and_save_youtube_results_from_bracket(bracket_json_path="tennis_abstract_bracket.json", output_filename="tennis_tournaments_pro_youtube.json"):
+def fetch_and_save_youtube_results_from_bracket(bracket_json_path="tennis_abstract_bracket.json", output_filename="tennis_tournaments_pro_data.json"):
     try:
         with open(bracket_json_path, "r", encoding="utf-8") as f:
             bracket_data = json.load(f)
@@ -424,11 +429,11 @@ def add_articles_to_json(json_path):
 
     print("✅ 모든 기사 저장 완료!")
 
-def add_summary_to_youtube_json(youtube_filename="tennis_tournaments_pro_youtube.json", combined_filename="static/combined_tennis_tournaments_2025.json"):
+def add_summary_to_youtube_json(youtube_filename="tennis_tournaments_pro_data.json", combined_filename="static/combined_tennis_tournaments_2025.json"):
     youtube_path = os.path.join(base_dir, youtube_filename)
     combined_path = os.path.join(base_dir, combined_filename)
 
-    # 파일 불러오기
+    # 🔄 파일 불러오기
     try:
         with open(youtube_path, "r", encoding="utf-8") as f:
             youtube_data = json.load(f)
@@ -442,36 +447,50 @@ def add_summary_to_youtube_json(youtube_filename="tennis_tournaments_pro_youtube
     def clean_name(name):
         return name.replace("ATP", "").replace("WTA", "").strip().lower()
 
+    def extract_tour(name):
+        if "WTA" in name.upper():
+            return "WTA"
+        elif "ATP" in name.upper():
+            return "ATP"
+        return None  # 아무것도 없으면 None 반환
+
     def generate_summary(t):
         return f"{t['Tournament']}는 {t['Period']} 동안 {t['Country']} {t['City']}에서 열리는 {t['Surface']} 코트 {t['Tour']} 대회입니다."
 
     for item in youtube_data.get("results", []):
         raw_name = item.get("tournament", "")
+        tour_type = extract_tour(raw_name)
         base_name = clean_name(raw_name)
 
         matched = None
+
+        # 🎯 해당 투어에 해당하는 데이터만 필터링
+        tour_filtered = [t for t in combined_data if t.get("Tour", "").upper() == tour_type]
+
         # 1차: Tournament 이름 기준
-        for t in combined_data:
+        for t in tour_filtered:
             tour_name = clean_name(t["Tournament"])
-            if base_name == tour_name or base_name in tour_name or tour_name in base_name:
+            if (base_name == tour_name or base_name in tour_name or tour_name in base_name) and t.get("Tour", "").upper() == tour_type:
                 matched = t
                 break
 
         # 2차: City 기준
         if not matched:
-            for t in combined_data:
+            for t in tour_filtered:
                 city = t.get("City", "").lower()
                 if city and (city in base_name or base_name in city):
                     matched = t
                     break
 
+        # 결과 저장
         item["summary"] = generate_summary(matched) if matched else f"❌ {raw_name}에 대한 대회 정보를 찾을 수 없습니다."
 
-    # 저장
+    # 🔄 저장
     with open(youtube_path, "w", encoding="utf-8") as f:
         json.dump(youtube_data, f, ensure_ascii=False, indent=2)
 
     logging.info("✅ summary 정보가 성공적으로 추가되었습니다.")
+
 
 if __name__ == "__main__":
     print("🎾 테니스 크롤링 시작")
@@ -521,7 +540,7 @@ if __name__ == "__main__":
     add_summary_to_youtube_json()
 
     # 7. 기사 및 번역기사 관련 결과 저장
-    add_articles_to_json("tennis_tournaments_pro_youtube.json")
+    add_articles_to_json("tennis_tournaments_pro_data.json")
     
     print("✅ 전체 작업 완료")
 
