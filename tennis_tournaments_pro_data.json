@@ -1,9 +1,17 @@
 {
-  "executed_at": "2025-04-25 18:10:00",
+  "executed_at": "2025-04-25 09:21:32",
   "results": [
     {
       "tournament": "ATP Madrid",
       "videos": [
+        {
+          "tournament": "ATP Madrid",
+          "title": "Joao Fonseca Returns To ATP Tour vs Elmer Moller! | Madrid 2025 Highlights",
+          "channel": "Tennis TV",
+          "videoId": "ttrMa9155f8",
+          "thumbnail": "https://i.ytimg.com/vi/ttrMa9155f8/mqdefault.jpg",
+          "publishedAt": "2025-04-24T17:41:48Z"
+        },
         {
           "tournament": "ATP Madrid",
           "title": "Fonseca Returns To Action; Nishikori, Sonego &amp; Norrie Feature | Madrid 2025 Day 2 Highlights",
@@ -11,22 +19,6 @@
           "videoId": "uO5QJm52Cts",
           "thumbnail": "https://i.ytimg.com/vi/uO5QJm52Cts/mqdefault.jpg",
           "publishedAt": "2025-04-24T21:03:39Z"
-        },
-        {
-          "tournament": "ATP Madrid",
-          "title": "Aleksandar Vukic vs Kei Nishikori Match Highlights | Madrid 2025",
-          "channel": "Tennis TV",
-          "videoId": "4GcGAayOi6c",
-          "thumbnail": "https://i.ytimg.com/vi/4GcGAayOi6c/mqdefault.jpg",
-          "publishedAt": "2025-04-24T11:45:01Z"
-        },
-        {
-          "tournament": "ATP Madrid",
-          "title": "Novak Djokovic &amp; Arthur Fils Full Practice Set! | Madrid 2025",
-          "channel": "Tennis TV",
-          "videoId": "N6vZjcCUZAk",
-          "thumbnail": "https://i.ytimg.com/vi/N6vZjcCUZAk/mqdefault.jpg",
-          "publishedAt": "2025-04-24T15:52:21Z"
         },
         {
           "tournament": "ATP Madrid",
@@ -38,11 +30,11 @@
         },
         {
           "tournament": "ATP Madrid",
-          "title": "Andreeva vs. Bouzkova Highlights Mutua Madrid Open 2025",
-          "channel": "Tennis Highlights",
-          "videoId": "bmnLYMjk1Tg",
-          "thumbnail": "https://i.ytimg.com/vi/bmnLYMjk1Tg/mqdefault.jpg",
-          "publishedAt": "2025-04-24T12:28:16Z"
+          "title": "Aleksandar Vukic vs Kei Nishikori Match Highlights | Madrid 2025",
+          "channel": "Tennis TV",
+          "videoId": "4GcGAayOi6c",
+          "thumbnail": "https://i.ytimg.com/vi/4GcGAayOi6c/mqdefault.jpg",
+          "publishedAt": "2025-04-24T11:45:01Z"
         },
         {
           "tournament": "ATP Madrid",
@@ -54,6 +46,14 @@
         },
         {
           "tournament": "ATP Madrid",
+          "title": "Novak Djokovic &amp; Arthur Fils Full Practice Set! | Madrid 2025",
+          "channel": "Tennis TV",
+          "videoId": "N6vZjcCUZAk",
+          "thumbnail": "https://i.ytimg.com/vi/N6vZjcCUZAk/mqdefault.jpg",
+          "publishedAt": "2025-04-24T15:52:21Z"
+        },
+        {
+          "tournament": "ATP Madrid",
           "title": "Novak Djokovic &amp; Felix Auger-Aliassime Full Practice Set | Madrid 2025",
           "channel": "Tennis TV",
           "videoId": "1uKJVp2VbaE",
@@ -62,11 +62,11 @@
         },
         {
           "tournament": "ATP Madrid",
-          "title": "Anastasija Sevastova vs Jelena Ostapenko Game Highlights | Mutua Madrid Open 2025",
+          "title": "Andreeva vs. Bouzkova Highlights Mutua Madrid Open 2025",
           "channel": "Tennis Highlights",
-          "videoId": "vgwWN68eGC4",
-          "thumbnail": "https://i.ytimg.com/vi/vgwWN68eGC4/mqdefault.jpg",
-          "publishedAt": "2025-04-24T15:53:50Z"
+          "videoId": "bmnLYMjk1Tg",
+          "thumbnail": "https://i.ytimg.com/vi/bmnLYMjk1Tg/mqdefault.jpg",
+          "publishedAt": "2025-04-24T12:28:16Z"
         },
         {
           "tournament": "ATP Madrid",
@@ -78,37 +78,51 @@
         },
         {
           "tournament": "ATP Madrid",
-          "title": "Iga Swiatek vs. Alexandra Eala FULL Highlights | Mutua Madrid Open 2025",
-          "channel": "Tennis Highlights",
-          "videoId": "Xrf5HQuIK7o",
-          "thumbnail": "https://i.ytimg.com/vi/Xrf5HQuIK7o/mqdefault.jpg",
-          "publishedAt": "2025-04-24T16:00:12Z"
+          "title": "Carlos Alcaraz Explains Withdrawal From 2025 Mutua Madrid Open",
+          "channel": "Tennis TV",
+          "videoId": "m4sU3F2KlxI",
+          "thumbnail": "https://i.ytimg.com/vi/m4sU3F2KlxI/mqdefault.jpg",
+          "publishedAt": "2025-04-24T12:08:44Z"
         },
         {
           "tournament": "ATP Madrid",
-          "title": "Maria Sakkari vs. Xinyu Wang Game Highlights | Mutua Madrid Open 2025",
+          "title": "Anastasija Sevastova vs Jelena Ostapenko Game Highlights | Mutua Madrid Open 2025",
           "channel": "Tennis Highlights",
-          "videoId": "HIbSQzIWMSc",
-          "thumbnail": "https://i.ytimg.com/vi/HIbSQzIWMSc/mqdefault.jpg",
-          "publishedAt": "2025-04-23T13:51:45Z"
+          "videoId": "vgwWN68eGC4",
+          "thumbnail": "https://i.ytimg.com/vi/vgwWN68eGC4/mqdefault.jpg",
+          "publishedAt": "2025-04-24T15:53:50Z"
         },
         {
           "tournament": "ATP Madrid",
-          "title": "A.Eala vs. I.Swiatek Game Highlights Today Madrid Open 2025",
-          "channel": "Tennis Highlights",
-          "videoId": "IHoqVBE-VvQ",
-          "thumbnail": "https://i.ytimg.com/vi/IHoqVBE-VvQ/mqdefault.jpg",
-          "publishedAt": "2025-04-24T14:18:48Z"
+          "title": "LIVE: Holger Rune &amp; Jakub Mensik Practice Live in Madrid; Scroll Back For FAA &amp; Popyrin",
+          "channel": "Tennis TV",
+          "videoId": "2-pm1wDM_tM",
+          "thumbnail": "https://i.ytimg.com/vi/2-pm1wDM_tM/mqdefault.jpg",
+          "publishedAt": "2025-04-24T12:15:02Z"
         }
       ],
       "summary": "Mutua Madrid Open는 23 April - 4 May, 2025 동안 Spain Madrid에서 열리는 Clay 코트 ATP 대회입니다.",
       "articles": [
         {
-          "title_en": "ATP Madrid Day 3 Predictions Including Andrey Rublev vs Gael Monfils - Last Word On Sports",
-          "title_ko": "ATP 마드리드 3일차 경기 예측 (안드레이 루블레프 vs 가엘 몽피스 포함) - 스포츠에 대한 마지막 이야기",
-          "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOWVBuOENnallEdVhDc2xMaGZWNGFObmROYmhyZEE2ZVB4UV9XMEs5enQ0RmRqRW5uYnlkNFlzSVhfUWk4RjRzNUdxamVEQ0dQUTR1NWdfSm5kZzRpNXZRdjZHREtNMEZiX05jUDRHaFROZGQtcEtRcHYyakkwNF9DMy1JeHI2anNNdDNNdkExMXQyVWNOZ2RES0F2bHBWRlEy?oc=5",
-          "published": "2025-04-24T19:06:29",
+          "title_en": "Djokovic: 'The sport will outlive everyone' - ATP Tour",
+          "title_ko": "조코비치: \"스포츠는 모든 사람보다 오래갈 것\" - ATP 투어",
+          "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5aRlk2WVhDOGlweURhWWptRmR4U2ZFMWNYSFhtU2tNVzd1Y1IxLXgzc1JWMEMzeG5mdjQyTTVRTzNtOGNxR1Y0bzlhRzlIYmRGZVVoTXBZSjM4V3JOZjBqNU1fSEZSRW5nVU5zVw?oc=5",
+          "published": "2025-04-24T17:14:25",
+          "source": "ATP Tour"
+        },
+        {
+          "title_en": "ATP Madrid Day 2 Predictions Including Joao Fonseca vs Elmer Moller - Last Word On Sports",
+          "title_ko": "ATP 마드리드 2일차 예측: 주앙 폰세카 vs 엘머 몰러 포함 - 스포츠에 대한 마지막 말",
+          "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNNjV6S3NIVERCSW5JRmhhS0Z1Uk5vX2VCT3hQZHhMZXFtelBHTERpakNNcFZjZDh1Ty1NR194NmY0QWNjeFp0eDQtVWVpZ3BnUW5pcnJyRjRTU2pRd0dFQTl2aDhGYUw4S3F5clQ4VzVzUG5PaGdCS2gxX3NxVGJWRnIwUXBEMXQ4VTQ5SUNwZVZWcVoxcWplS0I2X2xaWWhZSWZsYVNBTXZZYVhkM0FkUUlsVWU2QQ?oc=5",
+          "published": "2025-04-23T17:58:17",
           "source": "Last Word On Sports"
+        },
+        {
+          "title_en": "Joao Fonseca claims current ATP player has the greatest serve of all time in tennis and he's not even ranked in the top 30 - The Tennis Gazette",
+          "title_ko": "조앙 폰세카는 현재 ATP 선수가 역대 테니스 역사상 최고의 서브를 가지고 있다고 주장하지만 그는 30위 안에도 들지 못했습니다. - 테니스 가제트",
+          "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBPWDFKY1B4MDdoVEZaVUFJLWNHbGpJdXFteWs1QmhqTDVkZFlzWnZYOGVibUttNi1FSGRMTXBQdFo1VHMzc3JpcWJBUkRBUXB5NmpLNHhSMA?oc=5",
+          "published": "2025-04-24T10:00:00",
+          "source": "The Tennis Gazette"
         },
         {
           "title_en": "Alcaraz withdraws from Madrid - ATP Tour",
@@ -118,11 +132,11 @@
           "source": "ATP Tour"
         },
         {
-          "title_en": "Joao Fonseca claims current ATP player has the greatest serve of all time in tennis and he's not even ranked in the top 30 - The Tennis Gazette",
-          "title_ko": "조앙 폰세카는 현재 ATP 선수가 역대 테니스 역사상 최고의 서브를 가지고 있다고 주장하지만 그는 상위 30위 안에도 들지 못했습니다. - 테니스 가제트",
-          "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBPWDFKY1B4MDdoVEZaVUFJLWNHbGpJdXFteWs1QmhqTDVkZFlzWnZYOGVibUttNi1FSGRMTXBQdFo1VHMzc3JpcWJBUkRBUXB5NmpLNHhSMA?oc=5",
-          "published": "2025-04-24T10:00:00",
-          "source": "The Tennis Gazette"
+          "title_en": "ATP Madrid Day 3 Predictions Including Andrey Rublev vs Gael Monfils - Last Word On Sports",
+          "title_ko": "ATP 마드리드 3일차 경기 예측 (안드레이 루블레프 vs 가엘 몽피스 포함) - 스포츠에 대한 마지막 이야기",
+          "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOWVBuOENnallEdVhDc2xMaGZWNGFObmROYmhyZEE2ZVB4UV9XMEs5enQ0RmRqRW5uYnlkNFlzSVhfUWk4RjRzNUdxamVEQ0dQUTR1NWdfSm5kZzRpNXZRdjZHREtNMEZiX05jUDRHaFROZGQtcEtRcHYyakkwNF9DMy1JeHI2anNNdDNNdkExMXQyVWNOZ2RES0F2bHBWRlEy?oc=5",
+          "published": "2025-04-24T19:06:29",
+          "source": "Last Word On Sports"
         },
         {
           "title_en": "What were the Mutua Madrid Open results? - ATP Tour",
@@ -139,20 +153,6 @@
           "source": "Last Word On Sports"
         },
         {
-          "title_en": "Djokovic: 'The sport will outlive everyone' - ATP Tour",
-          "title_ko": "조코비치: \"스포츠는 모든 사람보다 오래갈 것\" - ATP 투어",
-          "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5aRlk2WVhDOGlweURhWWptRmR4U2ZFMWNYSFhtU2tNVzd1Y1IxLXgzc1JWMEMzeG5mdjQyTTVRTzNtOGNxR1Y0bzlhRzlIYmRGZVVoTXBZSjM4V3JOZjBqNU1fSEZSRW5nVU5zVw?oc=5",
-          "published": "2025-04-24T17:14:25",
-          "source": "ATP Tour"
-        },
-        {
-          "title_en": "Fonseca sets Madrid showdown with Paul - ATP Tour",
-          "title_ko": "폰세카, 폴 포그바와 마드리드 대결 - ATP 투어",
-          "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1wTklmaUdwYUhJMXg4Vk5xTzFtT2t3S1ZxbGN5T21OSWo0RnRyU19WNE9xM3FpV1h3SGxhRVZkM2pWazBXWDVreU55UTBtU0dHTzZNMGV1MkVLWjNvVWxTRW9zc1N0bE00Q0R6bDJsc3JmTS1PbWc?oc=5",
-          "published": "2025-04-24T17:45:13",
-          "source": "ATP Tour"
-        },
-        {
           "title_en": "The identity of the player who will replace Alcaraz at the Mutua Madrid Open 2025 has been revealed - Punto de Break",
           "title_ko": "2025년 무투아 마드리드 오픈에서 알카라스를 대체할 선수의 신원이 공개되었습니다. - Punto de Break",
           "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOUGNtYW9senViZTlmWkhIMG9rUTVZck4xSWlXeFVxQ21wODlJUHpNM3QzeTV3cGttaHhvQmNQbUhVSjU5ZmFKOFFQRU9YenF1VEphdG9TWkJXSTd0SnJBZ1RRbWs3amxmelFlbFVKOGItVEZoRG5TOVhHcTBqa2NocFFvYXRrejdCbkxndjl5cHRiSDRZQTcyaXAtdm9NMWpTRmtzT055Z0Fqc3ktcWhHTWhHT2x2TUdGdC1qbVMwZTVMYmJENURNVVhSam1wNVNtenJqWFU3YzYyUQ?oc=5",
@@ -160,11 +160,11 @@
           "source": "Punto de Break"
         },
         {
-          "title_en": "ATP Madrid Day 2 Predictions Including Martin Landaluce vs Cameron Norrie - Last Word On Sports",
-          "title_ko": "ATP 마드리드 2일차 경기 예측: 마틴 란달루체 vs. 카메론 노리 - 스포츠에 대한 마지막 말",
-          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPYTBLTXJXaDNMVm1NRVFfRVBIVkNCT2R3N2pnRmJvZldreVNXSGZWbVBVc2czQ1RoY0dfcEZRcFFSWFhtNnlHa2JQSG4zbnRBelNXM0tEbGlIZHBsUmJIRC1zY0k5M3BmN0hycVl3ODB3U01XSzUyeHdQVUlGZFVUSFNvZFlZb1daMWRoVXQtS0I0ZlFZcm56eQ?oc=5",
-          "published": "2025-04-23T21:06:59",
-          "source": "Last Word On Sports"
+          "title_en": "Fonseca sets Madrid showdown with Paul - ATP Tour",
+          "title_ko": "폰세카, 폴 포그바와 마드리드 대결 - ATP 투어",
+          "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1wTklmaUdwYUhJMXg4Vk5xTzFtT2t3S1ZxbGN5T21OSWo0RnRyU19WNE9xM3FpV1h3SGxhRVZkM2pWazBXWDVreU55UTBtU0dHTzZNMGV1MkVLWjNvVWxTRW9zc1N0bE00Q0R6bDJsc3JmTS1PbWc?oc=5",
+          "published": "2025-04-24T17:45:13",
+          "source": "ATP Tour"
         },
         {
           "title_en": "What is the Madrid tennis schedule? - ATP Tour",
@@ -220,35 +220,11 @@
         },
         {
           "tournament": "WTA Madrid",
-          "title": "Swiatek vs Noskova | WTA Madrid 2025 | Tennis Talk Preview",
-          "channel": "TENNIS TALK with Cam Williams",
-          "videoId": "bspcqUvPeXM",
-          "thumbnail": "https://i.ytimg.com/vi/bspcqUvPeXM/mqdefault.jpg",
-          "publishedAt": "2025-04-25T06:00:36Z"
-        },
-        {
-          "tournament": "WTA Madrid",
-          "title": "Iga Swiatek vs. Alexandra Eala FULL Highlights | Mutua Madrid Open 2025",
-          "channel": "Tennis Highlights",
-          "videoId": "Xrf5HQuIK7o",
-          "thumbnail": "https://i.ytimg.com/vi/Xrf5HQuIK7o/mqdefault.jpg",
-          "publishedAt": "2025-04-24T16:00:12Z"
-        },
-        {
-          "tournament": "WTA Madrid",
           "title": "Anastasija Sevastova vs Jelena Ostapenko Game Highlights | Mutua Madrid Open 2025",
           "channel": "Tennis Highlights",
           "videoId": "vgwWN68eGC4",
           "thumbnail": "https://i.ytimg.com/vi/vgwWN68eGC4/mqdefault.jpg",
           "publishedAt": "2025-04-24T15:53:50Z"
-        },
-        {
-          "tournament": "WTA Madrid",
-          "title": "Entrenamiento DÍA 2 WTA // #MMOPEN 2025",
-          "channel": "Mutua Madrid Open",
-          "videoId": "zg0r1YPwbZM",
-          "thumbnail": "https://i.ytimg.com/vi/zg0r1YPwbZM/mqdefault.jpg",
-          "publishedAt": "2025-04-22T20:36:10Z"
         },
         {
           "tournament": "WTA Madrid",
@@ -260,11 +236,35 @@
         },
         {
           "tournament": "WTA Madrid",
-          "title": "Suzan Lamens vs. Emma Raducanu | 2025 Madrid Round 1 | WTA Match Highlights",
+          "title": "Bencic, Potapova, &amp; Raducanu Take the Court on Day 2 in Madrid | WTA Match Highlights",
           "channel": "WTA",
-          "videoId": "Ffv4u50XkeI",
-          "thumbnail": "https://i.ytimg.com/vi/Ffv4u50XkeI/mqdefault.jpg",
-          "publishedAt": "2025-04-23T14:44:22Z"
+          "videoId": "4Yq4Srjtj54",
+          "thumbnail": "https://i.ytimg.com/vi/4Yq4Srjtj54/mqdefault.jpg",
+          "publishedAt": "2025-04-23T19:22:43Z"
+        },
+        {
+          "tournament": "WTA Madrid",
+          "title": "ATP Madrid Predictions &amp; WTA Madrid Best Bets - Betting Weekly Tennis LIVE",
+          "channel": "Betting Weekly Studios",
+          "videoId": "sEBodYjTr94",
+          "thumbnail": "https://i.ytimg.com/vi/sEBodYjTr94/mqdefault.jpg",
+          "publishedAt": "2025-04-23T05:44:00Z"
+        },
+        {
+          "tournament": "WTA Madrid",
+          "title": "Iga Swiatek vs. Alexandra Eala FULL Highlights | Mutua Madrid Open 2025",
+          "channel": "Tennis Highlights",
+          "videoId": "Xrf5HQuIK7o",
+          "thumbnail": "https://i.ytimg.com/vi/Xrf5HQuIK7o/mqdefault.jpg",
+          "publishedAt": "2025-04-24T16:00:12Z"
+        },
+        {
+          "tournament": "WTA Madrid",
+          "title": "SWIATEK vs EALA • WTA Madrid 2025 • LIVE Tennis Watchalong",
+          "channel": "TENNIS TALK with Cam Williams",
+          "videoId": "vP1TGNUICCc",
+          "thumbnail": "https://i.ytimg.com/vi/vP1TGNUICCc/mqdefault.jpg",
+          "publishedAt": "2025-04-24T16:16:31Z"
         },
         {
           "tournament": "WTA Madrid",
@@ -283,20 +283,6 @@
           "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTFAzaWxoS0tmTXlJRlVhUUlIUDU4RUhCcVJxM0tpeGJfMHJGTGFCZmRHU1U0N3E1RGhsRXU5LTJjN2hoVlFramNWbmlIWFU1MlNEZU9lemdoR2Npbk5CT04tVlBjeU5ZNThaRlY2NHFIbHVTTkxw?oc=5",
           "published": "2025-04-23T15:09:24",
           "source": "WTA Tennis"
-        },
-        {
-          "title_en": "Iga Swiatek escapes Alexandra Eala in Madrid second round - Tennis.com",
-          "title_ko": "Iga Swiatek이 마드리드 2라운드에서 Alexandra Eala를 탈출했습니다. - Tennis.com",
-          "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxObWVqNjZsbmkxMU1pRmVlVlBUZS1QTVdTNURlNHd5cjdraTVxV3d1amtWVGx3MzBrbWtVZ3gxUExGZUl0OVBKei1QX3FSLXgzVm55cVp1T21XR3NZSFRRQVh6eTd4RlhwNDlGeWU3TDVlc1FiWDFNMlFnQ1dwVkI2blVIb0FLZEJPeVVIV1FWU2lCdG90LUxNdTFR?oc=5",
-          "published": "2025-04-24T21:08:29",
-          "source": "Tennis.com"
-        },
-        {
-          "title_en": "WTA Madrid Day 3 Predictions Including Mirra Andreeva vs Marie Bouzkova - Last Word On Sports",
-          "title_ko": "WTA 마드리드 3일차 예측 (미라 안드레바 vs 마리 부즈코바 포함) - 스포츠에 대한 마지막 말",
-          "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOVEs2aWpweGI3cTNnRVRES0xOUVNHQkVOWUtjbEsxa05RcVhXclF4OGdFNDYzcDh1SGVBbDNGbWczcWUyVFo3b2lHSVA0cmo5UE14Q1dUWS1KUDFHenVRcl85RFdKQS1DWVZYMFE0M3F1UFdldnNNeWZsREN4VGRzTTRMOEJ3NFljR1J2M1Itc0F6MlpaY3JyYXNB?oc=5",
-          "published": "2025-04-23T17:58:14",
-          "source": "Last Word On Sports"
         },
         {
           "title_en": "Australia teenager Maya Joint breaks Ash Barty’s record with win on Madrid Open debut - The Guardian",
@@ -318,6 +304,20 @@
           "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNVGtlSkJHMXpSSVZYZ2ctSFFYdE5TSXdpQWdDTy0wMVNwb09EcTVjblNUYjBoWkEtMm9laWo1WXZrRFg1b1ZnM3pFTEtZRG8wV2RTMFBnc1F4T2ZCbWxfTGRBemtfV21zbEZac1Zwa3lCdnBXaXBWaHo2SFdmNWwtNVByVjJJNlU2R2duMnhBQ3pHM05YeG54VHdIejVUM203SmwwUy1R0gFSQVVfeXFMTzR5bmpzNmo0ODM1ZlFlRGpQVklEbWxKV2NWbTdxS3ZfVC1kcG56TzBMNzNYaWh5cVF0ajZ2Q25LT3dQdU9DaEN4Y0VGS1R4dHpjUQ?oc=5",
           "published": "2025-04-23T21:04:45",
           "source": "Australian Broadcasting Corporation"
+        },
+        {
+          "title_en": "WTA Madrid Day 4 Predictions Including Aryna Sabalenka vs Anna Blinkova - Last Word On Sports",
+          "title_ko": "WTA 마드리드 4일차 경기 예측 (아리나 사발렌카 vs 안나 블린코바 포함) - 스포츠에 대한 마지막 이야기",
+          "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNS2hObGtkLXY5TXJQQUFOckd3U1g0M1YyMEZGSUtrUWFYeFh6QVhfN2FEMmEzRlY3eGkyaUJFQnhjUzRwR2lfV0RsYzI5RnRhUFJ1VWxCanptdFpmSjRnWk16Ylptb2x1eDdVV05pVVpwTlpzX3ByQVpPS1JDY1NIZ3BBQURqaGZoVHdSZTZjTzNOZHlndURxalMzdw?oc=5",
+          "published": "2025-04-24T19:21:41",
+          "source": "Last Word On Sports"
+        },
+        {
+          "title_en": "Sabalenka’s next power move? Adding a little finesse - WTA Tennis",
+          "title_ko": "사발렌카의 다음 파워 무브? 약간의 기교를 더하다 - WTA 테니스",
+          "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNTU1SakhGOE9Ccng4cTZTblZDTVFfeVNVQm1weXhFR1NXajRHNWFtS2pLNUJMS19wRUppVGhFeE15TXNGT19UYmRUVk52eTZPLU9TRUZZQVNjeW5OYlgtdkFpSElJc0Y1MUJrbG1BcUpQUmQ4M3JHZjYtMWZjQ0hkQnlYU1BSMkpxRzJ2TmI3Umh5WW4z?oc=5",
+          "published": "2025-04-24T10:21:12",
+          "source": "WTA Tennis"
         },
         {
           "title_en": "What were the Mutua Madrid Open results? - ATP Tour",

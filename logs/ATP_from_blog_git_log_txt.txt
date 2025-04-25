@@ -229,3 +229,6 @@
 2025-04-25 18:09:53,432 - ERROR - ❌ 요청 실패: tennisexplorer.com
 2025-04-25 18:09:53,434 - ERROR - ❌ 에러 저장 완료: tennisexplorer.com
 2025-04-25 18:09:54,551 - INFO - ✅ summary 정보가 성공적으로 추가되었습니다.
+2025-04-25 09:21:21,896 - INFO - ✅ 결과 저장 완료: /home/runner/work/tennis_web/tennis_web/tennis_abstract_ATPandWTA.json
+2025-04-25 09:21:21,899 - INFO - ✅ 결과 저장 완료: /home/runner/work/tennis_web/tennis_web/tennis_abstract_bracket.json
+2025-04-25 09:21:28,278 - INFO - ✅ summary 정보가 성공적으로 추가되었습니다.
