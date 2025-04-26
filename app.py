@@ -95,8 +95,11 @@ def tournaments_pro():
     bracket_data, last_modified = load_abstract_bracket()
     schedule_data = load_pro_schedule()
     youtube_data, youtube_last_modified = load_pro_youtube()
-    
 
+    # ✅ summary 없는 경우 기본값 추가
+    for item in youtube_data:
+        if "summary" not in item:
+            item["summary"] = "대회 설명이 없습니다."
 
     return render_template(
         "tournament_pro.html",

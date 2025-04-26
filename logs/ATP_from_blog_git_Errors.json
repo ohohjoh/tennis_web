@@ -138,5 +138,10 @@
     "timestamp": "2025-04-25T18:41:46.538326",
     "source": "tennisexplorer.com",
     "error": "Connection failed 3 times"
+  },
+  {
+    "timestamp": "2025-04-26T08:23:44.299580",
+    "source": "fetch_current_top30players",
+    "error": "Traceback (most recent call last):\n  File \"c:\\Python\\Python311\\20230608\\tennis_web\\ATP_from_blog_git.py\", line 177, in fetch_current_top30players\n    points = int(cols[3].text.strip().replace(\",\", \"\"))\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: invalid literal for int() with base 10: '2001-08-16'\n"
   }
 ]

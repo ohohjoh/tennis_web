@@ -269,3 +269,150 @@
 2025-04-25 10:04:20,186 - INFO - ✅ 결과 저장 완료: /home/runner/work/tennis_web/tennis_web/tennis_abstract_ATPandWTA.json
 2025-04-25 10:04:20,189 - INFO - ✅ 결과 저장 완료: /home/runner/work/tennis_web/tennis_web/tennis_abstract_bracket.json
 2025-04-25 10:04:31,400 - INFO - ✅ summary 정보가 성공적으로 추가되었습니다.
+2025-04-26 08:00:59,677 - INFO - ✅ 결과 저장 완료: c:\Python\Python311\20230608\tennis_web\tennis_abstract_bracket.json
+2025-04-26 08:01:38,381 - INFO - ✅ 결과 저장 완료: c:\Python\Python311\20230608\tennis_web\tennis_abstract_bracket.json
+2025-04-26 08:03:08,902 - INFO - ✅ 결과 저장 완료: c:\Python\Python311\20230608\tennis_web\tennis_abstract_bracket.json
+2025-04-26 08:20:22,791 - INFO - ✅ 결과 저장 완료: c:\Python\Python311\20230608\tennis_web\tennis_abstract_bracket.json
+2025-04-26 08:22:46,551 - INFO - ✅ 결과 저장 완료: c:\Python\Python311\20230608\tennis_web\tennis_abstract_bracket.json
+2025-04-26 08:23:43,249 - INFO - ✅ 결과 저장 완료: c:\Python\Python311\20230608\tennis_web\tennis_abstract_bracket.json
+2025-04-26 08:23:44,294 - ERROR - ❌ fetch_current_top30players 실패
+2025-04-26 08:23:44,308 - ERROR - ❌ 에러 저장 완료: fetch_current_top30players
+2025-04-26 08:25:14,917 - INFO - ✅ 결과 저장 완료: c:\Python\Python311\20230608\tennis_web\tennis_abstract_bracket.json
+2025-04-26 08:27:09,570 - INFO - ✅ 결과 저장 완료: c:\Python\Python311\20230608\tennis_web\tennis_abstract_bracket.json
+2025-04-26 08:33:43,615 - INFO - ✅ 결과 저장 완료: c:\Python\Python311\20230608\tennis_web\tennis_abstract_bracket.json
+2025-04-26 08:33:44,753 - ERROR - ❌ fetch_current_top30players failed
+2025-04-26 08:34:51,246 - INFO - ✅ 결과 저장 완료: c:\Python\Python311\20230608\tennis_web\tennis_abstract_bracket.json
+2025-04-26 08:34:52,284 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '2001-08-16'
+2025-04-26 08:34:52,285 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1997-04-20'
+2025-04-26 08:34:52,285 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '2003-05-05'
+2025-04-26 08:34:52,285 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1997-10-28'
+2025-04-26 08:34:52,286 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1987-05-22'
+2025-04-26 08:34:52,286 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '2001-12-22'
+2025-04-26 08:34:52,286 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1999-02-17'
+2025-04-26 08:34:52,287 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1997-10-20'
+2025-04-26 08:34:52,287 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '2003-04-29'
+2025-04-26 08:34:52,288 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1996-02-11'
+2025-04-26 08:34:52,288 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '2002-03-03'
+2025-04-26 08:34:52,288 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1997-05-17'
+2025-04-26 08:34:52,291 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '2002-10-09'
+2025-04-26 08:34:52,291 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '2004-06-12'
+2025-04-26 08:34:52,292 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1998-12-22'
+2025-04-26 08:34:52,293 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1991-05-16'
+2025-04-26 08:34:52,293 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1998-01-20'
+2025-04-26 08:34:52,294 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1998-08-12'
+2025-04-26 08:34:52,294 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '2000-08-08'
+2025-04-26 08:34:52,295 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '2000-10-13'
+2025-04-26 08:34:52,295 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1998-08-13'
+2025-04-26 08:34:52,296 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1998-06-26'
+2025-04-26 08:34:52,296 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '2005-09-01'
+2025-04-26 08:34:52,297 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '2000-07-05'
+2025-04-26 08:34:52,298 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1996-05-21'
+2025-04-26 08:34:52,299 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1999-08-05'
+2025-04-26 08:34:52,299 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '2001-11-08'
+2025-04-26 08:34:52,300 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1997-02-11'
+2025-04-26 08:34:52,300 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1999-06-05'
+2025-04-26 08:34:52,300 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1999-04-15'
+2025-04-26 08:36:18,176 - INFO - ✅ 결과 저장 완료: c:\Python\Python311\20230608\tennis_web\tennis_abstract_bracket.json
+2025-04-26 08:36:19,256 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '2001-08-16'
+2025-04-26 08:36:19,256 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1997-04-20'
+2025-04-26 08:36:19,257 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '2003-05-05'
+2025-04-26 08:36:19,257 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1997-10-28'
+2025-04-26 08:36:19,258 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1987-05-22'
+2025-04-26 08:36:19,258 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '2001-12-22'
+2025-04-26 08:36:19,259 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1999-02-17'
+2025-04-26 08:36:19,259 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1997-10-20'
+2025-04-26 08:36:19,260 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '2003-04-29'
+2025-04-26 08:36:19,260 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1996-02-11'
+2025-04-26 08:36:19,261 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '2002-03-03'
+2025-04-26 08:36:19,261 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1997-05-17'
+2025-04-26 08:36:19,263 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '2002-10-09'
+2025-04-26 08:36:19,264 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '2004-06-12'
+2025-04-26 08:36:19,264 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1998-12-22'
+2025-04-26 08:36:19,265 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1991-05-16'
+2025-04-26 08:36:19,265 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1998-01-20'
+2025-04-26 08:36:19,266 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1998-08-12'
+2025-04-26 08:36:19,267 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '2000-08-08'
+2025-04-26 08:36:19,267 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '2000-10-13'
+2025-04-26 08:36:19,268 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1998-08-13'
+2025-04-26 08:36:19,268 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1998-06-26'
+2025-04-26 08:36:19,269 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '2005-09-01'
+2025-04-26 08:36:19,269 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '2000-07-05'
+2025-04-26 08:36:19,270 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1996-05-21'
+2025-04-26 08:36:19,270 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1999-08-05'
+2025-04-26 08:36:19,270 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '2001-11-08'
+2025-04-26 08:36:19,271 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1997-02-11'
+2025-04-26 08:36:19,272 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1999-06-05'
+2025-04-26 08:36:19,272 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1999-04-15'
+2025-04-26 08:37:16,917 - INFO - ✅ 결과 저장 완료: c:\Python\Python311\20230608\tennis_web\tennis_abstract_bracket.json
+2025-04-26 08:37:18,108 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '2001-08-16'
+2025-04-26 08:37:18,109 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1997-04-20'
+2025-04-26 08:37:18,109 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '2003-05-05'
+2025-04-26 08:37:18,109 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1997-10-28'
+2025-04-26 08:37:18,110 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1987-05-22'
+2025-04-26 08:37:18,110 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '2001-12-22'
+2025-04-26 08:37:18,110 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1999-02-17'
+2025-04-26 08:37:18,110 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1997-10-20'
+2025-04-26 08:37:18,112 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '2003-04-29'
+2025-04-26 08:37:18,112 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1996-02-11'
+2025-04-26 08:37:18,112 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '2002-03-03'
+2025-04-26 08:37:18,113 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1997-05-17'
+2025-04-26 08:37:18,113 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '2002-10-09'
+2025-04-26 08:37:18,114 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '2004-06-12'
+2025-04-26 08:37:18,114 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1998-12-22'
+2025-04-26 08:37:18,114 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1991-05-16'
+2025-04-26 08:37:18,116 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1998-01-20'
+2025-04-26 08:37:18,116 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1998-08-12'
+2025-04-26 08:37:18,117 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '2000-08-08'
+2025-04-26 08:37:18,117 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '2000-10-13'
+2025-04-26 08:37:18,117 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1998-08-13'
+2025-04-26 08:37:18,118 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1998-06-26'
+2025-04-26 08:37:18,118 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '2005-09-01'
+2025-04-26 08:37:18,118 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '2000-07-05'
+2025-04-26 08:37:18,119 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1996-05-21'
+2025-04-26 08:37:18,119 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1999-08-05'
+2025-04-26 08:37:18,119 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '2001-11-08'
+2025-04-26 08:37:18,120 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1997-02-11'
+2025-04-26 08:37:18,120 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1999-06-05'
+2025-04-26 08:37:18,120 - ERROR - ❌ Row parsing failed: invalid literal for int() with base 10: '1999-04-15'
+2025-04-26 08:39:30,222 - INFO - ✅ 결과 저장 완료: c:\Python\Python311\20230608\tennis_web\tennis_abstract_bracket.json
+2025-04-26 08:39:31,305 - INFO - ✅ 결과 저장 완료: c:\Python\Python311\20230608\tennis_web\tennis_abstract_top30players.json
+2025-04-26 08:57:02,888 - INFO - ✅ 결과 저장 완료: c:\Python\Python311\20230608\tennis_web\tennis_abstract_bracket.json
+2025-04-26 08:59:48,407 - INFO - ✅ 결과 저장 완료: c:\Python\Python311\20230608\tennis_web\tennis_abstract_bracket.json
+2025-04-26 08:59:49,412 - INFO - ✅ 결과 저장 완료: c:\Python\Python311\20230608\tennis_web\tennis_abstract_top30players.json
+2025-04-26 09:04:43,312 - INFO - ✅ 결과 저장 완료: c:\Python\Python311\20230608\tennis_web\tennis_abstract_bracket.json
+2025-04-26 09:04:44,421 - INFO - ✅ 결과 저장 완료: c:\Python\Python311\20230608\tennis_web\tennis_abstract_top30players.json
+2025-04-26 09:05:50,436 - INFO - ✅ 결과 저장 완료: c:\Python\Python311\20230608\tennis_web\tennis_abstract_bracket.json
+2025-04-26 09:05:51,628 - INFO - ✅ 결과 저장 완료: c:\Python\Python311\20230608\tennis_web\tennis_abstract_top30players.json
+2025-04-26 09:06:04,129 - INFO - ✅ summary 정보가 성공적으로 추가되었습니다.
+2025-04-26 09:14:04,490 - INFO - ✅ 결과 저장 완료: c:\Python\Python311\20230608\tennis_web\tennis_abstract_bracket.json
+2025-04-26 09:14:05,702 - INFO - ✅ 결과 저장 완료: c:\Python\Python311\20230608\tennis_web\tennis_abstract_top30players.json
+2025-04-26 09:14:18,424 - INFO - ✅ summary 정보가 성공적으로 추가되었습니다.
+2025-04-26 09:16:06,280 - INFO - ✅ 결과 저장 완료: c:\Python\Python311\20230608\tennis_web\tennis_abstract_bracket.json
+2025-04-26 09:16:07,454 - INFO - ✅ 결과 저장 완료: c:\Python\Python311\20230608\tennis_web\tennis_abstract_top30players.json
+2025-04-26 09:16:19,716 - INFO - ✅ summary 정보가 성공적으로 추가되었습니다.
+2025-04-26 09:35:29,708 - INFO - ✅ 결과 저장 완료: C:\Python\Python311\20230608\tennis_Web\tennis_abstract_bracket.json
+2025-04-26 09:35:30,758 - INFO - ✅ 결과 저장 완료: C:\Python\Python311\20230608\tennis_Web\tennis_abstract_top30players.json
+2025-04-26 09:38:48,657 - INFO - ✅ 결과 저장 완료: C:\Python\Python311\20230608\tennis_Web\tennis_abstract_bracket.json
+2025-04-26 09:38:49,813 - INFO - ✅ 결과 저장 완료: C:\Python\Python311\20230608\tennis_Web\tennis_abstract_top30players.json
+2025-04-26 09:39:02,033 - INFO - ✅ summary 정보가 성공적으로 추가되었습니다.
+2025-04-26 09:47:57,843 - INFO - ✅ 결과 저장 완료: C:\Python\Python311\20230608\tennis_Web\tennis_abstract_bracket.json
+2025-04-26 09:47:58,981 - INFO - ✅ 결과 저장 완료: C:\Python\Python311\20230608\tennis_Web\tennis_abstract_top30players.json
+2025-04-26 09:48:11,762 - INFO - ✅ summary 정보가 성공적으로 추가되었습니다.
+2025-04-26 09:52:19,234 - INFO - ✅ 결과 저장 완료: C:\Python\Python311\20230608\tennis_Web\tennis_abstract_bracket.json
+2025-04-26 09:52:20,234 - INFO - ✅ 결과 저장 완료: C:\Python\Python311\20230608\tennis_Web\tennis_abstract_top30players.json
+2025-04-26 09:52:32,515 - INFO - ✅ summary 정보가 성공적으로 추가되었습니다.
+2025-04-26 09:54:19,465 - INFO - ✅ 결과 저장 완료: C:\Python\Python311\20230608\tennis_Web\tennis_abstract_bracket.json
+2025-04-26 09:54:20,680 - INFO - ✅ 결과 저장 완료: C:\Python\Python311\20230608\tennis_Web\tennis_abstract_top30players.json
+2025-04-26 09:54:33,612 - INFO - ✅ summary 정보가 성공적으로 추가되었습니다.
+2025-04-26 09:54:58,787 - INFO - ✅ 결과 저장 완료: C:\Python\Python311\20230608\tennis_Web\tennis_abstract_bracket.json
+2025-04-26 09:54:59,872 - INFO - ✅ 결과 저장 완료: C:\Python\Python311\20230608\tennis_Web\tennis_abstract_top30players.json
+2025-04-26 09:55:12,072 - INFO - ✅ summary 정보가 성공적으로 추가되었습니다.
+2025-04-26 09:57:07,758 - INFO - ✅ 결과 저장 완료: C:\Python\Python311\20230608\tennis_Web\tennis_abstract_bracket.json
+2025-04-26 09:57:09,621 - INFO - ✅ 결과 저장 완료: C:\Python\Python311\20230608\tennis_Web\tennis_abstract_top30players.json
+2025-04-26 09:57:22,120 - INFO - ✅ summary 정보가 성공적으로 추가되었습니다.
+2025-04-26 10:17:52,010 - INFO - ✅ 결과 저장 완료: c:\Python\Python311\20230608\tennis_web\tennis_abstract_bracket.json
+2025-04-26 10:17:53,312 - INFO - ✅ 결과 저장 완료: c:\Python\Python311\20230608\tennis_web\tennis_abstract_top30players.json
+2025-04-26 10:18:04,978 - INFO - ✅ summary 정보가 성공적으로 추가되었습니다.
+2025-04-26 10:18:26,491 - INFO - ✅ 결과 저장 완료: c:\Python\Python311\20230608\tennis_web\tennis_abstract_bracket.json
+2025-04-26 10:18:27,687 - INFO - ✅ 결과 저장 완료: c:\Python\Python311\20230608\tennis_web\tennis_abstract_top30players.json
+2025-04-26 10:18:40,134 - INFO - ✅ summary 정보가 성공적으로 추가되었습니다.

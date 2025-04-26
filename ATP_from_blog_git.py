@@ -126,6 +126,9 @@ def fetch_current_tournaments():
     tournament_data = []
     for col_idx, td in enumerate(table.find_all("td")):
         tour_type = categories[col_idx]
+
+        if tour_type == "Challenger":
+            continue
         current_b = None
         for elem in td.children:
             if elem.name == "b":
@@ -133,6 +136,65 @@ def fetch_current_tournaments():
             elif elem.name == "a" and "Results and Forecasts" in elem.text:
                 tournament_data.append({"tournament": current_b, "tour": tour_type, "url": elem["href"]})
     return tournament_data
+
+def fetch_current_top30players():
+    try:
+        url = "https://tennisabstract.com/reports/atpRankings.html"
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+        }
+        res = requests.get(url, headers=headers, timeout=10)
+        res.raise_for_status()
+
+        soup = BeautifulSoup(res.text, "html.parser")
+        print("✅ soup loaded")
+
+        table = soup.find("table", id="reportable")
+        if not table:
+            print("❌ table not found")
+            return []
+
+        rows = table.find_all("tr")
+        players = []
+
+        for row in rows:
+            cols = row.find_all("td")
+            if len(cols) < 4:
+                continue
+
+            try:
+                rank_text = cols[0].get_text(strip=True)
+                if not rank_text.isdigit():
+                    continue
+
+                rank = int(rank_text)
+                if rank > 30:
+                    break
+
+                name_tag = cols[1].find("a")
+                name = name_tag.get_text(strip=True) if name_tag else cols[1].get_text(strip=True)
+                country = cols[2].get_text(strip=True)
+                birthdate = cols[3].get_text(strip=True)
+
+                players.append({
+                    "rank": rank,
+                    "name": name,
+                    "country": country,
+                    "birthdate": birthdate
+                })
+
+            except Exception as e:
+                logging.error(f"❌ Row parsing failed: {e}")
+                continue
+
+        print(f"✅ Top {len(players)} players parsed successfully")
+        return players
+
+    except Exception:
+        logging.error("❌ fetch_current_top30players failed")
+        print(traceback.format_exc())
+        return []
+
 
 def convert_to_bracket_format(data):
     ISO3_TO_ISO2 = {
@@ -289,21 +351,35 @@ def normalize(text):
     return re.sub(r'[^a-z0-9]', '', text.lower())
 
 def filter_today_matches_by_abstract_partial(today_data, bracket_data, output_filename="tennis_tournaments_pro_schedules.json"):
+    def normalize_name(text):
+        """소문자, 숫자만 남기고 WTA/ATP 같은 투어 구분어는 미리 제거"""
+        text = text.replace("ATP", "").replace("WTA", "").lower()
+        return re.sub(r'[^a-z0-9]', '', text)
+
     matched_matches = []
 
     for match in today_data.get("matches", []):
         today_tournament_raw = match.get("tournament", "")
-        today_tournament = normalize(today_tournament_raw)
+        today_tournament = normalize_name(today_tournament_raw)
+        today_tour = match.get("tour", "").upper()  # "ATP" 또는 "WTA"
 
         for bracket in bracket_data:
             bracket_tournament_raw = bracket.get("tournament", "")
-            bracket_tournament = normalize(bracket_tournament_raw)
+            bracket_tournament = normalize_name(bracket_tournament_raw)
 
-            if today_tournament and (today_tournament in bracket_tournament or bracket_tournament in today_tournament):
+            # bracket의 tour 추출
+            if "wta" in bracket.get("tournament", "").lower():
+                bracket_tour = "WTA"
+            elif "atp" in bracket.get("tournament", "").lower():
+                bracket_tour = "ATP"
+            else:
+                bracket_tour = None  # 혹시 없으면
+
+            # 🎯 tournament 이름 일치 + tour 일치해야만 매칭
+            if today_tour == bracket_tour and today_tournament and (today_tournament in bracket_tournament or bracket_tournament in today_tournament):
                 matched_matches.append(match)
                 break
 
-    # ✅ date_kst를 matches에서 꺼냄
     date_kst = today_data["matches"][0].get("date_kst") if today_data.get("matches") else None
 
     output_path = os.path.join(base_dir, output_filename)
@@ -312,6 +388,7 @@ def filter_today_matches_by_abstract_partial(today_data, bracket_data, output_fi
 
     print(f"✅ 매칭된 경기 저장 완료: {output_path}")
     return matched_matches
+
 
 
 def fetch_youtube_videos(query, max_results=12):
@@ -333,12 +410,16 @@ def fetch_youtube_videos(query, max_results=12):
 def fetch_and_save_youtube_results_from_bracket(bracket_json_path="tennis_abstract_bracket.json", output_filename="tennis_tournaments_pro_data.json"):
     try:
         with open(bracket_json_path, "r", encoding="utf-8") as f:
-            bracket_data = json.load(f)
+            loaded = json.load(f)
+            if isinstance(loaded, dict):
+                bracket_data = loaded.get("data", [])
+            else:
+                bracket_data = loaded
     except FileNotFoundError:
         print(f"❌ 파일 없음: {bracket_json_path}")
         return
 
-    tournaments = [item["tournament"] for item in bracket_data.get("data", [])]
+    tournaments = [item["tournament"] for item in bracket_data]
 
     all_results = []
     for name in tournaments:
@@ -459,8 +540,54 @@ def add_summary_to_youtube_json(youtube_filename="tennis_tournaments_pro_data.js
         return None  # 아무것도 없으면 None 반환
 
     def generate_summary(t):
-        return f"{t['Tournament']}는 {t['Period']} 동안 {t['Country']} {t['City']}에서 열리는 {t['Surface']} 코트 {t['Tour']} 대회입니다."
+        important = "color:#5c2e91; font-size:0.75rem; font-weight:bold;"
+        normal = "color:#5a5a5a; font-size:0.75rem;"
+        red = "color:#ff0000; font-size:0.75rem; font-weight:bold;"  # 🔥 빨간색 추가
 
+        start_date = t.get('StartDate')
+        end_date = t.get('EndDate')
+
+        if start_date and end_date:
+            start = datetime.strptime(start_date, "%Y-%m-%d")
+            end = datetime.strptime(end_date, "%Y-%m-%d")
+            period_text = f"{start.month}월 {start.day}일 - {end.month}월 {end.day}일"
+        else:
+            period_text = t.get('Period', '날짜 정보 없음')
+
+        # 오늘 날짜
+        today = datetime.now()
+        if start_date:
+            start = datetime.strptime(start_date, "%Y-%m-%d")
+            days_passed = (today - start).days + 1  # 시작일 포함
+            if days_passed < 1:
+                days_passed = 1
+        else:
+            days_passed = None
+
+        summary = (
+            f"<strong style='{important}'>{t['Tournament']}</strong>"
+            f"<span style='{normal}'>는 </span>"
+            f"<strong style='{important}'>{period_text}</strong>"
+            f"<span style='{normal}'> 에</span><br/>"
+            f"<strong style='{important}'>{t['Country']} {t['City']}</strong>"
+            f"<span style='{normal}'>에서 열리는 </span>"
+            f"<strong style='{important}'>{t['Surface']}</strong>"
+            f"<span style='{normal}'> 코트 </span>"
+            f"<strong style='{important}'>{t['Tour']}</strong>"
+            f"<span style='{normal}'> 대회입니다.</span>"
+        )
+
+        # 🔥 오늘 몇일차 멘트 추가
+        if days_passed is not None:
+            summary += (
+                f"<br/><span style='{normal}'>오늘은 대회 </span>"
+                f"<strong style='{red}'>{days_passed}일차</strong>"
+                f"<span style='{normal}'> 입니다.</span>"
+            )
+
+        return summary
+
+    
     for item in youtube_data.get("results", []):
         raw_name = item.get("tournament", "")
         tour_type = extract_tour(raw_name)
@@ -523,12 +650,17 @@ if __name__ == "__main__":
     atp_only = [r for r in result if "ATP" in r["tournament"]]
     wta_only = [r for r in result if "WTA" in r["tournament"]]
     atp_wta_both = atp_only + wta_only
-    save_results_to_json(atp_wta_both, "tennis_abstract_ATPandWTA.json")
 
-    # 3. 브래킷 변환 및 저장
+    # 3. 브래킷 변환 및 저장 + Top30 랭킹 수집
     bracket_formatted = convert_to_bracket_format(atp_wta_both)
-    save_results_to_json(bracket_formatted, "tennis_abstract_bracket.json", add_executed_at=True)
+    top30players = fetch_current_top30players()
 
+    # 4. 최종 저장
+    save_results_to_json(bracket_formatted, "tennis_abstract_bracket.json", add_executed_at=True)
+    top30players = fetch_current_top30players()
+    if top30players:
+        save_results_to_json(top30players, "tennis_abstract_top30players.json", add_executed_at=True)
+    
     # 4. 오늘 경기 일정 수집 및 매칭
     fetch_all_atp_schedule_from_dom()
     today_path = os.path.join(base_dir, "tennis_explorer_schedule.json") 

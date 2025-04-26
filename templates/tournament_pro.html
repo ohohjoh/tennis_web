@@ -99,21 +99,26 @@
   }
   .schedule-item {
     scroll-snap-align: start;
-    width: 240px;
+    width: 160px; /* 🔥 더 슬림하게 */
     flex-shrink: 0;
   }
   
   .today-card {
     background-color: #ffffff;
     border: 2px solid #2e5339;
-    font-size: 0.75rem;
+    font-size: 0.72rem; /* 🔥 살짝 더 작게 */
+    padding: 0.5rem 0.6rem; /* 🔥 padding도 줄임 */
     padding: 0.6rem 0.75rem;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.06);
     white-space: normal;
     word-break: keep-all;
   }
-  
+  .today-card .text-dark {
+    font-size: 0.8rem;    /* 선수 이름 글자 크기 키움 */
+    font-weight: 600;     /* 선수 이름을 굵게(bold) 표시 */
+    color: #2e5339;       /* 윔블던 초록 계열 색상으로 통일 */
+  }
   .badge.bg-success {
     background-color: #2e5339;
     font-size: 0.65rem;
@@ -496,24 +501,43 @@
     #youtube-section,
     #news-section,
     #draw-section {
-      max-height: 420px;
-      overflow-y: auto;
+      max-height: 280px;
+      overflow-y: auto;/
     }
 
-    /* 모바일 대응 */
-    @media (max-width: 768px) {
-      #youtube-section {
-        max-height: 300px;
-      }
 
-      #news-section {
-        max-height: 320px;
-      }
-
-      #draw-section {
-        max-height: 360px;
-      }
+    #summary-box {
+      color: #5c2e91; /* 윔블던 보라색으로 텍스트 색 설정 */
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-top: 0.5rem;
     }
+    .match-badge {
+    font-size: 0.7rem;
+    padding: 0.35em 0.75em;
+    line-height: 1.25;
+    border-radius: 999px;
+  }
+  .date-time-wrapper {
+    border-bottom: 1px solid #2e5339; /* 윔블던 보라색 줄 */
+    padding-bottom: 2px; /* 줄과 텍스트 사이 여백 약간 */
+    margin-bottom: 6px;  /* 아래 요소와도 간격 살짝 */
+  }
+  #rightBracketContainer-draw .bracket-section {
+    border: 2px solid #2e5339;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    padding: 1rem;
+  }
+  #tournament-info-box {
+    display: flex;
+    justify-content: center; /* ✨ 수평 가운데 */
+    align-items: center;     /* ✨ 수직 가운데 */
+  }
+  .filter-area.tournament-switch {
+    justify-content: center; /* 🔥 좌측정렬 → 가운데 정렬로 변경 */
+  }
   </style>
   
 </head>
@@ -530,61 +554,85 @@
 
   <!-- ✅ 대회 탭 버튼 최상단 고정 -->
   <div class="tournament-top-tab shadow-sm">
-    <div class="filter-area tournament-switch">
-      {% for t in data %}
+    <div class="filter and summary"></div>
+      <div class="filter-area tournament-switch">
+        {% for t in data %}
         <button class="btn btn-outline-dark btn-sm filter-btn tournament-btn"
                 data-tid="{{ loop.index0 }}"
-                data-title="{{ t.tournament }}">
+                data-title="{{ t.tournament }}"
+                data-tour="{{ t.tour }}">
           {{ t.tournament }}
         </button>
-      {% endfor %}
-    </div>
-  </div>
-  <!-- ✅ 대회 정보 표시 영역 -->
-  <div id="tournament-info-box" class="container my-3">
-    <div id="summary-box" class="alert alert-light border border-secondary shadow-sm"
-         style="font-size: 0.9rem; font-weight: 500;">
-      📋 대회 정보를 불러오는 중입니다...
-    </div>
-  </div>
 
-  <hr class="wimbledon-divider" />
-
-  <div class="container-fluid py-2" style="background-color: #ffffff; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
-    {% if schedule %}
-      <!-- <p class="schedule-title">🎾 오늘 예정된 경기 ({{ schedule_date }})</p> -->
-      <div class="schedule-scroll-container">
-        <div class="schedule-grid">
-          {% for match in schedule %}
-          <div class="schedule-item" data-tournament="{{ match.tournament }}">
-              <div class="today-card">
-                <!-- 1️⃣ 날짜 + 시간 -->
-                <div class="d-flex justify-content-between align-items-center mb-1">
-                  <span class="text-muted small">{{ match.date_kst }}</span>
-                  <div class="d-flex align-items-center">
-                    <small class="text-muted me-1">KST</small>
-                    <strong class="text-dark">{{ match.time_kst }}</strong>
-                  </div>
-                </div>
-                <!-- 2️⃣ 대회명 + 선수 -->
-                <div class="d-flex justify-content-between align-items-center">
-                  <span class="badge bg-success">{{ match.tournament }}</span>
-                    {% set players = match.players.split(' - ') %}
-                    <div class="text-dark small text-end">
-                      {{ players[0] }}<br>{{ players[1] }}
-                    </div>
-                  </div>
-              </div>
-            </div>
-          {% endfor %}
+        {% endfor %}
+      </div>
+      <div id="tournament-info-box">
+        <div id="summary-box">
+          📋 대회 정보를 불러오는 중입니다...
         </div>
       </div>
-    {% else %}
-    <p style="color: #5c2e91; font-weight: 600;">🎾 ATP 경기를 업데이트 중이에요!!</p>
-    {% endif %}
-  </div>
+      <div class="container-fluid py-3" style="background-color: #ffffff; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
+        {% if schedule %}
+          <!-- 🔥 초록 실선 추가 -->
+          <hr style="border-top: 1px solid #2e5339; margin: 0.5rem 0 0.8rem 0;" />
+      
+          <!-- 🔥 예정 경기 문구 왼쪽 정렬 
+          <p class="schedule-title text-start mt-3 mb-1" style="color: #2e5339; font-size: 1.1rem; font-weight: 600;">
+            🎾 예정 경기 ({{ schedule_date }}) 기준
+          </p>         
+          -->
+          
+      
+          <div class="schedule-scroll-container">
+            <div class="schedule-grid" style="gap: 0.6rem;">
+              {% for match in schedule %}
+              <div class="schedule-item" data-tournament="{{ match.tournament | lower }}" data-tour="{{ match.tour | lower }}">
+                <div class="today-card p-2" style="font-size: 0.72rem;">
+                  <!-- 날짜 + 시간 -->
+                  <div class="d-flex justify-content-between align-items-center mb-1 date-time-wrapper">
+                    <span class="text-muted small">{{ match.date_kst }}</span>
+                    <div class="d-flex align-items-center">
+                      <small class="text-muted me-1">KST</small>
+                      <strong class="text-dark">{{ match.time_kst }}</strong>
+                    </div>
+                  </div>
+      
+                  {% set players = match.players.split(' - ') %}
+      
+                  <!-- 대회명 + 선수1 -->
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    {% set tournament_name = match.tournament %}
+                    {% if tournament_name.endswith(' ATP') %}
+                      {% set tournament_name = tournament_name[:-4] %}
+                    {% elif tournament_name.endswith(' WTA') %}
+                      {% set tournament_name = tournament_name[:-4] %}
+                    {% endif %}
+                    <span class="badge bg-success">{{ tournament_name }}</span>
+                    <span class="text-dark small text-end">{{ players[0] }}</span>
+                  </div>
+      
+                  <!-- 투어명 + 선수2 -->
+                  <div class="d-flex justify-content-between align-items-center">
+                    {% if match.tour %}
+                      <span class="badge bg-secondary text-light" style="font-size: 0.65rem;">{{ match.tour }}</span>
+                    {% else %}
+                      <span></span>
+                    {% endif %}
+                    <span class="text-dark small text-end">{{ players[1] }}</span>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        {% else %}
+          <p style="color: #5c2e91; font-weight: 600;">🎾 ATP 경기를 업데이트 중이에요!!</p>
+        {% endif %}
+      </div>
+      
   
-  <hr class="wimbledon-divider" />
+  
+      <hr class="wimbledon-divider mb-0">
 
   {% set round_labels = {
     'Q1': '예선 1회전',
@@ -601,8 +649,8 @@
 
     <div id="tournament-cards">
     {% for tournament in data %}
-      <div class="tournament-card" data-tid="{{ loop.index0 }}" style="display: none;">
-        <div class="bracket-section" style="display: none;">
+    <div class="tournament-card" data-tid="{{ loop.index0 }}" data-tournament="{{ tournament.tournament }}" style="display: none;">
+      <div class="bracket-section" style="display: none;">
           <div class="bracket-container"
                style="
                  overflow-x: auto;
@@ -654,107 +702,96 @@
 
 
 
-  <div class="container-fluid px-3 py-3">
-    <div class="row gx-4">
-      <div class="d-flex gap-2">
-        <button id="btn-youtube" class="btn btn-outline-secondary btn-sm filter-btn active" onclick="showMediaSection('youtube')">영상</button>
-        <button id="btn-news" class="btn btn-outline-secondary btn-sm filter-btn" onclick="showMediaSection('news')">뉴스</button>
-        <button id="btn-draw" class="btn btn-outline-secondary btn-sm filter-btn" onclick="showMediaSection('draw')">Draw</button>
-      </div>
-      <div class="col-12 mb-3">
-        <!-- 🎥 유튜브 섹션 -->
-        <div id="youtube-section" class="container-fluid px-3 py-3 media-section">
-          <div class="youtube-wrapper">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-            </div>
-      
-            <div id="youtubeVideoContainer" class="d-flex gap-2 px-1 youtube-scroll">
-              {% for entry in youtube_data %}
-                {% for video in entry["videos"] %}
-                    <div class="youtube-card" data-tournament="{{ entry['tournament'] }}">                    <a href="https://www.youtube.com/watch?v={{ video['videoId'] }}" target="_blank" class="text-decoration-none">
-                      <div class="card shadow-sm">
-                        <img src="{{ video['thumbnail'] }}" class="card-img-top" alt="{{ video['title'] }}">
-                        <div class="card-body p-2">
-                          <div class="card-title">
-                            {{ video['title'][:38] }}{% if video['title']|length > 38 %}...{% endif %}
-                          </div>
-                          <div class="card-channel">📺 {{ video['channel'] }}</div>
-                          <div class="card-date">🕒 {{ video['publishedAt'][:10] }}</div>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                {% endfor %}
-              {% endfor %}
-            </div>
-          </div>
-        </div>
-      
-        <!-- 📰 뉴스 섹션 -->
-        <div id="news-section" class="container-fluid px-3 py-3 media-section news-wrapper" style="display: none;">
-          <div id="newsContainer" class="news-container">
-            {% for entry in youtube_data %}
-              {% if entry.articles %}
-                <div class="news-list" data-tournament="{{ entry.tournament }}">
-                  <div class="d-flex justify-content-between align-items-center mb-3"></div>
-                  <ul class="ps-0">
-                    {% for article in entry.articles %}
-                    <li class="news-card">
-                      <a href="{{ article.link }}" class="news-link" target="_blank">
-                        <div class="card">
-                          <div class="card-body">
-                            <div class="card-title">{{ article.title_ko }}</div>
-                            <div class="news-meta">🗓 {{ article.published[:10] }} · {{ article.source }}</div>
-                          </div>
-                        </div>
-                      </a>
-                    </li>
-                    {% endfor %}
-                  </ul>
+<!-- ✅ 하얀 배경 container 시작 -->
+<div class="container-fluid py-3" style="background-color: #ffffff; border-radius: 0; box-shadow: none; padding-left: 0; padding-right: 0; margin: 0;">
+
+  
+  <!-- 버튼 영역 -->
+  <div class="px-3 d-flex gap-2 mb-1 justify-content-center">
+    <button id="btn-youtube" class="btn btn-outline-secondary btn-sm filter-btn active" onclick="showMediaSection('youtube')">영상</button>
+    <button id="btn-news" class="btn btn-outline-secondary btn-sm filter-btn" onclick="showMediaSection('news')">뉴스</button>
+    <button id="btn-draw" class="btn btn-outline-secondary btn-sm filter-btn" onclick="showMediaSection('draw')">Draw</button>
+  </div>
+
+  <!-- 🎥 유튜브 섹션 -->
+  <div id="youtube-section" class="px-3 py-3 media-section">
+    <div class="youtube-wrapper">
+      <div id="youtubeVideoContainer" class="d-flex gap-2 px-1 youtube-scroll">
+        {% for entry in youtube_data %}
+          {% for video in entry["videos"] %}
+          <div class="youtube-card" data-tournament="{{ entry['tournament'] }}">
+            <a href="https://www.youtube.com/watch?v={{ video['videoId'] }}" target="_blank" class="text-decoration-none">
+              <div class="card shadow-sm">
+                <img src="{{ video['thumbnail'] }}" class="card-img-top" alt="{{ video['title'] }}">
+                <div class="card-body p-2">
+                  <div class="card-title">{{ video['title'][:38] }}{% if video['title']|length > 38 %}...{% endif %}</div>
+                  <div class="card-channel">📺 {{ video['channel'] }}</div>
+                  <div class="card-date">🕒 {{ video['publishedAt'][:10] }}</div>
                 </div>
-              {% endif %}
-            {% endfor %}
+              </div>
+            </a>
           </div>
-        </div>
-
-        <!-- 드로우 섹션 -->
-        <div id="draw-section" class="container-fluid px-3 py-3 media-section" style="display: none;">
-          <div id="rightBracketContainer-draw"></div>
-        </div>
+          {% endfor %}
+        {% endfor %}
       </div>
-      
-  
-      <!-- 🧩 오른쪽 열: 새 콘텐츠 자리 -->
-      <div class="col-lg-5 col-md-12">
-        <div class="right-widget-area">
-          <!-- 브라켓 표시 위치 -->
-          <div id="rightBracketContainer" class="bracket-placeholder"></div>
-        </div>
-      </div>
-
-  
     </div>
   </div>
+
+  <!-- 📰 뉴스 섹션 -->
+  <div id="news-section" class="px-3 py-3 media-section" style="display: none;">
+    <div id="newsContainer" class="news-container">
+      {% for entry in youtube_data %}
+        {% if entry.articles %}
+          <div class="news-list" data-tournament="{{ entry.tournament }}">
+            <ul class="ps-0">
+              {% for article in entry.articles %}
+              <li class="news-card">
+                <a href="{{ article.link }}" class="news-link" target="_blank">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="card-title">{{ article.title_ko }}</div>
+                      <div class="news-meta">🗓 {{ article.published[:10] }} · {{ article.source }}</div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- 🏆 드로우 섹션 -->
+  <div id="draw-section" class="px-3 py-3 media-section" style="display: none;">
+    <div id="rightBracketContainer-draw"></div>
+  </div>
+
+</div>
+<!-- ✅ 하얀 배경 container 끝 -->
+
+
   
 
   <!-- JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-      // ✅ tournament 이름과 summary 매핑
-      const tournamentSummaries = {
-        {% for entry in youtube_data %}
-          "{{ entry.tournament }}": `{{ entry.summary | replace('\n', ' ') | replace("`", "\\`") }}`{% if not loop.last %},{% endif %}
-        {% endfor %}
-      };
-
+    // ✅ tournament 이름과 summary 매핑
+    const tournamentSummaries = {
+      {% for entry in youtube_data %}
+        "{{ entry.tournament }}": `{{ entry.summary | replace('\n', ' ') | replace("`", "\\`") | safe }}`{% if not loop.last %},{% endif %}
+      {% endfor %}
+    };
+  
     function normalize(text) {
-      return text.toLowerCase().replace(/[^a-z0-9]/g, '');
+      return text ? text.replace(/[^a-z0-9]/gi, '').toLowerCase() : '';
     }
-
+  
     document.addEventListener('DOMContentLoaded', () => {
       const path = window.location.pathname;
-
-         // ✅ 상단 메뉴 경로 강조
+  
+      // ✅ 상단 메뉴 경로 강조
       document.querySelectorAll('.main-navbar .nav-link').forEach(link => {
         if (link.getAttribute('href') === path) {
           link.classList.add('active');
@@ -766,33 +803,65 @@
         news.style.display = 'block';
       });
   
-      // ✅ 대회 버튼 클릭 시 콘텐츠 필터링
+      // ✅ 대회 버튼 클릭 시 모든 필터 적용
       document.querySelectorAll('.tournament-btn').forEach(btn => {
         btn.addEventListener('click', () => {
-          const tid = btn.getAttribute('data-tid');
-          const title = btn.getAttribute('data-title');
-          // ✅ 스케줄 카드 필터링
-          document.querySelectorAll('.schedule-item').forEach(card => {
-            const cardTournament = card.getAttribute('data-tournament');
-            card.style.display = (cardTournament === title) ? 'block' : 'none';
-          });
-          // ✅ summary-box 업데이트
+          const title = btn.getAttribute('data-title') || '';
+          const tid = btn.getAttribute('data-tid') || '';
+  
+          // 🔥 버튼 이름 분리: tour + tournament
+          const parts = title.split(' ');
+          const tour = parts[0]?.trim() || '';
+          const tournamentName = parts.slice(1).join(' ').trim();
+          const normalizedTournament = normalize(tournamentName);
+          const normalizedTitle = normalize(title);
+  
+          // ✅ summary 업데이트
           const summaryBox = document.getElementById("summary-box");
           if (summaryBox && tournamentSummaries[title]) {
-            summaryBox.innerHTML = `📋 ${tournamentSummaries[title]}`;
+            summaryBox.innerHTML = `${tournamentSummaries[title]}`;
           } else {
             summaryBox.innerHTML = "📋 대회 정보가 없습니다.";
           }
-          // active 정리
+  
+          // ✅ 버튼 active 처리
           document.querySelectorAll('.tournament-btn').forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
   
-          // 브라켓 카드 전환
-          document.querySelectorAll('.tournament-card').forEach(card => {
-            card.style.display = card.getAttribute('data-tid') === tid ? 'block' : 'none';
+          // ✅ 예정 경기 필터링 (tour + tournamentName 정확 매칭)
+          document.querySelectorAll('.schedule-item').forEach(card => {
+            const cardTournament = normalize(card.getAttribute('data-tournament') || '');
+            const cardTour = normalize(card.getAttribute('data-tour') || '');
+  
+            if (cardTour === normalize(tour) && cardTournament.includes(normalizedTournament)) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
           });
   
-          // draw 영역에 복사
+          // 3. 유튜브, 뉴스, 드로우는 그냥 버튼 normalize title과 data-tournament normalize 비교
+          document.querySelectorAll('.youtube-card').forEach(card => {
+            const cardTournament = normalize(card.getAttribute('data-tournament') || '');
+            card.style.display = cardTournament === normalizedTitle ? 'block' : 'none';
+          });
+
+          document.querySelectorAll('.news-list').forEach(news => {
+            const cardTournament = normalize(news.getAttribute('data-tournament') || '');
+            news.style.display = cardTournament === normalizedTitle ? 'block' : 'none';
+          });
+
+          document.querySelectorAll('.tournament-card').forEach(card => {
+            const cardTournament = normalize(card.getAttribute('data-tournament') || '');
+            card.style.display = cardTournament === normalizedTitle ? 'block' : 'none';
+          });
+  
+          // ✅ 브라켓 카드 전환 (tid 기반)
+          document.querySelectorAll('.tournament-card').forEach(card => {
+            card.style.display = (card.getAttribute('data-tid') === tid) ? 'block' : 'none';
+          });
+  
+          // ✅ draw 복사
           const sourceBracket = document.querySelector(`.tournament-card[data-tid="${tid}"] .bracket-section`);
           const container = document.getElementById("rightBracketContainer-draw");
           container.innerHTML = '';
@@ -803,16 +872,6 @@
             container.appendChild(cloned);
             container.style.display = "block";
           }
-  
-          // 유튜브 필터링
-          document.querySelectorAll('.youtube-card').forEach(card => {
-            card.style.display = (card.dataset.tournament === title) ? 'block' : 'none';
-          });
-  
-          // 뉴스 필터링
-          document.querySelectorAll('.news-list').forEach(news => {
-            news.style.display = (news.dataset.tournament === title) ? 'block' : 'none';
-          });
         });
       });
   
@@ -825,22 +884,25 @@
   
     // ✅ 보기 버튼(유튜브/뉴스/Draw) 전환
     function showMediaSection(type) {
-      // ✅ 보기 전환 버튼만 active 제거
       ['btn-youtube', 'btn-news', 'btn-draw'].forEach(id => {
         const el = document.getElementById(id);
         if (el) el.classList.remove('active');
       });
-
-      // ✅ 현재 버튼만 active 처리
+  
       const activeBtn = document.getElementById("btn-" + type);
       if (activeBtn) activeBtn.classList.add("active");
-
-      // ✅ 섹션 전환
+  
       document.getElementById("youtube-section").style.display = type === "youtube" ? "block" : "none";
       document.getElementById("news-section").style.display = type === "news" ? "block" : "none";
       document.getElementById("draw-section").style.display = type === "draw" ? "block" : "none";
     }
   </script>
+  
+  
+  
+
+  
+  
   
 
 </body>
