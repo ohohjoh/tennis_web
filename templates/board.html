@@ -7,8 +7,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
-      background-color: #2e5339;
-      color: white;
+      background-color: #ffffff;  /* ✅ 초록색 ❌ → 흰색 */
+      color: #2e5339;
       font-family: 'Pretendard Variable', sans-serif;
     }
     .main-navbar {
@@ -20,8 +20,6 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      transition: none !important;
-      will-change: transform;
     }
     .nav-pill-wrapper {
       background-color: #345d40;
@@ -43,10 +41,6 @@
       transition: all 0.25s ease-in-out;
       white-space: nowrap;
     }
-    .main-navbar .nav-link:not(.active) {
-      background-color: #2e5339;
-      color: #ffffff;
-    }
     .main-navbar .nav-link.active {
       background-color: #ffffff;
       color: #2e5339;
@@ -66,119 +60,529 @@
         flex-wrap: nowrap;
       }
     }
-    #formBox {
-      max-width: 600px;
-      margin: 2rem auto 1rem;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid #5c2e91;
+    .board-container {
+      background: #ffffff;
       border-radius: 12px;
-      padding: 1rem;
-    }
-    textarea {
-      width: 100%;
-      resize: none;
-      border-radius: 6px;
-      border: none;
-      padding: 0.8rem;
-      margin-bottom: 0.5rem;
-    }
-    .message-list {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
+      padding: 1.5rem;
+      margin: 1rem auto;
       max-width: 960px;
-      margin: 0 auto 3rem;
-      padding: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* ✅ 부드러운 그림자 */
+      color: #2e5339;
     }
-    .message-item {
-      background-color: #26442f;
-      border-radius: 10px;
-      padding: 0.75rem 1rem;
-      font-size: 0.95rem;
-      word-break: break-word;
+    .board-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
     }
-    .timestamp {
-      display: block;
-      font-size: 0.75rem;
-      color: #aaa;
-      margin-top: 0.5rem;
+    .board-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #2e5339;
+    }
+    .new-post-btn {
+      background-color: #5c2e91;
+      color: white;
+      font-weight: 600;
+      border-radius: 20px;
+      padding: 0.3rem 1rem;
+      font-size: 0.9rem;
+    }
+    .new-post-btn:hover {
+      background-color: #4b1e88;
+      color: white;
+    }
+    .post-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .post-list li {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #ddd;
+    }
+    .post-link {
+      text-decoration: none;
+      color: #2e5339;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .post-link:hover {
+      color: #5c2e91;
+      text-decoration: underline;
+    }
+    .post-meta {
+      font-size: 0.8rem;
+      color: #888;
+      margin-top: 0.25rem;
     }
     .btn-wimbledon {
       background-color: #5c2e91;
-      color: #fff;
+      color: white;
       font-weight: bold;
       border: none;
+      border-radius: 8px;
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
     }
     .btn-wimbledon:hover {
       background-color: #4b1e88;
-      color: #fff;
+    }
+    .modal-content {
+      background-color: #ffffff !important;
+      color: #2e5339 !important;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      max-width: 95vw;
+      overflow-x: hidden;
+    }
+    .btn-wimbledon, .new-post-btn, .save-edit-btn {
+      background-color: #5c2e91;
+      color: white;
+      font-weight: 600;
+      border-radius: 12px;
+    }
+    .btn-wimbledon:hover, .new-post-btn:hover, .save-edit-btn:hover {
+      background-color: #4b1e88;
+    }
+    a {
+      color: #2e5339;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #5c2e91;
+      text-decoration: underline;
+    }
+    .form-control {
+      background-color: #ffffff;
+      color: #2e5339;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .form-control:focus {
+      border-color: #5c2e91;
+      box-shadow: 0 0 5px rgba(92, 46, 145, 0.3);
+    }
+    .btn-wimbledon.btn-xs {
+      font-size: 0.65rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 8px;
+    }
+    .post-content {
+      max-width: 100%;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+    .modal-title {
+      max-width: 80%;
+      word-break: break-word;
+      overflow-wrap: break-word;
+      white-space: normal; /* ✅ 줄바꿈 허용 */
     }
   </style>
 </head>
+
 <body>
-  <nav class="main-navbar shadow-sm">
-    <div class="nav-pill-wrapper">
-      <a class="nav-link {% if currentPath == 'index' %}active{% endif %}" href="/">Home</a>
-      <a class="nav-link {% if currentPath == 'tournament_pro' %}active{% endif %}" href="/tournament_pro">프로 소식</a>
-      <a class="nav-link {% if currentPath == 'tournament' %}active{% endif %}" href="/tournament">아마 대회</a>
-      <a class="nav-link {% if currentPath == 'court' %}active{% endif %}" href="/court-guide">코트 가이드</a>
-      <a class="nav-link {% if currentPath == 'board' %}active{% endif %}" href="/board">테나무숲</a>
-    </div>
-  </nav>
 
-  <div id="formBox">
-    <form id="postForm">
-      <textarea id="content" rows="3" placeholder="테나무숲. 일요일 저녁에 너의 자취는 사라진다." required></textarea>
-      <button type="submit" class="btn btn-wimbledon w-100">외치기</button>
-    </form>
+<!-- ✅ 네비게이션 바 -->
+<nav class="main-navbar shadow-sm">
+  <div class="nav-pill-wrapper">
+    <a class="nav-link {% if currentPath == 'index' %}active{% endif %}" href="/">Home</a>
+    <a class="nav-link {% if currentPath == 'tournament_pro' %}active{% endif %}" href="/tournament_pro">프로 소식</a>
+    <a class="nav-link {% if currentPath == 'tournament' %}active{% endif %}" href="/tournament">아마 대회</a>
+    <a class="nav-link {% if currentPath == 'court' %}active{% endif %}" href="/court-guide">코트 가이드</a>
+    <a class="nav-link {% if currentPath == 'board' %}active{% endif %}" href="/board">테나무숲</a>
+  </div>
+</nav>
+
+<!-- ✅ 게시판 -->
+<div class="container board-container">
+  <div class="board-header">
+    <div class="board-title">🌲 테나무숲 - </div>
+    <button type="button" class="btn new-post-btn" data-bs-toggle="modal" data-bs-target="#writeModal">
+      ✏️ 글쓰기
+    </button>
   </div>
 
-  <div class="message-list" id="postList">
-    {% for post in posts %}
-      {% if post is string %}  <!-- old format fallback -->
-        <div class="message-item">{{ post }}</div>
-      {% else %}
-        <div class="message-item">
-          {{ post.text }}
-          <span class="timestamp">{{ post.timestamp }}</span>
+  <ul class="post-list">
+    {% if posts %}
+      {% for post in posts %}
+      <li>
+        <!-- 제목 누르면 글+댓글 모달 열기 -->
+        <a href="#" class="post-link" data-post-id="{{ post.id }}" data-bs-toggle="modal" data-bs-target="#postModal-{{ post.id }}">{{ post.title }}</a>
+        <div class="post-meta">
+          🧑‍💻 {{ post.nickname }} ・ 🕒 {{ post.created_at }}
         </div>
-      {% endif %}
-    {% endfor %}
+
+        <!-- 글+댓글 모달 -->
+        <div class="modal fade" id="postModal-{{ post.id }}" tabindex="-1" aria-labelledby="postModalLabel-{{ post.id }}" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+        
+              <div class="modal-header" style="background-color: #5c2e91; color: #fff;">
+                <div class="d-flex justify-content-between align-items-center w-100">
+                  <h5 class="modal-title mb-0" id="postModalLabel-{{ post.id }}">{{ post.title }}</h5>
+                  <div class="d-flex align-items-center gap-2">
+                    <div id="views-{{ post.id }}" class="text-light small">
+                      조회수 {{ post.views }}
+                    </div>
+                  </div>
+                </div>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+        
+              <div class="modal-body">
+        
+                <!-- 본문 -->
+                <div class="p-3 mb-4 rounded shadow-sm" style="background-color: #f9f9f9;">
+                  <div class="post-content" style="white-space: pre-wrap;">{{ post.content | replace('\n', '<br>') | safe }}</div>
+                </div>
+
+                <!-- 수정/삭제 버튼 (오른쪽 정렬) -->
+                <div class="d-flex justify-content-end align-items-center gap-2 mb-3">
+                  <button type="button" class="btn btn-wimbledon btn-xs edit-post-btn" data-post-id="{{ post.id }}" style="font-size: 0.65rem; padding: 0.2rem 0.5rem;">✏️ 수정</button>
+                  <button type="button" class="btn btn-wimbledon btn-xs delete-post-btn" data-post-id="{{ post.id }}" style="font-size: 0.65rem; padding: 0.2rem 0.5rem;">🗑️ 삭제</button>
+                </div>
+                
+
+        
+                <!-- ✨ 댓글 리스트 -->
+              <div class="p-2 mb-3 rounded shadow-sm" style="background-color: #f9f9f9;">
+                <h6 class="fw-bold mb-3">💬</h6>
+                <div id="comments-{{ post.id }}" style="max-height: 150px; overflow-y: auto;">
+                  {% if post.comments %}
+                  <ul class="list-unstyled" style="margin: 0; padding: 0;">
+                    {% for comment in post.comments %}
+                    <li class="p-1 small" data-comment-idx="{{ loop.index0 }}">
+                      <!-- 첫 줄: 내용 -->
+                      <div class="fw-bold" style="font-size: 0.85rem;">{{ comment.content }}</div>
+                      <!-- 두 번째 줄: 닉네임 / 시간 / 버튼 -->
+                      <div class="d-flex justify-content-end align-items-center mt-1 gap-2">
+                        <div class="small text-muted text-end" style="font-size: 0.7rem;">
+                          {{ comment.nickname }} ・ {{ comment.created_at }}
+                          {% if comment.edited_at %}
+                            (수정됨 {{ comment.edited_at }})
+                          {% endif %}
+                        </div>
+                        <div class="d-flex gap-1">
+                          <button class="btn btn-wimbledon btn-xs edit-comment-btn" data-comment-idx="{{ loop.index0 }}" style="font-size: 0.6rem; padding: 0.2rem 0.4rem;">✏️</button>
+                          <button class="btn btn-wimbledon btn-xs delete-comment-btn" data-comment-idx="{{ loop.index0 }}" style="font-size: 0.6rem; padding: 0.2rem 0.4rem;">🗑️</button>
+                        </div>
+                      </div>
+                      
+                    </li>
+                    {% endfor %}
+                  </ul>
+                  {% else %}
+                  <p class="text-muted small">아직 댓글이 없습니다.</p>
+                  {% endif %}
+                </div>
+              </div>
+
+        
+                <!-- ✨ 댓글 작성 -->
+                <div class="p-3 rounded shadow-sm" style="background-color: #f9f9f9;">
+                  <form action="/board/{{ post.id }}/comment" method="post" class="comment-form" data-post-id="{{ post.id }}">
+                    <div class="row mb-2">
+                      <div class="col">
+                        <input type="text" name="nickname" class="form-control form-control-sm" placeholder="닉네임 (or 익명)">
+                      </div>
+                      <div class="col">
+                        <input type="password" name="password" class="form-control form-control-sm" required placeholder="비밀번호">
+                      </div>
+                      <div class="col-auto">
+                        <button type="submit" class="btn btn-wimbledon btn-sm" style="font-size: 0.75rem; padding: 0.35rem 0.7rem;">작성</button>
+                      </div>
+                    </div>
+                    <div class="mb-2">
+                      <textarea name="content" class="form-control form-control-sm" rows="2" required placeholder="댓글을 입력하세요"></textarea>
+                    </div>
+                  </form>
+                </div>
+        
+              </div>
+        
+            </div>
+          </div>
+        </div>                     
+      </li>
+      {% endfor %}
+    {% else %}
+      <li>아직 작성된 글이 없습니다. 첫 글을 작성해보세요!</li>
+    {% endif %}
+  </ul>
+</div>
+
+
+<!-- ✅ 업그레이드된 글쓰기 모달 -->
+<div class="modal fade" id="writeModal" tabindex="-1" aria-labelledby="writeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background-color: #ffffff; color: #2e5339; border-radius: 12px;">
+      
+      <!-- 헤더 -->
+      <div class="modal-header" style="background-color: #5c2e91; color: white; border-top-left-radius: 12px; border-top-right-radius: 12px;">
+        <h5 class="modal-title fw-bold" id="writeModalLabel" style="color: #ffffff;">✏️ 새 글 작성</h5>
+        <button type="button" class="btn-close" style="filter: invert(1) hue-rotate(180deg) saturate(5);" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <!-- 폼 -->
+      <form action="/board/create" method="post">
+        <div class="modal-body" style="background-color: #f9f9f9; color: #2e5339;">
+
+          <!-- 닉네임 + 비밀번호 + 작성 버튼 -->
+          <div class="row g-2 mb-3 align-items-center">
+            <div class="col-5 col-md-5">
+              <input type="text" id="nickname" name="nickname" class="form-control form-control-sm" placeholder="닉네임 (없으면 익명)">
+            </div>
+            <div class="col-5 col-md-5">
+              <input type="password" id="password" name="password" class="form-control form-control-sm" required placeholder="비밀번호 (필수)">
+            </div>
+            <div class="col-2 col-md-2 d-grid">
+              <button type="submit" class="btn btn-wimbledon btn-sm" style="font-size: 0.8rem;">작성</button>
+            </div>
+          </div>
+
+          <!-- 제목 입력 -->
+          <div class="p-2 mb-2 rounded shadow-sm" style="background-color: white;">
+            <input type="text" id="title" name="title" class="form-control form-control-sm" required placeholder="제목을 입력하세요">
+          </div>
+
+          <!-- 본문 입력 (textarea 1.5배 높이) -->
+          <div class="p-2 mb-2 rounded shadow-sm" style="background-color: white;">
+            <textarea id="content" name="content" class="form-control form-control-sm" rows="9" required placeholder="내용을 입력하세요"></textarea>
+          </div>
+
+        </div>
+      </form>
+
+    </div>
   </div>
+</div>
 
-  <script>
-      window.addEventListener("DOMContentLoaded", () => {
-        const path = window.location.pathname;
-        document.querySelectorAll('.main-navbar .nav-link').forEach(link => {
-          if (link.getAttribute('href') === path) {
-            link.classList.add('active');
+
+
+
+<!-- ✅ 부트스트랩 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // ✅ 조회수 증가
+    document.querySelectorAll('.post-link').forEach(link => {
+      link.addEventListener('click', function() {
+        const postId = this.getAttribute('data-post-id');
+        fetch(`/board/${postId}/view`, { method: "POST" })
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
+              const viewsElement = document.getElementById(`views-${postId}`);
+              if (viewsElement) {
+                const currentText = viewsElement.innerText;
+                const newViews = parseInt(currentText.replace(/[^\d]/g, '')) + 1;
+                viewsElement.innerText = `조회수 ${newViews}`;
+              }
+            }
+          })
+          .catch(console.error);
+      });
+    });
+  
+    // ✅ 글/댓글 통합 이벤트 위임
+    document.addEventListener("click", function(e) {
+      const target = e.target;
+  
+      // ✏️ 수정 버튼
+      if (target.classList.contains("edit-post-btn")) {
+        const postId = target.getAttribute("data-post-id");
+        const modal = document.getElementById(`postModal-${postId}`);
+        const titleEl = modal.querySelector(".modal-title");
+        const postContentWrapper = modal.querySelector(".post-content");
+        const contentWrapper = modal.querySelector(".modal-body div.p-3.mb-4");
+  
+        const commentFormArea = modal.querySelector(".comment-form")?.parentElement;
+        const commentListArea = modal.querySelector(`#comments-${postId}`)?.parentElement;
+        if (commentFormArea) commentFormArea.style.display = "none";
+        if (commentListArea) commentListArea.style.display = "none";
+        if (contentWrapper) contentWrapper.style.padding = "0";
+  
+        const currentTitle = titleEl.innerText.trim();
+        const currentContent = postContentWrapper.innerText.trim();
+  
+        titleEl.innerHTML = `<input type="text" id="edit-title-${postId}" class="form-control" value="${currentTitle}" style="background-color:white; color:black; max-width: 100%;">`;
+        postContentWrapper.innerHTML = `<textarea id="edit-content-${postId}" class="form-control" rows="10" style="background-color:white; color:black; width:100%; overflow-wrap:break-word; word-break:break-word;">${currentContent}</textarea>`;
+  
+        const buttonArea = target.parentElement;
+        buttonArea.innerHTML = `
+          <button type="button" class="btn btn-success btn-sm save-edit-btn" data-post-id="${postId}">✔️ 저장</button>
+        `;
+      }
+  
+      // 🗑️ 삭제 버튼
+      if (target.classList.contains("delete-post-btn")) {
+        const postId = target.getAttribute("data-post-id");
+        if (confirm("정말 삭제하시겠습니까?")) {
+          const password = prompt("비밀번호를 입력하세요:");
+          if (password) {
+            fetch(`/board/${postId}/delete`, {
+              method: "POST",
+              headers: { "Content-Type": "application/x-www-form-urlencoded" },
+              body: `password=${encodeURIComponent(password)}`
+            })
+            .then(response => response.json())
+            .then(data => {
+              if (data.success) {
+                alert("✅ 삭제 완료!");
+                location.reload();
+              } else {
+                alert("❌ 삭제 실패: " + data.error);
+              }
+            })
+            .catch(console.error);
           }
-        });
-      });
-    const form = document.getElementById("postForm");
-    const contentInput = document.getElementById("content");
-    const postList = document.getElementById("postList");
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const content = contentInput.value.trim();
-      if (!content) return;
-
-      const res = await fetch("/board", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ content })
-      });
-
-      if (res.ok) {
-        const newPost = await res.json();
-        const div = document.createElement("div");
-        div.className = "message-item";
-        div.innerHTML = `${newPost.content}<span class="timestamp">방금 전</span>`;
-        postList.prepend(div);
-        contentInput.value = "";
+        }
+      }
+  
+      // ✔️ 저장 버튼
+      if (target.classList.contains("save-edit-btn")) {
+        const postId = target.getAttribute("data-post-id");
+        const newTitle = document.getElementById(`edit-title-${postId}`).value.trim();
+        const newContent = document.getElementById(`edit-content-${postId}`).value.trim();
+        const password = prompt("비밀번호를 입력하세요:");
+  
+        if (!newTitle || !newContent || !password) {
+          alert("모든 입력이 필요합니다.");
+          return;
+        }
+  
+        fetch(`/board/${postId}/edit`, {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: `title=${encodeURIComponent(newTitle)}&content=${encodeURIComponent(newContent)}&password=${encodeURIComponent(password)}`
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            alert("✅ 수정 완료!");
+            location.reload();
+          } else {
+            alert("❌ 수정 실패: " + data.error);
+          }
+        })
+        .catch(console.error);
+      }
+  
+      // ❌ 취소 버튼
+      if (target.classList.contains("cancel-edit-btn")) {
+        location.reload();
       }
     });
+  
+    // ✅ 댓글 작성
+    document.querySelectorAll('.comment-form').forEach(form => {
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const postId = this.getAttribute('data-post-id');
+        const nickname = this.querySelector('input[name="nickname"]').value.trim() || "익명";
+        const content = this.querySelector('textarea[name="content"]').value.trim();
+        const password = this.querySelector('input[name="password"]').value.trim();
+  
+        if (!content) {
+          alert("댓글 내용을 입력해주세요.");
+          return;
+        }
+  
+        fetch(`/board/${postId}/comment`, {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: `nickname=${encodeURIComponent(nickname)}&content=${encodeURIComponent(content)}&password=${encodeURIComponent(password)}`
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            const commentsContainer = document.getElementById(`comments-${postId}`);
+            if (commentsContainer) {
+              commentsContainer.innerHTML = data.updated_comments_html;
+            }
+            this.querySelector('textarea[name="content"]').value = "";
+          } else {
+            alert("댓글 작성 실패");
+          }
+        })
+        .catch(console.error);
+      });
+    });
+  
+    // ✅ 댓글 수정/삭제
+    document.addEventListener('click', function(event) {
+      const target = event.target;
+  
+      if (target.classList.contains('edit-comment-btn')) {
+        const commentIdx = target.getAttribute('data-comment-idx');
+        const postId = target.closest('.modal').id.split('-')[1];
+        const oldContent = target.closest('li').querySelector('div.fw-bold').innerText;
+  
+        const newContent = prompt("댓글 수정:", oldContent);
+        if (newContent !== null) {
+          const password = prompt("댓글 비밀번호를 입력하세요:");
+          if (password) {
+            fetch(`/board/${postId}/comment/${commentIdx}/edit`, {
+              method: "POST",
+              headers: { "Content-Type": "application/x-www-form-urlencoded" },
+              body: `content=${encodeURIComponent(newContent)}&password=${encodeURIComponent(password)}`
+            })
+            .then(response => response.json())
+            .then(data => {
+              if (data.success) {
+                const commentsContainer = document.getElementById(`comments-${postId}`);
+                if (commentsContainer) {
+                  commentsContainer.innerHTML = data.updated_comments_html;
+                }
+              } else {
+                alert("댓글 수정 실패: " + data.error);
+              }
+            })
+            .catch(console.error);
+          }
+        }
+      }
+  
+      if (target.classList.contains('delete-comment-btn')) {
+        const commentIdx = target.getAttribute('data-comment-idx');
+        const postId = target.closest('.modal').id.split('-')[1];
+        const password = prompt("댓글 비밀번호를 입력하세요:");
+        if (password) {
+          fetch(`/board/${postId}/comment/${commentIdx}/delete`, {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: `password=${encodeURIComponent(password)}`
+          })
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
+              const commentsContainer = document.getElementById(`comments-${postId}`);
+              if (commentsContainer) {
+                commentsContainer.innerHTML = data.updated_comments_html;
+              }
+            } else {
+              alert("댓글 삭제 실패: " + data.error);
+            }
+          })
+          .catch(console.error);
+        }
+      }
+    });
+  
+    // ✅ 모달 닫힐 때 새로고침 (수정 중이었으면 무조건 리셋)
+    document.querySelectorAll(".modal").forEach(modalEl => {
+      modalEl.addEventListener('hidden.bs.modal', function() {
+        const isEditing = this.querySelector(".modal-title input") || this.querySelector(".post-content textarea");
+        if (isEditing) {
+          location.reload();
+        }
+      });
+    });
+  });
   </script>
+  
+  
 </body>
 </html>
