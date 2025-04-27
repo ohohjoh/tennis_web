@@ -2,218 +2,146 @@
   "date": "2025-04-27",
   "matches": [
     {
-      "date_kst": "2025-04-26",
+      "date_kst": "2025-04-27",
       "time_kst": "18:00",
-      "date_utc": "2025-04-26",
+      "date_utc": "2025-04-27",
       "time_utc": "09:00",
-      "players": "Nishikori K. - Shapovalov D.",
-      "tournament": "Madrid",
-      "tour": "ATP"
-    },
-    {
-      "date_kst": "2025-04-26",
-      "time_kst": "18:00",
-      "date_utc": "2025-04-26",
-      "time_utc": "09:00",
-      "players": "Baez S. - Dzumhur D.",
-      "tournament": "Madrid",
-      "tour": "ATP"
-    },
-    {
-      "date_kst": "2025-04-26",
-      "time_kst": "18:00",
-      "date_utc": "2025-04-26",
-      "time_utc": "09:00",
-      "players": "Etcheverry T. - Musetti L.",
-      "tournament": "Madrid",
-      "tour": "ATP"
-    },
-    {
-      "date_kst": "2025-04-26",
-      "time_kst": "19:30",
-      "date_utc": "2025-04-26",
-      "time_utc": "10:30",
-      "players": "De Minaur A. - Sonego L.",
-      "tournament": "Madrid",
-      "tour": "ATP"
-    },
-    {
-      "date_kst": "2025-04-26",
-      "time_kst": "19:30",
-      "date_utc": "2025-04-26",
-      "time_utc": "10:30",
-      "players": "Lehecka J. - Norrie C.",
-      "tournament": "Madrid",
-      "tour": "ATP"
-    },
-    {
-      "date_kst": "2025-04-26",
-      "time_kst": "19:30",
-      "date_utc": "2025-04-26",
-      "time_utc": "10:30",
-      "players": "Diallo G. - Majchrzak K.",
-      "tournament": "Madrid",
-      "tour": "ATP"
-    },
-    {
-      "date_kst": "2025-04-26",
-      "time_kst": "21:00",
-      "date_utc": "2025-04-26",
-      "time_utc": "12:00",
-      "players": "Tsitsipas S. - Struff J.",
-      "tournament": "Madrid",
-      "tour": "ATP"
-    },
-    {
-      "date_kst": "2025-04-26",
-      "time_kst": "21:00",
-      "date_utc": "2025-04-26",
-      "time_utc": "12:00",
-      "players": "Fearnley J. - Machac T.",
-      "tournament": "Madrid",
-      "tour": "ATP"
-    },
-    {
-      "date_kst": "2025-04-26",
-      "time_kst": "22:30",
-      "date_utc": "2025-04-26",
-      "time_utc": "13:30",
-      "players": "Muller A. - Humbert U.",
-      "tournament": "Madrid",
-      "tour": "ATP"
-    },
-    {
-      "date_kst": "2025-04-26",
-      "time_kst": "22:30",
-      "date_utc": "2025-04-26",
-      "time_utc": "13:30",
-      "players": "Dimitrov G. - Jarry N.",
-      "tournament": "Madrid",
-      "tour": "ATP"
-    },
-    {
-      "date_kst": "2025-04-26",
-      "time_kst": "22:30",
-      "date_utc": "2025-04-26",
-      "time_utc": "13:30",
-      "players": "Arnaldi M. - Djokovic N.",
-      "tournament": "Madrid",
-      "tour": "ATP"
-    },
-    {
-      "date_kst": "2025-04-26",
-      "time_kst": "22:30",
-      "date_utc": "2025-04-26",
-      "time_utc": "13:30",
-      "players": "Giron M. - Berrettini M.",
+      "players": "Bublik A. - Rublev A.",
       "tournament": "Madrid",
       "tour": "ATP"
     },
     {
       "date_kst": "2025-04-27",
-      "time_kst": "00:00",
-      "date_utc": "2025-04-26",
-      "time_utc": "15:00",
-      "players": "Tiafoe F. - Darderi L.",
-      "tournament": "Madrid",
-      "tour": "ATP"
-    },
-    {
-      "date_kst": "2025-04-27",
-      "time_kst": "00:00",
-      "date_utc": "2025-04-26",
-      "time_utc": "15:00",
-      "players": "Khachanov K. - Opelka R.",
-      "tournament": "Madrid",
-      "tour": "ATP"
-    },
-    {
-      "date_kst": "2025-04-27",
-      "time_kst": "02:00",
-      "date_utc": "2025-04-26",
-      "time_utc": "17:00",
-      "players": "Draper J. - Griekspoor T.",
-      "tournament": "Madrid",
-      "tour": "ATP"
-    },
-    {
-      "date_kst": "2025-04-27",
-      "time_kst": "04:30",
-      "date_utc": "2025-04-26",
-      "time_utc": "19:30",
-      "players": "Fonseca J. - Paul T.",
-      "tournament": "Madrid",
-      "tour": "ATP"
-    },
-    {
-      "date_kst": "2025-04-26",
       "time_kst": "18:00",
-      "date_utc": "2025-04-26",
+      "date_utc": "2025-04-27",
       "time_utc": "09:00",
-      "players": "Andreeva M. - Frech M.",
-      "tournament": "Madrid WTA",
-      "tour": "WTA"
+      "players": "Nakashima B. - Cobolli F.",
+      "tournament": "Madrid",
+      "tour": "ATP"
     },
     {
-      "date_kst": "2025-04-26",
-      "time_kst": "18:00",
-      "date_utc": "2025-04-26",
-      "time_utc": "09:00",
-      "players": "Shnaider D. - Sevastova A.",
-      "tournament": "Madrid WTA",
-      "tour": "WTA"
-    },
-    {
-      "date_kst": "2025-04-26",
-      "time_kst": "19:30",
-      "date_utc": "2025-04-26",
-      "time_utc": "10:30",
-      "players": "Samsonova L. - Starodubtseva Y.",
-      "tournament": "Madrid WTA",
-      "tour": "WTA"
-    },
-    {
-      "date_kst": "2025-04-26",
+      "date_kst": "2025-04-27",
       "time_kst": "20:00",
-      "date_utc": "2025-04-26",
+      "date_utc": "2025-04-27",
       "time_utc": "11:00",
-      "players": "Keys M. - Kalinskaya A.",
-      "tournament": "Madrid WTA",
-      "tour": "WTA"
-    },
-    {
-      "date_kst": "2025-04-26",
-      "time_kst": "21:00",
-      "date_utc": "2025-04-26",
-      "time_utc": "12:00",
-      "players": "Haddad Maia B. - Bencic B.",
-      "tournament": "Madrid WTA",
-      "tour": "WTA"
-    },
-    {
-      "date_kst": "2025-04-26",
-      "time_kst": "21:30",
-      "date_utc": "2025-04-26",
-      "time_utc": "12:30",
-      "players": "Li A. - Gauff C.",
-      "tournament": "Madrid WTA",
-      "tour": "WTA"
+      "players": "Zverev A. - Davidovich Fokina A.",
+      "tournament": "Madrid",
+      "tour": "ATP"
     },
     {
       "date_kst": "2025-04-27",
-      "time_kst": "03:00",
-      "date_utc": "2025-04-26",
-      "time_utc": "18:00",
-      "players": "Noskova L. - Swiatek I.",
-      "tournament": "Madrid WTA",
-      "tour": "WTA"
+      "time_kst": "22:00",
+      "date_utc": "2025-04-27",
+      "time_utc": "13:00",
+      "players": "Medvedev D. - Cerundolo J.",
+      "tournament": "Madrid",
+      "tour": "ATP"
     },
     {
       "date_kst": "2025-04-27",
+      "time_kst": "22:30",
+      "date_utc": "2025-04-27",
+      "time_utc": "13:30",
+      "players": "Fritz T. - Bonzi B.",
+      "tournament": "Madrid",
+      "tour": "ATP"
+    },
+    {
+      "date_kst": "2025-04-28",
+      "time_kst": "00:00",
+      "date_utc": "2025-04-27",
+      "time_utc": "15:00",
+      "players": "Cerundolo F. - Comesana F.",
+      "tournament": "Madrid",
+      "tour": "ATP"
+    },
+    {
+      "date_kst": "2025-04-28",
+      "time_kst": "02:00",
+      "date_utc": "2025-04-27",
+      "time_utc": "17:00",
+      "players": "Shelton B. - Mensik J.",
+      "tournament": "Madrid",
+      "tour": "ATP"
+    },
+    {
+      "date_kst": "2025-04-28",
       "time_kst": "04:30",
-      "date_utc": "2025-04-26",
+      "date_utc": "2025-04-27",
       "time_utc": "19:30",
-      "players": "Vekic D. - Navarro E.",
+      "players": "Korda S. - Ruud C.",
+      "tournament": "Madrid",
+      "tour": "ATP"
+    },
+    {
+      "date_kst": "2025-04-27",
+      "time_kst": "18:00",
+      "date_utc": "2025-04-27",
+      "time_utc": "09:00",
+      "players": "Sabalenka A. - Mertens E.",
+      "tournament": "Madrid WTA",
+      "tour": "WTA"
+    },
+    {
+      "date_kst": "2025-04-27",
+      "time_kst": "18:00",
+      "date_utc": "2025-04-27",
+      "time_utc": "09:00",
+      "players": "Kudermetova V. - Kostyuk M.",
+      "tournament": "Madrid WTA",
+      "tour": "WTA"
+    },
+    {
+      "date_kst": "2025-04-27",
+      "time_kst": "19:30",
+      "date_utc": "2025-04-27",
+      "time_utc": "10:30",
+      "players": "Kenin S. - Potapova A.",
+      "tournament": "Madrid WTA",
+      "tour": "WTA"
+    },
+    {
+      "date_kst": "2025-04-27",
+      "time_kst": "20:00",
+      "date_utc": "2025-04-27",
+      "time_utc": "11:00",
+      "players": "Sakkari M. - Paolini J.",
+      "tournament": "Madrid WTA",
+      "tour": "WTA"
+    },
+    {
+      "date_kst": "2025-04-27",
+      "time_kst": "21:00",
+      "date_utc": "2025-04-27",
+      "time_utc": "12:00",
+      "players": "Masarova R. - Stearns P.",
+      "tournament": "Madrid WTA",
+      "tour": "WTA"
+    },
+    {
+      "date_kst": "2025-04-27",
+      "time_kst": "21:30",
+      "date_utc": "2025-04-27",
+      "time_utc": "12:30",
+      "players": "Pegula J. - Uchijima M.",
+      "tournament": "Madrid WTA",
+      "tour": "WTA"
+    },
+    {
+      "date_kst": "2025-04-28",
+      "time_kst": "03:00",
+      "date_utc": "2025-04-27",
+      "time_utc": "18:00",
+      "players": "Rybakina E. - Svitolina E.",
+      "tournament": "Madrid WTA",
+      "tour": "WTA"
+    },
+    {
+      "date_kst": "2025-04-28",
+      "time_kst": "04:30",
+      "date_utc": "2025-04-27",
+      "time_utc": "19:30",
+      "players": "Alexandrova E. - Kasatkina D.",
       "tournament": "Madrid WTA",
       "tour": "WTA"
     }
