@@ -4,6 +4,11 @@ import os
 from collections import defaultdict
 from datetime import datetime
 import requests
+import uuid
+from dotenv import load_dotenv
+load_dotenv()
+
+
 
 app = Flask(__name__)
 
@@ -33,35 +38,18 @@ def country_flag(code):
     except:
         return "🏳️"
 
-def generate_comments_html(comments):
-    html = '''
-    <ul class="list-unstyled" style="margin: 0; padding: 0;">
-    '''
-    for idx, comment in enumerate(comments):
+def generate_comments_html(comments_dict):
+    html = '<ul class="list-unstyled">'
+    for cid, comment in comments_dict.items():
         html += f'''
-        <li class="p-1 small" data-comment-idx="{idx}">
-          <div class="fw-bold" style="font-size: 0.85rem;">{comment["content"]}</div>
-          <div class="d-flex justify-content-between align-items-center mt-1">
-            <div class="small text-muted" style="font-size: 0.7rem;">
-              {comment["nickname"]} ・ {comment["created_at"]}
-              {'(수정됨 ' + comment["edited_at"] + ')' if comment.get("edited_at") else ''}
-            </div>
-            <div class="d-flex gap-1">
-              <button class="btn btn-wimbledon btn-xs edit-comment-btn" data-comment-idx="{idx}" style="font-size: 0.6rem; padding: 0.2rem 0.4rem;">✏️</button>
-              <button class="btn btn-wimbledon btn-xs delete-comment-btn" data-comment-idx="{idx}" style="font-size: 0.6rem; padding: 0.2rem 0.4rem;">🗑️</button>
-            </div>
-          </div>
+        <li data-comment-id="{cid}">
+          <div class="fw-bold">{comment["content"]}</div>
+          <div class="comment-meta mt-1">{comment["nickname"]} ・ {comment["created_at"]}</div>
         </li>
         '''
     html += '</ul>'
     return html
 
-
-def load_data_with_timestamp():
-    fb_data = load_from_firebase("tennis_tournaments_ama")
-    if fb_data:
-        return fb_data.get("data", []), fb_data.get("executed_at", "알 수 없음")
-    return [], "알 수 없음"
 
 
 def load_data2():
@@ -145,227 +133,209 @@ def court_guide():
 
 @app.route("/board")
 def board():
-    if not os.path.exists("tennis_posts_bamboo.json"):
-        posts_data = {"posts": []}
-    else:
-        with open("tennis_posts_bamboo.json", "r", encoding="utf-8") as f:
-            posts_data = json.load(f)
+    url = f"{FIREBASE_URL}/tennis_posts_bamboo.json"
+    response = requests.get(url)
+    posts = []
 
-    posts = sorted(posts_data["posts"], key=lambda x: x["id"], reverse=True)
-    return render_template("board.html", posts=posts, page_title="🌲 테나무숲", currentPath="board")
+    if response.status_code == 200:
+        data = response.json()
+        if data:
+            posts = list(data.values())
+            posts.sort(key=lambda x: x["created_at"], reverse=True)
+
+    # ✅ Firebase config from .env
+    firebase_config = {
+        "apiKey": os.getenv("FIREBASE_API_KEY"),
+        "authDomain": os.getenv("FIREBASE_AUTH_DOMAIN"),
+        "databaseURL": os.getenv("FIREBASE_DB_URL"),
+        "projectId": os.getenv("FIREBASE_PROJECT_ID"),
+        "storageBucket": os.getenv("FIREBASE_STORAGE_BUCKET"),
+        "messagingSenderId": os.getenv("FIREBASE_MESSAGING_SENDER_ID"),
+        "appId": os.getenv("FIREBASE_APP_ID"),
+        "measurementId": os.getenv("FIREBASE_MEASUREMENT_ID"),
+    }
+
+    return render_template(
+        "board.html",
+        posts=posts,
+        firebase_config=firebase_config,  # ✅ 템플릿에 전달
+        page_title="🌲 테나무숲",
+        currentPath="board"
+    )
 
 # 글 저장
 @app.route("/board/create", methods=["POST"])
 def create_post():
+    print("📥 게시글 작성 요청 도착!")
     nickname = request.form.get("nickname", "").strip() or "익명"
     title = request.form.get("title", "").strip()
     content = request.form.get("content", "").strip()
-    password = request.form.get("password", "").strip()  # ✅ 비밀번호 받기
+    password = request.form.get("password", "").strip()
 
-    if not title or not content:
+    if not title or not content or not password:
         return "제목, 내용, 비밀번호는 필수입니다.", 400
 
-    if not os.path.exists("tennis_posts_bamboo.json"):
-        posts_data = {"posts": []}
-    else:
-        with open("tennis_posts_bamboo.json", "r", encoding="utf-8") as f:
-            posts_data = json.load(f)
-
-    new_id = max([p["id"] for p in posts_data["posts"]], default=0) + 1
-
-    new_post = {
-        "id": new_id,
+    post_id = str(uuid.uuid4())
+    post_data = {
+        "id": post_id,
         "nickname": nickname,
         "title": title,
         "content": content,
-        "password": password,  # ✅ 비밀번호 저장
+        "password": password,
         "created_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
-        "views": 0,  # ✅ 조회수 0으로 추가
+        "views": 0,
         "comments": []
     }
 
-    posts_data["posts"].insert(0, new_post)
+    url = f"{FIREBASE_URL}/tennis_posts_bamboo/{post_id}.json"
+    response = requests.put(url, json=post_data)
+    
 
-    with open("tennis_posts_bamboo.json", "w", encoding="utf-8") as f:
-        json.dump(posts_data, f, ensure_ascii=False, indent=2)
+    if response.status_code == 200:
+        return redirect("/board")
+    else:
+        return f"Firebase 저장 실패: {response.text}", 500
 
-    return redirect("/board")
-
-# 글 작성 API
-@app.route("/board/<int:post_id>/delete", methods=["POST"])
+# 글 삭제 API
+@app.route("/board/<post_id>/delete", methods=["POST"])
 def delete_post(post_id):
     password = request.form.get("password", "").strip()
 
-    if not os.path.exists("tennis_posts_bamboo.json"):
-        return jsonify({"success": False, "error": "게시글이 없습니다."}), 404
-
-    with open("tennis_posts_bamboo.json", "r", encoding="utf-8") as f:
-        posts_data = json.load(f)
-
-    for idx, post in enumerate(posts_data["posts"]):
-        if post["id"] == post_id:
-            if post.get("password", "") != password:  # ✅ 여기 수정
-                return jsonify({"success": False, "error": "비밀번호가 일치하지 않습니다."}), 403
-            posts_data["posts"].pop(idx)
-            break
-    else:
+    # Firebase에서 데이터 불러오기
+    url = f"{FIREBASE_URL}/tennis_posts_bamboo/{post_id}.json"
+    res = requests.get(url)
+    if res.status_code != 200 or res.json() is None:
         return jsonify({"success": False, "error": "게시글을 찾을 수 없습니다."}), 404
 
-    with open("tennis_posts_bamboo.json", "w", encoding="utf-8") as f:
-        json.dump(posts_data, f, ensure_ascii=False, indent=2)
+    post = res.json()
+    if post.get("password") != password:
+        return jsonify({"success": False, "error": "비밀번호가 일치하지 않습니다."}), 403
 
-    return jsonify({"success": True})
+    # Firebase에서 삭제
+    delete_url = f"{FIREBASE_URL}/tennis_posts_bamboo/{post_id}.json"
+    delete_res = requests.delete(delete_url)
+
+    return jsonify({"success": delete_res.status_code == 200})
 
 # 글 수정 API
-@app.route("/board/<int:post_id>/edit", methods=["POST"])
+@app.route("/board/<post_id>/edit", methods=["POST"])
 def edit_post(post_id):
     title = request.form.get("title", "").strip()
     content = request.form.get("content", "").strip()
     password = request.form.get("password", "").strip()
 
     if not title or not content or not password:
-        return jsonify({"success": False, "error": "제목, 내용, 비밀번호를 입력해주세요."}), 400
+        return jsonify({"success": False, "error": "제목, 내용, 비밀번호는 필수입니다."}), 400
 
-    if not os.path.exists("tennis_posts_bamboo.json"):
-        return jsonify({"success": False, "error": "게시글이 없습니다."}), 404
-
-    with open("tennis_posts_bamboo.json", "r", encoding="utf-8") as f:
-        posts_data = json.load(f)
-
-    for post in posts_data["posts"]:
-        if post["id"] == post_id:
-            if post["password"] != password:
-                return jsonify({"success": False, "error": "비밀번호가 일치하지 않습니다."}), 403
-            post["title"] = title
-            post["content"] = content
-            post["edited_at"] = datetime.now().strftime("%Y-%m-%d %H:%M")
-            break
-    else:
+    # Firebase에서 게시글 불러오기
+    url = f"{FIREBASE_URL}/tennis_posts_bamboo/{post_id}.json"
+    res = requests.get(url)
+    if res.status_code != 200 or res.json() is None:
         return jsonify({"success": False, "error": "게시글을 찾을 수 없습니다."}), 404
 
-    with open("tennis_posts_bamboo.json", "w", encoding="utf-8") as f:
-        json.dump(posts_data, f, ensure_ascii=False, indent=2)
+    post = res.json()
+    if post.get("password") != password:
+        return jsonify({"success": False, "error": "비밀번호가 일치하지 않습니다."}), 403
 
-    return jsonify({"success": True})
+    # 수정할 내용만 PATCH 요청
+    update_data = {
+        "title": title,
+        "content": content,
+        "edited_at": datetime.now().strftime("%Y-%m-%d %H:%M")
+    }
 
+    patch_res = requests.patch(url, json=update_data)
+    if patch_res.status_code == 200:
+        return jsonify({"success": True})
+    else:
+        return jsonify({"success": False, "error": "Firebase 수정 실패"}), 500
 
 
 # 댓글 추가
-@app.route("/board/<int:post_id>/comment", methods=["POST"])
+@app.route("/board/<post_id>/comment", methods=["POST"])
 def add_comment(post_id):
+    print(f"📥 댓글 작성 요청 도착! (post_id={post_id})")
     nickname = request.form.get("nickname", "").strip() or "익명"
     content = request.form.get("content", "").strip()
     password = request.form.get("password", "").strip()
 
     if not content or not password:
-            return jsonify({"success": False, "error": "댓글과 비밀번호는 필수입니다."}), 400
-    if not os.path.exists("tennis_posts_bamboo.json"):
-        return jsonify({"success": False, "error": "게시글이 없습니다."}), 404
+        return jsonify({"success": False, "error": "내용과 비밀번호는 필수입니다."}), 400
 
-    with open("tennis_posts_bamboo.json", "r", encoding="utf-8") as f:
-        posts_data = json.load(f)
+    comment_id = str(uuid.uuid4())
+    comment_data = {
+        "nickname": nickname,
+        "content": content,
+        "password": password,
+        "created_at": datetime.now().strftime("%Y-%m-%d %H:%M")
+    }
 
-    for post in posts_data["posts"]:
-        if post["id"] == post_id:
-            new_comment = {
-                "nickname": nickname,
-                "content": content,
-                "password": password,  # ✅ 비밀번호 저장
-                "created_at": datetime.now().strftime("%Y-%m-%d %H:%M")
-            }
-            post["comments"].append(new_comment)
-            break
+    url = f"{FIREBASE_URL}/tennis_posts_bamboo/{post_id}/comments/{comment_id}.json"
+    res = requests.put(url, json=comment_data)
+
+    if res.status_code == 200:
+            # 🔁 저장 후 댓글 목록 다시 불러오기
+            comments_res = requests.get(f"{FIREBASE_URL}/tennis_posts_bamboo/{post_id}/comments.json")
+            comments_dict = comments_res.json() if comments_res.status_code == 200 else {}
+            updated_html = generate_comments_html(comments_dict)
+            return jsonify({"success": True, "updated_comments_html": updated_html})
     else:
-        return jsonify({"success": False, "error": "게시글을 찾을 수 없습니다."}), 404
-
-    with open("tennis_posts_bamboo.json", "w", encoding="utf-8") as f:
-        json.dump(posts_data, f, ensure_ascii=False, indent=2)
-
-    # ✅ 댓글 부분을 다시 렌더링해서 보내줌
-    updated_comments_html = generate_comments_html(post["comments"])
-    return jsonify({"success": True, "updated_comments_html": updated_comments_html})
-
-
-@app.route("/board/<int:post_id>/comment/<int:comment_idx>/delete", methods=["POST"])
-def delete_comment(post_id, comment_idx):
-    password = request.form.get("password", "").strip()  # ✅ 비밀번호 받기
-    if not os.path.exists("tennis_posts_bamboo.json"):
-        return jsonify({"success": False, "error": "게시글이 없습니다."}), 404
-
-    with open("tennis_posts_bamboo.json", "r", encoding="utf-8") as f:
-        posts_data = json.load(f)
-
-    for post in posts_data["posts"]:
-        if post["id"] == post_id:
-            if 0 <= comment_idx < len(post["comments"]):
-                if post["comments"][comment_idx]["password"] != password:
-                    return jsonify({"success": False, "error": "비밀번호가 일치하지 않습니다."}), 403
-                post["comments"].pop(comment_idx)
-            else:
-                return jsonify({"success": False, "error": "댓글 인덱스 오류"}), 400
-            break
-    else:
-        return jsonify({"success": False, "error": "게시글을 찾을 수 없습니다."}), 404
-
-    with open("tennis_posts_bamboo.json", "w", encoding="utf-8") as f:
-        json.dump(posts_data, f, ensure_ascii=False, indent=2)
-
-    updated_comments_html = generate_comments_html(post["comments"])
-    return jsonify({"success": True, "updated_comments_html": updated_comments_html})   
-
-@app.route("/board/<int:post_id>/comment/<int:comment_idx>/edit", methods=["POST"])
-def edit_comment(post_id, comment_idx):
-    new_content = request.form.get("content", "").strip()
+            return jsonify({"success": False, "error": "Firebase 저장 실패"})
+@app.route("/board/<post_id>/comment/<comment_id>/delete", methods=["POST"])
+def delete_comment(post_id, comment_id):
     password = request.form.get("password", "").strip()
 
-    if not new_content or not password:
-        return jsonify({"success": False, "error": "수정할 내용과 비밀번호를 입력해주세요."}), 400
+    url = f"{FIREBASE_URL}/tennis_posts_bamboo/{post_id}/comments/{comment_id}.json"
+    res = requests.get(url)
+    if res.status_code != 200 or res.json() is None:
+        return jsonify({"success": False, "error": "댓글을 찾을 수 없습니다."}), 404
 
-    if not os.path.exists("tennis_posts_bamboo.json"):
-        return jsonify({"success": False, "error": "게시글이 없습니다."}), 404
+    comment = res.json()
+    if comment.get("password") != password:
+        return jsonify({"success": False, "error": "비밀번호가 일치하지 않습니다."}), 403
 
-    with open("tennis_posts_bamboo.json", "r", encoding="utf-8") as f:
-        posts_data = json.load(f)
+    delete_res = requests.delete(url)
+    return jsonify({"success": delete_res.status_code == 200})
 
-    for post in posts_data["posts"]:
-        if post["id"] == post_id:
-            if 0 <= comment_idx < len(post["comments"]):
-                if post["comments"][comment_idx]["password"] != password:
-                    return jsonify({"success": False, "error": "비밀번호가 일치하지 않습니다."}), 403
-                post["comments"][comment_idx]["content"] = new_content
-                post["comments"][comment_idx]["edited_at"] = datetime.now().strftime("%Y-%m-%d %H:%M")
-            else:
-                return jsonify({"success": False, "error": "댓글 인덱스 오류"}), 400
-            break
-    else:
-        return jsonify({"success": False, "error": "게시글을 찾을 수 없습니다."}), 404
-
-    with open("tennis_posts_bamboo.json", "w", encoding="utf-8") as f:
-        json.dump(posts_data, f, ensure_ascii=False, indent=2)
-
-    # ✅ 수정 후에도 updated_comments_html로 반환해야 함
-    updated_comments_html = generate_comments_html(post["comments"])
-    return jsonify({"success": True, "updated_comments_html": updated_comments_html})
-
-@app.route("/board/<int:post_id>/view", methods=["POST"])
+@app.route("/board/<post_id>/view", methods=["POST"])
 def increase_view(post_id):
-    if not os.path.exists("tennis_posts_bamboo.json"):
-        return jsonify({"error": "게시글이 없습니다."}), 404
-
-    with open("tennis_posts_bamboo.json", "r", encoding="utf-8") as f:
-        posts_data = json.load(f)
-
-    for post in posts_data["posts"]:
-        if post["id"] == post_id:
-            post["views"] = post.get("views", 0) + 1
-            break
-    else:
+    url = f"{FIREBASE_URL}/tennis_posts_bamboo/{post_id}.json"
+    res = requests.get(url)
+    if res.status_code != 200 or res.json() is None:
         return jsonify({"error": "게시글을 찾을 수 없습니다."}), 404
 
-    with open("tennis_posts_bamboo.json", "w", encoding="utf-8") as f:
-        json.dump(posts_data, f, ensure_ascii=False, indent=2)
+    post = res.json()
+    current_views = post.get("views", 0)
+    updated_views = current_views + 1
 
-    return jsonify({"success": True})
+    update_data = {"views": updated_views}
+    patch_res = requests.patch(url, json=update_data)
+
+    return jsonify({"success": patch_res.status_code == 200, "views": updated_views})
+
+
+@app.route("/board/<post_id>/comment/<comment_id>/edit", methods=["POST"])
+def edit_comment(post_id, comment_id):
+    content = request.form.get("content", "").strip()
+    password = request.form.get("password", "").strip()
+
+    url = f"{FIREBASE_URL}/tennis_posts_bamboo/{post_id}/comments/{comment_id}.json"
+    res = requests.get(url)
+    if res.status_code != 200 or res.json() is None:
+        return jsonify({"success": False, "error": "댓글을 찾을 수 없습니다."}), 404
+
+    comment = res.json()
+    if comment.get("password") != password:
+        return jsonify({"success": False, "error": "비밀번호가 일치하지 않습니다."}), 403
+
+    update_data = {
+        "content": content,
+        "edited_at": datetime.now().strftime("%Y-%m-%d %H:%M")
+    }
+    patch_res = requests.patch(url, json=update_data)
+    return jsonify({"success": patch_res.status_code == 200})
+
+
 
 @app.template_filter('nl2br')
 def nl2br(value):

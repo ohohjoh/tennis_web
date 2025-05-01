@@ -298,8 +298,8 @@
                       data-day="{{ first['접수일'] }}"
                       data-time="{{ first['접수시간'] }}">
                       <div class="btn btn-outline-info btn-sm w-100 d-flex flex-column align-items-start disabled">
-                        <span class="fw-bold" style="color: #5c2e91;" id="monthly-start-line2">날짜 계산 중...</span>
-                        <span class="text-muted small mt-1" id="monthly-start-line3">예약 정보 계산 중...</span>
+                        <span class="monthly-start-line2 fw-bold" style="color: #5c2e91;">날짜 계산 중...</span>
+                        <span class="monthly-start-line3 text-muted small mt-1">예약 정보 계산 중...</span>
                       </div>
                     
                       <input type="hidden" class="calc-days" value="{{ first['접수일'] }}">
@@ -504,32 +504,35 @@
       }
     });
   }); 
+
     document.addEventListener("DOMContentLoaded", () => {
     // 접수 주기: 월 일 때 날짜 계산 및 출력
     document.querySelectorAll(".monthly-reserve-box").forEach(box => {
-      const day = parseInt(box.dataset.day);
-      const time = box.dataset.time || "07:00";
+    const day = parseInt(box.dataset.day);
+    const time = box.dataset.time || "07:00";
 
-      const now = new Date();
-      const year = now.getFullYear();
-      const month = now.getMonth(); // 현재 월 (0-indexed)
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth();
 
-      const targetDate = new Date(year, month, day);
-      const weekday = ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'][targetDate.getDay()];
+    const targetDate = new Date(year, month, day);
+    const weekday = ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'][targetDate.getDay()];
 
-      // 날짜 출력 포맷
-      const formattedDate = `${targetDate.getFullYear()}년 ${targetDate.getMonth() + 1}월 ${targetDate.getDate()}일 (${weekday}) ${time} `;
+    const formattedDate = `${targetDate.getFullYear()}년 ${targetDate.getMonth() + 1}월 ${targetDate.getDate()}일 (${weekday}) ${time}`;
+    const nextMonth = new Date(targetDate);
+    nextMonth.setMonth(nextMonth.getMonth() + 1);
+    const nextMonthLabel = `${nextMonth.getMonth() + 1}월`;
 
-      // 다음 달 계산
-      const nextMonth = new Date(targetDate);
-      nextMonth.setMonth(nextMonth.getMonth() + 1);
-      const nextMonthLabel = `${nextMonth.getMonth() + 1}월`;
+    // ✅ 수정된 부분
+    const line2 = box.querySelector(".monthly-start-line2");
+    const line3 = box.querySelector(".monthly-start-line3");
 
-      // 결과 적용
-      box.querySelector("#monthly-start-line2").textContent = formattedDate;
-      box.querySelector("#monthly-start-line3").textContent = `${nextMonthLabel} 예약이 시작돼요!`;
-    });
+    if (line2) line2.textContent = formattedDate;
+    if (line3) line3.textContent = `${nextMonthLabel} 예약이 시작돼요!`;
   });
+
+  });
+
   document.addEventListener("DOMContentLoaded", () => {
       const slider = document.querySelector(".mobile-slider");
       if (slider) {

@@ -1,2 +1,6 @@
-# 환경 설정
 .env
+firebase-key.json
+__pycache__/
+*.pyc
+*.log
+venv/

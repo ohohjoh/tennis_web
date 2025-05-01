@@ -255,8 +255,47 @@
       text-align: center;
     }
     
+    .comment-list li {
+      background-color: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 0.75rem;
+      margin-bottom: 0.75rem;
+      position: relative;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .comment-list li .fw-bold {
+      font-size: 0.9rem;
+      color: #333;
+      margin-bottom: 0.25rem;
+    }
+
+    .comment-meta {
+      font-size: 0.7rem;
+      color: #777;
+    }
+
+    .comment-actions {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.75rem;
+    }
+
+    .comment-actions .btn {
+      padding: 0.15rem 0.4rem;
+      font-size: 0.65rem;
+    }
+
     /* ✅ 모바일 대응 */
     @media (max-width: 768px) {
+      .post-list li {
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        margin-bottom: 1rem;
+        padding: 1rem;
+      }
       .main-navbar .nav-link {
         font-size: 0.72rem;
         padding: 0.3rem 0.8rem;
@@ -272,6 +311,14 @@
         justify-content: flex-start;
       }
     }
+    textarea[name="content"] {
+      resize: vertical;
+      min-height: 60px;
+    }
+    textarea#edit-content-POSTID {
+      width: 100%;
+      min-height: 200px;
+    }
     </style>
     
     
@@ -279,7 +326,6 @@
 
 <body>
 
-<!-- ✅ 네비게이션 바 -->
 <!-- ✅ 네비게이션 바 -->
 <nav class="main-navbar shadow-sm">
   <div class="nav-pill-wrapper">
@@ -294,12 +340,14 @@
 <!-- ✅ 게시판 -->
 <div class="container board-container">
   <div class="board-header">
-    <div class="board-title">🌲 테나무숲 - </div>
+    <div class="board-title">🌲 테나무숲 - 이상한게 있다면, 틀린게 있다면, 마음에 안든다면 내가 고칠게 </div>
     <button type="button" class="btn new-post-btn" data-bs-toggle="modal" data-bs-target="#writeModal">
       ✏️ 글쓰기
     </button>
   </div>
-
+  <div class="text-end p-2">
+    <button class="btn btn-success btn-sm" onclick="writeSamplePost()">✅ 테스트 글쓰기</button>
+  </div>
   <ul class="post-list">
     {% if posts %}
       {% for post in posts %}
@@ -313,7 +361,6 @@
         <div class="modal fade" id="postModal-{{ post.id }}" tabindex="-1" aria-labelledby="postModalLabel-{{ post.id }}" aria-hidden="true">
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
-
               <div class="modal-header modal-header-purple">
                 <div class="d-flex justify-content-between align-items-center w-100">
                   <h5 class="modal-title" id="postModalLabel-{{ post.id }}">{{ post.title }}</h5>
@@ -325,7 +372,6 @@
                 </div>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-
               <div class="modal-body">
                 <div class="post-content-wrapper">
                   <div class="post-content">{{ post.content | replace('\n', '<br>') | safe }}</div>
@@ -339,29 +385,7 @@
                 <div class="comment-section">
                   <h6 class="fw-bold mb-3">💬</h6>
                   <div id="comments-{{ post.id }}" class="comment-list">
-                    {% if post.comments %}
-                      <ul class="list-unstyled">
-                        {% for comment in post.comments %}
-                        <li data-comment-idx="{{ loop.index0 }}">
-                          <div class="fw-bold">{{ comment.content }}</div>
-                          <div class="d-flex justify-content-end align-items-center mt-1 gap-2">
-                            <div class="comment-meta">
-                              {{ comment.nickname }} ・ {{ comment.created_at }}
-                              {% if comment.edited_at %}
-                                (수정됨 {{ comment.edited_at }})
-                              {% endif %}
-                            </div>
-                            <div class="d-flex gap-1">
-                              <button class="btn btn-wimbledon btn-xs edit-comment-btn" data-comment-idx="{{ loop.index0 }}">✏️</button>
-                              <button class="btn btn-wimbledon btn-xs delete-comment-btn" data-comment-idx="{{ loop.index0 }}">🗑️</button>
-                            </div>
-                          </div>
-                        </li>
-                        {% endfor %}
-                      </ul>
-                    {% else %}
-                      <p class="text-muted small">아직 댓글이 없습니다.</p>
-                    {% endif %}
+                      <ul class="list-unstyled"></ul>
                   </div>
                 </div>
 
@@ -398,13 +422,13 @@
 <!-- ✅ 글쓰기 모달 -->
 <div class="modal fade" id="writeModal" tabindex="-1" aria-labelledby="writeModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content modal-write">
-      <div class="modal-header modal-header-purple">
-        <h5 class="modal-title fw-bold" id="writeModalLabel">✏️ 새 글 작성</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
+    <form action="/board/create" method="post"> <!-- ✅ form 위치 수정 -->
+      <div class="modal-content modal-write">
+        <div class="modal-header modal-header-purple">
+          <h5 class="modal-title fw-bold" id="writeModalLabel">✏️ 새 글 작성</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
 
-      <form action="/board/create" method="post">
         <div class="modal-body">
           <div class="row g-2 mb-3 align-items-center">
             <div class="col-5">
@@ -425,17 +449,20 @@
           <div class="input-wrapper">
             <textarea name="content" class="form-control form-control-sm" rows="9" required placeholder="내용을 입력하세요"></textarea>
           </div>
-
         </div>
-      </form>
-    </div>
+      </div>
+    </form>
   </div>
 </div>
 
 
+<script>
+  const firebaseConfig = {{ firebase_config | tojson }};
+  const app = firebase.initializeApp(firebaseConfig);
+  const db = firebase.database(app);
+</script>
 
 <!-- ✅ 부트스트랩 JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     // ✅ 조회수 증가
@@ -445,161 +472,218 @@
         fetch(`/board/${postId}/view`, { method: "POST" })
           .then(response => response.json())
           .then(data => {
-            if (data.success) {
-              const viewsElement = document.getElementById(`views-${postId}`);
-              if (viewsElement) {
-                const currentText = viewsElement.innerText;
-                const newViews = parseInt(currentText.replace(/[^\d]/g, '')) + 1;
-                viewsElement.innerText = `조회수 ${newViews}`;
-              }
-            }
-          })
+  if (data.success) {
+    // ✅ 조회수 숫자 업데이트
+    const viewsEl = document.getElementById(`views-${postId}`);
+    if (viewsEl && data.views !== undefined) {
+      viewsEl.innerText = `조회수 ${data.views}`;
+    }
+
+    // ✅ 댓글 다시 불러오기
+    fetch(`https://tennisweb-project-default-rtdb.firebaseio.com/tennis_posts_bamboo/${postId}/comments.json`)
+      .then(res => res.json())
+      .then(comments => {
+        const container = document.getElementById(`comments-${postId}`);
+        if (!container || !comments) return;
+
+        let html = '<ul class="list-unstyled">';
+        Object.entries(comments).forEach(([commentId, comment]) => {
+          html += `
+            <li data-comment-id="${commentId}">
+              <div class="comment-actions d-flex gap-1">
+                <button class="btn btn-wimbledon btn-xs delete-comment-btn" data-comment-id="${commentId}">🗑️</button>
+                <button class="btn btn-wimbledon btn-xs edit-comment-btn" data-post-id="${postId}" data-comment-id="${commentId}">✏️</button>
+              </div>
+              <div class="fw-bold">${comment.content}</div>
+              <div class="comment-meta mt-1">${comment.nickname} ・ ${comment.created_at || ''} ${comment.edited_at ? `(수정됨 ${comment.edited_at})` : ''}</div>
+            </li>
+          `;
+        });
+        html += '</ul>';
+        container.innerHTML = html;
+      });
+  }
+})
+
           .catch(console.error);
       });
     });
-  
-    // ✅ 글/댓글 통합 이벤트 위임
-    document.addEventListener("click", function(e) {
-      const target = e.target;
-  
-      // ✏️ 수정 버튼
-      if (target.classList.contains("edit-post-btn")) {
-        const postId = target.getAttribute("data-post-id");
-        const modal = document.getElementById(`postModal-${postId}`);
-        const titleEl = modal.querySelector(".modal-title");
-        const postContentWrapper = modal.querySelector(".post-content");
-        const contentWrapper = modal.querySelector(".modal-body div.p-3.mb-4");
-  
-        const commentFormArea = modal.querySelector(".comment-form")?.parentElement;
-        const commentListArea = modal.querySelector(`#comments-${postId}`)?.parentElement;
-        if (commentFormArea) commentFormArea.style.display = "none";
-        if (commentListArea) commentListArea.style.display = "none";
-        if (contentWrapper) contentWrapper.style.padding = "0";
-  
-        const currentTitle = titleEl.innerText.trim();
-        const currentContent = postContentWrapper.innerText.trim();
-  
-        titleEl.innerHTML = `<input type="text" id="edit-title-${postId}" class="form-control" value="${currentTitle}" style="background-color:white; color:black; max-width: 100%;">`;
-        postContentWrapper.innerHTML = `<textarea id="edit-content-${postId}" class="form-control" rows="10" style="background-color:white; color:black; width:100%; overflow-wrap:break-word; word-break:break-word;">${currentContent}</textarea>`;
-  
-        const buttonArea = target.parentElement;
-        buttonArea.innerHTML = `
-          <button type="button" class="btn btn-success btn-sm save-edit-btn" data-post-id="${postId}">✔️ 저장</button>
-        `;
-      }
-  
-      // 🗑️ 삭제 버튼
-      if (target.classList.contains("delete-post-btn")) {
-        const postId = target.getAttribute("data-post-id");
-        if (confirm("정말 삭제하시겠습니까?")) {
+        // ✅ 글/댓글 통합 이벤트 위임
+      document.addEventListener("click", function(e) {
+        const target = e.target;
+
+        // ✏️ 글 수정 버튼
+        if (target.classList.contains("edit-post-btn")) {
+          const postId = target.getAttribute("data-post-id");
+          const modal = document.getElementById(`postModal-${postId}`);
+          const titleEl = modal.querySelector(".modal-title");
+          const postContentWrapper = modal.querySelector(".post-content");
+
+          const commentFormArea = modal.querySelector(".comment-form")?.parentElement;
+          const commentListArea = modal.querySelector(`#comments-${postId}`)?.parentElement;
+          if (commentFormArea) commentFormArea.style.display = "none";
+          if (commentListArea) commentListArea.style.display = "none";
+a
+          const currentTitle = titleEl.innerText.trim();
+          const currentContent = postContentWrapper.innerText.trim();
+
+          titleEl.innerHTML = `<input type="text" id="edit-title-${postId}" class="form-control" value="${currentTitle}" style="background-color:white; color:black; max-width: 100%;">`;
+          postContentWrapper.innerHTML = `<textarea id="edit-content-${postId}" class="form-control" rows="10" style="background-color:white; color:black; width:100%;">${currentContent}</textarea>`;
+
+          const buttonArea = target.parentElement;
+          buttonArea.innerHTML = `<button type="button" class="btn btn-success btn-sm save-edit-btn" data-post-id="${postId}">✔️ 저장</button>`;
+        }
+
+        // ✏️ 댓글 수정 버튼
+        if (target.classList.contains("edit-comment-btn")) {
+          const commentLi = target.closest("li");
+          const commentId = target.dataset.commentId;
+          const postId = target.dataset.postId;
+          const contentEl = commentLi.querySelector(".fw-bold");
+          const originalContent = contentEl.innerText.trim();
+
+          contentEl.innerHTML = `
+            <textarea class="form-control form-control-sm edit-comment-content">${originalContent}</textarea>
+            <button class="btn btn-success btn-xs mt-1 save-comment-edit-btn" data-post-id="${postId}" data-comment-id="${commentId}">✔ 저장</button>
+          `;
+        }
+
+        // 🗑️ 글 삭제
+        if (target.classList.contains("delete-post-btn")) {
+          const postId = target.getAttribute("data-post-id");
+          if (confirm("정말 삭제하시겠습니까?")) {
+            const password = prompt("비밀번호를 입력하세요:");
+            if (password) {
+              fetch(`/board/${postId}/delete`, {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: `password=${encodeURIComponent(password)}`
+              })
+              .then(response => response.json())
+              .then(data => {
+                if (data.success) {
+                  alert("✅ 삭제 완료!");
+                  location.reload();
+                } else {
+                  alert("❌ 삭제 실패: " + data.error);
+                }
+              })
+              .catch(console.error);
+            }
+          }
+        }
+
+        // ✔️ 글 저장
+        if (target.classList.contains("save-edit-btn")) {
+          const postId = target.getAttribute("data-post-id");
+          const newTitle = document.getElementById(`edit-title-${postId}`).value.trim();
+          const newContent = document.getElementById(`edit-content-${postId}`).value.trim();
           const password = prompt("비밀번호를 입력하세요:");
+
+          if (!newTitle || !newContent || !password) {
+            alert("모든 입력이 필요합니다.");
+            return;
+          }
+
+          fetch(`/board/${postId}/edit`, {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: `title=${encodeURIComponent(newTitle)}&content=${encodeURIComponent(newContent)}&password=${encodeURIComponent(password)}`
+          })
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
+              alert("✅ 수정 완료!");
+              location.reload();
+            } else {
+              alert("❌ 수정 실패: " + data.error);
+            }
+          })
+          .catch(console.error);
+        }
+
+        // ✔️ 댓글 저장
+        if (target.classList.contains("save-comment-edit-btn")) {
+          const postId = target.dataset.postId;
+          const commentId = target.dataset.commentId;
+          const newContent = target.closest("li").querySelector(".edit-comment-content").value;
+          const password = prompt("댓글 비밀번호를 입력하세요:");
+
+          if (!newContent || !password) {
+            alert("내용과 비밀번호는 필수입니다.");
+            return;
+          }
+
+          fetch(`/board/${postId}/comment/${commentId}/edit`, {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: `content=${encodeURIComponent(newContent)}&password=${encodeURIComponent(password)}`
+          })
+          .then(res => res.json())
+          .then(data => {
+            if (data.success) {
+              alert("댓글 수정 완료!");
+              location.reload();
+            } else {
+              alert("댓글 수정 실패: " + data.error);
+            }
+          });
+        }
+
+        // ❌ 취소 버튼
+        if (target.classList.contains("cancel-edit-btn")) {
+          location.reload();
+        }
+      });
+
+      // ✅ 댓글 작성
+      document.querySelectorAll('.comment-form').forEach(form => {
+        form.addEventListener('submit', function(event) {
+          event.preventDefault();
+          const postId = this.getAttribute('data-post-id');
+          const nickname = this.querySelector('input[name="nickname"]').value.trim() || "익명";
+          const content = this.querySelector('textarea[name="content"]').value.trim();
+          const password = this.querySelector('input[name="password"]').value.trim();
+
+          if (!content) {
+            alert("댓글 내용을 입력해주세요.");
+            return;
+          }
+
+          fetch(`/board/${postId}/comment`, {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: `nickname=${encodeURIComponent(nickname)}&content=${encodeURIComponent(content)}&password=${encodeURIComponent(password)}`
+          })
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
+              const commentsContainer = document.getElementById(`comments-${postId}`);
+              if (commentsContainer) {
+                commentsContainer.innerHTML = data.updated_comments_html;
+              }
+              this.querySelector('textarea[name="content"]').value = "";
+            } else {
+              alert("댓글 작성 실패");
+            }
+          })
+          .catch(console.error);
+        });
+      });
+
+      // ✅ 댓글 삭제
+      document.addEventListener('click', function(event) {
+        const target = event.target;
+
+        if (target.classList.contains('delete-comment-btn')) {
+          const commentId = target.getAttribute('data-comment-id');
+          const postId = target.closest('.modal').id.split('-')[1];
+          const password = prompt("댓글 비밀번호를 입력하세요:");
           if (password) {
-            fetch(`/board/${postId}/delete`, {
+            fetch(`/board/${postId}/comment/${commentId}/delete`, {
               method: "POST",
               headers: { "Content-Type": "application/x-www-form-urlencoded" },
               body: `password=${encodeURIComponent(password)}`
-            })
-            .then(response => response.json())
-            .then(data => {
-              if (data.success) {
-                alert("✅ 삭제 완료!");
-                location.reload();
-              } else {
-                alert("❌ 삭제 실패: " + data.error);
-              }
-            })
-            .catch(console.error);
-          }
-        }
-      }
-  
-      // ✔️ 저장 버튼
-      if (target.classList.contains("save-edit-btn")) {
-        const postId = target.getAttribute("data-post-id");
-        const newTitle = document.getElementById(`edit-title-${postId}`).value.trim();
-        const newContent = document.getElementById(`edit-content-${postId}`).value.trim();
-        const password = prompt("비밀번호를 입력하세요:");
-  
-        if (!newTitle || !newContent || !password) {
-          alert("모든 입력이 필요합니다.");
-          return;
-        }
-  
-        fetch(`/board/${postId}/edit`, {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: `title=${encodeURIComponent(newTitle)}&content=${encodeURIComponent(newContent)}&password=${encodeURIComponent(password)}`
-        })
-        .then(response => response.json())
-        .then(data => {
-          if (data.success) {
-            alert("✅ 수정 완료!");
-            location.reload();
-          } else {
-            alert("❌ 수정 실패: " + data.error);
-          }
-        })
-        .catch(console.error);
-      }
-  
-      // ❌ 취소 버튼
-      if (target.classList.contains("cancel-edit-btn")) {
-        location.reload();
-      }
-    });
-  
-    // ✅ 댓글 작성
-    document.querySelectorAll('.comment-form').forEach(form => {
-      form.addEventListener('submit', function(event) {
-        event.preventDefault();
-        const postId = this.getAttribute('data-post-id');
-        const nickname = this.querySelector('input[name="nickname"]').value.trim() || "익명";
-        const content = this.querySelector('textarea[name="content"]').value.trim();
-        const password = this.querySelector('input[name="password"]').value.trim();
-  
-        if (!content) {
-          alert("댓글 내용을 입력해주세요.");
-          return;
-        }
-  
-        fetch(`/board/${postId}/comment`, {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: `nickname=${encodeURIComponent(nickname)}&content=${encodeURIComponent(content)}&password=${encodeURIComponent(password)}`
-        })
-        .then(response => response.json())
-        .then(data => {
-          if (data.success) {
-            const commentsContainer = document.getElementById(`comments-${postId}`);
-            if (commentsContainer) {
-              commentsContainer.innerHTML = data.updated_comments_html;
-            }
-            this.querySelector('textarea[name="content"]').value = "";
-          } else {
-            alert("댓글 작성 실패");
-          }
-        })
-        .catch(console.error);
-      });
-    });
-  
-    // ✅ 댓글 수정/삭제
-    document.addEventListener('click', function(event) {
-      const target = event.target;
-  
-      if (target.classList.contains('edit-comment-btn')) {
-        const commentIdx = target.getAttribute('data-comment-idx');
-        const postId = target.closest('.modal').id.split('-')[1];
-        const oldContent = target.closest('li').querySelector('div.fw-bold').innerText;
-  
-        const newContent = prompt("댓글 수정:", oldContent);
-        if (newContent !== null) {
-          const password = prompt("댓글 비밀번호를 입력하세요:");
-          if (password) {
-            fetch(`/board/${postId}/comment/${commentIdx}/edit`, {
-              method: "POST",
-              headers: { "Content-Type": "application/x-www-form-urlencoded" },
-              body: `content=${encodeURIComponent(newContent)}&password=${encodeURIComponent(password)}`
             })
             .then(response => response.json())
             .then(data => {
@@ -609,52 +693,71 @@
                   commentsContainer.innerHTML = data.updated_comments_html;
                 }
               } else {
-                alert("댓글 수정 실패: " + data.error);
+                alert("댓글 삭제 실패: " + data.error);
               }
             })
             .catch(console.error);
           }
         }
-      }
-  
-      if (target.classList.contains('delete-comment-btn')) {
-        const commentIdx = target.getAttribute('data-comment-idx');
-        const postId = target.closest('.modal').id.split('-')[1];
-        const password = prompt("댓글 비밀번호를 입력하세요:");
-        if (password) {
-          fetch(`/board/${postId}/comment/${commentIdx}/delete`, {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: `password=${encodeURIComponent(password)}`
-          })
-          .then(response => response.json())
-          .then(data => {
-            if (data.success) {
-              const commentsContainer = document.getElementById(`comments-${postId}`);
-              if (commentsContainer) {
-                commentsContainer.innerHTML = data.updated_comments_html;
-              }
-            } else {
-              alert("댓글 삭제 실패: " + data.error);
-            }
-          })
-          .catch(console.error);
-        }
-      }
-    });
-  
-    // ✅ 모달 닫힐 때 새로고침 (수정 중이었으면 무조건 리셋)
-    document.querySelectorAll(".modal").forEach(modalEl => {
-      modalEl.addEventListener('hidden.bs.modal', function() {
-        const isEditing = this.querySelector(".modal-title input") || this.querySelector(".post-content textarea");
-        if (isEditing) {
-          location.reload();
-        }
+      });
+
+      document.querySelectorAll(".modal").forEach(modalEl => {
+        // 포커스 제거: 모달이 닫히기 직전에 blur()
+        modalEl.addEventListener('hide.bs.modal', function () {
+          if (document.activeElement) {
+            document.activeElement.blur();  // 👈 포커스 해제
+          }
+        });
+
+        // 닫힌 후 페이지 새로고침 조건 유지
+        modalEl.addEventListener('hidden.bs.modal', function() {
+          const isEditing = this.querySelector(".modal-title input") || this.querySelector(".post-content textarea");
+          if (isEditing) {
+            location.reload();
+          }
+        });
       });
     });
-  });
   </script>
-  
-  
+
+
+<!-- ✅ 부트스트랩 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- ✅ Firebase SDK 먼저! -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+<!-- ✅ Firebase 초기화 + 함수 정의 -->
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyA1vPpkMZTuW0hR2WTdN_rlRQ4DLe8GQzY",
+    authDomain: "tennisweb-project.firebaseapp.com",
+    databaseURL: "https://tennisweb-project-default-rtdb.firebaseio.com",
+    projectId: "tennisweb-project",
+    storageBucket: "tennisweb-project.firebasestorage.app",
+    messagingSenderId: "119973973126",
+    appId: "1:119973973126:web:2448c17b03d8072ca09507",
+    measurementId: "G-096MQ37KYJ"
+  };
+
+  // ✅ Firebase 초기화
+  const app = firebase.initializeApp(firebaseConfig);
+  const db = firebase.database(app);
+
+  // ✅ 버튼 클릭 시 글쓰기
+  function writeSamplePost() {
+    const newPostRef = db.ref("tennis_posts_bamboo").push();
+    const postData = {
+      title: "Firebase 게시판 테스트",
+      content: "이 글은 Realtime Database에 저장된 첫 테스트입니다.",
+      nickname: "익명",
+      created_at: new Date().toISOString(),  // ✅ 통일
+      views: 0
+    };
+    newPostRef.set(postData)
+      .then(() => alert("✅ Firebase에 글 저장 완료!"))
+      .catch(err => alert("❌ 저장 실패: " + err));
+  }
+</script>
 </body>
 </html>
