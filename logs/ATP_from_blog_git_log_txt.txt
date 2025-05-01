@@ -422,3 +422,9 @@
 2025-04-27 06:21:54,467 - INFO - ✅ 결과 저장 완료: /home/runner/work/tennis_web/tennis_web/tennis_abstract_bracket.json
 2025-04-27 06:21:55,059 - INFO - ✅ 결과 저장 완료: /home/runner/work/tennis_web/tennis_web/tennis_abstract_top30players.json
 2025-04-27 06:22:08,288 - INFO - ✅ summary 정보가 성공적으로 추가되었습니다.
+2025-04-28 12:52:28,127 - INFO - ✅ 결과 저장 완료: c:\Python313\Scripts\tennis_web\tennis_abstract_bracket.json
+2025-04-28 12:52:28,925 - INFO - ✅ 결과 저장 완료: c:\Python313\Scripts\tennis_web\tennis_abstract_top30players.json
+2025-04-28 12:52:47,223 - INFO - ✅ summary 정보가 성공적으로 추가되었습니다.
+2025-04-28 12:53:26,712 - INFO - ✅ 결과 저장 완료: c:\Python313\Scripts\tennis_web\tennis_abstract_bracket.json
+2025-04-28 12:53:27,513 - INFO - ✅ 결과 저장 완료: c:\Python313\Scripts\tennis_web\tennis_abstract_top30players.json
+2025-04-28 12:53:45,633 - INFO - ✅ summary 정보가 성공적으로 추가되었습니다.

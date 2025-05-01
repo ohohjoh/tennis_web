@@ -1,417 +1,399 @@
-<!-- eslint-disable -->
-<!-- prettier-ignore -->
-
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <title>🗓️ 코트 예약 가이드</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <style>
-      body.grass-theme {
-        background-color: #2e5339;
-        color: #fff;
-      }
-    
-      /* 공통 폰트 */
-      body {
-        font-family: 'Pretendard Variable', sans-serif;
-      }
-    
-      /* 윔블던 스타일 네비게이션 */
-      .main-navbar {
-        background-color: #2e5339;
-        padding: 0.5rem 0.5rem;
-        font-family: 'Playfair Display', 'Georgia', serif;
-        display: flex;
-        justify-content: center;
-        will-change: transform;
-        transition: none !important;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-      }
-    
-      .nav-pill-wrapper {
-        background-color: #345d40;
-        border-radius: 50px;
-        padding: 0.3rem;
-        display: flex;
-        gap: 0.5rem;
-        overflow-x: auto;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-      }
-    
-      .main-navbar .nav-link {
-        font-family: 'Pretendard Variable', sans-serif;
-        font-weight: 600;
-        font-size: 0.92rem; /* ✅ 살짝 조정 */
-        padding: 0.4rem 1rem; /* ✅ 통일된 패딩 */
-        border-radius: 50px;
-        transition: all 0.2s ease-in-out;
-        white-space: nowrap;
-        line-height: 1.1; /* ✅ 조정 시 시각적으로 더 안정적 */
-      }
-    
-      .main-navbar .nav-link:not(.active) {
-        background-color: #2e5339;
-        color: #ffffff;
-      }
-    
-      .main-navbar .nav-link.active {
-        background-color: #ffffff;
-        color: #2e5339;
-        font-weight: 700;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      }
-    
-      /* 반응형 네비 */
-      @media (max-width: 768px) {
-        .main-navbar {
-          padding: 0.5rem 0.5rem;
-        }
-    
-        .main-navbar .nav-link {
-          font-size: 0.72rem;
-          padding: 0.3rem 0.8rem;
-          border-radius: 30px;
-          flex-shrink: 0;
-        }
-    
-        .nav-pill-wrapper {
-          gap: 0.3rem;
-          padding: 0.2rem;
-          flex-wrap: nowrap;
-        }
-      }
-    
-      /* 코트 카드 */
-      .court-card {
-        background-color: #fff;
-        color: #2b2b2b;
-        border-radius: 16px;
-        padding: 0.75rem;
-        font-size: 0.9rem;
-        box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
-        min-height: 300px;
-      }
-    
-      .court-card h5 {
-        font-size: 1rem;
-        color: #5c2e91;
-        font-weight: bold;
-        margin-bottom: 0.5rem;
-      }
-    
-      .court-card img {
-        width: 100%;
-        max-height: 130px;
-        object-fit: cover;
-        border-radius: 12px;
-        margin-bottom: 0.5rem;
-      }
-    
-      .court-card p {
-        font-size: 0.85rem;
-        margin-bottom: 0.1rem;
-      }
-    
-      /* 버튼 */
-      .btn-reserve {
-        background-color: #5c2e91;
-        color: #fff;
-        border: none;
-        font-size: 0.85rem;
-        padding: 0.4rem 0.75rem;
-      }
-    
-      .btn-reserve:hover {
-        background-color: #4a1e7e;
-      }
-    
-      /* 슬라이더 */
-      .mobile-slider {
-        display: flex;
-        justify-content: flex-start;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        scroll-behavior: smooth;
-        gap: 0.75rem;
-        padding: 0 1rem 0.5rem;
-        scroll-padding-left: 1rem;
-      }
-    
-      .mobile-slider > div {
-        scroll-snap-align: start;
-        flex: 0 0 80vw;
-        max-width: 80vw;
-        min-width: 80vw;
-      }
-    
-      /* 뱃지 스타일 */
-      .info-box {
-        border: 1px solid #5c2e91;
-      }
-    
-      /* 디바이스 대응 */
-      @media (min-width: 768px) {
-        .mobile-only { display: none !important; }
-      }
-    
-      @media (max-width: 767px) {
-        .desktop-only { display: none !important; }
-    
-        .court-card {
-          padding: 1rem;
-          font-size: 0.9rem;
-        }
-    
-        .court-card p {
-          font-size: 0.85rem;
-        }
-    
-        .btn-reserve {
-          font-size: 0.85rem;
-        }
-      }
-      /* ✅ 필터 버튼 안정적인 스타일 */
-      .filter-btn {
-        font-family: 'Pretendard Variable', sans-serif;
-        font-size: 0.85rem;
-        padding: 0.3rem 0.8rem;
-        border-radius: 30px;
-        background-color: #2e5339;
-        color: #ffffff;
-        border: none;
-        transition: all 0.25s ease-in-out;
-      }
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>코트 가이드</title>
 
-      .filter-btn.active {
-        background-color: #ffffff;
-        color: #2e5339;
-        font-weight: 700;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      }
+  <!-- Pretendard + Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/pretendard@1.3.6/dist/web/variable/pretendardvariable-dynamic-subset.css" rel="stylesheet">
 
-      .filter-btn:focus,
-      .filter-btn:active {
-        outline: none;
-        box-shadow: none;
-        transform: none;
-      }
-    </style>
-    
-    
-  </head>
-  <body class="grass-theme p-0">
-    <nav class="main-navbar shadow-sm">
-      <div class="nav-pill-wrapper">
-        <a class="nav-link {% if currentPath == 'index' %}active{% endif %}" href="/">Home</a>
-        <a class="nav-link {% if currentPath == 'tournament_pro' %}active{% endif %}" href="/tournament_pro">프로 소식</a>
-        <a class="nav-link {% if currentPath == 'tournament' %}active{% endif %}" href="/tournament">아마 대회</a>
-        <a class="nav-link {% if currentPath == 'court' %}active{% endif %}" href="/court-guide">코트 가이드</a>
-        <a class="nav-link {% if currentPath == 'board' %}active{% endif %}" href="/board">테나무숲</a>
-      </div>
-    </nav>
+<style>
+  /* ✅ 기본 테마 */
+  body {
+    font-family: 'Pretendard Variable', sans-serif;
+    min-height: 100vh;
+    background-color: #ffffff;
+    color: #006644;
+  }
+  body.grass-theme {
+    background-color: #006644;
+    color: #ffffff;
+  }
 
-  <div class="container">
-    <div class="row g-3 mb-2">
+  /* ✅ 네비게이션 */
+  .main-navbar {
+    background-color: #006644;
+    padding: 0.5rem;
+    font-family: 'Playfair Display', 'Georgia', serif;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  .nav-pill-wrapper {
+    background-color: #006644;
+    border-radius: 50px;
+    padding: 0.3rem;
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+  .nav-pill-wrapper::-webkit-scrollbar { display: none; }
+  .main-navbar .nav-link {
+    font-family: 'Pretendard Variable', sans-serif;
+    color: white;
+    font-weight: 600;
+    font-size: 0.92rem;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    transition: all 0.25s ease-in-out;
+    white-space: nowrap;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* ✅ 네비게이션 하단에 그림자 통일 */
+    }
+
+    .main-content {
+      padding-top: 1rem; /* ✅ 본문 상단 패딩 */
+    }
     
-      <!-- 🔍 검색창 (오른쪽 + 카드배경 없음 + input만 흰색) -->
-      <div class="d-flex justify-content-center mb-2">
-        <input type="text" id="searchInput" class="form-control form-control-sm bg-white" placeholder="검색어를 입력하세요" style="max-width: 320px;" oninput="filterByKeyword()" />
-      </div>
+  .main-navbar .nav-link.active {
+      background-color: #ffffff;
+      color: #006644;
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      border: none;
+    }
+
+    .main-navbar .nav-link.active:hover {
+      color: #006644;
+    }
+
+  /* ✅ 상단 탭 */
+  .tournament-top-tab {
+    position: sticky;
+    top: 42px;
+    z-index: 999;
+    background-color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+  }
+
+  /* ✅ 검색창 */
+  .search-bar {
+    max-width: 320px;
+    background-color: #ffffff;
+  }
+
+  /* ✅ 카드 공통 */
+  .court-card {
+    background: #ffffff;
+    border: 2px solid #006644;
+    border-radius: 16px;
+    padding: 0.75rem;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    color: #2b2b2b;
+    min-height: 300px;
+  }
+  .court-card h5 {
+    font-size: 1rem;
+    color: #5C2E91;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  .court-card p {
+    font-size: 0.85rem;
+    margin-bottom: 0.2rem;
+  }
+  .court-image {
+    width: 100%;
+    max-height: 130px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 0.5rem;
+  }
+
+  /* ✅ 데스크탑 카드 래퍼 */
+  .desktop-card-container {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    -webkit-overflow-scrolling: touch;
+  }
+  .desktop-card-container::-webkit-scrollbar { display: none; }
+
+  /* ✅ 모바일 슬라이더 */
+  .mobile-slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding: 0 1rem 1rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .mobile-slider > div {
+    flex: 0 0 80%;
+    scroll-snap-align: start;
+  }
+  .mobile-slider::-webkit-scrollbar { display: none; }
+
+  /* ✅ 버튼 스타일 */
+  .btn-reserve {
+    background-color: #5C2E91;
+    color: #fff;
+    font-size: 0.85rem;
+    border: none;
+    padding: 0.4rem 0.75rem;
+  }
+  .btn-reserve:hover {
+    background-color: #4a1e7e;
+  }
+
+  /* ✅ 접수 텀 뱃지 스타일 */
+  .badge-daily {
+    background-color: #ffe0e0;
+    color: #d00000;
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+  }
+  .badge-monthly {
+    background-color: #e0e7ff;
+    color: #0033cc;
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+  }
+  .badge-biweekly {
+    background-color: #eafbe0;
+    color: #38761d;
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+  }
+
+  /* ✅ 예약 계산 */
+  .daily-calc-form {
+    background: #f8f9fa;
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+  }
+  .calc-time {
+    color: #d00000;
+    font-weight: bold;
+    font-size: 0.8rem;
+  }
+  .calc-result {
+    color: #5C2E91;
+    font-size: 0.8rem;
+  }
+
+  .monthly-reserve-box {
+    background: #f8f9fa;
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+  }
+  .monthly-line1 {
+    color: #5C2E91;
+    font-weight: bold;
+  }
+  .monthly-line2 {
+    color: #6c757d;
+  }
+
+  /* ✅ 반응형 */
+  @media (max-width: 768px) {
+    .main-navbar .nav-link {
+      font-size: 0.72rem;
+      padding: 0.3rem 0.8rem;
+    }
+    .desktop-only { display: none !important; }
+  }
+  @media (min-width: 768px) {
+    .mobile-only { display: none !important; }
+  }
+</style>
+</head>
+<body class="grass-theme p-0">
+  <nav class="main-navbar shadow-sm">
+    <div class="nav-pill-wrapper">
+      <a class="nav-link {% if currentPath == 'index' %}active{% endif %}" href="/">Home</a>
+      <a class="nav-link {% if currentPath == 'tournament' %}active{% endif %}" href="/tournament">아마 대회</a>
+      <a class="nav-link {% if currentPath == 'tournament_pro' %}active{% endif %}" href="/tournament_pro">프로 소식</a>
+      <a class="nav-link {% if currentPath == 'court' %}active{% endif %}" href="/court-guide">코트 가이드</a>
+      <a class="nav-link {% if currentPath == 'board' %}active{% endif %}" href="/board">테나무숲</a>
+    </div>
+  </nav>
+
+  <div class="tournament-top-tab shadow-sm">
+    <!-- 🔍 검색창 -->
+    <div class="d-flex justify-content-center mb-3">
+      <input type="text" id="searchInput" class="form-control form-control-sm search-bar" placeholder="검색어를 입력하세요" oninput="filterByKeyword()">
     </div>
 
-  <!-- 💻 PC 가로 스크롤 1열 카드 -->
-  <div class="desktop-only">
-    <div class="d-flex flex-row overflow-auto gap-3 pb-2">
-      {% for 장소명, 리스트 in data.items() %}
-        {% set first = 리스트[0] %}
-        <div class="court-card flex-shrink-0" style="width: 320px; min-height: 460px;">
-          <h5>{{ 장소명 }}</h5>
-          {% if first['이미지경로'] %}
-            <img src="{{ first['이미지경로'] }}" alt="{{ 장소명 }} 이미지" class="mb-2" />
-          {% endif %}
-          <div class="row mb-2">
-                <!-- 왼쪽: 위치 / 전화 / 이용 -->
-                <div class="col-6">
-                  <p><strong>위치:</strong> {{ first['지역명'] }}</p>
-                  <p><strong>전화:</strong> {{ first['전화번호'] }}</p>
-                  <p><strong>이용:</strong> {{ first['서비스이용 시작시간'] }} ~ {{ first['서비스이용 종료시간'] }}</p>
+    <!-- 💻 PC 가로 스크롤 카드 -->
+    <div class="desktop-only">
+      <div class="desktop-card-container">
+        {% for 장소명, 리스트 in data.items() %}
+          {% set first = 리스트[0] %}
+          <div class="court-card">
+            <h5>{{ 장소명 }}</h5>
+            {% if first['이미지경로'] %}
+              <img src="{{ first['이미지경로'] }}" alt="{{ 장소명 }} 이미지" class="court-image">
+            {% endif %}
+
+            <div class="row mb-2">
+              <div class="col-6">
+                <p><strong>위치:</strong> {{ first['지역명'] }}</p>
+                <p><strong>전화:</strong> {{ first['전화번호'] }}</p>
+                <p><strong>이용:</strong> {{ first['서비스이용 시작시간'] }} ~ {{ first['서비스이용 종료시간'] }}</p>
+              </div>
+              <div class="col-6">
+                <p><strong>접수주기:</strong>
+                  {% if first['접수 텀'] == '일' %}
+                    <span class="badge-daily">{{ first['접수 텀'] }}</span>
+                  {% elif first['접수 텀'] == '월' %}
+                    <span class="badge-monthly">{{ first['접수 텀'] }}</span>
+                  {% elif first['접수 텀'] == '보름' %}
+                    <span class="badge-biweekly">{{ first['접수 텀'] }}</span>
+                  {% else %}
+                    <span class="badge bg-secondary">{{ first['접수 텀'] }}</span>
+                  {% endif %}
+                </p>
+
+                <p><strong>예약일:</strong>
+                  {% if first['접수 텀'] == '일' %}
+                    +{{ first['접수일'] }}일
+                  {% elif first['접수 텀'] == '월' %}
+                    매달 {{ first['접수일'] }}일
+                  {% elif first['접수 텀'] == '보름' %}
+                    매달 {{ first['접수일'] }}일{% if first['2차 접수일'] %}, {{ first['2차 접수일'] }}일{% endif %}
+                  {% endif %}
+                </p>
+
+                <p><strong>접수시간:</strong> {{ first['접수시간'] }}</p>
+              </div>
+            </div>
+
+            {% if first['접수 텀'] == '일' %}
+              <div class="daily-calc-form">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                  <input type="date" class="form-control form-control-sm calc-date">
+                  <span class="calc-time">{{ first['접수시간'] }}</span>
                 </div>
-              
-                <!-- 오른쪽: 접수 주기 / 접수일 / 접수시간 -->
-                <div class="col-6">
-                  <p>
-                    <strong> 접수주기:</strong>
-                    {% if first['접수 텀'] == '일' %}
-                      <span style="background-color:#ffe0e0; color:#d00000; padding:2px 6px; border-radius:6px;">{{ first['접수 텀'] }}</span>
-                    {% elif first['접수 텀'] == '월' %}
-                      <span style="background-color:#e0e7ff; color:#0033cc; padding:2px 6px; border-radius:6px;">{{ first['접수 텀'] }}</span>
-                    {% elif first['접수 텀'] == '보름' %}
-                      <span style="background-color:#eafbe0; color:#38761d; padding:2px 6px; border-radius:6px;">{{ first['접수 텀'] }}</span>
-                    {% else %}
-                      <span class="badge bg-secondary">{{ first['접수 텀'] }}</span>
-                    {% endif %}
-                  </p>
-              
-                  <p>
-                    <strong> 예약일:</strong>
-                    {% if first['접수 텀'] == '일' %}
-                      +{{ first['접수일'] }}일
-                    {% elif first['접수 텀'] == '월' %}
-                      매달 {{ first['접수일'] }}일
-                    {% elif first['접수 텀'] == '보름' %}
-                      매달 {{ first['접수일'] }}일{% if first['2차 접수일'] %}, {{ first['2차 접수일'] }}일{% endif %}
-                    {% endif %}
-                  </p>
-              
-                  <p><strong> 접수시간:</strong> {{ first['접수시간'] }}</p>
+                <input type="hidden" class="calc-days" value="{{ first['접수일'] }}">
+                <div class="border-top pt-2 mt-2 text-center small fw-bold calc-result">
+                  계산 중...
                 </div>
               </div>
+            {% elif first['접수 텀'] == '월' %}
+              <div class="monthly-reserve-box" data-day="{{ first['접수일'] }}" data-time="{{ first['접수시간'] }}">
+                <div class="btn btn-outline-info btn-sm w-100 d-flex flex-column align-items-start disabled">
+                  <span class="fw-bold monthly-line1">날짜 계산 중...</span>
+                  <span class="text-muted small mt-1 monthly-line2">예약 정보 계산 중...</span>
+                </div>
+                <input type="hidden" class="calc-days" value="{{ first['접수일'] }}">
+              </div>
+            {% endif %}
 
-                    <!-- 계산기 또는 안내문 -->
-                    {% if first['접수 텀'] == '일' %}
-                    <div class="daily-calc-form bg-light p-2 rounded mt-3">
-                      <div class="d-flex align-items-center justify-content-between mb-2" style="width: 100%;">
-                      <input type="date" class="form-control form-control-sm calc-date" style="max-width: 150px;" />
-                        <span class="small fw-bold text-center flex-grow-1" style="color: #d00000;">
-                          {{ first['접수시간'] }}
-                        </span>
-                      </div>
-                    
-                      <input type="hidden" class="calc-days" value="{{ first['접수일'] }}">
-                    
-                      <!-- 가운데 정렬된 결과 텍스트 -->
-                      <div class="border-top pt-2 mt-2 text-center small fw-bold calc-result" style="color:#5c2e91;">
-                        계산 중...
-                      </div>
-                    </div>
-                    {% elif first['접수 텀'] == '월' %}
-                    <div class="bg-light p-2 rounded mt-3 monthly-reserve-box"
-                      data-day="{{ first['접수일'] }}"
-                      data-time="{{ first['접수시간'] }}">
-                      <div class="btn btn-outline-info btn-sm w-100 d-flex flex-column align-items-start disabled">
-                        <span class="fw-bold" style="color: #5c2e91;" id="monthly-start-line2">날짜 계산 중...</span>
-                        <span class="text-muted small mt-1" id="monthly-start-line3">예약 정보 계산 중...</span>
-                      </div>
-                    
-                      <input type="hidden" class="calc-days" value="{{ first['접수일'] }}">
-                    
-                    </div>
-                    {% endif %}
-          
-              <button
-              class="btn btn-reserve btn-sm mt-2 w-100"
-              data-bs-toggle="modal"
-              data-bs-target="#reserveModal"
-              data-place="{{ first['장소명'] }}">
+            <button class="btn btn-reserve btn-sm mt-2 w-100" data-bs-toggle="modal" data-bs-target="#reserveModal" data-place="{{ first['장소명'] }}">
               예약하러 가기
             </button>
-          <div class="text-center text-muted small mt-2">{{ loop.index }} / {{ data|length }}</div>
-          
-        </div>
-      {% endfor %}
+            <div class="text-center text-muted small mt-2">{{ loop.index }} / {{ data|length }}</div>
+          </div>
+        {% endfor %}
+      </div>
     </div>
-  </div>
 
-  <div class="mobile-only">
-    <div class="mobile-slider pb-2">
-      {% for 장소명, 리스트 in data.items() %}
-        {% set first = 리스트[0] %}
-        <div class="court-card">
-          <h5>{{ 장소명 }}</h5>
-          {% if first['이미지경로'] %}
-            <img src="{{ first['이미지경로'] }}" alt="{{ 장소명 }} 이미지" />
+    <!-- 📱 모바일 슬라이더 카드 -->
+    <div class="mobile-only">
+      <div class="mobile-slider">
+        {% for 장소명, 리스트 in data.items() %}
+          {% set first = 리스트[0] %}
+          <div class="court-card">
+            <h5>{{ 장소명 }}</h5>
+            {% if first['이미지경로'] %}
+              <img src="{{ first['이미지경로'] }}" alt="{{ 장소명 }} 이미지" class="court-image">
             {% endif %}
+
             <div class="row mb-2">
-                  <!-- 왼쪽: 위치 / 전화 / 이용 -->
-                  <div class="col-6">
-                    <p><strong>위치:</strong> {{ first['지역명'] }}</p>
-                    <p><strong>전화:</strong> {{ first['전화번호'] }}</p>
-                    <p><strong>이용:</strong> {{ first['서비스이용 시작시간'] }} ~ {{ first['서비스이용 종료시간'] }}</p>
-                  </div>
-                
-                  <!-- 오른쪽: 접수 주기 / 접수일 / 접수시간 -->
-                  <div class="col-6">
-                    <p>
-                      <strong> 접수주기:</strong>
-                      {% if first['접수 텀'] == '일' %}
-                        <span style="background-color:#ffe0e0; color:#d00000; padding:2px 6px; border-radius:6px;">{{ first['접수 텀'] }}</span>
-                      {% elif first['접수 텀'] == '월' %}
-                        <span style="background-color:#e0e7ff; color:#0033cc; padding:2px 6px; border-radius:6px;">{{ first['접수 텀'] }}</span>
-                      {% elif first['접수 텀'] == '보름' %}
-                        <span style="background-color:#eafbe0; color:#38761d; padding:2px 6px; border-radius:6px;">{{ first['접수 텀'] }}</span>
-                      {% else %}
-                        <span class="badge bg-secondary">{{ first['접수 텀'] }}</span>
-                      {% endif %}
-                    </p>
-                
-                    <p>
-                      <strong> 예약일:</strong>
-                      {% if first['접수 텀'] == '일' %}
-                        +{{ first['접수일'] }}일
-                      {% elif first['접수 텀'] == '월' %}
-                        매달 {{ first['접수일'] }}일
-                      {% elif first['접수 텀'] == '보름' %}
-                        매달 {{ first['접수일'] }}일{% if first['2차 접수일'] %}, {{ first['2차 접수일'] }}일{% endif %}
-                      {% endif %}
-                    </p>
-                
-                    <p><strong> 접수시간:</strong> {{ first['접수시간'] }}</p>
-                  </div>
+              <div class="col-6">
+                <p><strong>위치:</strong> {{ first['지역명'] }}</p>
+                <p><strong>전화:</strong> {{ first['전화번호'] }}</p>
+                <p><strong>이용:</strong> {{ first['서비스이용 시작시간'] }} ~ {{ first['서비스이용 종료시간'] }}</p>
+              </div>
+              <div class="col-6">
+                <p><strong>접수주기:</strong>
+                  {% if first['접수 텀'] == '일' %}
+                    <span class="badge-daily">{{ first['접수 텀'] }}</span>
+                  {% elif first['접수 텀'] == '월' %}
+                    <span class="badge-monthly">{{ first['접수 텀'] }}</span>
+                  {% elif first['접수 텀'] == '보름' %}
+                    <span class="badge-biweekly">{{ first['접수 텀'] }}</span>
+                  {% else %}
+                    <span class="badge bg-secondary">{{ first['접수 텀'] }}</span>
+                  {% endif %}
+                </p>
+
+                <p><strong>예약일:</strong>
+                  {% if first['접수 텀'] == '일' %}
+                    +{{ first['접수일'] }}일
+                  {% elif first['접수 텀'] == '월' %}
+                    매달 {{ first['접수일'] }}일
+                  {% elif first['접수 텀'] == '보름' %}
+                    매달 {{ first['접수일'] }}일{% if first['2차 접수일'] %}, {{ first['2차 접수일'] }}일{% endif %}
+                  {% endif %}
+                </p>
+
+                <p><strong>접수시간:</strong> {{ first['접수시간'] }}</p>
+              </div>
+            </div>
+
+            {% if first['접수 텀'] == '일' %}
+              <div class="daily-calc-form">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                  <input type="date" class="form-control form-control-sm calc-date">
+                  <span class="calc-time">{{ first['접수시간'] }}</span>
                 </div>
+                <input type="hidden" class="calc-days" value="{{ first['접수일'] }}">
+                <div class="border-top pt-2 mt-2 text-center small fw-bold calc-result">
+                  계산 중...
+                </div>
+              </div>
+            {% elif first['접수 텀'] == '월' %}
+              <div class="monthly-reserve-box" data-day="{{ first['접수일'] }}" data-time="{{ first['접수시간'] }}">
+                <div class="btn btn-outline-info btn-sm w-100 d-flex flex-column align-items-start disabled">
+                  <span class="fw-bold monthly-line1">날짜 계산 중...</span>
+                  <span class="text-muted small mt-1 monthly-line2">예약 정보 계산 중...</span>
+                </div>
+                <input type="hidden" class="calc-days" value="{{ first['접수일'] }}">
+              </div>
+            {% endif %}
 
-          {% if first['접수 텀'] == '일' %}
-          <div class="daily-calc-form bg-light p-2 rounded mt-3">
-            <div class="d-flex align-items-center justify-content-between mb-2" style="width: 100%;">
-            <input type="date" class="form-control form-control-sm calc-date" style="max-width: 150px;" />
-            <span class="small fw-bold text-center flex-grow-1" style="color: #d00000;">
-              {{ first['접수시간'] }}
-            </span>
+            <button class="btn btn-reserve btn-sm mt-2 w-100" data-bs-toggle="modal" data-bs-target="#reserveModal" data-place="{{ first['장소명'] }}">
+              예약하러 가기
+            </button>
+            <div class="text-center text-muted small mt-2">{{ loop.index }} / {{ data|length }}</div>
           </div>
-          
-            <input type="hidden" class="calc-days" value="{{ first['접수일'] }}">
-          
-            <!-- 가운데 정렬된 결과 텍스트 -->
-            <div class="border-top pt-2 mt-2 text-center small fw-bold calc-result" style="color:#5c2e91;">
-              계산 중...
-            </div>
-          </div>
-
-          {% elif first['접수 텀'] == '월' %}
-          <div class="bg-light p-2 rounded mt-3 monthly-reserve-box"
-            data-day="{{ first['접수일'] }}"
-            data-time="{{ first['접수시간'] }}">
-            <div class="btn btn-outline-info btn-sm w-100 d-flex flex-column align-items-start disabled">
-              <span class="fw-bold" style="color: #5c2e91;" id="monthly-start-line2">날짜 계산 중...</span>
-              <span class="text-muted small mt-1" id="monthly-start-line3">예약 정보 계산 중...</span>
-            </div>
-          
-            <input type="hidden" class="calc-days" value="{{ first['접수일'] }}">
-          
-          </div>
-          {% endif %}
-
-          <button 
-            class="btn btn-reserve btn-sm mt-2 w-100"
-            data-bs-toggle="modal"
-            data-bs-target="#reserveModal"
-            data-place="{{ first['장소명'] }}">
-            예약하러 가기
-          </button>
-          <div class="text-center text-muted small mt-2">{{ loop.index }} / {{ data|length }}</div>
-
-        </div>
-      {% endfor %}
-    
+        {% endfor %}
+      </div>
     </div>
   </div>
-  </div>
+</body>
+
+    
+
 
   <script>
 
@@ -421,8 +403,6 @@
     // document.getElementById("baseDate").value = today;
     const allCards = document.querySelectorAll(".court-card");
     const placeNames = [...allCards].map(card => card.querySelector("h5")?.innerText).filter(Boolean);
-
-    placeNames.forEach(name => loadPlaceComments(name));
   });
 
   function calculateDate() {
@@ -596,12 +576,6 @@
   });
   const currentPath = window.location.pathname.includes("court") ? "court" : "tournament";
   const API_URL = `/api/comments/${currentPath}`;
-
-  function formatDate(iso) {
-    const d = new Date(iso);
-    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')} ` +
-           `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
-  }
 
 
 </script>

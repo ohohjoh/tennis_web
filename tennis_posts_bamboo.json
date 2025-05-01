@@ -1,6 +1,16 @@
 {
   "posts": [
     {
+      "id": 3,
+      "nickname": "123",
+      "title": "123",
+      "content": "123",
+      "password": "123",
+      "created_at": "2025-04-28 13:37",
+      "views": 0,
+      "comments": []
+    },
+    {
       "id": 2,
       "nickname": "111",
       "title": "111",
@@ -18,7 +28,7 @@
       "content": "11111111111111111111111111111111111111111111111111111111111111111111",
       "password": "321",
       "created_at": "2025-04-27 16:08",
-      "views": 17,
+      "views": 18,
       "comments": [
         {
           "nickname": "12",

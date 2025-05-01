@@ -6,13 +6,21 @@
   <title>ㅤ익명 대나무숲</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
+    /* ✅ 기본 글꼴 및 테마 */
     body {
-      background-color: #ffffff;  /* ✅ 초록색 ❌ → 흰색 */
-      color: #2e5339;
       font-family: 'Pretendard Variable', sans-serif;
+      background-color: #ffffff;
+      color: #006644;
+      min-height: 100vh;
     }
+    body.grass-theme {
+      background-color: #006644;
+      color: #ffffff;
+    }
+    
+    /* ✅ 네비게이션 바 */
     .main-navbar {
-      background-color: #2e5339;
+      background-color: #006644;
       padding: 0.5rem 0.5rem;
       font-family: 'Playfair Display', 'Georgia', serif;
       display: flex;
@@ -20,9 +28,11 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+      will-change: transform;
+      transition: none !important;
     }
     .nav-pill-wrapper {
-      background-color: #345d40;
+      background-color: #006644;
       border-radius: 50px;
       padding: 0.3rem;
       display: flex;
@@ -31,22 +41,221 @@
       white-space: nowrap;
       -webkit-overflow-scrolling: touch;
     }
+    .nav-pill-wrapper::-webkit-scrollbar {
+      display: none;
+    }
     .main-navbar .nav-link {
       font-family: 'Pretendard Variable', sans-serif;
       color: white;
       font-weight: 600;
-      font-size: 0.95rem;
-      padding: 0.45rem 1.2rem;
+      font-size: 0.92rem;
+      padding: 0.4rem 1rem;
       border-radius: 50px;
       transition: all 0.25s ease-in-out;
       white-space: nowrap;
-    }
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* ✅ 네비게이션 하단에 그림자 통일 */
+      }
+
+      .main-content {
+        padding-top: 1rem; /* ✅ 본문 상단 패딩 */
+      }
     .main-navbar .nav-link.active {
       background-color: #ffffff;
-      color: #2e5339;
+      color: #006644;
       font-weight: 700;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      border: none;
     }
+    .main-navbar .nav-link.active:hover {
+      color: #006644;
+    }
+    
+    /* ✅ 상단 탭 (검색창, 필터) */
+    .tournament-top-tab {
+      position: sticky;
+      top: 42px;
+      z-index: 999;
+      background-color: #ffffff;
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid #ccc;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    }
+    .filter-area.tournament-switch {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+      justify-content: center;
+      scroll-padding-left: 0.5rem;
+    }
+    .filter-area.tournament-switch::-webkit-scrollbar {
+      display: none;
+    }
+    .filter-btn {
+      font-size: 0.7rem;
+      padding: 0.35rem 0.75rem;
+      flex-shrink: 0;
+      border-radius: 30px;
+      background-color: #ffffff;
+      color: #006644;
+      border: 1px solid #006644;
+      transition: all 0.25s ease-in-out;
+      min-width: 90px;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background-color: #5C2E91;
+      color: #ffffff;
+      border-color: #5C2E91;
+      font-weight: 600;
+    }
+    
+    /* ✅ 게시판 컨테이너 */
+    .board-container {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1rem auto;
+      max-width: 960px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      color: #006644;
+    }
+    .board-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .board-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+    
+    /* ✅ 글쓰기 버튼 */
+    .new-post-btn {
+      background-color: #5c2e91;
+      color: white;
+      font-weight: 600;
+      border-radius: 20px;
+      padding: 0.3rem 1rem;
+      font-size: 0.9rem;
+    }
+    .new-post-btn:hover {
+      background-color: #4b1e88;
+    }
+    
+    /* ✅ 게시글 목록 */
+    .post-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .post-list li {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #ddd;
+    }
+    .post-link {
+      text-decoration: none;
+      color: #006644;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .post-meta {
+      font-size: 0.8rem;
+      color: #888;
+      margin-top: 0.25rem;
+    }
+    
+    /* ✅ 모달 (글 보기/댓글 모달) */
+    .modal-content {
+      background-color: #ffffff;
+      color: #006644;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      max-width: 95vw;
+    }
+    .modal-header-purple {
+      background-color: #5c2e91;
+      color: #ffffff;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+    }
+    .post-content-wrapper {
+      background-color: #f9f9f9;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+    }
+    .post-content {
+      white-space: pre-wrap;
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+    .comment-section {
+      background-color: #f9f9f9;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+    }
+    .comment-list {
+      max-height: 150px;
+      overflow-y: auto;
+    }
+    .comment-meta {
+      font-size: 0.7rem;
+      color: #888;
+    }
+    
+    /* ✅ 댓글 작성 영역 */
+    .comment-form-wrapper {
+      background-color: #f9f9f9;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+    .comment-form .form-control {
+      margin-bottom: 0.5rem;
+    }
+    
+    /* ✅ 윔블던 버튼 스타일 */
+    .btn-wimbledon {
+      background-color: #5c2e91;
+      color: white;
+      font-weight: 600;
+      border-radius: 12px;
+    }
+    .btn-wimbledon:hover {
+      background-color: #4b1e88;
+    }
+    .btn-wimbledon.btn-xs {
+      font-size: 0.65rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 8px;
+    }
+    
+    /* ✅ 입력 폼 */
+    .form-control {
+      background-color: #ffffff;
+      color: #006644;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .form-control:focus {
+      border-color: #5c2e91;
+      box-shadow: 0 0 5px rgba(92, 46, 145, 0.3);
+    }
+    
+    
+    /* ✅ summary 박스 */
+    #summary-box {
+      color: #5C2E91;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-top: 0.5rem;
+      text-align: center;
+    }
+    
+    /* ✅ 모바일 대응 */
     @media (max-width: 768px) {
       .main-navbar .nav-link {
         font-size: 0.72rem;
@@ -59,137 +268,24 @@
         padding: 0.2rem;
         flex-wrap: nowrap;
       }
+      .filter-area.tournament-switch {
+        justify-content: flex-start;
+      }
     }
-    .board-container {
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin: 1rem auto;
-      max-width: 960px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* ✅ 부드러운 그림자 */
-      color: #2e5339;
-    }
-    .board-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-    }
-    .board-title {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: #2e5339;
-    }
-    .new-post-btn {
-      background-color: #5c2e91;
-      color: white;
-      font-weight: 600;
-      border-radius: 20px;
-      padding: 0.3rem 1rem;
-      font-size: 0.9rem;
-    }
-    .new-post-btn:hover {
-      background-color: #4b1e88;
-      color: white;
-    }
-    .post-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .post-list li {
-      padding: 0.75rem 0;
-      border-bottom: 1px solid #ddd;
-    }
-    .post-link {
-      text-decoration: none;
-      color: #2e5339;
-      font-weight: 600;
-      font-size: 1rem;
-    }
-    .post-link:hover {
-      color: #5c2e91;
-      text-decoration: underline;
-    }
-    .post-meta {
-      font-size: 0.8rem;
-      color: #888;
-      margin-top: 0.25rem;
-    }
-    .btn-wimbledon {
-      background-color: #5c2e91;
-      color: white;
-      font-weight: bold;
-      border: none;
-      border-radius: 8px;
-      padding: 0.6rem 1.2rem;
-      font-size: 1rem;
-    }
-    .btn-wimbledon:hover {
-      background-color: #4b1e88;
-    }
-    .modal-content {
-      background-color: #ffffff !important;
-      color: #2e5339 !important;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      max-width: 95vw;
-      overflow-x: hidden;
-    }
-    .btn-wimbledon, .new-post-btn, .save-edit-btn {
-      background-color: #5c2e91;
-      color: white;
-      font-weight: 600;
-      border-radius: 12px;
-    }
-    .btn-wimbledon:hover, .new-post-btn:hover, .save-edit-btn:hover {
-      background-color: #4b1e88;
-    }
-    a {
-      color: #2e5339;
-      text-decoration: none;
-    }
-    a:hover {
-      color: #5c2e91;
-      text-decoration: underline;
-    }
-    .form-control {
-      background-color: #ffffff;
-      color: #2e5339;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-    .form-control:focus {
-      border-color: #5c2e91;
-      box-shadow: 0 0 5px rgba(92, 46, 145, 0.3);
-    }
-    .btn-wimbledon.btn-xs {
-      font-size: 0.65rem;
-      padding: 0.25rem 0.5rem;
-      border-radius: 8px;
-    }
-    .post-content {
-      max-width: 100%;
-      word-break: break-word;
-      overflow-wrap: break-word;
-    }
-    .modal-title {
-      max-width: 80%;
-      word-break: break-word;
-      overflow-wrap: break-word;
-      white-space: normal; /* ✅ 줄바꿈 허용 */
-    }
-  </style>
+    </style>
+    
+    
 </head>
 
 <body>
 
 <!-- ✅ 네비게이션 바 -->
+<!-- ✅ 네비게이션 바 -->
 <nav class="main-navbar shadow-sm">
   <div class="nav-pill-wrapper">
     <a class="nav-link {% if currentPath == 'index' %}active{% endif %}" href="/">Home</a>
-    <a class="nav-link {% if currentPath == 'tournament_pro' %}active{% endif %}" href="/tournament_pro">프로 소식</a>
     <a class="nav-link {% if currentPath == 'tournament' %}active{% endif %}" href="/tournament">아마 대회</a>
+    <a class="nav-link {% if currentPath == 'tournament_pro' %}active{% endif %}" href="/tournament_pro">프로 소식</a>
     <a class="nav-link {% if currentPath == 'court' %}active{% endif %}" href="/court-guide">코트 가이드</a>
     <a class="nav-link {% if currentPath == 'board' %}active{% endif %}" href="/board">테나무숲</a>
   </div>
@@ -208,7 +304,6 @@
     {% if posts %}
       {% for post in posts %}
       <li>
-        <!-- 제목 누르면 글+댓글 모달 열기 -->
         <a href="#" class="post-link" data-post-id="{{ post.id }}" data-bs-toggle="modal" data-bs-target="#postModal-{{ post.id }}">{{ post.title }}</a>
         <div class="post-meta">
           🧑‍💻 {{ post.nickname }} ・ 🕒 {{ post.created_at }}
@@ -218,10 +313,10 @@
         <div class="modal fade" id="postModal-{{ post.id }}" tabindex="-1" aria-labelledby="postModalLabel-{{ post.id }}" aria-hidden="true">
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
-        
-              <div class="modal-header" style="background-color: #5c2e91; color: #fff;">
+
+              <div class="modal-header modal-header-purple">
                 <div class="d-flex justify-content-between align-items-center w-100">
-                  <h5 class="modal-title mb-0" id="postModalLabel-{{ post.id }}">{{ post.title }}</h5>
+                  <h5 class="modal-title" id="postModalLabel-{{ post.id }}">{{ post.title }}</h5>
                   <div class="d-flex align-items-center gap-2">
                     <div id="views-{{ post.id }}" class="text-light small">
                       조회수 {{ post.views }}
@@ -230,58 +325,47 @@
                 </div>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-        
+
               <div class="modal-body">
-        
-                <!-- 본문 -->
-                <div class="p-3 mb-4 rounded shadow-sm" style="background-color: #f9f9f9;">
-                  <div class="post-content" style="white-space: pre-wrap;">{{ post.content | replace('\n', '<br>') | safe }}</div>
+                <div class="post-content-wrapper">
+                  <div class="post-content">{{ post.content | replace('\n', '<br>') | safe }}</div>
                 </div>
 
-                <!-- 수정/삭제 버튼 (오른쪽 정렬) -->
                 <div class="d-flex justify-content-end align-items-center gap-2 mb-3">
-                  <button type="button" class="btn btn-wimbledon btn-xs edit-post-btn" data-post-id="{{ post.id }}" style="font-size: 0.65rem; padding: 0.2rem 0.5rem;">✏️ 수정</button>
-                  <button type="button" class="btn btn-wimbledon btn-xs delete-post-btn" data-post-id="{{ post.id }}" style="font-size: 0.65rem; padding: 0.2rem 0.5rem;">🗑️ 삭제</button>
+                  <button type="button" class="btn btn-wimbledon btn-xs edit-post-btn" data-post-id="{{ post.id }}">✏️ 수정</button>
+                  <button type="button" class="btn btn-wimbledon btn-xs delete-post-btn" data-post-id="{{ post.id }}">🗑️ 삭제</button>
                 </div>
-                
 
-        
-                <!-- ✨ 댓글 리스트 -->
-              <div class="p-2 mb-3 rounded shadow-sm" style="background-color: #f9f9f9;">
-                <h6 class="fw-bold mb-3">💬</h6>
-                <div id="comments-{{ post.id }}" style="max-height: 150px; overflow-y: auto;">
-                  {% if post.comments %}
-                  <ul class="list-unstyled" style="margin: 0; padding: 0;">
-                    {% for comment in post.comments %}
-                    <li class="p-1 small" data-comment-idx="{{ loop.index0 }}">
-                      <!-- 첫 줄: 내용 -->
-                      <div class="fw-bold" style="font-size: 0.85rem;">{{ comment.content }}</div>
-                      <!-- 두 번째 줄: 닉네임 / 시간 / 버튼 -->
-                      <div class="d-flex justify-content-end align-items-center mt-1 gap-2">
-                        <div class="small text-muted text-end" style="font-size: 0.7rem;">
-                          {{ comment.nickname }} ・ {{ comment.created_at }}
-                          {% if comment.edited_at %}
-                            (수정됨 {{ comment.edited_at }})
-                          {% endif %}
-                        </div>
-                        <div class="d-flex gap-1">
-                          <button class="btn btn-wimbledon btn-xs edit-comment-btn" data-comment-idx="{{ loop.index0 }}" style="font-size: 0.6rem; padding: 0.2rem 0.4rem;">✏️</button>
-                          <button class="btn btn-wimbledon btn-xs delete-comment-btn" data-comment-idx="{{ loop.index0 }}" style="font-size: 0.6rem; padding: 0.2rem 0.4rem;">🗑️</button>
-                        </div>
-                      </div>
-                      
-                    </li>
-                    {% endfor %}
-                  </ul>
-                  {% else %}
-                  <p class="text-muted small">아직 댓글이 없습니다.</p>
-                  {% endif %}
+                <div class="comment-section">
+                  <h6 class="fw-bold mb-3">💬</h6>
+                  <div id="comments-{{ post.id }}" class="comment-list">
+                    {% if post.comments %}
+                      <ul class="list-unstyled">
+                        {% for comment in post.comments %}
+                        <li data-comment-idx="{{ loop.index0 }}">
+                          <div class="fw-bold">{{ comment.content }}</div>
+                          <div class="d-flex justify-content-end align-items-center mt-1 gap-2">
+                            <div class="comment-meta">
+                              {{ comment.nickname }} ・ {{ comment.created_at }}
+                              {% if comment.edited_at %}
+                                (수정됨 {{ comment.edited_at }})
+                              {% endif %}
+                            </div>
+                            <div class="d-flex gap-1">
+                              <button class="btn btn-wimbledon btn-xs edit-comment-btn" data-comment-idx="{{ loop.index0 }}">✏️</button>
+                              <button class="btn btn-wimbledon btn-xs delete-comment-btn" data-comment-idx="{{ loop.index0 }}">🗑️</button>
+                            </div>
+                          </div>
+                        </li>
+                        {% endfor %}
+                      </ul>
+                    {% else %}
+                      <p class="text-muted small">아직 댓글이 없습니다.</p>
+                    {% endif %}
+                  </div>
                 </div>
-              </div>
 
-        
-                <!-- ✨ 댓글 작성 -->
-                <div class="p-3 rounded shadow-sm" style="background-color: #f9f9f9;">
+                <div class="comment-form-wrapper">
                   <form action="/board/{{ post.id }}/comment" method="post" class="comment-form" data-post-id="{{ post.id }}">
                     <div class="row mb-2">
                       <div class="col">
@@ -291,20 +375,18 @@
                         <input type="password" name="password" class="form-control form-control-sm" required placeholder="비밀번호">
                       </div>
                       <div class="col-auto">
-                        <button type="submit" class="btn btn-wimbledon btn-sm" style="font-size: 0.75rem; padding: 0.35rem 0.7rem;">작성</button>
+                        <button type="submit" class="btn btn-wimbledon btn-sm">작성</button>
                       </div>
                     </div>
-                    <div class="mb-2">
-                      <textarea name="content" class="form-control form-control-sm" rows="2" required placeholder="댓글을 입력하세요"></textarea>
-                    </div>
+                    <textarea name="content" class="form-control form-control-sm" rows="2" required placeholder="댓글을 입력하세요"></textarea>
                   </form>
                 </div>
-        
+
               </div>
-        
             </div>
           </div>
-        </div>                     
+        </div>
+
       </li>
       {% endfor %}
     {% else %}
@@ -313,52 +395,42 @@
   </ul>
 </div>
 
-
-<!-- ✅ 업그레이드된 글쓰기 모달 -->
+<!-- ✅ 글쓰기 모달 -->
 <div class="modal fade" id="writeModal" tabindex="-1" aria-labelledby="writeModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content" style="background-color: #ffffff; color: #2e5339; border-radius: 12px;">
-      
-      <!-- 헤더 -->
-      <div class="modal-header" style="background-color: #5c2e91; color: white; border-top-left-radius: 12px; border-top-right-radius: 12px;">
-        <h5 class="modal-title fw-bold" id="writeModalLabel" style="color: #ffffff;">✏️ 새 글 작성</h5>
-        <button type="button" class="btn-close" style="filter: invert(1) hue-rotate(180deg) saturate(5);" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="modal-content modal-write">
+      <div class="modal-header modal-header-purple">
+        <h5 class="modal-title fw-bold" id="writeModalLabel">✏️ 새 글 작성</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 
-      <!-- 폼 -->
       <form action="/board/create" method="post">
-        <div class="modal-body" style="background-color: #f9f9f9; color: #2e5339;">
-
-          <!-- 닉네임 + 비밀번호 + 작성 버튼 -->
+        <div class="modal-body">
           <div class="row g-2 mb-3 align-items-center">
-            <div class="col-5 col-md-5">
-              <input type="text" id="nickname" name="nickname" class="form-control form-control-sm" placeholder="닉네임 (없으면 익명)">
+            <div class="col-5">
+              <input type="text" name="nickname" class="form-control form-control-sm" placeholder="닉네임 (or 익명)">
             </div>
-            <div class="col-5 col-md-5">
-              <input type="password" id="password" name="password" class="form-control form-control-sm" required placeholder="비밀번호 (필수)">
+            <div class="col-5">
+              <input type="password" name="password" class="form-control form-control-sm" required placeholder="비밀번호">
             </div>
-            <div class="col-2 col-md-2 d-grid">
-              <button type="submit" class="btn btn-wimbledon btn-sm" style="font-size: 0.8rem;">작성</button>
+            <div class="col-2 d-grid">
+              <button type="submit" class="btn btn-wimbledon btn-sm">작성</button>
             </div>
           </div>
 
-          <!-- 제목 입력 -->
-          <div class="p-2 mb-2 rounded shadow-sm" style="background-color: white;">
-            <input type="text" id="title" name="title" class="form-control form-control-sm" required placeholder="제목을 입력하세요">
+          <div class="input-wrapper mb-2">
+            <input type="text" name="title" class="form-control form-control-sm" required placeholder="제목을 입력하세요">
           </div>
 
-          <!-- 본문 입력 (textarea 1.5배 높이) -->
-          <div class="p-2 mb-2 rounded shadow-sm" style="background-color: white;">
-            <textarea id="content" name="content" class="form-control form-control-sm" rows="9" required placeholder="내용을 입력하세요"></textarea>
+          <div class="input-wrapper">
+            <textarea name="content" class="form-control form-control-sm" rows="9" required placeholder="내용을 입력하세요"></textarea>
           </div>
 
         </div>
       </form>
-
     </div>
   </div>
 </div>
-
 
 
 

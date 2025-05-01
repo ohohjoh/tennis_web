@@ -1,722 +1,537 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <title>🎾 ATP Draw Viewer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.6/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>프로소식</title>
+
+  <!-- Pretendard + Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/pretendard@1.3.6/dist/web/variable/pretendardvariable-dynamic-subset.css" rel="stylesheet">
+
   <style>
+    /* --- CSS 네가 준 것 반영 --- */
+    body {
+      font-family: 'Pretendard Variable', sans-serif;
+      min-height: 100vh;
+      background-color: #ffffff;
+      color: #006644;
+    }
+    body.grass-theme {
+      background-color: #006644;
+      color: #ffffff;
+    }
+    .main-navbar {
+      background-color: #006644;
+      padding: 0.5rem;
+      font-family: 'Playfair Display', 'Georgia', serif;
+      display: flex;
+      justify-content: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .nav-pill-wrapper {
+      background-color: #006644;
+      border-radius: 50px;
+      padding: 0.3rem;
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+    .nav-pill-wrapper::-webkit-scrollbar { display: none; }
+    .main-navbar .nav-link {
+      font-family: 'Pretendard Variable', sans-serif;
+      color: white;
+      font-weight: 600;
+      font-size: 0.92rem;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      transition: all 0.25s ease-in-out;
+      white-space: nowrap;
+    }
+    .main-navbar .nav-link.active {
+      background-color: #ffffff;
+      color: #006644;
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      border: none;
+    }
+
+    .main-navbar .nav-link.active:hover {
+      color: #006644;
+    }
+
+
+    .tournament-top-tab {
+      position: sticky;
+      top: 42px;
+      z-index: 999;
+      background-color: #ffffff;
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid #ccc;
+      box-shadow: none !important;
+    }
+    .filter-area.tournament-switch {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+      justify-content: center;
+      scroll-padding-left: 0.5rem;
+    }
+    .filter-area.tournament-switch::-webkit-scrollbar { display: none; }
     .filter-btn {
       font-size: 0.7rem;
       padding: 0.35rem 0.75rem;
-      white-space: nowrap;
-      flex-shrink: 0;
       min-width: 90px;
+      border-radius: 30px;
+      background-color: #ffffff;
+      color: #006644;
+      border: 1px solid #006644;
+      transition: all 0.25s ease;
       text-align: center;
-      transition: background-color 0.25s ease, color 0.25s ease;
-      border-radius: 30px;
-    }
-
-    .filter-btn.active {
-      background-color: #5c2e91 !important;
-      color: white !important;
-      font-weight: 600;
-      border-color: #5c2e91 !important;
-    }
-
-    .filter-btn:hover {
-      background-color: #5c2e91;
-      color: white;
-      border-color: #5c2e91;
-    }
-    
-  body {
-    font-family: 'Pretendard Variable', sans-serif;
-    min-height: 100vh;
-  }
-  
-  body.grass-theme {
-    background-color: #2e5339;
-    color: #fff;
-  }
-  
-  .main-navbar {
-    background-color: #2e5339;
-    padding: 0.5rem 0.5rem;
-    font-family: 'Playfair Display', 'Georgia', serif;
-    display: flex;
-    justify-content: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-  
-  .nav-pill-wrapper {
-    background-color: #345d40;
-    border-radius: 50px;
-    padding: 0.3rem;
-    display: flex;
-    gap: 0.5rem;
-    overflow-x: auto;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
-  }
-  
-  .main-navbar .nav-link {
-    font-family: 'Pretendard Variable', sans-serif;
-    color: white;
-    font-weight: 600;
-    font-size: 0.95rem;
-    padding: 0.45rem 1.2rem;
-    border-radius: 50px;
-    transition: all 0.25s ease-in-out;
-    white-space: nowrap;
-  }
-  
-  .main-navbar .nav-link.active {
-    background-color: #ffffff;
-    color: #2e5339;
-    font-weight: 700;
-  }
-  
-  .schedule-scroll-container {
-    display: flex;
-    overflow-x: auto;
-    padding: 0.5rem 0;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-  }
-  
-  .schedule-grid {
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-rows: repeat(2, auto); /* PC용 2행 */
-    gap: 0.75rem;
-    width: max-content;
-    scroll-snap-type: x mandatory;
-  }
-  .schedule-item {
-    scroll-snap-align: start;
-    width: 160px; /* 🔥 더 슬림하게 */
-    flex-shrink: 0;
-  }
-  
-  .today-card {
-    background-color: #ffffff;
-    border: 2px solid #2e5339;
-    font-size: 0.72rem; /* 🔥 살짝 더 작게 */
-    padding: 0.5rem 0.6rem; /* 🔥 padding도 줄임 */
-    padding: 0.6rem 0.75rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
-    white-space: normal;
-    word-break: keep-all;
-  }
-  .today-card .text-dark {
-    font-size: 0.8rem;    /* 선수 이름 글자 크기 키움 */
-    font-weight: 600;     /* 선수 이름을 굵게(bold) 표시 */
-    color: #2e5339;       /* 윔블던 초록 계열 색상으로 통일 */
-  }
-  .badge.bg-success {
-    background-color: #2e5339;
-    font-size: 0.65rem;
-    padding: 0.25em 0.5em;
-  }
-  
-  .text-dark {
-    color: #212529 !important;
-  }
-  
-  .schedule-title {
-    color: #2e5339;
-    font-size: 1rem;
-    font-weight: 600;
-    margin: 0.5rem 0 0.75rem;
-    text-align: center;
-  }
-  
-  .tournament-card {
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    background-color: #ffffff;
-    margin-bottom: 0.5rem;
-  }
-  
-  .bracket-tab-header {
-    position: sticky;
-    top: 0;
-    background-color: #fff;
-    z-index: 30;
-    padding-bottom: 0.1rem;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    margin-bottom: 0.3rem; /* ✅ 이 부분 추가 */
-  }
-  
-  .round-header {
-    position: sticky;
-    top: 3rem;
-    background-color: #fff;
-    z-index: 20;
-  }
-  
-  .tournament-btn:hover {
-    background-color: #5c2e91;
-    color: #fff;
-    border-color: #5c2e91;
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-  }
-  
-  .tournament-btn.active {
-    background-color: #5c2e91 !important;
-    color: white !important;
-    font-weight: 600;
-    border-color: #5c2e91 !important;
-  }
-  
-  .bracket-section {
-    background: #ffffff;
-    color: #2b2b2b;
-    padding: 1rem;
-    width: 100%;
-    overflow-x: auto;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-    margin-bottom: 2rem;
-    position: relative;
-    border-radius: 12px;
-  }
-  
-  .bracket-container {
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-    scroll-padding-left: 1rem;
-  }
-  
-  .round-column {
-    scroll-snap-align: start;
-    min-width: 200px;
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
-  
-  .filter-area {
-    display: flex;
-    flex-wrap: nowrap !important;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    gap: 0.5rem;
-    padding: 0.5rem;
-    scrollbar-width: none;
-    justify-content: center;
-    justify-content: flex-start; /* ✅ 이거 추가! 왼쪽 정렬 */
-    scroll-padding-left: 0.5rem; /* ✅ 시작할 때 살짝 여유 */
-  }
-  
-  .filter-area::-webkit-scrollbar {
-    display: none;
-  }
-  
-  .filter-btn {
-    font-size: 0.7rem;
-    padding: 0.35rem 0.75rem;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-  
-  .match-box {
-    background-color: #f8f9fa;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    padding: 0.25rem 0.5rem;
-    font-size: 0.72rem;
-    cursor: pointer;
-  }
-  
-  .match-box .player {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .winner {
-    color: #5c2e91;
-    font-weight: bold;
-  }
-  
-  .upcoming {
-    background-color: #f0e8ff;
-  }
-  
-  .wimbledon-divider {
-    border: none;
-    border-top: 0.01px solid #356859;
-    width: 100%;
-    max-width: 960px;
-    margin: 0.5rem auto 0.3rem auto;
-  }
-  
-  /* 유튜브 섹션 스타일 */
-  .youtube-wrapper {
-    background-color: #ffffff;
-    border: 2px solid #2e5339;
-    border-radius: 12px;
-    padding: 0.75rem;
-    max-height: 420px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  }
-  
-  #youtubeVideoContainer {
-    display: flex;
-    gap: 0.75rem;
-    scroll-snap-type: x mandatory;
-    overflow-x: auto;
-    padding-bottom: 0.5rem;
-  }
-  
-  .youtube-card {
-    flex: 0 0 auto;
-    width: 220px;  /* 기존 180px → 220px */
-    scroll-snap-align: start;
-  }
-
-  .youtube-card .card {
-    height: 100%;
-  }
-
-  .news-card .card {
-    height: 100%;
-  }
-  
-  .youtube-card .card-img-top {
-    height: 130px;
-    object-fit: cover;
-  }
-
-  .youtube-card .card-body {
-    padding: 0.75rem;
-  }
-  
-  #youtubeVideoContainer::-webkit-scrollbar {
-    height: 8px;
-  }
-  #youtubeVideoContainer::-webkit-scrollbar-track {
-    background: #eee;
-    border-radius: 8px;
-  }
-  #youtubeVideoContainer::-webkit-scrollbar-thumb {
-    background-color: #888;
-    border-radius: 8px;
-  }
-  #youtubeVideoContainer::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
-  #youtubeVideoContainer {
-    scrollbar-width: thin;
-    scrollbar-color: #888 #eee;
-  }
-  
-  /* 뉴스 제목 보라색 */
-  .news-list h6 {
-    color: #5c2e91 !important;
-    font-weight: 700;
-  }
-  
-  /* 모바일 대응 */
-  @media (max-width: 768px) {
-    .container-fluid.py-2,
-    .container-fluid.d-flex.flex-row {
-      padding-left: 0 !important;
-      padding-right: 0 !important;
-      margin-left: 0 !important;
-      margin-right: 0 !important;
-    }
-
-    @media (max-width: 768px) {
-    .schedule-grid {
-        display: flex;
-        flex-direction: row;
-        gap: 0.75rem;
-      }
-    }
-    .youtube-wrapper,
-    #newsContainer {
-      width: 100% !important;
-      max-width: 100% !important;
-    }
-  }
-    .tournament-top-tab {
-    position: sticky;
-    top: 42px; /* nav 아래 여백 조정 */
-    z-index: 999;
-    background-color: #ffffff;
-    padding: 0.5rem 1rem;
-    border-bottom: 1px solid #ccc;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04); /* subtle shadow */
-  }
-    .tournament-switch {
-        display: flex;
-        overflow-x: auto;
-        gap: 0.5rem;
-        -webkit-overflow-scrolling: touch;
-      }
-  
-    .main-navbar .nav-link {
-      font-size: 0.72rem;
-      padding: 0.3rem 0.8rem;
-      border-radius: 30px;
       flex-shrink: 0;
     }
-  
-    .nav-pill-wrapper {
-      gap: 0.3rem;
-      padding: 0.2rem;
-      flex-wrap: nowrap;
-      justify-content: flex-start; /* ✅ 요거 추가! */
-      scroll-padding-left: 0.5rem; /* ✅ 옵션으로 자연스러운 시작 위치 */
+    .filter-btn.active, .filter-btn:hover {
+      background-color: #5C2E91;
+      color: #ffffff;
+      border-color: #5C2E91;
+      font-weight: 600;
     }
-  
-    #youtubeVideoContainer,
-    #newsContainer {
-      max-height: 420px;
-      overflow-y: auto;
+    #summary-box {
+      color: #5C2E91;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-top: 1rem;         /* 🔼 기존보다 여백 증가 */
+      margin-bottom: 0rem;  /* 🔽 추가: 아래 간격 줄이기 */
+      padding: 0.5rem 1rem;     /* 🔼 텍스트 주위 여백 */
+      text-align: center;
+      border-bottom: 1px solid #ccc; /* ✅ 여기에 추가 */
     }
-    .nav-pill-wrapper::-webkit-scrollbar {
-      display: none; /* 모바일에서는 스크롤바 안 보이게 */
+    .schedule-scroll-container {
+      display: flex;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+      margin-top: 0rem;  /* 🔽 필요시 추가 */
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
     }
-  
-  a {
-    color: #26442f;
-  }
-  a:hover {
-    text-decoration: underline;
-    color: #5c2e91;
-  }
-  @media (max-width: 768px) {
-    .container-fluid.d-flex.flex-row {
-      flex-direction: column !important; /* ✅ 수직 배치 */
+    .schedule-grid {
+      display: grid;
+      grid-auto-flow: column;
+      grid-template-rows: repeat(2, auto);
+      gap: 0.75rem;
+      width: max-content;
+      scroll-snap-type: x mandatory;
     }
-
-    .youtube-wrapper,
-    #newsContainer {
-      width: 100% !important;
-      max-height: unset;  /* ✅ 높이 제한 해제 */
-      height: auto;        /* ✅ 유동적 높이 */
-      margin-bottom: 1rem;
+    .schedule-item {
+      scroll-snap-align: start;
+      width: 160px;
+      flex-shrink: 0;
     }
-  }
-  #newsContainer > div {
-  border: 2px solid #2e5339;
-  border-radius: 12px;
-  padding: 1rem 1.25rem;
-  margin-bottom: 1rem;
-  background-color: #fff;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
-/* ✅ 유튜브 카드 스타일 통합 */
-.youtube-card .card {
+    .today-card {
+      background: #ffffff;
+      border: 2px solid #006644;
+      padding: 0.6rem 0.75rem;
+      border-radius: 10px;
+      font-size: 0.72rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+      white-space: normal;
+      word-break: keep-all;
+    }
+    .today-card .text-dark {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #006644;
+    }
+    .tournament-card {
       border-radius: 12px;
-      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      background: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+    .bracket-section {
+      background: #ffffff;
+      color: #006644;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      overflow-x: auto;
+    }
+    .youtube-wrapper {
+      height: 330px; /* 원하시는 높이로 조절 가능 */
+      background: #ffffff;
+      border: 2px solid #006644;
+      border-radius: 12px;
+      padding: 0.75rem;
+
+      overflow-x: auto;
+    }
+    .youtube-card {
+      flex: 0 0 auto;
+      width: 250px;
+      scroll-snap-align: start;
+    }
+    .youtube-card .card {
+      border-radius: 12px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-      transition: transform 0.2s ease;
+      justify-content: center;  /* 세로 가운데 정렬 */
+      transition: transform 0.2s;
     }
     .youtube-card .card:hover {
       transform: translateY(-2px);
     }
-    .youtube-card .card-body {
+    .news-wrapper,
+    .draw-wrapper {
+      height: 330px; /* 원하시는 높이로 조절 가능 */
+      background: #ffffff;
+      border: 2px solid #006644;
+      border-radius: 12px;
       padding: 0.75rem;
-      font-size: 0.8rem;
-      font-family: 'Pretendard Variable', sans-serif;
-    }
-    .youtube-card .card-title {
-      font-weight: 600;
-      color: #2e5339;
-      font-size: 0.85rem;
-      margin-bottom: 0.3rem;
-    }
-    .youtube-card .card-channel,
-    .youtube-card .card-date {
-      font-size: 0.7rem;
-      color: #666;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      overflow-x: auto;
+      max-width: 100%;
     }
 
-    /* ✅ 뉴스 스타일 통합 */
+    
     .news-link {
-      color: #2e5339;
+      color: #006644;
       font-weight: 600;
       font-size: 0.85rem;
       text-decoration: none;
     }
     .news-link:hover {
+      color: #5C2E91;
       text-decoration: underline;
-      color: #5c2e91;
     }
-    
-    .card-title {
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: #2e5339;
+    .winner { color: #5C2E91; font-weight: bold; }
+    .loser { text-decoration: line-through; color: #888; }
+    .match-box {
+      background-color: #ffffff;
+      border: 1px solid #cccccc;
+      border-radius: 8px;
+      padding: 0.5rem;
+      font-size: 0.75rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
     }
-    .news-meta {
-      font-size: 0.7rem;
-      color: #666;
+    .match-box.upcoming {
+      background-color: #f3e8fd;
+      border: 0.5px solid #5C2E91;
     }
-    .news-link {
-      color: inherit;                /* 기존 텍스트 색상 유지 */
-      text-decoration: none;        /* 밑줄 제거 */
-      display: block;               /* 카드 전체 클릭되게 */
+    .match-box.upcoming .winner,
+    .match-box.upcoming .loser {
+      color: #5C2E91 !important;
+      font-weight: 700;
+      text-decoration: none !important;
     }
-    .news-link:hover {
-      text-decoration: none;
-      color: #5c2e91;               /* hover 시 보라 강조 */
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+
+    .white-container {
+      background-color: #ffffff;
+      padding: 0.5rem 0.5rem;
+      margin: 0 ;
+      box-shadow: none;
+    }
+    .media-section {
+      max-width: 1200px;
+      margin: 0 auto; /* 가운데 정렬 */
+      padding: 0.5rem 1rem;
+    }
+    .news-card .card {
+      margin-bottom: 0.4rem;
+      padding: 0.4rem;
+      border-radius: 10px;
+    }
+    .news-card .card-body {
+      padding: 0.5rem;
     }
     .news-card .card-title {
-      font-weight: 600;
-      font-size: 0.75rem;       /* ✅ 글자 크기 더 작게 */
-      color: #5c2e91;           /* ✅ 윔블던 보라색 */
+      font-size: 0.75rem;
+      font-weight: 500;
+      line-height: 1.2rem;
       margin-bottom: 0.3rem;
-      line-height: 1.3;
     }
-
-    .news-card .news-meta {
-      font-size: 0.65rem;       /* ✅ 날짜/출처도 더 작게 */
-      color: #888;              /* ✅ 기존보다 약간 더 연한 회색으로 */
-    }
-    .loser {
-      text-decoration: line-through;
+    .news-meta {
+      font-size: 0.65rem;
       color: #888;
     }
-    #youtube-section,
-    #news-section,
-    #draw-section {
-      max-height: 280px;
-      overflow-y: auto;/
+    .bracket-container {
+      display: flex;
+      flex-direction: row;
+      overflow-x: auto;
+      gap: 1rem;
+      padding: 0.5rem 0;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      height: 300px; /* PC/Mobile 모두 동일하게 고정 */
+    }
+    
+    container::-webkit-scrollbar {
+      display: none;
     }
 
-
-    #summary-box {
-      color: #5c2e91; /* 윔블던 보라색으로 텍스트 색 설정 */
-      font-weight: 600;
-      font-size: 0.95rem;
-      margin-top: 0.5rem;
+    /* 🎯 각 라운드 컬럼 */
+    .round-column {
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      min-width: 180px;
     }
-    .match-badge {
-    font-size: 0.7rem;
-    padding: 0.35em 0.75em;
-    line-height: 1.25;
-    border-radius: 999px;
-  }
-  .date-time-wrapper {
-    border-bottom: 1px solid #2e5339; /* 윔블던 보라색 줄 */
-    padding-bottom: 2px; /* 줄과 텍스트 사이 여백 약간 */
-    margin-bottom: 6px;  /* 아래 요소와도 간격 살짝 */
-  }
-  #rightBracketContainer-draw .bracket-section {
-    border: 2px solid #2e5339;
-    border-radius: 12px;
-    background-color: #ffffff;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-    padding: 1rem;
-  }
-  #tournament-info-box {
-    display: flex;
-    justify-content: center; /* ✨ 수평 가운데 */
-    align-items: center;     /* ✨ 수직 가운데 */
-  }
-  .filter-area.tournament-switch {
-    justify-content: center; /* 🔥 좌측정렬 → 가운데 정렬로 변경 */
-  }
+
+    .round-header {
+      font-weight: bold;
+      color: #5C2E91;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+    .bracket-container::-webkit-scrollbar {
+      display: none;
+    }
+    /* 모바일에서 브라켓 스크롤을 자연스럽게 */
+    @media (min-width: 768px) {
+      .news-container {
+        height: 300px;
+        overflow-y: auto;}
+      .schedule-scroll-container {
+          justify-content: center;
+        }
+      }
+    
+    @media (max-width: 768px) {
+      .youtube-card .card-title {
+        font-size: 0.68rem;
+        line-height: 1rem;
+      }
+      .youtube-card .card-channel,
+      .youtube-card .card-date {
+        font-size: 0.6rem;
+      }
+
+      .match-box {
+        font-size: 0.62rem;
+      }
+
+      .round-header {
+        font-size: 0.65rem;
+      }
+      .bracket-section {
+        overflow-x: auto;
+      }
+      .youtube-wrapper {
+        height: 250px;
+      }
+      .bracket-container {
+        height: 210px; /* 모바일도 고정 */
+        gap: 0.4rem;
+        padding: 0.2rem 0;
+      }
+      .news-container {
+        height: 225px; /* 모바일도 고정 */
+      }
+      .filter-area.tournament-switch {
+        justify-content: flex-start;
+        padding: 0 1rem;
+      }
+      .main-navbar .nav-link {
+        font-size: 0.72rem;
+        padding: 0.3rem 0.8rem;
+      }
+      .schedule-grid {
+        display: flex;
+        flex-direction: row;
+      }
+      .news-wrapper {
+        height: 250px;
+      }
+      .draw-wrapper {
+        height: 250px;
+        padding: 0.75rem;
+        border-radius: 12px;
+      }
+      .news-card .card-title {
+        font-size: 0.63rem;
+        line-height: 0.95rem;
+      }
+      .news-meta {
+        font-size: 0.52rem;
+      .schedule-scroll-container {
+        justify-content: center;  /* PC에서는 가운데 정렬 */
+    }
   </style>
   
 </head>
-<body class="grass-theme p-0">
-  <nav class="main-navbar shadow-sm">
-    <div class="nav-pill-wrapper">
-      <a class="nav-link {% if currentPath == 'index' %}active{% endif %}" href="/">Home</a>
-      <a class="nav-link {% if currentPath == 'tournament_pro' %}active{% endif %}" href="/tournament_pro">프로 소식</a>
-      <a class="nav-link {% if currentPath == 'tournament' %}active{% endif %}" href="/tournament">아마 대회</a>
-      <a class="nav-link {% if currentPath == 'court' %}active{% endif %}" href="/court-guide">코트 가이드</a>
-      <a class="nav-link {% if currentPath == 'board' %}active{% endif %}" href="/board">테나무숲</a>
+  <body class="grass-theme p-0">
+    <nav class="main-navbar shadow-sm">
+      <div class="nav-pill-wrapper">
+        <a class="nav-link {% if currentPath == 'index' %}active{% endif %}" href="/">Home</a>
+        <a class="nav-link {% if currentPath == 'tournament' %}active{% endif %}" href="/tournament">아마 대회</a>
+        <a class="nav-link {% if currentPath == 'tournament_pro' %}active{% endif %}" href="/tournament_pro">프로 소식</a>
+        <a class="nav-link {% if currentPath == 'court' %}active{% endif %}" href="/court-guide">코트 가이드</a>
+        <a class="nav-link {% if currentPath == 'board' %}active{% endif %}" href="/board">테나무숲</a>
+      </div>
+    </nav>
+
+<!-- ✅ 대회 탭 버튼 최상단 고정 -->
+<div class="tournament-top-tab shadow-sm">
+  <div class="filter and summary"></div>
+
+  <div class="filter-area tournament-switch">
+    {% for t in data %}
+    <button class="btn btn-outline-dark btn-sm filter-btn tournament-btn"
+            data-tid="{{ loop.index0 }}"
+            data-title="{{ t.tournament }}"
+            data-tour="{{ t.tour }}">
+      {{ t.tournament }}
+    </button>
+    {% endfor %}
+  </div>
+
+  <div id="tournament-info-box">
+    <div id="summary-box">
+      📋 대회 정보를 불러오는 중입니다...
     </div>
-  </nav>
+  </div>
 
-  <!-- ✅ 대회 탭 버튼 최상단 고정 -->
-  <div class="tournament-top-tab shadow-sm">
-    <div class="filter and summary"></div>
-      <div class="filter-area tournament-switch">
-        {% for t in data %}
-        <button class="btn btn-outline-dark btn-sm filter-btn tournament-btn"
-                data-tid="{{ loop.index0 }}"
-                data-title="{{ t.tournament }}"
-                data-tour="{{ t.tour }}">
-          {{ t.tournament }}
-        </button>
+  <div class="white-container">
+    {% if schedule %}
+ 
+    <div class="schedule-scroll-container">
+      <div class="schedule-grid">
+        {% for match in schedule %}
+        <div class="schedule-item" data-tournament="{{ match.tournament | lower }}" data-tour="{{ match.tour | lower }}">
+          <div class="today-card p-2">
+            <div class="d-flex justify-content-between align-items-center mb-1 date-time-wrapper">
+              <span class="text-muted small">{{ match.date_kst }}</span>
+              <div class="d-flex align-items-center">
+                <small class="text-muted me-1">KST</small>
+                <strong class="text-dark">{{ match.time_kst }}</strong>
+              </div>
+            </div>
 
+            {% set players = match.players.split(' - ') %}
+
+            <div class="d-flex justify-content-between align-items-center mb-1">
+              {% set tournament_name = match.tournament %}
+              {% if tournament_name.endswith(' ATP') %}
+                {% set tournament_name = tournament_name[:-4] %}
+              {% elif tournament_name.endswith(' WTA') %}
+                {% set tournament_name = tournament_name[:-4] %}
+              {% endif %}
+              <span class="badge bg-success">{{ tournament_name }}</span>
+              <span class="text-dark small text-end">{{ players[0] }}</span>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center">
+              {% if match.tour %}
+                <span class="badge bg-secondary text-light badge-tour">{{ match.tour }}</span>
+              {% else %}
+                <span></span>
+              {% endif %}
+              <span class="text-dark small text-end">{{ players[1] }}</span>
+            </div>
+
+          </div>
+        </div>
         {% endfor %}
       </div>
-      <div id="tournament-info-box">
-        <div id="summary-box">
-          📋 대회 정보를 불러오는 중입니다...
-        </div>
-      </div>
-      <div class="container-fluid py-3" style="background-color: #ffffff; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
-        {% if schedule %}
-          <!-- 🔥 초록 실선 추가 -->
-          <hr style="border-top: 1px solid #2e5339; margin: 0.5rem 0 0.8rem 0;" />
-      
-          <!-- 🔥 예정 경기 문구 왼쪽 정렬 
-          <p class="schedule-title text-start mt-3 mb-1" style="color: #2e5339; font-size: 1.1rem; font-weight: 600;">
-            🎾 예정 경기 ({{ schedule_date }}) 기준
-          </p>         
-          -->
-          
-      
-          <div class="schedule-scroll-container">
-            <div class="schedule-grid" style="gap: 0.6rem;">
-              {% for match in schedule %}
-              <div class="schedule-item" data-tournament="{{ match.tournament | lower }}" data-tour="{{ match.tour | lower }}">
-                <div class="today-card p-2" style="font-size: 0.72rem;">
-                  <!-- 날짜 + 시간 -->
-                  <div class="d-flex justify-content-between align-items-center mb-1 date-time-wrapper">
-                    <span class="text-muted small">{{ match.date_kst }}</span>
-                    <div class="d-flex align-items-center">
-                      <small class="text-muted me-1">KST</small>
-                      <strong class="text-dark">{{ match.time_kst }}</strong>
-                    </div>
-                  </div>
-      
-                  {% set players = match.players.split(' - ') %}
-      
-                  <!-- 대회명 + 선수1 -->
-                  <div class="d-flex justify-content-between align-items-center mb-1">
-                    {% set tournament_name = match.tournament %}
-                    {% if tournament_name.endswith(' ATP') %}
-                      {% set tournament_name = tournament_name[:-4] %}
-                    {% elif tournament_name.endswith(' WTA') %}
-                      {% set tournament_name = tournament_name[:-4] %}
-                    {% endif %}
-                    <span class="badge bg-success">{{ tournament_name }}</span>
-                    <span class="text-dark small text-end">{{ players[0] }}</span>
-                  </div>
-      
-                  <!-- 투어명 + 선수2 -->
-                  <div class="d-flex justify-content-between align-items-center">
-                    {% if match.tour %}
-                      <span class="badge bg-secondary text-light" style="font-size: 0.65rem;">{{ match.tour }}</span>
-                    {% else %}
-                      <span></span>
-                    {% endif %}
-                    <span class="text-dark small text-end">{{ players[1] }}</span>
-                  </div>
-                </div>
-              </div>
-              {% endfor %}
-            </div>
-          </div>
-        {% else %}
-          <p style="color: #5c2e91; font-weight: 600;">🎾 ATP 경기를 업데이트 중이에요!!</p>
-        {% endif %}
-      </div>
-      
-  
-  
-      <hr class="wimbledon-divider mb-0">
+    </div>
+    {% else %}
+    <p class="text-primary-bold">🎾 ATP 경기를 업데이트 중이에요!!</p>
+    {% endif %}
+  </div>
 
   {% set round_labels = {
-    'Q1': '예선 1회전',
-    'Q2': '예선 2회전',
-    'Q3': '예선 결승',
-    'R128': '128강',
-    'R64': '64강',
-    'R32': '32강',
-    'R16': '16강',
-    'QF': '8강',
-    'SF': '준결승',
-    'F': '결승'
+    'Q1': '예선 1회전', 'Q2': '예선 2회전', 'Q3': '예선 결승',
+    'R128': '128강', 'R64': '64강', 'R32': '32강', 'R16': '16강',
+    'QF': '8강', 'SF': '준결승', 'F': '결승'
   } %}
 
-    <div id="tournament-cards">
+  <div id="tournament-cards">
     {% for tournament in data %}
     <div class="tournament-card" data-tid="{{ loop.index0 }}" data-tournament="{{ tournament.tournament }}" style="display: none;">
       <div class="bracket-section" style="display: none;">
-          <div class="bracket-container"
-               style="
-                 overflow-x: auto;
-                 overflow-y: auto;
-                 -webkit-overflow-scrolling: touch;
-                 display: flex;
-                 flex-direction: row;
-                 gap: 1rem;
-                 width: 100%;
-                 min-width: fit-content;
-                 height: 360px;
-               ">
-                {% for round in ['F', 'SF', 'QF', 'R16', 'R32', 'R64', 'R128', 'Q3', 'Q2', 'Q1'] %}
-                {% if tournament.bracket is defined and tournament.bracket.get(round) %}
-                  <div class="round-column" style="min-width: 200px; flex-shrink: 0;">
-                    <div class="round-header" style="position: sticky; top: 0; z-index: 2; background: white;">
-                      {{ round_labels[round] if round_labels is defined else round }}
-                    </div>
-                    {% for match in tournament.bracket[round] %}
-                      <div class="match-box {% if match.source == 'upcoming' %}upcoming{% endif %}"
-                          data-bs-toggle="modal"
-                          data-bs-target="#scoreModal"
-                          data-player1="{{ match.player1 }}"
-                          data-player2="{{ match.player2 }}"
-                          data-score="{{ match.score }}"
-                          data-winner="{{ match.winner }}"
-                          data-source="{{ match.source }}">
-                        <div class="player">
-                          <span class="{% if match.source != 'upcoming' %}{% if match.winner|int == 0 %}winner{% else %}loser{% endif %}{% endif %}">
-                            {{ match.player1 }}
-                          </span>
-                        </div>
-                        <div class="player">
-                          <span class="{% if match.source != 'upcoming' %}{% if match.winner|int == 1 %}winner{% else %}loser{% endif %}{% endif %}">
-                            {{ match.player2 }}
-                          </span>
-                        </div>
-                      </div>
-                    {% endfor %}
-                  </div>
+        <div class="bracket-container">
+          {% set upcoming_matches = [] %}
+          {% for round in ['F', 'SF', 'QF', 'R16', 'R8', 'R7','R6', 'R5','R4', 'R3', 'R2', 'R1', 'R32', 'R64', 'R128', 'Q3', 'Q2', 'Q1'] %}
+            {% if tournament.bracket is defined and tournament.bracket.get(round) %}
+              {% for match in tournament.bracket[round] %}
+                {% if match.source == 'upcoming' %}
+                  {% set _ = upcoming_matches.append(match) %}
                 {% endif %}
-                {% endfor %}
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
+
+          {% if upcoming_matches %}
+          <div class="round-column">
+            <div class="round-header">Upcoming</div>
+            {% for match in upcoming_matches %}
+            <div class="match-box upcoming"
+                 data-player1="{{ match.player1 }}"
+                 data-player2="{{ match.player2 }}"
+                 data-score="{{ match.score }}"
+                 data-winner="{{ match.winner }}"
+                 data-source="{{ match.source }}">
+              <div class="player"><span class="winner">{{ match.player1 }}</span></div>
+              <div class="player"><span class="loser">{{ match.player2 }}</span></div>
+            </div>
+            {% endfor %}
           </div>
-        </div>
-      </div>
+          {% endif %}
+
+          {% for round in ['F', 'SF', 'QF', 'R16', 'R32', 'R64', 'R128', 'Q3', 'Q2', 'Q1'] %}
+            {% if tournament.bracket is defined and tournament.bracket.get(round) %}
+            <div class="round-column">
+              <div class="round-header">{{ round_labels[round] if round_labels is defined else round }}</div>
+              {% for match in tournament.bracket[round] %}
+                {% if match.source != 'upcoming' %}
+                <div class="match-box"
+                     data-player1="{{ match.player1 }}"
+                     data-player2="{{ match.player2 }}"
+                     data-score="{{ match.score }}"
+                     data-winner="{{ match.winner }}"
+                     data-source="{{ match.source }}">
+                  <div class="player"><span class="winner">{{ match.player1 }}</span></div>
+                  <div class="player"><span class="loser">{{ match.player2 }}</span></div>
+                </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+            {% endif %}
+          {% endfor %}
+        </div> <!-- bracket-container -->
+      </div> <!-- bracket-section -->
+    </div> <!-- tournament-card -->
     {% endfor %}
-  </div>
-  
-
-
+  </div> <!-- tournament-cards -->
+</div>
 
 <!-- ✅ 하얀 배경 container 시작 -->
-<div class="container-fluid py-3" style="background-color: #ffffff; border-radius: 0; box-shadow: none; padding-left: 0; padding-right: 0; margin: 0;">
+<div class="white-container">
 
-  
-  <!-- 버튼 영역 -->
-  <div class="px-3 d-flex gap-2 mb-1 justify-content-center">
+  <div class="button-group">
     <button id="btn-youtube" class="btn btn-outline-secondary btn-sm filter-btn active" onclick="showMediaSection('youtube')">영상</button>
     <button id="btn-news" class="btn btn-outline-secondary btn-sm filter-btn" onclick="showMediaSection('news')">뉴스</button>
     <button id="btn-draw" class="btn btn-outline-secondary btn-sm filter-btn" onclick="showMediaSection('draw')">Draw</button>
   </div>
 
-  <!-- 🎥 유튜브 섹션 -->
-  <div id="youtube-section" class="px-3 py-3 media-section">
+  <div id="youtube-section" class="media-section">
     <div class="youtube-wrapper">
-      <div id="youtubeVideoContainer" class="d-flex gap-2 px-1 youtube-scroll">
+      <div id="youtubeVideoContainer" class="d-flex gap-2 youtube-scroll">
         {% for entry in youtube_data %}
           {% for video in entry["videos"] %}
           <div class="youtube-card" data-tournament="{{ entry['tournament'] }}">
@@ -737,8 +552,9 @@
     </div>
   </div>
 
-  <!-- 📰 뉴스 섹션 -->
-  <div id="news-section" class="px-3 py-3 media-section" style="display: none;">
+  <!-- 🎾 뉴스 섹션 -->
+<div id="news-section" class="media-section" style="display: none;">
+  <div class="news-wrapper">
     <div id="newsContainer" class="news-container">
       {% for entry in youtube_data %}
         {% if entry.articles %}
@@ -762,11 +578,15 @@
       {% endfor %}
     </div>
   </div>
+</div>
 
-  <!-- 🏆 드로우 섹션 -->
-  <div id="draw-section" class="px-3 py-3 media-section" style="display: none;">
+<!-- 🎾 Draw 섹션 -->
+<div id="draw-section" class="media-section" style="display: none;">
+  <div class="draw-wrapper">
     <div id="rightBracketContainer-draw"></div>
   </div>
+</div>
+
 
 </div>
 <!-- ✅ 하얀 배경 container 끝 -->
@@ -787,7 +607,6 @@
     function normalize(text) {
       return text ? text.replace(/[^a-z0-9]/gi, '').toLowerCase() : '';
     }
-  
     document.addEventListener('DOMContentLoaded', () => {
       const path = window.location.pathname;
   
@@ -819,10 +638,15 @@
           // ✅ summary 업데이트
           const summaryBox = document.getElementById("summary-box");
           if (summaryBox && tournamentSummaries[title]) {
-            summaryBox.innerHTML = `${tournamentSummaries[title]}`;
+            summaryBox.innerHTML = `
+            <span style="color:#006644; font-size:1.2rem; font-weight:bold;">❝</span>&nbsp;
+            ${tournamentSummaries[title]}&nbsp;
+            <span style="color:#006644; font-size:1.2rem; font-weight:bold;">❞</span>
+          `;
           } else {
             summaryBox.innerHTML = "📋 대회 정보가 없습니다.";
           }
+
   
           // ✅ 버튼 active 처리
           document.querySelectorAll('.tournament-btn').forEach(b => b.classList.remove('active'));
@@ -865,10 +689,20 @@
           const sourceBracket = document.querySelector(`.tournament-card[data-tid="${tid}"] .bracket-section`);
           const container = document.getElementById("rightBracketContainer-draw");
           container.innerHTML = '';
+
           if (sourceBracket) {
             const cloned = sourceBracket.cloneNode(true);
-            cloned.classList.remove("d-none");
-            cloned.style.display = "block";
+
+            // 🧹 cloned 안에 숨겨져 있는 요소들 전부 보이게
+            cloned.querySelectorAll('[style*="display: none"]').forEach(el => {
+              if (el.classList.contains('round-column')) {
+                el.style.display = "flex";  // round-column이면 flex로
+              } else {
+                el.style.display = "block"; // 아니면 block으로
+              }
+            });
+
+            cloned.style.display = "block"; // 브라켓 전체도 보이게
             container.appendChild(cloned);
             container.style.display = "block";
           }

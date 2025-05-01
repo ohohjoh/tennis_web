@@ -3,8 +3,28 @@ import json
 import os
 from collections import defaultdict
 from datetime import datetime
+import requests
 
 app = Flask(__name__)
+
+FIREBASE_URL = "https://tennisweb-project-default-rtdb.firebaseio.com"
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+JSON_PATH2 = os.path.join(BASE_DIR, "tenniscourt_with_guide.json")
+
+def load_from_firebase(path):
+    """Firebase에서 특정 경로 데이터 가져오기"""
+    try:
+        url = f"{FIREBASE_URL}/{path}.json"
+        response = requests.get(url)
+        if response.status_code == 200:
+            return response.json()
+        else:
+            print(f"🚫 Firebase 요청 실패 ({path}): {response.status_code}")
+            return None
+    except Exception as e:
+        print(f"❌ Firebase 요청 에러 ({path}):", e)
+        return None
 
 @app.template_filter("country_flag")
 def country_flag(code):
@@ -12,16 +32,6 @@ def country_flag(code):
         return chr(127397 + ord(code[0])) + chr(127397 + ord(code[1]))
     except:
         return "🏳️"
-
-# 현재 app.py 기준 경로로 json 지정
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-JSON_PATH = os.path.join(BASE_DIR, "tennis_tournaments_ama.json")
-JSON_PATH2 = os.path.join(BASE_DIR, "tenniscourt_with_guide.json")
-JSON_BRACKET = os.path.join(BASE_DIR, "tennis_abstract_bracket.json")
-JSON_PRO_SCHEDULE = os.path.join(BASE_DIR, "tennis_tournaments_pro_schedules.json")
-JSON_PRO_YOUTUBE = os.path.join(BASE_DIR, "tennis_tournaments_pro_data.json")
-JSON_TOURNAMENT_INFO = os.path.join(BASE_DIR, "static", "combined_tennis_tournaments_2025.json")
-
 
 def generate_comments_html(comments):
     html = '''
@@ -48,12 +58,11 @@ def generate_comments_html(comments):
 
 
 def load_data_with_timestamp():
-    if os.path.exists(JSON_PATH):
-        with open(JSON_PATH, "r", encoding="utf-8") as f:
-            data = json.load(f)
-            return data.get("data", []), data.get("executed_at", "알 수 없음")
-    print("🚫 JSON 파일을 찾을 수 없습니다:", JSON_PATH)
+    fb_data = load_from_firebase("tennis_tournaments_ama")
+    if fb_data:
+        return fb_data.get("data", []), fb_data.get("executed_at", "알 수 없음")
     return [], "알 수 없음"
+
 
 def load_data2():
     if os.path.exists(JSON_PATH2):
@@ -62,37 +71,11 @@ def load_data2():
     print("🚫 JSON 파일을 찾을 수 없습니다:", JSON_PATH2)
     return []
 
-def load_abstract_bracket():
-    if os.path.exists(JSON_BRACKET):
-        with open(JSON_BRACKET, "r", encoding="utf-8") as f:
-            data = json.load(f)
-            return data.get("data", []), data.get("executed_at", "알 수 없음")
-    print("🚫 브래킷 JSON 파일을 찾을 수 없습니다:", JSON_BRACKET)
+def load_data_with_timestamp():
+    fb_data = load_from_firebase("tennis_tournaments_ama")
+    if fb_data:
+        return fb_data.get("data", []), fb_data.get("executed_at", "알 수 없음")
     return [], "알 수 없음"
-
-def load_pro_schedule():
-    if os.path.exists(JSON_PRO_SCHEDULE):
-        with open(JSON_PRO_SCHEDULE, "r", encoding="utf-8") as f:
-            return json.load(f)
-    print("🚫 프로 스케줄 JSON 파일을 찾을 수 없습니다:", JSON_PRO_SCHEDULE)
-    return {"date": "알 수 없음", "matches": []}
-
-def load_pro_youtube():
-    if os.path.exists(JSON_PRO_YOUTUBE):
-        with open(JSON_PRO_YOUTUBE, "r", encoding="utf-8") as f:
-            data = json.load(f)
-            return data.get("results", []), data.get("executed_at", "알 수 없음")
-    print("🚫 유튜브 JSON 파일을 찾을 수 없습니다:", JSON_PRO_YOUTUBE)
-    return [], "알 수 없음"
-
-def load_combined_tournaments():
-    print("📁 load_combined_tournaments() 호출됨")
-    if os.path.exists(JSON_TOURNAMENT_INFO):
-        print("✅ 파일 존재:", JSON_TOURNAMENT_INFO)
-        with open(JSON_TOURNAMENT_INFO, "r", encoding="utf-8") as f:
-            return json.load(f)
-    print("🚫 통합 대회 정보 JSON을 찾을 수 없습니다:", JSON_TOURNAMENT_INFO)
-    return []
 
 @app.route("/")
 def index():
@@ -106,7 +89,13 @@ def index():
 
 @app.route("/tournament")
 def tournament():
-    data, last_modified = load_data_with_timestamp()
+    fb_data = load_from_firebase("tennis_tournaments_ama")
+    if fb_data:
+        data = fb_data.get("data", [])
+        last_modified = fb_data.get("executed_at", "알 수 없음")
+    else:
+        data, last_modified = [], "알 수 없음"
+
     return render_template(
         "tournament.html",
         data=data,
@@ -116,9 +105,16 @@ def tournament():
 
 @app.route("/tournament_pro")
 def tournaments_pro():
-    bracket_data, last_modified = load_abstract_bracket()
-    schedule_data = load_pro_schedule()
-    youtube_data, youtube_last_modified = load_pro_youtube()
+    bracket_data_raw = load_from_firebase("tennis_abstract_bracket")
+    youtube_data_raw = load_from_firebase("tennis_tournaments_pro_data")
+    schedule_data_raw = load_from_firebase("tennis_tournaments_pro_schedules")
+
+    bracket_data = bracket_data_raw.get("data", []) if bracket_data_raw else []
+    last_modified = bracket_data_raw.get("executed_at", "알 수 없음") if bracket_data_raw else "알 수 없음"
+    youtube_data = youtube_data_raw.get("results", []) if youtube_data_raw else []
+    youtube_last_modified = youtube_data_raw.get("executed_at", "알 수 없음") if youtube_data_raw else "알 수 없음"
+    schedule_data = schedule_data_raw.get("matches", []) if schedule_data_raw else []
+    schedule_date = schedule_data_raw.get("date", "알 수 없음") if schedule_data_raw else "알 수 없음"
 
     # ✅ summary 없는 경우 기본값 추가
     for item in youtube_data:
@@ -128,8 +124,8 @@ def tournaments_pro():
     return render_template(
         "tournament_pro.html",
         data=bracket_data,
-        schedule=schedule_data["matches"],
-        schedule_date=schedule_data["date"],
+        schedule=schedule_data,
+        schedule_date=schedule_date,
         last_modified=last_modified,
         youtube_data=youtube_data,
         youtube_last_modified=youtube_last_modified,
@@ -377,13 +373,19 @@ def nl2br(value):
 
 @app.route("/api/data")
 def api_data():
-    data, executed_at = load_data_with_timestamp()
-    return jsonify({"data": data, "executed_at": executed_at})
+    fb_data = load_from_firebase("tennis_tournaments_ama")
+    if fb_data:
+        return jsonify(fb_data)
+    else:
+        return jsonify({"data": [], "executed_at": "알 수 없음"})
 
 @app.route("/api/bracket")
 def api_bracket():
-    data = load_abstract_bracket()
-    return jsonify(data)
+    fb_data = load_from_firebase("tennis_abstract_bracket")
+    if fb_data:
+        return jsonify(fb_data)
+    else:
+        return jsonify({"data": [], "executed_at": "알 수 없음"})
 
 if __name__ == "__main__":
     app.run(debug=True)

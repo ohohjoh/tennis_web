@@ -1,175 +1,199 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TennisNow</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tennis Now</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    :root {
-      --bg-green: #2e5339;
-      --deep-green: #26442f;
-      --hover-green: #355f45;
-      --muted: #cbd5cb;
-      --wimbledon-purple: #a020f0;
+    body {
+      font-family: 'Pretendard Variable', sans-serif;
+      background: #fff;
+      margin: 0;
+      padding: 0;
     }
 
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Pretendard Variable', sans-serif;
-      background-color: var(--bg-green);
-      color: #ffffff;
+    /* ✅ nav 스타일만 적용 */
+    .main-navbar {
+      background-color: #006644;
+      padding: 0.3rem 0.5rem; 
+      font-family: 'Playfair Display', 'Georgia', serif;
+      display: flex;
+      justify-content: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-pill-wrapper {
+      background-color: #006644;
+      border-radius: 50px;
+      padding: 0.3rem;
+      display: flex;
+      gap: 0.4rem; /* gap 살짝 줄임 */
+      flex-wrap: wrap; /* ✅ 이제 줄바꿈 허용 */
+      justify-content: center; /* ✅ 항상 가운데 */
+    }
+
+    .main-navbar .nav-link {
+      font-family: 'Pretendard Variable', sans-serif;
+      color: white;
+      font-weight: 600;
+      font-size: 0.85rem; /* ✅ 폰트 살짝 줄임 */
+      padding: 0.3rem 0.9rem; /* ✅ 패딩도 살짝 줄임 */
+      border-radius: 50px;
+      transition: all 0.25s ease-in-out;
+      white-space: nowrap;
+    }
+
+    .main-navbar .nav-link.active {
+      background-color: #ffffff;
+      color: #2e5339;
+      font-weight: 700;
+    }
+
+    .navbar a {
+      color: white;
+      padding: 1rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .navbar a:hover {
+      text-decoration: underline;
+    }
+    .logo {
+      text-align: center;
+      margin: 1rem 0;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #7B61FF;
+    }
+   
+    .card-section {
+      padding: 1rem;
+    }
+    .card-wrapper {
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
+      gap: 1rem;
     }
-
-    header {
-      padding: 1rem 0;
-      background-color: var(--deep-green);
-      text-align: center;
-    }
-
-    header img {
-      height: 48px;
-    }
-
-    .grid-container {
-      position: relative; /* ✅ 십자선 배치용 */
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(2, 1fr);
-      gap: 1px;
-      width: 100%;
-      max-width: 1024px;
-      margin: 0 auto;
+    .custom-card {
+      background: #f5f5f5;
+      padding: 1rem;
+      border-radius: 16px;
       flex: 1;
     }
-
-    /* ✅ 가운데 십자선 보라 그라데이션 */
-    .grid-container::before,
-    .grid-container::after {
-      content: "";
-      position: absolute;
-      pointer-events: none;
-      z-index: 2;
+    .custom-card h6 {
+      font-size: 0.9rem;
+      color: #666;
     }
-
-    .grid-container::before {
-      top: 50%;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(to right, transparent, var(--wimbledon-purple) 50%, transparent);
+    .custom-card h4 {
+      margin: 0.5rem 0;
     }
-
-    .grid-container::after {
-      top: 0;
-      left: 50%;
-      width: 2px;
-      height: 100%;
-      background: linear-gradient(to bottom, transparent, var(--wimbledon-purple) 50%, transparent);
+    .btn-confirm {
+      background-color: #006644;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      margin-top: 1rem;
     }
-
-    .grid-item {
+    .btn-confirm:hover {
+      background-color: #004d33;
+    }
+    /* 하단 2개 카드 영역 */
+    .bottom-cards {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-      background-color: var(--bg-green);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      text-align: center;
-      transition: background 0.3s;
-      text-decoration: none;
-      color: inherit;
-      position: relative;
-      z-index: 3; /* ✅ 십자선보다 위로 올려야 텍스트 가려지지 않음 */
+      gap: 1rem;
+    }
+    @media (max-width: 767px) {
+      .bottom-cards {
+        flex-direction: row;
+      }
+    }
+    @media (min-width: 768px) {
+      .card-wrapper {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      .custom-card {
+        flex: 1 1 calc(50% - 0.5rem);
+      }
+      .bottom-cards {
+        flex: 1 1 calc(50% - 0.5rem);
+      }
     }
 
-    .grid-item:hover {
-      background-color: var(--hover-green);
-      cursor: pointer;
-    }
-
-    .grid-item h2 {
-      font-size: 1.6rem;
-      font-weight: 700;
-      margin-bottom: 0.8rem;
-    }
-
-    .grid-item p {
-      font-size: 0.95rem;
-      color: var(--muted);
-      margin: 0;
-    }
-
-    .grid-item:hover p {
-      color: #fff;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: var(--deep-green);
-      color: #aaa;
-      font-size: 0.85rem;
-    }
-
+    /* 📱 모바일 전용 최적화 */
     @media (max-width: 768px) {
-      .grid-container {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, auto);
+      .main-navbar .nav-link {
+        font-size: 0.78rem; /* 더 작게 */
+        padding: 0.25rem 0.8rem; /* 여백도 줄임 */
       }
-
-      .grid-item {
-        padding: 1.5rem;
-      }
-
-      header img {
-        height: 40px;
-      }
-
-      .grid-item h2 {
-        font-size: 1.3rem;
-      }
-
-      .grid-item p {
-        font-size: 0.9rem;
+      .nav-pill-wrapper {
+        gap: 0.3rem;
+        padding: 0.2rem;
+        flex-wrap: wrap; /* 한 줄에 다 안 들어오면 줄바꿈 허용 */
+        justify-content: center;
       }
     }
   </style>
 </head>
 <body>
 
-<!--   <header>
+  <div class="logo" style="text-align: center; margin: 1rem 0;">
     <a href="/">
-      <img src="logo.png" alt="Tennis Now 로고" />
-    </a>
-  </header> -->
-
-  <div class="grid-container">
-    <a href="/tournament_pro" class="grid-item">
-      <h2>ATP는 지금 어디쯤일까.</h2>
-      <p>알카라즈는 언제 뛰지? 그 궁금함, 여기에.</p>
-    </a>
-    <a href="/tournament" class="grid-item">
-      <h2>KTA, KATA, KATO, KASTA!</h2>
-      <p>복식에서 단식 동호인 대회를 한눈에!</p>
-    </a>
-    <a href="/court-guide" class="grid-item">
-      <h2>코트 예약, 감으로 하지 마세요.</h2>
-      <p>정확한 예약 타이밍에 계산기까지 여기에.</p>
-    </a>
-    <a href="/board" class="grid-item">
-      <h2>테니스는 말도 많고 탈도 많아.</h2>
-      <p>그래서 더 재미있잖아요.</p>
+      <img src="{{ url_for('static', filename='images/LOGO.png') }}" alt="Tennis Now Logo" style="height: 30px;">
     </a>
   </div>
 
-  <footer>
-    © 2025 Tennis Now. All rights reserved.
-  </footer>
+  <nav class="main-navbar shadow-sm">
+    <div class="nav-pill-wrapper">
+      <a class="nav-link {% if currentPath == 'tournament' %}active{% endif %}" href="/tournament">아마 대회</a>
+      <a class="nav-link {% if currentPath == 'tournament_pro' %}active{% endif %}" href="/tournament_pro">프로 소식</a>
+      <a class="nav-link {% if currentPath == 'court' %}active{% endif %}" href="/court-guide">코트 가이드</a>
+      <a class="nav-link {% if currentPath == 'board' %}active{% endif %}" href="/board">대나무숲</a>
+    </div>
+  </nav>
+
+  <div class="card-section container">
+    <div class="card-wrapper">
+  
+      <!-- 동호인 대회 -->
+      <div class="custom-card">
+        <h6>아마 대회</h6>
+        <h4>KATA KATO KTA KASTA<br>동호인 대회 확인하기</h4>
+        <a href="/tournament" class="btn btn-confirm">확인하기</a>
+      </div>
+  
+      <!-- 프로 소식 -->
+      <div class="custom-card">
+        <h6>프로 소식</h6>
+        <h4>ATP WTA<br>결과 뉴스 일정 알아보기</h4>
+        <a href="/tournament_pro" class="btn btn-confirm">확인하기</a>
+      </div>
+  
+      <div class="bottom-cards">
+  
+        <!-- 코트 가이드 -->
+        <div class="custom-card">
+          <h6>코트 가이드</h6>
+          <h4>예약 가이드 & 계산기</h4>
+          <a href="/court-guide" class="btn btn-confirm">확인하기</a>
+        </div>
+  
+        <!-- 대나무숲 -->
+        <div class="custom-card">
+          <h6>대나무숲</h6>
+          <h4>자유로운 테니스 게시판</h4>
+          <a href="/board" class="btn btn-confirm">확인하기</a>
+        </div>
+  
+      </div>
+  
+    </div>
+  </div>
+  
 
 </body>
 </html>
