@@ -63,7 +63,7 @@
     }
     .logo {
       text-align: center;
-      margin: 1rem 0;
+      margin: 0rem 0;
       font-size: 2rem;
       font-weight: bold;
       color: #7B61FF;
@@ -88,7 +88,11 @@
       color: #666;
     }
     .custom-card h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
       margin: 0.5rem 0;
+      letter-spacing: -0.7px; /* ✅ 자간 줄이기 */
+
     }
     .btn-confirm {
       background-color: #006644;
@@ -97,7 +101,10 @@
       padding: 0.5rem 1rem;
       border-radius: 30px;
       margin-top: 1rem;
+      padding: 0.45rem 0.9rem;  /* 👉 기존보다 약 90% */
+      font-size: 0.9rem;        /* 👉 살짝 더 작게 */
     }
+    
     .btn-confirm:hover {
       background-color: #004d33;
     }
@@ -140,10 +147,9 @@
   </style>
 </head>
 <body>
-
   <div class="logo" style="text-align: center; margin: 1rem 0;">
     <a href="/">
-      <img src="{{ url_for('static', filename='images/LOGO.png') }}" alt="Tennis Now Logo" style="height: 30px;">
+      <img src="{{ url_for('static', filename='images/LOGO.png') }}" alt="Tennis Now Logo" style="height: 20px; display: block; margin: 0 auto;">
     </a>
   </div>
 
@@ -178,14 +184,14 @@
         <!-- 코트 가이드 -->
         <div class="custom-card">
           <h6>코트 가이드</h6>
-          <h4>예약 가이드 & 계산기</h4>
+          <h4>예약 가이드</h4>
           <a href="/court-guide" class="btn btn-confirm">확인하기</a>
         </div>
   
-        <!-- 대나무숲 -->
+        <!-- 테나무숲 -->
         <div class="custom-card">
-          <h6>대나무숲</h6>
-          <h4>자유로운 테니스 게시판</h4>
+          <h6>테나무숲</h6>
+          <h4>테니스 게시판</h4>
           <a href="/board" class="btn btn-confirm">확인하기</a>
         </div>
   
