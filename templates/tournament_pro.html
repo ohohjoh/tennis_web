@@ -3,9 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>프로소식</title>
+  <meta http-equiv="Content-Language" content="ko">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://tennisnow.life/tournament_pro">
+  <meta name="theme-color" content="#006644">
 
-  <!-- ✅ Google Analytics GA4 코드 시작 -->
+  <!-- ✅ 검색 최적화 제목 -->
+  <title>ATP·WTA 프로 테니스 대회 정보, 일정, 하이라이트 - TennisNow</title>
+
+  <!-- ✅ 설명 (검색 결과 요약문에 표시됨) -->
+  <meta name="description" content="전 세계 ATP, WTA 프로 테니스 대회의 일정, 대진표(드로우), 하이라이트 영상과 뉴스까지 한눈에 확인하세요. 실시간 경기 일정과 결과, 선수 정보 제공.">
+
+  <!-- ✅ 키워드 -->
+  <meta name="keywords" content="ATP, WTA, 테니스 대회, 프로 테니스, 테니스 일정, 테니스 뉴스, 테니스 영상, 드로우, 테니스나우, TennisNow, 프로 경기, 테니스 선수, 테니스 하이라이트">
+
+  <!-- ✅ Open Graph (SNS 공유용) -->
+  <meta property="og:title" content="ATP·WTA 테니스 대회 일정과 하이라이트 - TennisNow">
+  <meta property="og:description" content="ATP·WTA 테니스 대회를 한눈에! 대진표와 하이라이트, 뉴스까지 확인하세요.">
+  <meta property="og:image" content="https://tennisnow.life/static/images/LOGO.png">
+  <meta property="og:url" content="https://tennisnow.life/tournament_pro">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="TennisNow">
+
+  <!-- ✅ Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ATP·WTA 테니스 대회 일정과 하이라이트 - TennisNow">
+  <meta name="twitter:description" content="프로 테니스 대회 일정, 경기 결과, 하이라이트 영상과 뉴스까지 한 번에 확인해보세요.">
+  <meta name="twitter:image" content="https://tennisnow.life/static/images/LOGO.png">
+
+  <!-- ✅ 파비콘 -->
+  <link rel="icon" href="{{ url_for('static', filename='images/fabicon/favicon.ico') }}">
+
+  <!-- ✅ Google Analytics GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-7P26V15YCM"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -13,7 +42,6 @@
     gtag('js', new Date());
     gtag('config', 'G-7P26V15YCM');
   </script>
-  <!-- ✅ Google Analytics GA4 코드 끝 -->
   
 
   <!-- Pretendard + Bootstrap -->
@@ -398,7 +426,7 @@
       <a class="nav-link {% if currentPath == 'tournament' %}active{% endif %}" href="/tournament">아마 대회</a>
       <a class="nav-link {% if currentPath == 'tournament_pro' %}active{% endif %}" href="/tournament_pro">프로 소식</a>
       <a class="nav-link {% if currentPath == 'court' %}active{% endif %}" href="/court-guide">코트 가이드</a>
-      <a class="nav-link {% if currentPath == 'board' %}active{% endif %}" href="/board">대나무숲</a>
+      <a class="nav-link {% if currentPath == 'board' %}active{% endif %}" href="/board">테나무숲</a>
     </div>
   </nav>
 
