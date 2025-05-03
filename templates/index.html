@@ -133,6 +133,14 @@
 
     /* 📱 모바일 전용 최적화 */
     @media (max-width: 768px) {
+      .custom-card.d-flex {
+      flex-direction: row !important;  /* ✅ column 대신 row로 고정 */
+      align-items: center;
+    }
+
+    .custom-card img {
+      margin-left: 0.5rem;
+    }
       .main-navbar .nav-link {
         font-size: 0.78rem; /* 더 작게 */
         padding: 0.25rem 0.8rem; /* 여백도 줄임 */
@@ -165,19 +173,34 @@
   <div class="card-section container">
     <div class="card-wrapper">
   
-      <!-- 동호인 대회 -->
-      <div class="custom-card">
-        <h6>아마 대회</h6>
-        <h4>KATA KATO KTA KASTA<br>동호인 대회 확인하기</h4>
-        <a href="/tournament" class="btn btn-confirm">확인하기</a>
-      </div>
-  
-      <!-- 프로 소식 -->
-      <div class="custom-card">
-        <h6>프로 소식</h6>
-        <h4>ATP WTA<br>결과 뉴스 일정 알아보기</h4>
-        <a href="/tournament_pro" class="btn btn-confirm">확인하기</a>
-      </div>
+<!-- ✅ 아마 대회 (좌: 텍스트, 우: 이미지) -->
+<div class="custom-card d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 mt-2" style="background-color: #f5f5f5; border-radius: 16px; padding: 1.5rem;">
+  <!-- 텍스트 영역 -->
+  <div class="text-start flex-grow-1">
+    <h6>아마 대회</h6>
+    <h4>KATA KATO KTA KASTA<br>동호인 대회 확인하기</h4>
+    <a href="/tournament" class="btn btn-confirm mt-2">확인하기</a>
+  </div>
+  <!-- 이미지 영역 -->
+  <div class="flex-shrink-0">
+    <img src="{{ url_for('static', filename='images/banner1.png') }}" alt="아마 대회 배너" style="max-width: 80px; border-radius: 12px;">
+  </div>
+</div>
+
+<!-- ✅ 프로 소식 -->
+<div class="custom-card d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 mt-1" style="background-color: #f5f5f5; border-radius: 16px; padding: 1.5rem;">
+  <!-- 텍스트 영역 -->
+  <div class="flex-grow-1">
+    <h6>프로 소식</h6>
+    <h4>ATP WTA<br>결과 뉴스 일정 알아보기</h4>
+    <a href="/tournament_pro" class="btn btn-confirm mt-2">확인하기</a>
+  </div>
+  <!-- 이미지 영역 -->
+  <div class="flex-shrink-0">
+    <img src="{{ url_for('static', filename='images/banner2.png') }}" alt="프로 소식 배너" style="max-width: 80px; border-radius: 12px;">
+  </div>
+</div>
+
   
       <div class="bottom-cards">
   

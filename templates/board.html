@@ -8,7 +8,7 @@
   <style>
     /* ✅ 기본 글꼴 및 테마 */
     body {
-      font-family: 'Pretendard Variable', sans-serif;
+      font-family: 'SUIT Variable', sans-serif;
       background-color: #ffffff;
       color: #006644;
       min-height: 100vh;
@@ -56,9 +56,6 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* ✅ 네비게이션 하단에 그림자 통일 */
       }
 
-      .main-content {
-        padding-top: 1rem; /* ✅ 본문 상단 패딩 */
-      }
     .main-navbar .nav-link.active {
       background-color: #ffffff;
       color: #006644;
@@ -109,6 +106,8 @@
       border-color: #5C2E91;
       font-weight: 600;
     }
+
+    
     
     /* ✅ 게시판 컨테이너 */
     .board-container {
@@ -127,21 +126,25 @@
       margin-bottom: 1rem;
     }
     .board-title {
-      font-size: 1.2rem;
+      font-size: 1rem;
       font-weight: 700;
     }
     
     /* ✅ 글쓰기 버튼 */
     .new-post-btn {
       background-color: #5c2e91;
-      color: white;
+      color: #ffffff;
       font-weight: 600;
-      border-radius: 20px;
-      padding: 0.3rem 1rem;
-      font-size: 0.9rem;
+      border-radius: 16px;
+      padding: 0.4rem 1rem;
+      font-size: 0.7rem;
+      line-height: 1.1;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      transition: all 0.2s ease;
     }
     .new-post-btn:hover {
-      background-color: #4b1e88;
+      background-color: #47267a;
+      transform: translateY(-1px);
     }
     
     /* ✅ 게시글 목록 */
@@ -158,11 +161,11 @@
       text-decoration: none;
       color: #006644;
       font-weight: 600;
-      font-size: 1rem;
+      font-size: 0.8rem;
     }
 
     .post-meta {
-      font-size: 0.8rem;
+      font-size: 0.7rem;
       color: #888;
       margin-top: 0.25rem;
     }
@@ -173,7 +176,6 @@
       color: #006644;
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      max-width: 95vw;
     }
     .modal-header-purple {
       background-color: #5c2e91;
@@ -245,15 +247,7 @@
       box-shadow: 0 0 5px rgba(92, 46, 145, 0.3);
     }
     
-    
-    /* ✅ summary 박스 */
-    #summary-box {
-      color: #5C2E91;
-      font-weight: 600;
-      font-size: 0.95rem;
-      margin-top: 0.5rem;
-      text-align: center;
-    }
+
     
     .comment-list li {
       background-color: #ffffff;
@@ -286,9 +280,24 @@
       padding: 0.15rem 0.4rem;
       font-size: 0.65rem;
     }
+    
 
     /* ✅ 모바일 대응 */
     @media (max-width: 768px) {
+      .board-header {
+          flex-direction: column;
+          align-items: flex-start !important;
+          gap: 0.5rem !important;
+        }
+        .new-post-btn {
+          margin-top: 0.25rem;
+        }
+      }
+      .new-post-btn {
+      font-size: 0.78rem;
+      padding: 0.35rem 0.8rem;
+      border-radius: 14px;
+      }
       .post-list li {
         background-color: #fff;
         border-radius: 12px;
@@ -315,9 +324,23 @@
       resize: vertical;
       min-height: 60px;
     }
-    textarea#edit-content-POSTID {
-      width: 100%;
-      min-height: 200px;
+  
+    /* ✅ 입력 필드 */
+    input.form-control,
+    textarea.form-control {
+      font-family: 'SUIT Variable', sans-serif;
+      font-size: 0.88rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    input.form-control:focus,
+    textarea.form-control:focus {
+      border-color: #5c2e91;
+      box-shadow: 0 0 0 3px rgba(92, 46, 145, 0.15);
+    }
+    .main-navbar .nav-link,
+    .filter-btn {
+      font-family: 'SUIT Variable', sans-serif;
     }
     </style>
     
@@ -325,139 +348,199 @@
 </head>
 
 <body>
-
-<!-- ✅ 네비게이션 바 -->
-<nav class="main-navbar shadow-sm">
-  <div class="nav-pill-wrapper">
-    <a class="nav-link {% if currentPath == 'index' %}active{% endif %}" href="/">Home</a>
-    <a class="nav-link {% if currentPath == 'tournament' %}active{% endif %}" href="/tournament">아마 대회</a>
-    <a class="nav-link {% if currentPath == 'tournament_pro' %}active{% endif %}" href="/tournament_pro">프로 소식</a>
-    <a class="nav-link {% if currentPath == 'court' %}active{% endif %}" href="/court-guide">코트 가이드</a>
-    <a class="nav-link {% if currentPath == 'board' %}active{% endif %}" href="/board">테나무숲</a>
-  </div>
-</nav>
-
-<!-- ✅ 게시판 -->
-<div class="container board-container">
-  <div class="board-header">
-    <div class="board-title">🌲 테나무숲 - 이상한게 있다면, 틀린게 있다면, 마음에 안든다면 내가 고칠게 </div>
-    <button type="button" class="btn new-post-btn" data-bs-toggle="modal" data-bs-target="#writeModal">
-      ✏️ 글쓰기
-    </button>
-  </div>
-  <div class="text-end p-2">
-    <button class="btn btn-success btn-sm" onclick="writeSamplePost()">✅ 테스트 글쓰기</button>
-  </div>
-  <ul class="post-list">
-    {% if posts %}
-      {% for post in posts %}
-      <li>
-        <a href="#" class="post-link" data-post-id="{{ post.id }}" data-bs-toggle="modal" data-bs-target="#postModal-{{ post.id }}">{{ post.title }}</a>
-        <div class="post-meta">
-          🧑‍💻 {{ post.nickname }} ・ 🕒 {{ post.created_at }}
-        </div>
-
-        <!-- 글+댓글 모달 -->
-        <div class="modal fade" id="postModal-{{ post.id }}" tabindex="-1" aria-labelledby="postModalLabel-{{ post.id }}" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-              <div class="modal-header modal-header-purple">
-                <div class="d-flex justify-content-between align-items-center w-100">
-                  <h5 class="modal-title" id="postModalLabel-{{ post.id }}">{{ post.title }}</h5>
-                  <div class="d-flex align-items-center gap-2">
-                    <div id="views-{{ post.id }}" class="text-light small">
-                      조회수 {{ post.views }}
-                    </div>
-                  </div>
-                </div>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <div class="post-content-wrapper">
-                  <div class="post-content">{{ post.content | replace('\n', '<br>') | safe }}</div>
-                </div>
-
-                <div class="d-flex justify-content-end align-items-center gap-2 mb-3">
-                  <button type="button" class="btn btn-wimbledon btn-xs edit-post-btn" data-post-id="{{ post.id }}">✏️ 수정</button>
-                  <button type="button" class="btn btn-wimbledon btn-xs delete-post-btn" data-post-id="{{ post.id }}">🗑️ 삭제</button>
-                </div>
-
-                <div class="comment-section">
-                  <h6 class="fw-bold mb-3">💬</h6>
-                  <div id="comments-{{ post.id }}" class="comment-list">
-                      <ul class="list-unstyled"></ul>
-                  </div>
-                </div>
-
-                <div class="comment-form-wrapper">
-                  <form action="/board/{{ post.id }}/comment" method="post" class="comment-form" data-post-id="{{ post.id }}">
-                    <div class="row mb-2">
-                      <div class="col">
-                        <input type="text" name="nickname" class="form-control form-control-sm" placeholder="닉네임 (or 익명)">
-                      </div>
-                      <div class="col">
-                        <input type="password" name="password" class="form-control form-control-sm" required placeholder="비밀번호">
-                      </div>
-                      <div class="col-auto">
-                        <button type="submit" class="btn btn-wimbledon btn-sm">작성</button>
-                      </div>
-                    </div>
-                    <textarea name="content" class="form-control form-control-sm" rows="2" required placeholder="댓글을 입력하세요"></textarea>
-                  </form>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </li>
-      {% endfor %}
-    {% else %}
-      <li>아직 작성된 글이 없습니다. 첫 글을 작성해보세요!</li>
-    {% endif %}
-  </ul>
-</div>
-
-<!-- ✅ 글쓰기 모달 -->
-<div class="modal fade" id="writeModal" tabindex="-1" aria-labelledby="writeModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <form action="/board/create" method="post"> <!-- ✅ form 위치 수정 -->
-      <div class="modal-content modal-write">
-        <div class="modal-header modal-header-purple">
-          <h5 class="modal-title fw-bold" id="writeModalLabel">✏️ 새 글 작성</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-
-        <div class="modal-body">
-          <div class="row g-2 mb-3 align-items-center">
-            <div class="col-5">
-              <input type="text" name="nickname" class="form-control form-control-sm" placeholder="닉네임 (or 익명)">
-            </div>
-            <div class="col-5">
-              <input type="password" name="password" class="form-control form-control-sm" required placeholder="비밀번호">
-            </div>
-            <div class="col-2 d-grid">
-              <button type="submit" class="btn btn-wimbledon btn-sm">작성</button>
-            </div>
-          </div>
-
-          <div class="input-wrapper mb-2">
-            <input type="text" name="title" class="form-control form-control-sm" required placeholder="제목을 입력하세요">
-          </div>
-
-          <div class="input-wrapper">
-            <textarea name="content" class="form-control form-control-sm" rows="9" required placeholder="내용을 입력하세요"></textarea>
-          </div>
-        </div>
+  <body>
+    <div class="logo" style="text-align: center; margin: 1rem 0;">
+      <a href="/">
+        <img src="{{ url_for('static', filename='images/LOGO.png') }}" alt="Tennis Now Logo" style="height: 20px; display: block; margin: 0 auto;">
+      </a>
+    </div>
+  
+    <nav class="main-navbar shadow-sm">
+      <div class="nav-pill-wrapper">
+        <a class="nav-link {% if currentPath == 'tournament' %}active{% endif %}" href="/tournament">아마 대회</a>
+        <a class="nav-link {% if currentPath == 'tournament_pro' %}active{% endif %}" href="/tournament_pro">프로 소식</a>
+        <a class="nav-link {% if currentPath == 'court' %}active{% endif %}" href="/court-guide">코트 가이드</a>
+        <a class="nav-link {% if currentPath == 'board' %}active{% endif %}" href="/board">대나무숲</a>
       </div>
-    </form>
+    </nav>
+
+<!-- ✅ 반응형 테나무숲 + 운영자 다이어리 2단 레이아웃 -->
+<div class="container mt-0">
+  <div class="row g-3 align-items-stretch">
+    <!-- ✅ 테나무숲 -->
+    <div class="col-12 col-md-6 d-flex">
+      <div class="board-container w-100 mt-0">
+        <!-- 🟢 여기에 기존 테나무숲 게시판 HTML 전체 붙여넣기 -->
+        <!-- ✅ 게시판 -->
+        <div class="container board-container mt-0">
+          <div class="board-header d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-2">
+            <h2 class="board-title mb-0">
+              🌲 <strong>테나무숲</strong><br>
+              <small class="text-muted" style="font-size: 0.85rem;">
+                마음에 안 든다면 내가 고칠게. 떠나지마.
+              </small>
+            </h2>
+          </div>
+          <div class="tena-button">
+            <button type="button" class="btn new-post-btn ms-md-auto mt-2 mt-md-0"  data-bs-toggle="modal" data-bs-target="#writeModal">
+              ✏️ 글쓰기
+            </button>
+          </div>
+          
+          <ul class="post-list">
+            {% if posts %}
+              {% for post in posts %}
+              <li>
+                <a href="#" class="post-link" data-post-id="{{ post.id }}" data-bs-toggle="modal" data-bs-target="#postModal-{{ post.id }}">{{ post.title }}</a>
+                <div class="post-meta">
+                  🧑‍💻 {{ post.nickname }} ・ 🕒 {{ post.created_at }}
+                </div>
+
+                <!-- 글+댓글 모달 -->
+                <div class="modal fade" id="postModal-{{ post.id }}" tabindex="-1" aria-labelledby="postModalLabel-{{ post.id }}" aria-hidden="true">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <div class="modal-header modal-header-purple">
+                        <div class="d-flex justify-content-between align-items-center w-100">
+                          <h5 class="modal-title" id="postModalLabel-{{ post.id }}">{{ post.title }}</h5>
+                          <div class="d-flex align-items-center gap-2">
+                            <div id="views-{{ post.id }}" class="text-light small">
+                              조회수 {{ post.views }}
+                            </div>
+                          </div>
+                        </div>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="post-content-wrapper">
+                          <div class="post-content">{{ post.content | replace('\n', '<br>') | safe }}</div>
+                        </div>
+
+                        <div class="d-flex justify-content-end align-items-center gap-2 mb-3">
+                          <button type="button" class="btn btn-wimbledon btn-xs edit-post-btn" data-post-id="{{ post.id }}">✏️ 수정</button>
+                          <button type="button" class="btn btn-wimbledon btn-xs delete-post-btn" data-post-id="{{ post.id }}">🗑️ 삭제</button>
+                        </div>
+
+                        <div class="comment-section">
+                          <h6 class="fw-bold mb-3">💬</h6>
+                          <div id="comments-{{ post.id }}" class="comment-list">
+                              <ul class="list-unstyled"></ul>
+                          </div>
+                        </div>
+
+                        <div class="comment-form-wrapper">
+                          <form action="/board/{{ post.id }}/comment" method="post" class="comment-form" data-post-id="{{ post.id }}">
+                            <div class="row mb-2">
+                              <div class="col">
+                                <input type="text" name="nickname" class="form-control form-control-sm" placeholder="닉네임 (or 익명)">
+                              </div>
+                              <div class="col">
+                                <input type="password" name="password" class="form-control form-control-sm" required placeholder="비밀번호">
+                              </div>
+                              <div class="col-auto">
+                                <button type="submit" class="btn btn-wimbledon btn-sm">작성</button>
+                              </div>
+                            </div>
+                            <textarea name="content" class="form-control form-control-sm" rows="2" required placeholder="댓글을 입력하세요"></textarea>
+                          </form>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </li>
+              {% endfor %}
+            {% else %}
+              <li>아직 작성된 글이 없습니다. 첫 글을 작성해보세요!</li>
+            {% endif %}
+          </ul>
+        </div>
+
+        <!-- ✅ 글쓰기 모달 -->
+        <div class="modal fade" id="writeModal" tabindex="-1" aria-labelledby="writeModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <form action="/board/create" method="post"> <!-- ✅ form 위치 수정 -->
+              <div class="modal-content modal-write">
+                <div class="modal-header modal-header-purple">
+                  <h5 class="modal-title fw-bold" id="writeModalLabel">✏️ 새 글 작성</h5>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                  <div class="row g-2 mb-3 align-items-center">
+                    <div class="col-5">
+                      <input type="text" name="nickname" class="form-control form-control-sm" placeholder="닉네임 (or 익명)">
+                    </div>
+                    <div class="col-5">
+                      <input type="password" name="password" class="form-control form-control-sm" required placeholder="비밀번호">
+                    </div>
+                    <div class="col-2 d-grid">
+                      <button type="submit" class="btn btn-wimbledon btn-sm">작성</button>
+                    </div>
+                  </div>
+
+                  <div class="input-wrapper mb-2">
+                    <input type="text" name="title" class="form-control form-control-sm" required placeholder="제목을 입력하세요">
+                  </div>
+
+                  <div class="input-wrapper">
+                    <textarea name="content" class="form-control form-control-sm" rows="9" required placeholder="내용을 입력하세요"></textarea>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+     <!-- ✅ 운영자 다이어리
+     <div class="col-12 col-md-6 d-flex">
+      <div class="board-container w-100">
+        <div class="board-header d-flex justify-content-between align-items-center">
+          <h2 class="board-title mb-0">📬 <strong>운영자 다이어리</strong></h2>
+        </div>
+        <p class="text-muted mb-3">소소한 생각들을 적어봅니다.</p>
+
+        <ul class="post-list">
+          {% if diary_entries %}
+            {% for diary in diary_entries %}
+            <li>
+              <a href="#" class="post-link" data-bs-toggle="modal" data-bs-target="#diaryModal-{{ diary.id }}">{{ diary.title }}</a>
+              <div class="post-meta">🗓️ {{ diary.date }}</div>
+            </li>
+
+            <div class="modal fade" id="diaryModal-{{ diary.id }}" tabindex="-1" aria-labelledby="diaryModalLabel-{{ diary.id }}" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header modal-header-purple">
+                    <h5 class="modal-title" id="diaryModalLabel-{{ diary.id }}">{{ diary.title }}</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="post-content-wrapper">
+                      <div class="post-content">{{ diary.content | replace('\n', '<br>') | safe }}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          {% else %}
+            <li>아직 다이어리가 없습니다. 첫 글을 남겨보세요!</li>
+          {% endif %}
+        </ul>
+      </div>
+    </div> -->
+
   </div>
 </div>
 
 
 <script>
-  const firebaseConfig = {{ firebase_config | tojson }};
   const app = firebase.initializeApp(firebaseConfig);
   const db = firebase.database(app);
 </script>
@@ -728,36 +811,5 @@ a
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
 <!-- ✅ Firebase 초기화 + 함수 정의 -->
-<script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyA1vPpkMZTuW0hR2WTdN_rlRQ4DLe8GQzY",
-    authDomain: "tennisweb-project.firebaseapp.com",
-    databaseURL: "https://tennisweb-project-default-rtdb.firebaseio.com",
-    projectId: "tennisweb-project",
-    storageBucket: "tennisweb-project.firebasestorage.app",
-    messagingSenderId: "119973973126",
-    appId: "1:119973973126:web:2448c17b03d8072ca09507",
-    measurementId: "G-096MQ37KYJ"
-  };
-
-  // ✅ Firebase 초기화
-  const app = firebase.initializeApp(firebaseConfig);
-  const db = firebase.database(app);
-
-  // ✅ 버튼 클릭 시 글쓰기
-  function writeSamplePost() {
-    const newPostRef = db.ref("tennis_posts_bamboo").push();
-    const postData = {
-      title: "Firebase 게시판 테스트",
-      content: "이 글은 Realtime Database에 저장된 첫 테스트입니다.",
-      nickname: "익명",
-      created_at: new Date().toISOString(),  // ✅ 통일
-      views: 0
-    };
-    newPostRef.set(postData)
-      .then(() => alert("✅ Firebase에 글 저장 완료!"))
-      .catch(err => alert("❌ 저장 실패: " + err));
-  }
-</script>
 </body>
 </html>

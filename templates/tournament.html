@@ -77,6 +77,7 @@
       z-index: 999;
       background-color: #ffffff;
       padding: 0.5rem 1rem;
+      padding-bottom: 0.2rem !important;
     }
     .filter-area.tournament-switch {
       display: flex;
@@ -86,6 +87,23 @@
       -webkit-overflow-scrolling: touch;
       justify-content: center;
       scroll-padding-left: 0.5rem;
+      align-items: flex-start; /* 왼쪽 정렬 */
+
+    }
+    .filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 0.2rem;
+      padding: 0.5rem;
+      margin-bottom: 0.0rem !important;
+      padding-bottom: 0.rem !important;
+
+    }
+
+    .search-wrapper {
+      margin-top: 0rem !important;
     }
     .filter-area.tournament-switch::-webkit-scrollbar { display: none; }
 
@@ -102,7 +120,8 @@
       text-align: center;
       flex-shrink: 0;
     }
-    .filter-btn.active, .filter-btn:hover {
+    .filter-btn.active,
+    .filter-btn:hover {
       background-color: #5C2E91;
       color: #ffffff;
       border-color: #5C2E91;
@@ -284,9 +303,18 @@
 
     @media (max-width: 768px) {
       .filter-btn {
-        font-size: 0.6rem; /* 글자 작게 */
-        padding: 0.2rem 0.5rem; /* 패딩 줄임 */
-        min-width: 45px; /* 버튼 폭 조금 좁게 */}
+        font-size: 0.75rem;
+        padding: 0.4rem 0.85rem;
+        min-width: 35px;
+        border-radius: 30px;
+        background-color: #ffffff;
+        color: #006644;
+        border: 1.1px solid #006644;
+        transition: all 0.25s ease;
+        text-align: center;
+        flex-shrink: 0;
+      }
+
       .mobile-card {
         flex: 0 0 48%;
         max-width: 48%;
@@ -294,6 +322,7 @@
         font-size: 0.75rem;
         margin: 0 auto;
       }
+    }
 
     @media (min-width: 768px) {
       .mobile-card {
@@ -393,36 +422,58 @@
       border-color: #5C2E91;
     }
 
+    .slash-divider {
+      color: #5C2E91;
+      font-weight: 600;
+      margin: 0 0.3rem;
+      display: inline-block;
+      font-size: 1.3rem;
+    }
+
 
     
   </style>
 </head>
-<body class="grass-theme p-0">
+<body>
+  <div class="logo" style="text-align: center; margin: 1rem 0;">
+    <a href="/">
+      <img src="{{ url_for('static', filename='images/LOGO.png') }}" alt="Tennis Now Logo" style="height: 20px; display: block; margin: 0 auto;">
+    </a>
+  </div>
+
   <nav class="main-navbar shadow-sm">
     <div class="nav-pill-wrapper">
-      <a class="nav-link {% if currentPath == 'index' %}active{% endif %}" href="/">Home</a>
       <a class="nav-link {% if currentPath == 'tournament' %}active{% endif %}" href="/tournament">아마 대회</a>
       <a class="nav-link {% if currentPath == 'tournament_pro' %}active{% endif %}" href="/tournament_pro">프로 소식</a>
       <a class="nav-link {% if currentPath == 'court' %}active{% endif %}" href="/court-guide">코트 가이드</a>
-      <a class="nav-link {% if currentPath == 'board' %}active{% endif %}" href="/board">테나무숲</a>
+      <a class="nav-link {% if currentPath == 'board' %}active{% endif %}" href="/board">대나무숲</a>
     </div>
   </nav>
+
   <div class="tournament-top-tab">
-    <div class="filter-area tournament-switch">
-      <!-- 🔥 여기 필터 버튼들 추가 -->
-      <button class="btn btn-outline-success btn-sm filter-btn active" id="btn-all" onclick="showAll()">전체</button>
-      <button class="btn btn-outline-success btn-sm filter-btn" id="btn-신인" onclick="filterByKeyword('신인')">신인</button>
-      <button class="btn btn-outline-success btn-sm filter-btn" id="btn-오픈" onclick="filterByKeyword('오픈')">오픈</button>
-      <button class="btn btn-outline-success btn-sm filter-btn" id="btn-개나리" onclick="filterByKeyword('개나리')">개나리</button>
-      <button class="btn btn-outline-success btn-sm filter-btn" id="btn-국화" onclick="filterByKeyword('국화')">국화</button>
-      <button class="btn btn-outline-success btn-sm filter-btn" id="btn-기타" onclick="filterOthers()">기타</button>
-      <button class="btn btn-outline-success btn-sm filter-btn" id="btn-단식" onclick="filterSingles()">단식</button>
+    <div class="filter-area tournament-switch flex-column align-items-center">
+  
+      <!-- ✅ 필터 버튼 한 줄 정렬 + 스크롤 -->
+      <div class="filter-group flex-nowrap overflow-auto" style="gap: 0.5rem; white-space: nowrap;">
+        <!-- <button class="btn btn-outline-success btn-sm filter-btn" id="btn-all" onclick="showAll()">전체</button>
+        <span>/</span> -->
+        <button class="btn btn-outline-success btn-sm filter-btn" id="btn-신인" onclick="filterByKeyword('신인')">신인</button>
+        <button class="btn btn-outline-success btn-sm filter-btn" id="btn-오픈" onclick="filterByKeyword('오픈')">오픈</button>
+        <button class="btn btn-outline-success btn-sm filter-btn" id="btn-개나리" onclick="filterByKeyword('개나리')">개나리</button>
+        <button class="btn btn-outline-success btn-sm filter-btn" id="btn-국화" onclick="filterByKeyword('국화')">국화</button>
+        <button class="btn btn-outline-success btn-sm filter-btn" id="btn-기타" onclick="filterOthers()">기타</button>
+        <span class="slash-divider">/</span>
+        <button class="btn btn-outline-success btn-sm filter-btn" id="btn-단식" onclick="filterSingles()">단식</button>
+      </div>
+  
     </div>
   </div>
+  
+
 
   <div class="white-container">
 
-    <div class="card-section p-3">
+    <div class="card-section p-2">
 
   
       <!-- ✅ 검색 + 빈자리 체크박스 -->
@@ -609,26 +660,26 @@
           const div = document.createElement("div");
           div.className = "mobile-card";
           div.innerHTML = `
-            <div class="text-center text-muted mb-1" style="font-size:0.75rem">${idx + 1} / ${data.length}</div>
-            ${isNewItem ? '<div class="text-center mb-1"><span class="new-badge">NEW!!</span></div>' : ''}
-            <h6 class="text-center">${item['대회명'] || ''}</h6>
+          <div class="text-center text-muted mb-1" style="font-size:0.75rem">${idx + 1} / ${data.length}</div>
+          ${isNewItem ? '<div class="text-center mb-1"><span class="new-badge">NEW!!</span></div>' : ''}
+          <h6 class="text-center">${item['대회명'] || ''}</h6>
 
-            <div class="card-info-wrapper">
-              ${item['대회기간'] ? `<div><i class="bi bi-calendar-event"></i> ${item['대회기간']}</div>` : ''}
-              ${item['장소'] ? `<div><i class="bi bi-geo-alt"></i> ${item['장소']}</div>` : ''}
-              <div><i class="bi bi-person-badge"></i> ${getAgencyLogo(item['주관사'])}</div>
-              ${division ? `<div><i class="bi bi-people"></i> ${division}</div>` : ''}
-            </div>
+          <div class="card-info-wrapper">
+            ${item['대회기간'] ? `<div><i class="bi bi-calendar-event"></i> ${item['대회기간']}</div>` : ''}
+            ${item['장소'] ? `<div><i class="bi bi-geo-alt"></i> ${item['장소']}</div>` : ''}
+            <div><i class="bi bi-person-badge"></i> ${getAgencyLogo(item['주관사'])}</div>
+            ${division ? `<div><i class="bi bi-people"></i> ${division}</div>` : ''}
+          </div>
+          <div class="progress mb-1">
+            <div class="progress-bar ${progressColor}" style="width: ${percentage}%"></div>
+          </div>
+          <p class="text-center fw-bold mb-2 ${progressTextClass}">${current}/${capacity}</p>
+          <div class="d-grid">
+            <a href="${item['참가신청 링크']}" target="_blank" class="btn btn-outline-success btn-sm">신청하기</a>
+          </div>
+          ${item['new_updated'] ? `<div class="text-center text-secondary mt-2" style="font-size: 0.7rem;">업데이트: ${new Date(item['new_updated']).toLocaleDateString('ko-KR')}</div>` : ''}
+        `;
 
-            <p class="mb-1"><strong>신청현황</strong></p>
-            <div class="progress mb-1">
-              <div class="progress-bar ${progressColor}" style="width: ${percentage}%"></div>
-            </div>
-            <p class="text-center fw-bold mb-2 ${progressTextClass}">${current}/${capacity}</p>
-            <div class="d-grid">
-              <a href="${item['참가신청 링크']}" target="_blank" class="btn btn-outline-success btn-sm">신청하기</a>
-            </div>
-          `;
           cardsContainer.appendChild(div);
         });
       }

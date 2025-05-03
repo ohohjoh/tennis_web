@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>프로소식</title>
 
+  <!-- ✅ Google Analytics GA4 코드 시작 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7P26V15YCM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7P26V15YCM');
+  </script>
+  <!-- ✅ Google Analytics GA4 코드 끝 -->
+  
+
   <!-- Pretendard + Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/pretendard@1.3.6/dist/web/variable/pretendardvariable-dynamic-subset.css" rel="stylesheet">
@@ -70,7 +81,7 @@
       top: 42px;
       z-index: 999;
       background-color: #ffffff;
-      padding: 0.5rem 1rem;
+      padding: 0.8rem;
       border-bottom: 1px solid #ccc;
       box-shadow: none !important;
     }
@@ -249,6 +260,7 @@
       margin: 0 auto; /* 가운데 정렬 */
       padding: 0.5rem 1rem;
     }
+
     .news-card .card {
       margin-bottom: 0.4rem;
       padding: 0.4rem;
@@ -264,7 +276,7 @@
       margin-bottom: 0.3rem;
     }
     .news-meta {
-      font-size: 0.65rem;
+      font-size: 0.7rem;
       color: #888;
     }
     .bracket-container {
@@ -374,19 +386,24 @@
   </style>
   
 </head>
-  <body class="grass-theme p-0">
-    <nav class="main-navbar shadow-sm">
-      <div class="nav-pill-wrapper">
-        <a class="nav-link {% if currentPath == 'index' %}active{% endif %}" href="/">Home</a>
-        <a class="nav-link {% if currentPath == 'tournament' %}active{% endif %}" href="/tournament">아마 대회</a>
-        <a class="nav-link {% if currentPath == 'tournament_pro' %}active{% endif %}" href="/tournament_pro">프로 소식</a>
-        <a class="nav-link {% if currentPath == 'court' %}active{% endif %}" href="/court-guide">코트 가이드</a>
-        <a class="nav-link {% if currentPath == 'board' %}active{% endif %}" href="/board">테나무숲</a>
-      </div>
-    </nav>
+<body>
+  <div class="logo" style="text-align: center; margin: 1rem 0;">
+    <a href="/">
+      <img src="{{ url_for('static', filename='images/LOGO.png') }}" alt="Tennis Now Logo" style="height: 20px; display: block; margin: 0 auto;">
+    </a>
+  </div>
+
+  <nav class="main-navbar shadow-sm">
+    <div class="nav-pill-wrapper">
+      <a class="nav-link {% if currentPath == 'tournament' %}active{% endif %}" href="/tournament">아마 대회</a>
+      <a class="nav-link {% if currentPath == 'tournament_pro' %}active{% endif %}" href="/tournament_pro">프로 소식</a>
+      <a class="nav-link {% if currentPath == 'court' %}active{% endif %}" href="/court-guide">코트 가이드</a>
+      <a class="nav-link {% if currentPath == 'board' %}active{% endif %}" href="/board">대나무숲</a>
+    </div>
+  </nav>
 
 <!-- ✅ 대회 탭 버튼 최상단 고정 -->
-<div class="tournament-top-tab shadow-sm">
+<div class="tournament-top-tab">
   <div class="filter and summary"></div>
 
   <div class="filter-area tournament-switch">
@@ -407,52 +424,56 @@
   </div>
 
   <div class="white-container">
-    {% if schedule %}
- 
-    <div class="schedule-scroll-container">
-      <div class="schedule-grid">
-        {% for match in schedule %}
-        <div class="schedule-item" data-tournament="{{ match.tournament | lower }}" data-tour="{{ match.tour | lower }}">
-          <div class="today-card p-2">
-            <div class="d-flex justify-content-between align-items-center mb-1 date-time-wrapper">
-              <span class="text-muted small">{{ match.date_kst }}</span>
-              <div class="d-flex align-items-center">
-                <small class="text-muted me-1">KST</small>
-                <strong class="text-dark">{{ match.time_kst }}</strong>
-              </div>
+  {% if schedule and schedule|length > 0 %}
+  <div class="schedule-scroll-container">
+    <div class="schedule-grid">
+      {% for match in schedule %}
+      <div class="schedule-item"
+          data-tournament="{{ match.tournament | lower }}"
+          data-tour="{{ match.tour | lower }}"
+          style="display: none;">
+        <div class="today-card p-2">
+          <div class="d-flex justify-content-between align-items-center mb-1 date-time-wrapper">
+            <span class="text-muted small">{{ match.date_kst }}</span>
+            <div class="d-flex align-items-center">
+              <small class="text-muted me-1">KST</small>
+              <strong class="text-dark">{{ match.time_kst }}</strong>
             </div>
+          </div>
 
-            {% set players = match.players.split(' - ') %}
+          {% set players = match.players.split(' - ') %}
 
-            <div class="d-flex justify-content-between align-items-center mb-1">
-              {% set tournament_name = match.tournament %}
-              {% if tournament_name.endswith(' ATP') %}
-                {% set tournament_name = tournament_name[:-4] %}
-              {% elif tournament_name.endswith(' WTA') %}
-                {% set tournament_name = tournament_name[:-4] %}
-              {% endif %}
-              <span class="badge bg-success">{{ tournament_name }}</span>
-              <span class="text-dark small text-end">{{ players[0] }}</span>
-            </div>
+          <div class="d-flex justify-content-between align-items-center mb-1">
+            {% set tournament_name = match.tournament %}
+            {% if tournament_name.endswith(' ATP') %}
+              {% set tournament_name = tournament_name[:-4] %}
+            {% elif tournament_name.endswith(' WTA') %}
+              {% set tournament_name = tournament_name[:-4] %}
+            {% endif %}
+            <span class="badge bg-success">{{ tournament_name }}</span>
+            <span class="text-dark small text-end">{{ players[0] }}</span>
+          </div>
 
-            <div class="d-flex justify-content-between align-items-center">
-              {% if match.tour %}
-                <span class="badge bg-secondary text-light badge-tour">{{ match.tour }}</span>
-              {% else %}
-                <span></span>
-              {% endif %}
-              <span class="text-dark small text-end">{{ players[1] }}</span>
-            </div>
-
+          <div class="d-flex justify-content-between align-items-center">
+            {% if match.tour %}
+              <span class="badge bg-secondary text-light badge-tour">{{ match.tour }}</span>
+            {% else %}
+              <span></span>
+            {% endif %}
+            <span class="text-dark small text-end">{{ players[1] }}</span>
           </div>
         </div>
-        {% endfor %}
       </div>
-    </div>
-    {% else %}
-    <p class="text-primary-bold">🎾 ATP 경기를 업데이트 중이에요!!</p>
-    {% endif %}
+      {% endfor %}
+    </div> <!-- schedule-grid -->
+  </div> <!-- schedule-scroll-container -->
+  {% else %}
+  <div class="d-flex justify-content-center align-items-center text-center" style="height: 120px;">
+    <p class="text-primary fw-bold mb-0">🎾 경기가 업데이트중이에요</p>
   </div>
+  {% endif %}
+</div> <!-- white-container -->
+
 
   {% set round_labels = {
     'Q1': '예선 1회전', 'Q2': '예선 2회전', 'Q3': '예선 결승',
@@ -461,6 +482,11 @@
   } %}
 
   <div id="tournament-cards">
+  {% if data|length == 0 %}
+    <div class="d-flex justify-content-center align-items-center text-center" style="height: 150px;">
+      <p class="text-primary fw-bold mb-0">🎾 경기가 업데이트중이에요</p>
+    </div>
+  {% else %}
     {% for tournament in data %}
     <div class="tournament-card" data-tid="{{ loop.index0 }}" data-tournament="{{ tournament.tournament }}" style="display: none;">
       <div class="bracket-section" style="display: none;">
@@ -495,29 +521,32 @@
 
           {% for round in ['F', 'SF', 'QF', 'R16', 'R32', 'R64', 'R128', 'Q3', 'Q2', 'Q1'] %}
             {% if tournament.bracket is defined and tournament.bracket.get(round) %}
-            <div class="round-column">
-              <div class="round-header">{{ round_labels[round] if round_labels is defined else round }}</div>
-              {% for match in tournament.bracket[round] %}
-                {% if match.source != 'upcoming' %}
-                <div class="match-box"
-                     data-player1="{{ match.player1 }}"
-                     data-player2="{{ match.player2 }}"
-                     data-score="{{ match.score }}"
-                     data-winner="{{ match.winner }}"
-                     data-source="{{ match.source }}">
-                  <div class="player"><span class="winner">{{ match.player1 }}</span></div>
-                  <div class="player"><span class="loser">{{ match.player2 }}</span></div>
+              {% set round_matches = tournament.bracket[round] | selectattr("source", "ne", "upcoming") | list %}
+              {% if round_matches | length > 0 %}
+                <div class="round-column">
+                  <div class="round-header">{{ round_labels[round] if round_labels is defined else round }}</div>
+                  {% for match in round_matches %}
+                    <div class="match-box"
+                        data-player1="{{ match.player1 }}"
+                        data-player2="{{ match.player2 }}"
+                        data-score="{{ match.score }}"
+                        data-winner="{{ match.winner }}"
+                        data-source="{{ match.source }}">
+                      <div class="player"><span class="winner">{{ match.player1 }}</span></div>
+                      <div class="player"><span class="loser">{{ match.player2 }}</span></div>
+                    </div>
+                  {% endfor %}
                 </div>
-                {% endif %}
-              {% endfor %}
-            </div>
+              {% endif %}
             {% endif %}
           {% endfor %}
         </div> <!-- bracket-container -->
       </div> <!-- bracket-section -->
     </div> <!-- tournament-card -->
     {% endfor %}
-  </div> <!-- tournament-cards -->
+  {% endif %}
+</div> <!-- tournament-cards -->
+
 </div>
 
 <!-- ✅ 하얀 배경 container 시작 -->
