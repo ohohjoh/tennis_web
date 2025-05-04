@@ -55,7 +55,6 @@
     }
     
     /* ✅ 네비게이션 바 */
-    /* ✅ 네비게이션 */
     .main-navbar {
       background-color: #006644;
       padding: 0.5rem;
@@ -76,9 +75,7 @@
       white-space: nowrap;
       -webkit-overflow-scrolling: touch;
     }
-    .nav-pill-wrapper::-webkit-scrollbar {
-      display: none;
-    }
+    .nav-pill-wrapper::-webkit-scrollbar { display: none; }
     .main-navbar .nav-link {
       font-family: 'Pretendard Variable', sans-serif;
       color: white;
@@ -88,9 +85,7 @@
       border-radius: 50px;
       transition: all 0.25s ease-in-out;
       white-space: nowrap;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* ✅ 네비게이션 하단에 그림자 통일 */
-      }
-
+    }
     .main-navbar .nav-link.active {
       background-color: #ffffff;
       color: #006644;
@@ -98,10 +93,11 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       border: none;
     }
+
     .main-navbar .nav-link.active:hover {
       color: #006644;
     }
-    
+
     /* ✅ 상단 탭 (검색창, 필터) */
     .tournament-top-tab {
       position: sticky;
@@ -367,6 +363,12 @@
     .filter-btn {
       font-family: 'SUIT Variable', sans-serif;
     }
+    @media (max-width: 768px) {
+      .main-navbar .nav-link {
+        font-size: 0.72rem;
+        padding: 0.3rem 0.8rem;
+      }
+    }
     </style>
     
     
@@ -630,7 +632,6 @@
           const commentListArea = modal.querySelector(`#comments-${postId}`)?.parentElement;
           if (commentFormArea) commentFormArea.style.display = "none";
           if (commentListArea) commentListArea.style.display = "none";
-a
           const currentTitle = titleEl.innerText.trim();
           const currentContent = postContentWrapper.innerText.trim();
 

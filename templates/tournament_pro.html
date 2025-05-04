@@ -112,20 +112,23 @@
       padding: 0.8rem;
       border-bottom: 1px solid #ccc;
       box-shadow: none !important;
+      margin-bottom: 0.75rem; /* ✅ 이 줄 추가 */
+
     }
     .filter-area.tournament-switch {
       display: flex;
       gap: 0.5rem;
       overflow-x: auto;
-      white-space: nowrap;
       -webkit-overflow-scrolling: touch;
       justify-content: center;
       scroll-padding-left: 0.5rem;
+      margin-bottom: 0.7rem; /* ✅ 여기에 여백 추가 */
+
     }
     .filter-area.tournament-switch::-webkit-scrollbar { display: none; }
     .filter-btn {
-      font-size: 0.7rem;
-      padding: 0.35rem 0.75rem;
+      font-size: 0.62rem;
+      padding: 0.25rem 0.55rem;
       min-width: 90px;
       border-radius: 30px;
       background-color: #ffffff;
