@@ -104,16 +104,13 @@
     }
 
     .summary-wraper{
-      border-bottom: 1px solid #ccc;
       width: 100%;
-
-
 
     }
 
     .tournament-top-tab {
       position: sticky;
-      top: 42px;
+      top: 50px;
       z-index: 999;
       background-color: #ffffff;
       padding: 0.8rem;
@@ -121,17 +118,18 @@
       width: 100%;
       margin-bottom: 0rem;  /* 또는 0rem 으로 완전히 제거 가능 */
     }
+
+    .filter-area.tournament-switch::-webkit-scrollbar { display: none; }
     .filter-area.tournament-switch {
       display: flex;
       gap: 0.5rem;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
-      justify-content: center;
       scroll-padding-left: 0.5rem;
       margin-bottom: 0.7rem; /* ✅ 여기에 여백 추가 */
 
     }
-    .filter-area.tournament-switch::-webkit-scrollbar { display: none; }
+    
     .filter-btn {
       font-size: 0.62rem;
       padding: 0.25rem 0.55rem;
@@ -150,7 +148,7 @@
       border-color: #5C2E91;
       font-weight: 600;
     }
-    #summary-box {
+    .summary-box {
       color: #5C2E91;
       font-weight: 600;
       font-size: 0.95rem;
@@ -160,18 +158,10 @@
       text-align: center;
 
     }
-    .schedule-scroll-container {
-      display: flex;
-      overflow-x: auto;
-      margin: 0 auto;
-      padding: 0.5rem 1;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-    }
+
     .schedule-grid {
       display: grid;
-      grid-auto-flow: column;
-      grid-template-rows: repeat(2, auto);
+      grid-template-columns: repeat(2, 1fr);  /* ✅ 2열 그리드 */
       gap: 0.75rem;
       width: max-content;
       scroll-snap-type: x mandatory;
@@ -180,23 +170,32 @@
     }
     .schedule-item {
       scroll-snap-align: start;
-      width: 160px;
+      width: 170px;
       flex-shrink: 0;
     }
+
+    .player-name-ellipsis {
+      display: inline-block;
+      max-width: 90px;  /* 필요에 따라 조정 가능 */
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      vertical-align: middle;
+    }
     .today-card {
-      background: #ffffff;
-      border: 2px solid #006644;
-      padding: 0.6rem 0.75rem;
+      background: #f3f7f6;
+      border: 1.5px solid #006644;
+      padding: 0.6rem 0.7rem;
       border-radius: 10px;
-      font-size: 0.72rem;
+      font-size: 0.68rem; /* 전체 폰트 크기 살짝 줄임 */
       box-shadow: 0 2px 4px rgba(0,0,0,0.06);
       white-space: normal;
       word-break: keep-all;
     }
     .today-card .text-dark {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: 600;
-      color: #006644;
+      color: #004d33;
     }
     .tournament-card {
       border-radius: 12px;
@@ -211,8 +210,28 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.05);
       overflow-x: auto;
     }
+
+  .toggle-switch .btn {
+    padding: 0.2rem 0.8rem;     /* 높이와 좌우 여백 조절 */
+    font-size: 0.5rem;          /* 텍스트 크기 */
+    min-width: 60px;            /* 버튼 너비 최소값 */
+    border-radius: 20px;        /* 라운드 정도 */
+  }
+
+  .toggle-switch .btn-check:checked + .btn-outline-primary {
+    background-color: #006644;
+    color: white;
+    border-color: #006644;
+  }
+
+  .toggle-switch .btn-check:checked + .btn-outline-secondary {
+    background-color: #006644;
+    color: white;
+    border-color: #006644;
+  }
     .youtube-wrapper {
-      height: 330px; /* 원하시는 높이로 조절 가능 */
+      height: 600px; /* 원하시는 높이로 조절 가능 */
+      overflow-y: auto;
       background: #ffffff;
       border: 2px solid #006644;
       border-radius: 12px;
@@ -222,7 +241,7 @@
     }
     .youtube-card {
       flex: 0 0 auto;
-      width: 250px;
+      width: 155px;
       scroll-snap-align: start;
     }
     .youtube-card .card {
@@ -234,18 +253,50 @@
     .youtube-card .card:hover {
       transform: translateY(-2px);
     }
-    .news-wrapper,
-    .draw-wrapper {
+    #youtubeVideoContainer.youtube-scroll {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 2열 종대 */
+      gap: 0.75rem;
+    }
+    .youtube-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* ✅ 2열 그리드 */
+      gap: 0.75rem;
+    }
+
+    .youtube-card {
+      width: 100%;
+    }
+    .news-wrapper{
       height: 330px; /* 원하시는 높이로 조절 가능 */
       background: #ffffff;
       border: 2px solid #006644;
       border-radius: 12px;
-      padding: 0.75rem;
       box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      overflow-x: auto;
       max-width: 100%;
+      overflow-y: auto;
+      padding: 0.5rem;  /* ✅ 패딩 조정 */
+
+
     }
-    
+
+    .draw-wrapper {
+      height: 330px;
+      background: #ffffff;
+      border: 2px solid #006644;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      max-width: 100%;
+      display: flex !important;
+      flex-direction: row;
+      gap: 1rem;
+      overflow-x: auto;
+      overflow-y: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 0.5rem; /* ✅ 패딩 조정 */
+    }
+
     .news-link {
       color: #006644;
       font-weight: 600;
@@ -258,20 +309,40 @@
     }
     .winner { color: #5C2E91; font-weight: bold; }
     .loser { text-decoration: line-through; color: #888; }
+    .winner, .loser, .player {
+      font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Twemoji Mozilla", "Arial", sans-serif;
+    }
+
+    .player span {
+      display: inline-block;
+      max-width: 100px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      vertical-align: middle;
+    }
     .match-box {
       background-color: #ffffff;
       border: 1px solid #cccccc;
       border-radius: 8px;
-      padding: 0.5rem;
-      font-size: 0.75rem;
+      padding: 0.4rem 0.5rem;
+      font-size: 0.65rem;
       box-shadow: 0 1px 3px rgba(0,0,0,0.05);
       display: flex;
       flex-direction: column;
-      gap: 0.25rem;
+      gap: 0.2rem;
+      line-height: 1.1rem;
+      max-width: 120px;
     }
     .match-box.upcoming {
-      background-color: #f3e8fd;
+      max-width: 120px;
+      background-color: #f8f4fb;
       border: 0.5px solid #5C2E91;
+    }
+    .match-box.upcoming .text-muted {
+      color: #6c757d;
+      font-weight: 500;
+      margin-top: 2px;
     }
     .match-box.upcoming .winner,
     .match-box.upcoming .loser {
@@ -298,15 +369,16 @@
     .white-container2 {
       margin-top: 0rem;
       background-color: #ffffff;
-      padding: 0.7rem 1rem;
+      padding: 0.5rem 0.5rem;
       box-shadow: none;
       margin-bottom: 0;
     }
 
     .media-section {
+      max-height: 100%;
       max-width: 1200px;
       margin: 0 auto; /* 가운데 정렬 */
-      padding: 0.5rem 1rem;
+      padding: 0.7rem 0rem;
     }
     .news-card {
       margin-bottom: 0.2rem;
@@ -333,17 +405,13 @@
       display: flex;
       flex-direction: row;
       overflow-x: auto;
+      overflow-y: auto;
       gap: 1rem;
       padding: 0.5rem 0;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
-      height: 300px; /* PC/Mobile 모두 동일하게 고정 */
     }
     
-    container::-webkit-scrollbar {
-      display: none;
-    }
-
     /* 🎯 각 라운드 컬럼 */
     .round-column {
       flex-shrink: 0;
@@ -351,7 +419,8 @@
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
-      min-width: 180px;
+      min-width: 50px;
+      padding-left: 0.5rem;
     }
 
     .round-header {
@@ -376,8 +445,7 @@
         line-height: 0.9rem;
       }
       .news-container {
-        height: 300px;
-        overflow-y: auto;}
+        height: 400px;}
       .schedule-scroll-container {
           justify-content: center;
         }
@@ -393,6 +461,7 @@
         font-size: 0.6rem;
       }
 
+
       .match-box {
         font-size: 0.62rem;
       }
@@ -403,45 +472,44 @@
       .bracket-section {
         overflow-x: auto;
       }
+
+      .news-container {
+        height: 400px;}
+
       .youtube-wrapper {
-        height: 250px;
+        height: 40
+        0px;
       }
       .bracket-container {
-        height: 210px; /* 모바일도 고정 */
+        height: 400px; /* 모바일도 고정 */
         gap: 0.4rem;
         padding: 0.2rem 0;
       }
-      .news-container {
-        height: 225px; /* 모바일도 고정 */
-      }
-      .filter-area.tournament-switch {
-        justify-content: flex-start;
-        padding-bottom: 0rem;
-      }
+
       .main-navbar .nav-link {
         font-size: 0.72rem;
         padding: 0.3rem 0.8rem;
       }
       .news-wrapper {
-        height: 250px;
+        height: 400px;
       }
       .draw-wrapper {
-        height: 250px;
-        padding: 0.75rem;
-        border-radius: 12px;
+        height: 400px;
       }
       .news-card .card-title {
         font-size: 0.63rem;
         line-height: 0.95rem;
       }
       .news-meta {
-        font-size: 0.52rem;
+        font-size: 0.52rem;}
+        
       .schedule-scroll-container {
         justify-content: center;  /* PC에서는 가운데 정렬 */
     }
   </style>
   
 </head>
+
 <body>
   <div class="logo" style="text-align: center; margin: 1rem 0;">
     <a href="/">
@@ -480,56 +548,6 @@
       </div>
     </div>
   </div>
-  <div class="white-container">
-  {% if schedule and schedule|length > 0 %}
-  <div class="schedule-scroll-container">
-    <div class="schedule-grid">
-      {% for match in schedule %}
-      <div class="schedule-item"
-          data-tournament="{{ match.tournament | lower }}"
-          data-tour="{{ match.tour | lower }}"
-          style="display: none;">
-        <div class="today-card p-2">
-          <div class="d-flex justify-content-between align-items-center mb-1 date-time-wrapper">
-            <span class="text-muted small">{{ match.date_kst }}</span>
-            <div class="d-flex align-items-center">
-              <small class="text-muted me-1">KST</small>
-              <strong class="text-dark">{{ match.time_kst }}</strong>
-            </div>
-          </div>
-
-          {% set players = match.players.split(' - ') %}
-
-          <div class="d-flex justify-content-between align-items-center mb-1">
-            {% set tournament_name = match.tournament %}
-            {% if tournament_name.endswith(' ATP') %}
-              {% set tournament_name = tournament_name[:-4] %}
-            {% elif tournament_name.endswith(' WTA') %}
-              {% set tournament_name = tournament_name[:-4] %}
-            {% endif %}
-            <span class="badge bg-success">{{ tournament_name }}</span>
-            <span class="text-dark small text-end">{{ players[0] }}</span>
-          </div>
-
-          <div class="d-flex justify-content-between align-items-center">
-            {% if match.tour %}
-              <span class="badge bg-secondary text-light badge-tour">{{ match.tour }}</span>
-            {% else %}
-              <span></span>
-            {% endif %}
-            <span class="text-dark small text-end">{{ players[1] }}</span>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-    </div> <!-- schedule-grid -->
-  </div> <!-- schedule-scroll-container -->
-  {% else %}
-  <div class="d-flex justify-content-center align-items-center text-center" style="height: 120px;">
-    <p class="text-primary fw-bold mb-0">🎾 경기가 업데이트중이에요</p>
-  </div>
-  {% endif %}
-</div> <!-- white-container -->
 
 
   {% set round_labels = {
@@ -558,23 +576,30 @@
               {% endfor %}
             {% endif %}
           {% endfor %}
-
           {% if upcoming_matches %}
-          <div class="round-column">
-            <div class="round-header">Upcoming</div>
-            {% for match in upcoming_matches %}
-            <div class="match-box upcoming"
-                 data-player1="{{ match.player1 }}"
-                 data-player2="{{ match.player2 }}"
-                 data-score="{{ match.score }}"
-                 data-winner="{{ match.winner }}"
-                 data-source="{{ match.source }}">
-              <div class="player"><span class="winner">{{ match.player1 }}</span></div>
-              <div class="player"><span class="loser">{{ match.player2 }}</span></div>
+            <div class="round-column">
+              <div class="round-header">Upcoming</div>
+              {% for match in upcoming_matches %}
+                <div class="match-box upcoming"
+                    data-player1="{{ match.player1 }}"
+                    data-player2="{{ match.player2 }}"
+                    data-score="{{ match.score }}"
+                    data-winner="{{ match.winner }}"
+                    data-source="{{ match.source }}">
+                  <div class="player">
+                    <span class="winner">{{ match.player1 }}</span>
+                  </div>
+                  <div class="player">
+                    <span class="loser">{{ match.player2 }}</span>
+                  </div>
+                  {% if match.round %}
+                  <div class="text-muted" style="font-size: 0.65rem;">{{ round_labels.get(match.round, match.round) }}</div>
+                  {% endif %}
+                </div>
+              {% endfor %}
             </div>
-            {% endfor %}
-          </div>
           {% endif %}
+
 
           {% for round in ['F', 'SF', 'QF', 'R16', 'R32', 'R64', 'R128', 'Q3', 'Q2', 'Q1'] %}
             {% if tournament.bracket is defined and tournament.bracket.get(round) %}
@@ -583,15 +608,22 @@
                 <div class="round-column">
                   <div class="round-header">{{ round_labels[round] if round_labels is defined else round }}</div>
                   {% for match in round_matches %}
-                    <div class="match-box"
-                        data-player1="{{ match.player1 }}"
-                        data-player2="{{ match.player2 }}"
-                        data-score="{{ match.score }}"
-                        data-winner="{{ match.winner }}"
-                        data-source="{{ match.source }}">
-                      <div class="player"><span class="winner">{{ match.player1 }}</span></div>
-                      <div class="player"><span class="loser">{{ match.player2 }}</span></div>
+                  <div class="match-box"
+                      data-player1="{{ match.player1 }}"
+                      data-player2="{{ match.player2 }}"
+                      data-score="{{ match.score }}"
+                      data-winner="{{ match.winner }}"
+                      data-source="{{ match.source }}">
+                    <div class="player">
+                      <span class="winner">{{ match.player1 }}</span>
                     </div>
+                    <div class="player">
+                      <span class="loser">{{ match.player2 }}</span>
+                    </div>
+                    {% if match.score %}
+                    <div class="score text-muted" style="font-size: 0.7rem; margin-top: 2px;">{{ match.score }}</div>
+                    {% endif %}
+                  </div>
                   {% endfor %}
                 </div>
               {% endif %}
@@ -610,14 +642,67 @@
 <div class="white-container2">
 
   <div class="button-group">
+    <button id="btn-schedule" class="btn btn-outline-secondary btn-sm filter-btn" onclick="showMediaSection('schedule')">일정</button>
     <button id="btn-youtube" class="btn btn-outline-secondary btn-sm filter-btn active" onclick="showMediaSection('youtube')">영상</button>
     <button id="btn-news" class="btn btn-outline-secondary btn-sm filter-btn" onclick="showMediaSection('news')">뉴스</button>
-    <button id="btn-draw" class="btn btn-outline-secondary btn-sm filter-btn" onclick="showMediaSection('draw')">Draw</button>
+    <button id="btn-draw" class="btn btn-outline-secondary btn-sm filter-btn" onclick="showMediaSection('draw')">드로우</button>
   </div>
 
-  <div id="youtube-section" class="media-section">
-    <div class="youtube-wrapper">
-      <div id="youtubeVideoContainer" class="d-flex gap-2 youtube-scroll">
+  <!-- 🎾 일정 섹션 -->
+<div id="schedule-section" class="media-section" style="display: none;">
+  <div class="news-wrapper">
+    <div id="scheduleContainer" class="news-container">
+      <div class="schedule-scroll-container">
+        <div class="schedule-grid">
+          {% for match in schedule %}
+          <div class="schedule-item"
+              data-tournament="{{ match.tournament | lower }}"
+              data-tour="{{ match.tour | lower }}"
+              style="display: none;">
+            <div class="today-card p-2">
+              <div class="d-flex justify-content-between align-items-center mb-1 date-time-wrapper">
+                <span class="text-muted small">{{ match.date_kst }}</span>
+                <div class="d-flex align-items-center">
+                  <small class="text-muted me-1">KST</small>
+                  <strong class="text-dark">{{ match.time_kst }}</strong>
+                </div>
+              </div>
+
+              {% set players = match.players.split(' - ') %}
+
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                {% set tournament_name = match.tournament %}
+                {% if tournament_name.endswith(' ATP') %}
+                  {% set tournament_name = tournament_name[:-4] %}
+                {% elif tournament_name.endswith(' WTA') %}
+                  {% set tournament_name = tournament_name[:-4] %}
+                {% endif %}
+                <span class="badge bg-success">{{ tournament_name }}</span>
+                <span class="text-dark small text-end player-name-ellipsis">{{ players[0] }}</span>
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center">
+                {% if match.tour %}
+                  <span class="badge bg-secondary text-light badge-tour">{{ match.tour }}</span>
+                {% else %}
+                  <span></span>
+                {% endif %}
+                <span class="text-dark small text-end player-name-ellipsis">{{ players[1] }}</span>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div> <!-- schedule-grid -->
+      </div> <!-- schedule-scroll-container -->
+    </div>
+  </div>
+</div>
+
+<!-- 🎾 유튜브 섹션 -->
+<div id="youtube-section" class="media-section" style="display: block;">
+  <div class="news-wrapper">
+    <div id="youtubeContainer" class="news-container">
+      <div class="youtube-grid">
         {% for entry in youtube_data %}
           {% for video in entry["videos"] %}
           <div class="youtube-card" data-tournament="{{ entry['tournament'] }}">
@@ -637,6 +722,8 @@
       </div>
     </div>
   </div>
+</div>
+
 
   <!-- 🎾 뉴스 섹션 -->
 <div id="news-section" class="media-section" style="display: none;">
@@ -668,162 +755,145 @@
 
 <!-- 🎾 Draw 섹션 -->
 <div id="draw-section" class="media-section" style="display: none;">
-  <div class="draw-wrapper">
-    <div id="rightBracketContainer-draw"></div>
+  <div class="draw-wrapper" id="draw-wrapper">
+    <!-- draw 버튼 클릭 시 JS에서 라운드별 column 추가됨 -->
   </div>
-</div>
-
-
 </div>
 <!-- ✅ 하얀 배경 container 끝 -->
 
 
   
 
-  <!-- JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    // ✅ tournament 이름과 summary 매핑
-    const tournamentSummaries = {
-      {% for entry in youtube_data %}
-        "{{ entry.tournament }}": `{{ entry.summary | replace('\n', ' ') | replace("`", "\\`") | safe }}`{% if not loop.last %},{% endif %}
-      {% endfor %}
-    };
-  
-    function normalize(text) {
-      return text ? text.replace(/[^a-z0-9]/gi, '').toLowerCase() : '';
-    }
-    document.addEventListener('DOMContentLoaded', () => {
-      const path = window.location.pathname;
-  
-      // ✅ 상단 메뉴 경로 강조
-      document.querySelectorAll('.main-navbar .nav-link').forEach(link => {
-        if (link.getAttribute('href') === path) {
-          link.classList.add('active');
-        }
-      });
-  
-      // ✅ 뉴스 전체 기본 표시
-      document.querySelectorAll('.news-list').forEach(news => {
-        news.style.display = 'block';
-      });
-  
-      // ✅ 대회 버튼 클릭 시 모든 필터 적용
-      document.querySelectorAll('.tournament-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const title = btn.getAttribute('data-title') || '';
-          const tid = btn.getAttribute('data-tid') || '';
-  
-          // 🔥 버튼 이름 분리: tour + tournament
-          const parts = title.split(' ');
-          const tour = parts[0]?.trim() || '';
-          const tournamentName = parts.slice(1).join(' ').trim();
-          const normalizedTournament = normalize(tournamentName);
-          const normalizedTitle = normalize(title);
-  
-          // ✅ summary 업데이트
-          const summaryBox = document.getElementById("summary-box");
-          if (summaryBox && tournamentSummaries[title]) {
-            summaryBox.innerHTML = `
-            <span style="color:#006644; font-size:1.2rem; font-weight:bold;">❝</span>&nbsp;
-            ${tournamentSummaries[title]}&nbsp;
-            <span style="color:#006644; font-size:1.2rem; font-weight:bold;">❞</span>
-          `;
-          } else {
-            summaryBox.innerHTML = "📋 대회 정보가 없습니다.";
-          }
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const tournamentSummaries = {
+    {% for entry in youtube_data %}
+      "{{ entry.tournament }}": `{{ entry.summary | replace('\n', ' ') | replace("`", "\\`") | safe }}`{% if not loop.last %},{% endif %}
+    {% endfor %}
+  };
 
-  
-          // ✅ 버튼 active 처리
-          document.querySelectorAll('.tournament-btn').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-  
-          // ✅ 예정 경기 필터링 (tour + tournamentName 정확 매칭)
-          document.querySelectorAll('.schedule-item').forEach(card => {
-            const cardTournament = normalize(card.getAttribute('data-tournament') || '');
-            const cardTour = normalize(card.getAttribute('data-tour') || '');
-  
-            if (cardTour === normalize(tour) && cardTournament.includes(normalizedTournament)) {
-              card.style.display = 'block';
-            } else {
-              card.style.display = 'none';
-            }
-          });
-  
-          // 3. 유튜브, 뉴스, 드로우는 그냥 버튼 normalize title과 data-tournament normalize 비교
-          document.querySelectorAll('.youtube-card').forEach(card => {
-            const cardTournament = normalize(card.getAttribute('data-tournament') || '');
-            card.style.display = cardTournament === normalizedTitle ? 'block' : 'none';
-          });
+  function normalize(text) {
+    return text ? text.replace(/[^a-z0-9]/gi, '').toLowerCase() : '';
+  }
 
-          document.querySelectorAll('.news-list').forEach(news => {
-            const cardTournament = normalize(news.getAttribute('data-tournament') || '');
-            news.style.display = cardTournament === normalizedTitle ? 'block' : 'none';
-          });
+  document.addEventListener('DOMContentLoaded', () => {
+    const path = window.location.pathname;
 
-          document.querySelectorAll('.tournament-card').forEach(card => {
-            const cardTournament = normalize(card.getAttribute('data-tournament') || '');
-            card.style.display = cardTournament === normalizedTitle ? 'block' : 'none';
-          });
-  
-          // ✅ 브라켓 카드 전환 (tid 기반)
-          document.querySelectorAll('.tournament-card').forEach(card => {
-            card.style.display = (card.getAttribute('data-tid') === tid) ? 'block' : 'none';
-          });
-  
-          // ✅ draw 복사
-          const sourceBracket = document.querySelector(`.tournament-card[data-tid="${tid}"] .bracket-section`);
-          const container = document.getElementById("rightBracketContainer-draw");
-          container.innerHTML = '';
-
-          if (sourceBracket) {
-            const cloned = sourceBracket.cloneNode(true);
-
-            // 🧹 cloned 안에 숨겨져 있는 요소들 전부 보이게
-            cloned.querySelectorAll('[style*="display: none"]').forEach(el => {
-              if (el.classList.contains('round-column')) {
-                el.style.display = "flex";  // round-column이면 flex로
-              } else {
-                el.style.display = "block"; // 아니면 block으로
-              }
-            });
-
-            cloned.style.display = "block"; // 브라켓 전체도 보이게
-            container.appendChild(cloned);
-            container.style.display = "block";
-          }
-        });
-      });
-  
-      // ✅ 첫 번째 대회 버튼 자동 클릭
-      const firstTournamentBtn = document.querySelector('.tournament-btn');
-      if (firstTournamentBtn) {
-        firstTournamentBtn.click();
+    document.querySelectorAll('.main-navbar .nav-link').forEach(link => {
+      if (link.getAttribute('href') === path) {
+        link.classList.add('active');
       }
     });
-  
-    // ✅ 보기 버튼(유튜브/뉴스/Draw) 전환
-    function showMediaSection(type) {
-      ['btn-youtube', 'btn-news', 'btn-draw'].forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.classList.remove('active');
-      });
-  
-      const activeBtn = document.getElementById("btn-" + type);
-      if (activeBtn) activeBtn.classList.add("active");
-  
-      document.getElementById("youtube-section").style.display = type === "youtube" ? "block" : "none";
-      document.getElementById("news-section").style.display = type === "news" ? "block" : "none";
-      document.getElementById("draw-section").style.display = type === "draw" ? "block" : "none";
-    }
-  </script>
-  
-  
-  
 
-  
-  
-  
+    document.querySelectorAll('.news-list').forEach(news => {
+      news.style.display = 'block';
+    });
+
+    const drawWrapper = document.getElementById("draw-wrapper");
+
+    document.querySelectorAll('.tournament-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const title = btn.getAttribute('data-title') || '';
+        const tid = btn.getAttribute('data-tid') || '';
+        const parts = title.split(' ');
+        const tour = parts[0]?.trim() || '';
+        const tournamentName = parts.slice(1).join(' ').trim();
+        const normalizedTournament = normalize(tournamentName);
+        const normalizedTitle = normalize(title);
+
+        const summaryBox = document.getElementById("summary-box");
+        summaryBox.innerHTML = tournamentSummaries[title] || "📋 대회 정보가 없습니다.";
+
+        document.querySelectorAll('.tournament-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        document.querySelectorAll('.schedule-item').forEach(card => {
+          const cardTournament = normalize(card.getAttribute('data-tournament') || '');
+          const cardTour = normalize(card.getAttribute('data-tour') || '');
+          card.style.display = (cardTour === normalize(tour) && cardTournament.includes(normalizedTournament)) ? 'block' : 'none';
+        });
+
+        document.querySelectorAll('.youtube-card').forEach(card => {
+          const cardTournament = normalize(card.getAttribute('data-tournament') || '');
+          card.style.display = cardTournament === normalizedTitle ? 'block' : 'none';
+        });
+
+        document.querySelectorAll('.news-list').forEach(news => {
+          const cardTournament = normalize(news.getAttribute('data-tournament') || '');
+          news.style.display = cardTournament === normalizedTitle ? 'block' : 'none';
+        });
+
+        document.querySelectorAll('.tournament-card').forEach(card => {
+          card.style.display = (card.getAttribute('data-tid') === tid) ? 'block' : 'none';
+        });
+
+        // ✅ draw 복사: 현재 대회의 bracket-section을 draw-wrapper로 전환
+        const sourceBracket = document.querySelector(`.tournament-card[data-tid="${tid}"] .bracket-section`);
+        drawWrapper.innerHTML = '';
+
+        if (sourceBracket) {
+          const cloned = sourceBracket.cloneNode(true);
+          const columns = cloned.querySelectorAll('.round-column');
+          columns.forEach(col => drawWrapper.appendChild(col.cloneNode(true)));
+        }
+
+        // 기본값: upcoming 버튼 상태
+        document.getElementById("drawUpcomingBtn").click();
+      });
+    });
+
+    // ✅ 첫 번째 대회 자동 클릭
+    const firstTournamentBtn = document.querySelector('.tournament-btn');
+    if (firstTournamentBtn) firstTournamentBtn.click();
+
+    // ✅ draw 탭 내 모드 버튼 처리 (draw-wrapper 내부 필터링)
+    const btnUpcoming = document.getElementById("drawUpcomingBtn");
+    const btnPast = document.getElementById("drawPastBtn");
+
+    btnUpcoming.addEventListener('click', () => {
+      btnUpcoming.classList.add('btn-outline-primary');
+      btnUpcoming.classList.remove('btn-outline-secondary');
+      btnPast.classList.remove('btn-outline-primary');
+      btnPast.classList.add('btn-outline-secondary');
+
+      const drawWrapper = document.getElementById("draw-wrapper");
+      drawWrapper.querySelectorAll('.round-column').forEach(col => {
+        const isUpcoming = [...col.querySelectorAll('.match-box')].every(box => box.classList.contains('upcoming'));
+        col.style.display = isUpcoming ? 'flex' : 'none';
+      });
+    });
+
+    btnPast.addEventListener('click', () => {
+      btnPast.classList.add('btn-outline-primary');
+      btnPast.classList.remove('btn-outline-secondary');
+      btnUpcoming.classList.remove('btn-outline-primary');
+      btnUpcoming.classList.add('btn-outline-secondary');
+
+      const drawWrapper = document.getElementById("draw-wrapper");
+      drawWrapper.querySelectorAll('.round-column').forEach(col => {
+        const hasPast = [...col.querySelectorAll('.match-box')].some(box => !box.classList.contains('upcoming'));
+        col.style.display = hasPast ? 'flex' : 'none';
+      });
+    });
+  });
+
+  function showMediaSection(type) {
+    ['btn-schedule', 'btn-youtube', 'btn-news', 'btn-draw'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.classList.remove('active');
+    });
+
+    const activeBtn = document.getElementById("btn-" + type);
+    if (activeBtn) activeBtn.classList.add("active");
+
+    document.getElementById("schedule-section").style.display = type === "schedule" ? "block" : "none";
+    document.getElementById("youtube-section").style.display = type === "youtube" ? "block" : "none";
+    document.getElementById("news-section").style.display = type === "news" ? "block" : "none";
+    document.getElementById("draw-section").style.display = type === "draw" ? "block" : "none";
+  }
+</script>
+
+
 
 </body>
 </html>
