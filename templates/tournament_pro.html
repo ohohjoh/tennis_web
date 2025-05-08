@@ -229,15 +229,16 @@
     color: white;
     border-color: #006644;
   }
-    .youtube-wrapper {
-      height: 600px; /* 원하시는 높이로 조절 가능 */
-      overflow-y: auto;
+    .youtube-wrapper{
+      height: 330px; /* 원하시는 높이로 조절 가능 */
       background: #ffffff;
       border: 2px solid #006644;
       border-radius: 12px;
-      padding: 0.75rem;
-
-      overflow-x: auto;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      max-width: 100%;
+      overflow-y: auto;
+      padding: 0.5rem;  /* ✅ 패딩 조정 */
+      gap: 0.1rem;
     }
     .youtube-card {
       flex: 0 0 auto;
@@ -267,6 +268,18 @@
       gap: 0.75rem;
     }
 
+    .schedule-wrapper{
+      height: 330px; /* 원하시는 높이로 조절 가능 */
+      background: #ffffff;
+      border: 2px solid #006644;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      max-width: 100%;
+      overflow-y: auto;
+      padding: 0.5rem;  /* ✅ 패딩 조정 */
+      gap: 0.1rem;
+    }
+
     .news-wrapper{
       height: 330px; /* 원하시는 높이로 조절 가능 */
       background: #ffffff;
@@ -276,8 +289,7 @@
       max-width: 100%;
       overflow-y: auto;
       padding: 0.5rem;  /* ✅ 패딩 조정 */
-
-
+      gap: 0.1rem;
     }
 
     .draw-wrapper {
@@ -381,25 +393,36 @@
       padding: 0.7rem 0rem;
     }
     .news-card {
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.5rem;  /* ✅ 카드 간 간격 증가 */
     }
     .news-card .card {
-      margin-bottom: 0rem;
-      padding: 0.3rem;
+      padding: 0.5rem 0.7rem;
       border-radius: 10px;
+      border: 1px solid #e0e0e0;  /* ✅ 더 미세한 테두리 */
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+      transition: all 0.2s ease;
     }
-    .news-card .card-body {
-      padding: 0.5rem;
+    .news-card .card:hover {
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);  /* ✅ hover 효과로 집중 유도 */
     }
     .news-card .card-title {
-      font-size: 0.75rem;
-      font-weight: 500;
-      line-height: 1.2rem;
-      margin-bottom: 0.3rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #222;
+      margin-bottom: 0.25rem;
     }
     .news-meta {
       font-size: 0.7rem;
-      color: #888;
+      color: #777;
+    }
+    .news-card a {
+      text-decoration: none;
+      display: block;
+      color: inherit;
+    }
+    .news-card a:hover .card-title {
+      color: #5C2E91;
+      text-decoration: underline;
     }
     .bracket-container {
       display: flex;
@@ -445,7 +468,7 @@
         line-height: 0.9rem;
       }
       .news-container {
-        height: 400px;}
+        height: 500px;}
       .schedule-scroll-container {
           justify-content: center;
         }
@@ -473,13 +496,6 @@
         overflow-x: auto;
       }
 
-      .news-container {
-        height: 400px;}
-
-      .youtube-wrapper {
-        height: 40
-        0px;
-      }
       .bracket-container {
         height: 400px; /* 모바일도 고정 */
         gap: 0.4rem;
@@ -491,21 +507,32 @@
         padding: 0.3rem 0.8rem;
       }
       .news-wrapper {
-        height: 300px;
+        height: 350px;
       }
       .draw-wrapper {
-        height: 300px;
+        height: 350px;
       }
       .news-card .card-title {
-        font-size: 0.63rem;
-        line-height: 0.95rem;
+        font-size: 0.65rem;
+        line-height: 1rem;
       }
+
       .news-meta {
-        font-size: 0.52rem;}
+        font-size: 0.55rem;
+      }
+
+      .news-card .card {
+        padding: 0.3rem 0.4rem;
+      }
+      .news-card .card-body {
+        padding: 0.4rem 0.5rem; /* 기존보다 축소 */
+      }
+    }
         
       .schedule-scroll-container {
         justify-content: center;  /* PC에서는 가운데 정렬 */
     }
+  
   </style>
   
 </head>
@@ -650,7 +677,7 @@
 
   <!-- 🎾 일정 섹션 -->
 <div id="schedule-section" class="media-section" style="display: none;">
-  <div class="news-wrapper">
+  <div class="schedule-wrapper">
     <div id="scheduleContainer" class="news-container">
       <div class="schedule-scroll-container">
         <div class="schedule-grid">
@@ -700,7 +727,7 @@
 
 <!-- 🎾 유튜브 섹션 -->
 <div id="youtube-section" class="media-section" style="display: block;">
-  <div class="news-wrapper">
+  <div class="youtube-wrapper">
     <div id="youtubeContainer" class="news-container">
       <div class="youtube-grid">
         {% for entry in youtube_data %}
@@ -739,8 +766,9 @@
                   <div class="card">
                     <div class="card-body">
                       <div class="card-title">{{ article.title_ko }}</div>
-                      <div class="news-meta">🗓 {{ article.published[:10] }} · {{ article.source }}</div>
-                    </div>
+                      <div class="news-meta">
+                        🗓 {{ article.published[:10] }} <span class="mx-1">·</span> 📰 {{ article.source }}
+                      </div>
                   </div>
                 </a>
               </li>
