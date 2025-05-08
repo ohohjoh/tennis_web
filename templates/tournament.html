@@ -107,6 +107,7 @@
     .white-container {
       background: #ffffff;
       height : 620px;
+      padding-top: 0;
     }
     /* ✅ 토너먼트 탑 탭 */
     .tournament-top-tab {
@@ -318,6 +319,9 @@
 
     /* ✅ 카드 스타일 */
     .mobile-card {
+      width: 280px;
+      min-width: 280px;
+      max-width: 280px;
       flex: 0 0 100%;
       max-width: 100%;
       scroll-snap-align: center;
@@ -356,9 +360,10 @@
       }
 
       .mobile-card {
+        width: 220px;
+        min-width: 220px;
+        max-width: 220px;
         flex: 0 0 48%;
-        max-width: 48%;
-        min-width: 48%;
         font-size: 0.5rem; /* ✅ 전체 폰트 축소 */
         padding: 0.6rem; /* ✅ 카드 내부 여백도 소폭 축소 */
         margin: 0 auto;
@@ -408,7 +413,6 @@
       color: #5C2E91;
       font-size: 0.78rem;
       font-size: 0.7rem; /* ✅ 카드 내부 텍스트 축소 */
-      padding: 0.5rem 0.6rem;
       text-align: center;
       font-weight: 500;
       line-height: 1.6;
@@ -571,7 +575,7 @@
 
   <div class="white-container">
 
-    <div class="card-section p-2">
+    <div class="card-section">
       <!-- ✅ 검색 + 빈자리 체크박스 -->
       <div class="search-wrapper d-flex flex-wrap align-items-center justify-content-between mb-3 px-2">
         <!-- 🔍 검색 입력창 (50%로 축소) -->
@@ -669,41 +673,47 @@
         render(filtered);
       }
     
+      // ✅ 기본 렌더 (복식만)
       function showAll() {
         currentFilter = 'all';
-        filterAndRender();
+        const filtered = rawData.filter(item => (item['종류'] || '') !== '단식');
+        renderMobileCards(filtered);
         setActiveButton('btn-all');
-        document.getElementById("mobile-cards").scrollTo({ top: 0, left: 0, behavior: 'auto' });
-
+        document.getElementById("mobile-cards").scrollTo({ top: 0, left: 0 });
       }
     
+      // ✅ 필터 버튼 (복식에서만 필터링)
       function filterByKeyword(keyword) {
         currentFilter = keyword;
-        filterAndRender(keyword);
+        const filtered = rawData.filter(item =>
+          (item['종류'] || '') !== '단식' &&
+          (item['부서'] || '').includes(keyword)
+        );
+        renderMobileCards(filtered);
         setActiveButton('btn-' + keyword);
-        document.getElementById("mobile-cards").scrollTo({ top: 0, left: 0, behavior: 'auto' });
+        document.getElementById("mobile-cards").scrollTo({ top: 0, left: 0 });
       }
-    
+
+      // ✅ 기타 필터 (복식 중 특정 키워드 미포함만)
       function filterOthers() {
-        const keywords = ['신인', '오픈', '개나리', '국화', '단식'];
         currentFilter = '기타';
-        filterAndRender(keywords, true);
+        const keywords = ['신인', '오픈', '개나리', '국화', '단식'];
+        const filtered = rawData.filter(item =>
+          (item['종류'] || '') !== '단식' &&
+          !keywords.some(kw => (item['부서'] || '').includes(kw))
+        );
+        renderMobileCards(filtered);
         setActiveButton('btn-기타');
-        document.getElementById("mobile-cards").scrollTo({ top: 0, left: 0, behavior: 'auto' });
+        document.getElementById("mobile-cards").scrollTo({ top: 0, left: 0 });
       }
     
+      // ✅ 단식은 단식만
       function filterSingles() {
         currentFilter = '단식';
-
-        let filtered = rawData.filter(item =>
-          (item['종류'] || '') === '단식'
-        );
-
-        // ❗ Opening 필터는 단식에 적용하지 않음 (단식은 그대로 유지)
-        renderSingles(filtered);
+        const filtered = rawData.filter(item => item['종류']?.trim() === '단식');
+        renderMobileCards(filtered);  // ✅ 단일 함수로 통일
         setActiveButton('btn-단식');
-        document.getElementById("mobile-cards").scrollTo({ top: 0, left: 0, behavior: 'auto' });
-
+        document.getElementById("mobile-cards").scrollTo({ top: 0, left: 0 });
       }
     
       function applyFilters() {
@@ -779,7 +789,7 @@
               <div><i class="bi bi-person-badge"></i> ${getAgencyLogo(item['주관사'])}</div>
             </div>
 
-            <div class="progress mb-2" style="position: relative; height: 18px;">
+            <div class="progress mb-2" style="position: relative; height: 18px; margin-top: 0.5rem;">
               <div class="progress-bar ${progressColor}" style="width: ${percentage}%; height: 100%;">
                 <span style="
                   position: absolute;
@@ -800,56 +810,6 @@
 
             ${item['new_updated'] ? `<div class="text-center text-secondary mt-2" style="font-size: 0.7rem;">업데이트: ${new Date(item['new_updated']).toLocaleDateString('ko-KR')}</div>` : ''}
           `;
-
-
-          cardsContainer.appendChild(div);
-        });
-      }
-
-      function renderSingles(data) {
-        const cardsContainer = document.getElementById("mobile-cards");
-        cardsContainer.innerHTML = "";
-
-        data.forEach((item, idx) => {
-          const division = item['그룹'] ? `${item['그룹']}그룹` : '단식';
-          const isNewItem = isNew(item);
-
-          const div = document.createElement("div");
-          div.className = "mobile-card";
-          div.innerHTML = `
-            <div class="d-flex justify-content-between align-items-center mb-1">
-              <span class="badge bg-purple text-white" style="font-size: 0.65rem; padding: 0.3rem 0.6rem; border-radius: 8px;">${division}</span>
-              <div class="text-muted" style="font-size: 0.65rem;">${idx + 1} / ${data.length}</div>
-            </div>
-
-            ${isNewItem ? '<div class="text-center mb-1"><span class="new-badge">NEW!!</span></div>' : ''}
-            <h6 class="text-center" style="font-size: 0.85rem; margin-bottom: 0.4rem;">${item['대회명'] || ''}</h6>
-
-            <div class="card-info-wrapper text-muted" style="font-size: 0.7rem;">
-              ${item['대회기간'] ? `<div><i class="bi bi-calendar-event"></i> ${item['대회기간']}</div>` : ''}
-              ${item['장소'] ? `<div><i class="bi bi-geo-alt"></i> ${item['장소']}</div>` : ''}
-              <div><i class="bi bi-person-badge"></i> ${getAgencyLogo(item['주관사'])}</div>
-            </div>
-
-            <div class="d-flex justify-content-between align-items-center mb-2 mt-1">
-              <div class="progress flex-grow-1 me-2" style="position: relative; height: 16px;">
-                <div class="progress-bar ${progressColor}" style="width: ${percentage}%; height: 100%;">
-                  <span style="position: absolute; left: 0; right: 0; top: 0; bottom: 0;
-                    display: flex; align-items: center; justify-content: center;
-                    font-size: 0.65rem; font-weight: 600; color: #222;">
-                    ${current} / ${capacity}
-                  </span>
-                </div>
-              </div>
-              <a href="${item['참가신청 링크']}" target="_blank"
-                class="btn btn-outline-success btn-sm px-2 py-1"
-                style="font-size: 0.65rem; white-space: nowrap;">
-                신청
-              </a>
-            </div>
-
-            ${item['new_updated'] ? `<div class="text-center text-secondary" style="font-size: 0.6rem;">업데이트: ${new Date(item['new_updated']).toLocaleDateString('ko-KR')}</div>` : ''}
-            `
 
 
           cardsContainer.appendChild(div);
@@ -896,7 +856,6 @@
         container.innerHTML = `
           <div class="d-flex align-items-center justify-content-between px-2 mb-1">
             <h6 class="m-0 fw-bold">📅 예정 대회 (${data.length}개)</h6>
-            <small class="text-muted" style="font-size: 0.65rem;">눈을 크게 뜨세요!</small>
           </div>
           <div class="upcoming-slider d-flex overflow-auto gap-2 pb-2 px-2"></div>
         `;
