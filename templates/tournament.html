@@ -142,6 +142,7 @@
 
     .search-wrapper {
       margin-top: 0rem !important;
+      margin-bottom: 0rem !important;
     }
     .filter-area.tournament-switch::-webkit-scrollbar { display: none; }
 
@@ -325,7 +326,8 @@
       border: 2px solid #006644;
       border-radius: 12px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-      padding: 1rem;
+      font-size: 0.75rem; /* ✅ 전체 폰트 축소 */
+      padding: 0.6rem; /* ✅ 카드 내부 여백도 소폭 축소 */
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -357,7 +359,8 @@
         flex: 0 0 48%;
         max-width: 48%;
         min-width: 48%;
-        font-size: 0.75rem;
+        font-size: 0.5rem; /* ✅ 전체 폰트 축소 */
+        padding: 0.6rem; /* ✅ 카드 내부 여백도 소폭 축소 */
         margin: 0 auto;
       }
     }
@@ -370,15 +373,14 @@
     }
 
     .mobile-card {
-      padding: 0.75rem;
-      font-size: 0.85rem;
+      font-size: 0.75rem; /* ✅ 전체 폰트 축소 */
+      padding: 0.6rem; /* ✅ 카드 내부 여백도 소폭 축소 */
     }
     
     .mobile-card h6 {
-      font-size: 1rem;
-      margin-bottom: 0.3rem;
+      font-size: 0.85rem; /* ✅ 대회명 작게 */
+      margin-bottom: 0.25rem;
     }
-
     .mobile-card p {
       font-size: 0.8rem;
       margin-bottom: 0.25rem;
@@ -402,16 +404,17 @@
     .card-info-wrapper {
       background-color: #f2f2f2;
       border-radius: 10px;
-      padding: 0.6rem 0.75rem;
-      margin-bottom: 0.6rem;
+      padding: 0.2rem 0.2rem;
       color: #5C2E91;
       font-size: 0.78rem;
+      font-size: 0.7rem; /* ✅ 카드 내부 텍스트 축소 */
+      padding: 0.5rem 0.6rem;
       text-align: center;
       font-weight: 500;
       line-height: 1.6;
     }
     .card-info-wrapper > div {
-      padding: 0.25rem 0;
+      padding: 0.2rem 0;
     }
     .card-info-wrapper > div:not(:last-child) {
       border-bottom: 1px solid rgba(0, 102, 68, 0.2); /* #006644의 연한 버전 */
@@ -468,8 +471,65 @@
       font-size: 1.3rem;
     }
 
+    .bg-purple {
+      background-color: #5C2E91;
+      color: #fff;
+    }
+    .upcoming-slider {
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding-left: 0.5rem;
+      padding-top:0.4rem;
+    }
 
-    
+    .upcoming-card-section {
+      background-color: #f3f7f6;
+      border-top: 1px solid #ccc; /* ✅ 연한 회색 구분선 */
+      border-bottom: 1px solid #ccc; /* ✅ 연한 회색 구분선 */
+      padding-top: 0.5rem;
+    }
+
+    .upcoming-card {
+      scroll-snap-align: start;
+      flex: 0 0 auto;
+      width: 130px;
+      min-height: 90px;
+      border: 1.3px solid #5C2E91;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 3px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.3rem 0.3rem;  /* ✅ 위아래 여백 살짝만 줌 */
+      margin: 0.2rem 0;        /* ✅ 카드 위아래 여백 살짝 줌 */
+    }
+
+    .upcoming-card .title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-align: center;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.2;
+      height: 2.4em; 
+      margin-bottom: 0.3rem;  /* ✅ 정보와의 간격 줄임 */
+    }
+
+    .upcoming-card .info {
+      font-size: 0.5rem;
+      color: #666;
+      text-align: center;
+      line-height: 1.3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+
   </style>
 </head>
 <body>
@@ -512,8 +572,6 @@
   <div class="white-container">
 
     <div class="card-section p-2">
-
-  
       <!-- ✅ 검색 + 빈자리 체크박스 -->
       <div class="search-wrapper d-flex flex-wrap align-items-center justify-content-between mb-3 px-2">
         <!-- 🔍 검색 입력창 (50%로 축소) -->
@@ -534,13 +592,15 @@
       <!-- ✅ 카드 출력 영역 -->
       <div id="mobile-cards" class="d-flex overflow-auto gap-3 px-2"></div>
   
-      <!-- ✅ 업데이트 시간 -->
+      <!-- ✅ 업데이트 시간
       <div class="update-time-wrapper d-flex justify-content-center mt-4">
         <div class="update-time-box text-muted small">
           ⏰ 데이터 기준: {{ last_modified }}
         </div>
       </div>
-  
+   -->
+    </div>
+    <div class="upcoming-card-section p-2">
     </div>
   
   </div>  
@@ -568,8 +628,16 @@
           const aDate = normalizeDate(a['대회기간']);
           const bDate = normalizeDate(b['대회기간']);
           return bDate - aDate;
-        });        showAll();
-      }
+        });
+
+        // ✅ 일반 카드 렌더링
+        showAll();
+
+        // ✅ 예정된 대회만 필터링해서 렌더링
+          // ✅ upcoming에서 예정 대회만 렌더링
+          const upcomingList = result.upcoming || [];
+          renderUpcoming(upcomingList);
+        }
     
       function render(data) {
         renderMobileCards(data);
@@ -698,25 +766,41 @@
           const div = document.createElement("div");
           div.className = "mobile-card";
           div.innerHTML = `
-          <div class="text-center text-muted mb-1" style="font-size:0.75rem">${idx + 1} / ${data.length}</div>
-          ${isNewItem ? '<div class="text-center mb-1"><span class="new-badge">NEW!!</span></div>' : ''}
-          <h6 class="text-center">${item['대회명'] || ''}</h6>
+            <div class="d-flex justify-content-between align-items-center mb-1">
+              <span class="badge bg-purple text-white" style="font-size: 0.7rem; padding: 0.4rem 0.6rem; background-color: #5C2E91; border-radius: 10px;">${division}</span>
+              <div class="text-muted" style="font-size:0.75rem">${idx + 1} / ${data.length}</div>
+            </div>
+            ${isNewItem ? '<div class="text-center mb-1"><span class="new-badge">NEW!!</span></div>' : ''}
+            <h6 class="text-center">${item['대회명'] || ''}</h6>
 
-          <div class="card-info-wrapper">
-            ${item['대회기간'] ? `<div><i class="bi bi-calendar-event"></i> ${item['대회기간']}</div>` : ''}
-            ${item['장소'] ? `<div><i class="bi bi-geo-alt"></i> ${item['장소']}</div>` : ''}
-            <div><i class="bi bi-person-badge"></i> ${getAgencyLogo(item['주관사'])}</div>
-            ${division ? `<div><i class="bi bi-people"></i> ${division}</div>` : ''}
-          </div>
-          <div class="progress mb-1">
-            <div class="progress-bar ${progressColor}" style="width: ${percentage}%"></div>
-          </div>
-          <p class="text-center fw-bold mb-2 ${progressTextClass}">${current}/${capacity}</p>
-          <div class="d-grid">
+            <div class="card-info-wrapper">
+              ${item['대회기간'] ? `<div><i class="bi bi-calendar-event"></i> ${item['대회기간']}</div>` : ''}
+              ${item['장소'] ? `<div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><i class="bi bi-geo-alt"></i> ${item['장소']}</div>` : ''}
+              <div><i class="bi bi-person-badge"></i> ${getAgencyLogo(item['주관사'])}</div>
+            </div>
+
+            <div class="progress mb-2" style="position: relative; height: 18px;">
+              <div class="progress-bar ${progressColor}" style="width: ${percentage}%; height: 100%;">
+                <span style="
+                  position: absolute;
+                  left: 0; right: 0;
+                  top: 0; bottom: 0;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 0.7rem;
+                  font-weight: 600;
+                  color: #222;">
+                  ${current} / ${capacity}
+                </span>
+              </div>
+            </div>
+
             <a href="${item['참가신청 링크']}" target="_blank" class="btn btn-outline-success btn-sm">신청하기</a>
-          </div>
-          ${item['new_updated'] ? `<div class="text-center text-secondary mt-2" style="font-size: 0.7rem;">업데이트: ${new Date(item['new_updated']).toLocaleDateString('ko-KR')}</div>` : ''}
-        `;
+
+            ${item['new_updated'] ? `<div class="text-center text-secondary mt-2" style="font-size: 0.7rem;">업데이트: ${new Date(item['new_updated']).toLocaleDateString('ko-KR')}</div>` : ''}
+          `;
+
 
           cardsContainer.appendChild(div);
         });
@@ -733,21 +817,40 @@
           const div = document.createElement("div");
           div.className = "mobile-card";
           div.innerHTML = `
-            <div class="text-center text-muted mb-1" style="font-size:0.75rem">${idx + 1} / ${data.length}</div>
+            <div class="d-flex justify-content-between align-items-center mb-1">
+              <span class="badge bg-purple text-white" style="font-size: 0.65rem; padding: 0.3rem 0.6rem; border-radius: 8px;">${division}</span>
+              <div class="text-muted" style="font-size: 0.65rem;">${idx + 1} / ${data.length}</div>
+            </div>
+
             ${isNewItem ? '<div class="text-center mb-1"><span class="new-badge">NEW!!</span></div>' : ''}
-            <h6 class="text-center">${item['대회명'] || ''}</h6>
+            <h6 class="text-center" style="font-size: 0.85rem; margin-bottom: 0.4rem;">${item['대회명'] || ''}</h6>
 
-            <div class="card-info-wrapper text-center text-muted small" style="font-size:0.75rem">
-              ${item['대회기간'] ? `<div class="py-1"><i class="bi bi-calendar-event"></i> ${item['대회기간']}</div>` : ''}
-              ${item['장소'] ? `<div class="py-1"><i class="bi bi-geo-alt"></i> ${item['장소']}</div>` : ''}
-              <div class="py-1"><i class="bi bi-person-badge"></i> ${getAgencyLogo(item['주관사'])}</div>
-              ${division ? `<div class="py-1"><i class="bi bi-people"></i> ${division}</div>` : ''}
+            <div class="card-info-wrapper text-muted" style="font-size: 0.7rem;">
+              ${item['대회기간'] ? `<div><i class="bi bi-calendar-event"></i> ${item['대회기간']}</div>` : ''}
+              ${item['장소'] ? `<div><i class="bi bi-geo-alt"></i> ${item['장소']}</div>` : ''}
+              <div><i class="bi bi-person-badge"></i> ${getAgencyLogo(item['주관사'])}</div>
             </div>
 
-            <div class="d-grid mt-2">
-              <a href="${item['참가신청 링크']}" target="_blank" class="btn btn-outline-success btn-sm">신청하기</a>
+            <div class="d-flex justify-content-between align-items-center mb-2 mt-1">
+              <div class="progress flex-grow-1 me-2" style="position: relative; height: 16px;">
+                <div class="progress-bar ${progressColor}" style="width: ${percentage}%; height: 100%;">
+                  <span style="position: absolute; left: 0; right: 0; top: 0; bottom: 0;
+                    display: flex; align-items: center; justify-content: center;
+                    font-size: 0.65rem; font-weight: 600; color: #222;">
+                    ${current} / ${capacity}
+                  </span>
+                </div>
+              </div>
+              <a href="${item['참가신청 링크']}" target="_blank"
+                class="btn btn-outline-success btn-sm px-2 py-1"
+                style="font-size: 0.65rem; white-space: nowrap;">
+                신청
+              </a>
             </div>
-          `;
+
+            ${item['new_updated'] ? `<div class="text-center text-secondary" style="font-size: 0.6rem;">업데이트: ${new Date(item['new_updated']).toLocaleDateString('ko-KR')}</div>` : ''}
+            `
+
 
           cardsContainer.appendChild(div);
         });
@@ -786,6 +889,32 @@
         const diffHours = (now - updated) / (1000 * 60 * 60);
         return diffHours <= 48;
       }
+
+      function renderUpcoming(data) {
+        const container = document.querySelector(".upcoming-card-section");
+
+        container.innerHTML = `
+          <div class="d-flex align-items-center justify-content-between px-2 mb-1">
+            <h6 class="m-0 fw-bold">📅 예정 대회 (${data.length}개)</h6>
+            <small class="text-muted" style="font-size: 0.65rem;">눈을 크게 뜨세요!</small>
+          </div>
+          <div class="upcoming-slider d-flex overflow-auto gap-2 pb-2 px-2"></div>
+        `;
+
+        const slider = container.querySelector(".upcoming-slider");
+
+        data.forEach(item => {
+          const card = document.createElement("div");
+          card.className = "upcoming-card text-dark";
+          card.innerHTML = `
+            <div class="title">${item["대회명"] || "대회명 없음"}</div>
+            <div class="info mt-1">${item["대회기간"] || ""}</div>
+            <div class="info">${item["주관사"] || ""}</div>
+          `;
+          slider.appendChild(card);
+        });
+      }
+
     </script>
   </body>
 </html>
