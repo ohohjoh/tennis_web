@@ -107,7 +107,7 @@
     .white-container {
       background: #ffffff;
       height : 620px;
-      padding-top: 0;
+      padding-top: 0.2rem;
     }
     /* ✅ 토너먼트 탑 탭 */
     .tournament-top-tab {
@@ -311,8 +311,8 @@
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
-        gap: 1rem;
-        padding: 1rem;
+        padding: 0.6rem;
+        padding-bottom: 1.2rem;
         padding-left: 0;
         padding-right: 0;
       }
@@ -320,10 +320,8 @@
     /* ✅ 카드 스타일 */
     .mobile-card {
       width: 280px;
-      min-width: 280px;
-      max-width: 280px;
+      height: 280px;
       flex: 0 0 100%;
-      max-width: 100%;
       scroll-snap-align: center;
       color: #222222; /* 어두운 텍스트 */
       background: #ffffff;
@@ -337,13 +335,6 @@
       justify-content: space-between;
     }
 
-    @media (min-width: 768px) {
-      .mobile-card {
-        flex: 0 0 30%;
-        max-width: 30%;
-        min-width: 30%;
-      }
-    }
 
     @media (max-width: 768px) {
       .filter-btn {
@@ -366,6 +357,7 @@
         flex: 0 0 48%;
         font-size: 0.5rem; /* ✅ 전체 폰트 축소 */
         padding: 0.6rem; /* ✅ 카드 내부 여백도 소폭 축소 */
+        padding-bottom: 1rem;
         margin: 0 auto;
       }
     }
@@ -555,10 +547,8 @@
   <div class="tournament-top-tab">
     <div class="filter-area tournament-switch flex-column align-items-center">
   
-      <!-- ✅ 필터 버튼 한 줄 정렬 + 스크롤 -->
-      <div class="filter-group flex-nowrap overflow-auto" style="gap: 0.3rem; white-space: nowrap;">
-        <!-- <button class="btn btn-outline-success btn-sm filter-btn" id="btn-all" onclick="showAll()">전체</button>
-        <span>/</span> -->
+      <!-- ✅ 필터 버튼 -->
+      <div class="filter-group d-flex flex-nowrap overflow-auto">
         <button class="btn btn-outline-success btn-sm filter-btn" id="btn-신인" onclick="filterByKeyword('신인')">신인</button>
         <button class="btn btn-outline-success btn-sm filter-btn" id="btn-오픈" onclick="filterByKeyword('오픈')">오픈</button>
         <button class="btn btn-outline-success btn-sm filter-btn" id="btn-개나리" onclick="filterByKeyword('개나리')">개나리</button>
@@ -568,29 +558,27 @@
         <button class="btn btn-outline-success btn-sm filter-btn" id="btn-단식" onclick="filterSingles()">단식</button>
       </div>
   
+      <!-- ✅ 검색창 왼쪽 + 빈자리 토글 오른쪽 정렬
+      <div class="d-flex justify-content-between align-items-center w-100 px-2 mt-2">
+        <input id="searchInput" type="text" class="form-control form-control-sm" placeholder="검색어 입력"
+          oninput="handleSearch()" style="max-width: 200px;"> -->
+  
+        <!-- 오른쪽: 빈자리 토글 -->
+        <div class="form-check form-switch d-inline-flex align-items-center mb-0">
+          <input class="form-check-input vacancy-toggle" type="checkbox" id="openingOnly" onchange="applyFilters()">
+          <label class="form-check-label ms-2 vacancy-label" for="openingOnly">빈자리만</label>
+        </div>
+      </div>
+  
     </div>
   </div>
+  
   
 
 
   <div class="white-container">
 
     <div class="card-section">
-      <!-- ✅ 검색 + 빈자리 체크박스 -->
-      <div class="search-wrapper d-flex flex-wrap align-items-center justify-content-between mb-3 px-2">
-        <!-- 🔍 검색 입력창 (50%로 축소) -->
-        <div class="flex-grow-1 me-2" style="max-width: 50%;">
-          <input id="searchInput" type="text" class="form-control form-control-sm" placeholder="검색어 입력" oninput="handleSearch()" />
-        </div>
-      
-        <!-- ✅ 빈자리 토글 -->
-        <div class="opening-toggle-wrapper text-end">
-          <div class="form-check form-switch d-inline-flex align-items-center">
-            <input class="form-check-input vacancy-toggle" type="checkbox" id="openingOnly" onchange="applyFilters()">
-            <label class="form-check-label ms-2 vacancy-label" for="openingOnly">빈자리만 보기</label>
-          </div>
-        </div>
-      </div>
       
   
       <!-- ✅ 카드 출력 영역 -->
@@ -717,10 +705,36 @@
       }
     
       function applyFilters() {
-        if (currentFilter === 'all') return showAll();
-        if (currentFilter === '기타') return filterOthers();
-        if (currentFilter === '단식') return filterSingles();
-        filterByKeyword(currentFilter);
+        let filtered = rawData;
+
+        // 현재 필터 적용
+        if (currentFilter === 'all') {
+          filtered = rawData.filter(item => (item['종류'] || '') !== '단식');
+        } else if (currentFilter === '기타') {
+          const keywords = ['신인', '오픈', '개나리', '국화', '단식'];
+          filtered = rawData.filter(item =>
+            (item['종류'] || '') !== '단식' &&
+            !keywords.some(kw => (item['부서'] || '').includes(kw))
+          );
+        } else if (currentFilter === '단식') {
+          filtered = rawData.filter(item => (item['종류'] || '') === '단식');
+        } else {
+          filtered = rawData.filter(item =>
+            (item['종류'] || '') !== '단식' &&
+            (item['부서'] || '').includes(currentFilter)
+          );
+        }
+
+        // ✅ 빈자리 필터 적용
+        if (document.getElementById("openingOnly").checked) {
+          filtered = filtered.filter(item => {
+            const isSingles = (item['종류'] || '') === '단식';
+            if (isSingles) return true;
+            return (parseInt(item['현원']) || 0) < (parseInt(item['정원']) || 0);
+          });
+        }
+
+        render(filtered);
       }
     
       function handleSearch() {
@@ -777,10 +791,12 @@
           div.className = "mobile-card";
           div.innerHTML = `
             <div class="d-flex justify-content-between align-items-center mb-1">
-              <span class="badge bg-purple text-white" style="font-size: 0.7rem; padding: 0.4rem 0.6rem; background-color: #5C2E91; border-radius: 10px;">${division}</span>
+              <div class="d-flex align-items-center gap-1">
+                <span class="badge bg-purple text-white" style="font-size: 0.7rem; padding: 0.4rem 0.6rem; background-color: #5C2E91; border-radius: 10px;">${division}</span>
+                ${isNewItem ? '<span class="new-badge">NEW!!</span>' : ''}
+              </div>
               <div class="text-muted" style="font-size:0.75rem">${idx + 1} / ${data.length}</div>
             </div>
-            ${isNewItem ? '<div class="text-center mb-1"><span class="new-badge">NEW!!</span></div>' : ''}
             <h6 class="text-center">${item['대회명'] || ''}</h6>
 
             <div class="card-info-wrapper">
@@ -810,6 +826,7 @@
 
             ${item['new_updated'] ? `<div class="text-center text-secondary mt-2" style="font-size: 0.7rem;">업데이트: ${new Date(item['new_updated']).toLocaleDateString('ko-KR')}</div>` : ''}
           `;
+
 
 
           cardsContainer.appendChild(div);
