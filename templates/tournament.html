@@ -673,6 +673,9 @@
       // ✅ 필터 버튼 (복식에서만 필터링)
       function filterByKeyword(keyword) {
         currentFilter = keyword;
+
+         // ✅ 빈자리 토글 해제
+        document.getElementById("openingOnly").checked = false;
         const filtered = rawData.filter(item =>
           (item['종류'] || '') !== '단식' &&
           (item['부서'] || '').includes(keyword)
