@@ -16,6 +16,9 @@ FIREBASE_URL = "https://tennisweb-project-default-rtdb.firebaseio.com"
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 JSON_PATH2 = os.path.join(BASE_DIR, "tenniscourt_with_guide.json")
+JSON_PATH_SHOP = os.path.join(BASE_DIR, "tennis_shop_info_cleaned.json")
+
+
 
 def load_from_firebase(path):
     """Firebase에서 특정 경로 데이터 가져오기"""
@@ -59,6 +62,13 @@ def load_data2():
     print("🚫 JSON 파일을 찾을 수 없습니다:", JSON_PATH2)
     return []
 
+def load_shop_data():
+    if os.path.exists(JSON_PATH_SHOP):
+        with open(JSON_PATH_SHOP, "r", encoding="utf-8") as f:
+            return json.load(f)
+    print("🚫 샵 JSON 파일을 찾을 수 없습니다:", JSON_PATH_SHOP)
+    return []
+
 def load_data_with_timestamp():
     fb_data = load_from_firebase("tennis_tournaments_ama")
     if fb_data:
@@ -88,7 +98,8 @@ def tournament():
         "tournament.html",
         data=data,
         page_title="🎾 테니스 대회 현황",
-        last_modified=last_modified
+        last_modified=last_modified,
+        currentPath="tournament"
     )
 
 @app.route("/tournament_pro")
@@ -130,6 +141,16 @@ def court_guide():
         grouped[entry['장소명']].append(entry)
 
     return render_template("court-guide.html", data=grouped, page_title="🗓️ 코트 예약 가이드", currentPath="court")
+
+@app.route("/shop-guide")
+def shop_guide():
+    raw_data = load_shop_data()
+    grouped = defaultdict(list)
+    for entry in raw_data:
+        grouped[entry["상호명"]].append(entry)
+
+    return render_template("shop-guide.html", data=grouped, page_title="🛍️ 샵 예약 가이드", currentPath="shop")
+
 
 @app.route("/board")
 def board():

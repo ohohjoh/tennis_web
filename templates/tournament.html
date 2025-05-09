@@ -48,485 +48,347 @@
   <link href="https://cdn.jsdelivr.net/npm/pretendard@1.3.6/dist/web/variable/pretendardvariable-dynamic-subset.css" rel="stylesheet">
 
   <style>
-    /* ✅ 기본 설정 */
-    body {
-      font-family: 'Pretendard Variable', sans-serif;
-      min-height: 100vh;
-      background-color: #ffffff;
-      color: #006644;
-    }
-    body.grass-theme {
-      background-color: #006644;
-      color: #ffffff;
-    }
+  /* ✅ 기본 설정 */
+  body {
+    font-family: 'Pretendard Variable', sans-serif;
+    min-height: 100vh;
+    background-color: #ffffff;
+    color: #006644;
+  }
+  body.grass-theme {
+    background-color: #006644;
+    color: #ffffff;
+  }
 
-    /* ✅ 네비게이션 */
-    .main-navbar {
-      background-color: #006644;
-      padding: 0.5rem;
-      font-family: 'Playfair Display', 'Georgia', serif;
-      display: flex;
-      justify-content: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .nav-pill-wrapper {
-      background-color: #006644;
-      border-radius: 50px;
-      padding: 0.3rem;
-      display: flex;
-      gap: 0.5rem;
-      overflow-x: auto;
-      white-space: nowrap;
-      -webkit-overflow-scrolling: touch;
-    }
-    .nav-pill-wrapper::-webkit-scrollbar { display: none; }
+  /* ✅ 네비게이션 */
+  .main-navbar {
+    background-color: #006644;
+    padding: 0.5rem;
+    font-family: 'Playfair Display', 'Georgia', serif;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  .nav-pill-wrapper {
+    background-color: #006644;
+    border-radius: 50px;
+    padding: 0.2rem;
+    display: flex;
+    gap: 0.3rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+  .nav-pill-wrapper::-webkit-scrollbar { display: none; }
+  .main-navbar .nav-link {
+    font-family: 'Pretendard Variable', sans-serif;
+    color: white;
+    font-weight: 600;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.65rem;
+    border-radius: 50px;
+    transition: all 0.25s ease-in-out;
+    white-space: nowrap;
+  }
+  .main-navbar .nav-link.active {
+    background-color: #ffffff;
+    color: #006644;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+  }
+  .main-navbar .nav-link.active:hover {
+    color: #006644;
+  }
+
+  /* ✅ 컨테이너 */
+  .white-container {
+    background: #ffffff;
+    height: 620px;
+    padding-top: 0.2rem;
+  }
+
+  /* ✅ 토너먼트 상단 탭 */
+  .tournament-top-tab {
+    position: sticky;
+    top: 42px;
+    z-index: 999;
+    background-color: #ffffff;
+    padding: 0.5rem 1rem 0.2rem 1rem;
+  }
+  .filter-area.tournament-switch {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    justify-content: center;
+    scroll-padding-left: 0.5rem;
+    align-items: flex-start;
+  }
+  .filter-area.tournament-switch::-webkit-scrollbar { display: none; }
+  .filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.25rem;
+    padding: 0.5rem;
+  }
+
+  /* ✅ 필터 버튼 */
+  .filter-btn {
+    font-size: 0.7rem;
+    padding: 0.35rem 0.75rem;
+    min-width: 90px;
+    border-radius: 30px;
+    background-color: #ffffff;
+    color: #006644;
+    border: 1px solid #006644;
+    transition: all 0.25s ease;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  .filter-btn.active,
+  .filter-btn:hover {
+    background-color: #5C2E91;
+    color: #ffffff;
+    border-color: #5C2E91;
+    font-weight: 600;
+  }
+
+  /* ✅ 검색 관련 */
+  .search-wrapper {
+    margin: 0 !important;
+  }
+
+  /* ✅ 요약 박스 */
+  #summary-box {
+    color: #5C2E91;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+
+  /* ✅ 카드 섹션 */
+  #mobile-cards {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0.6rem 0 1.2rem 0;
+  }
+
+  .mobile-card {
+    width: 280px;
+    height: 280px;
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+    background: #ffffff;
+    border: 2px solid #006644;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    font-size: 0.75rem;
+    padding: 0.6rem;
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .mobile-card h6 {
+    font-size: 0.85rem;
+    margin-bottom: 0.25rem;
+  }
+  .mobile-card p {
+    font-size: 0.8rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .new-badge {
+    background-color: #FFD700;
+    color: #000;
+    font-weight: bold;
+    font-size: 0.5rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 5px;
+  }
+
+  .card-info-wrapper {
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    padding: 0.2rem;
+    color: #5C2E91;
+    font-size: 0.7rem;
+    text-align: center;
+    font-weight: 500;
+    line-height: 1.6;
+  }
+  .card-info-wrapper > div {
+    padding: 0.2rem 0;
+  }
+  .card-info-wrapper > div:not(:last-child) {
+    border-bottom: 1px solid rgba(0, 102, 68, 0.2);
+  }
+
+  .card-info-wrapper i {
+    margin-right: 0.35rem;
+  }
+
+  .progress-bar span {
+    position: absolute;
+    left: 0; right: 0; top: 0; bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #222;
+  }
+
+  /* ✅ 진행률 색상 */
+  .progress-green { background-color: #28a745 !important; }
+  .progress-yellow { background-color: #ffc107 !important; }
+  .progress-red { background-color: #dc3545 !important; }
+
+  .progress-text-green { color: #28a745; font-weight: bold; }
+  .progress-text-yellow { color: #ffc107; font-weight: bold; }
+  .progress-text-red { color: #dc3545; font-weight: bold; }
+
+  /* ✅ 유튜브 카드 */
+  .youtube-wrapper {
+    background: #ffffff;
+    border: 2px solid #006644;
+    border-radius: 12px;
+    padding: 0.75rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    overflow-x: auto;
+  }
+  .youtube-card {
+    flex: 0 0 auto;
+    width: 220px;
+    scroll-snap-align: start;
+  }
+  .youtube-card .card {
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s;
+  }
+  .youtube-card .card:hover {
+    transform: translateY(-2px);
+  }
+
+  .news-link {
+    color: #006644;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-decoration: none;
+  }
+  .news-link:hover {
+    color: #5C2E91;
+    text-decoration: underline;
+  }
+
+  .slash-divider {
+    color: #5C2E91;
+    font-weight: 600;
+    margin: 0 0.3rem;
+    font-size: 1.3rem;
+  }
+
+  .bg-purple {
+    background-color: #5C2E91;
+    color: #fff;
+  }
+
+  /* ✅ 예정 대회 카드 */
+  .upcoming-card-section {
+    background-color: #f3f7f6;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding-top: 0.5rem;
+  }
+
+  .upcoming-slider {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-left: 0.5rem;
+    padding-top: 0.4rem;
+  }
+
+  .upcoming-card {
+    flex: 0 0 auto;
+    width: 130px;
+    min-height: 90px;
+    border: 1.3px solid #5C2E91;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.3rem;
+    margin: 0.2rem 0;
+  }
+  .upcoming-card .title {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-align: center;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2;
+    height: 2.4em;
+    margin-bottom: 0.3rem;
+  }
+  .upcoming-card .info {
+    font-size: 0.5rem;
+    color: #666;
+    text-align: center;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* ✅ 반응형 */
+  @media (max-width: 768px) {
     .main-navbar .nav-link {
-      font-family: 'Pretendard Variable', sans-serif;
-      color: white;
-      font-weight: 600;
-      font-size: 0.92rem;
-      padding: 0.4rem 1rem;
-      border-radius: 50px;
-      transition: all 0.25s ease-in-out;
-      white-space: nowrap;
+      font-size: 0.72rem;
+      padding: 0.3rem 0.8rem;
     }
-    .main-navbar .nav-link.active {
-      background-color: #ffffff;
-      color: #006644;
-      font-weight: 700;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      border: none;
-    }
-
-    .main-navbar .nav-link.active:hover {
-      color: #006644;
-    }
-
-    .white-container {
-      background: #ffffff;
-      height : 620px;
-      padding-top: 0.2rem;
-    }
-    /* ✅ 토너먼트 탑 탭 */
-    .tournament-top-tab {
-      position: sticky;
-      top: 42px;
-      z-index: 999;
-      background-color: #ffffff;
-      padding: 0.5rem 1rem;
-      padding-bottom: 0.2rem !important;
-    }
-    .filter-area.tournament-switch {
-      display: flex;
-      gap: 0.5rem;
-      overflow-x: auto;
-      white-space: nowrap;
-      -webkit-overflow-scrolling: touch;
-      justify-content: center;
-      scroll-padding-left: 0.5rem;
-      align-items: flex-start; /* 왼쪽 정렬 */
-
-    }
-    .filter-group {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.25rem;
-      margin-bottom: 0.2rem;
-      padding: 0.5rem;
-      margin-bottom: 0.0rem !important;
-      padding-bottom: 0.rem !important;
-
-    }
-
-    .search-wrapper {
-      margin-top: 0rem !important;
-      margin-bottom: 0rem !important;
-    }
-    .filter-area.tournament-switch::-webkit-scrollbar { display: none; }
-
-    /* ✅ 필터 버튼 */
     .filter-btn {
-      font-size: 0.7rem;
-      padding: 0.35rem 0.75rem;
-      min-width: 90px;
-      border-radius: 30px;
-      background-color: #ffffff;
-      color: #006644;
-      border: 1px solid #006644;
-      transition: all 0.25s ease;
-      text-align: center;
-      flex-shrink: 0;
-    }
-    .filter-btn.active,
-    .filter-btn:hover {
-      background-color: #5C2E91;
-      color: #ffffff;
-      border-color: #5C2E91;
-      font-weight: 600;
-    }
-
-    /* ✅ 요약 박스 */
-    #summary-box {
-      color: #5C2E91;
-      font-weight: 600;
-      font-size: 0.95rem;
-      margin-top: 0.5rem;
-      text-align: center;
-    }
-
-    /* ✅ 스케줄 카드 */
-    .schedule-scroll-container {
-      display: flex;
-      overflow-x: auto;
-      padding: 0.5rem 0;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
+      font-size: 0.75rem;
+      padding: 0.4rem 0.85rem;
+      min-width: 35px;
     }
     .schedule-grid {
-      display: grid;
-      grid-auto-flow: column;
-      grid-template-rows: repeat(2, auto);
-      gap: 0.75rem;
-      width: max-content;
-      scroll-snap-type: x mandatory;
-    }
-    .schedule-item {
-      scroll-snap-align: start;
-      width: 160px;
-      flex-shrink: 0;
-    }
-    .today-card {
-      background: #ffffff;
-      border: 2px solid #006644;
-      padding: 0.6rem 0.75rem;
-      border-radius: 10px;
-      font-size: 0.72rem;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.06);
-      white-space: normal;
-      word-break: keep-all;
-    }
-    .today-card .text-dark {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: #006644;
-    }
-
-    /* ✅ 브래킷 카드 */
-    .tournament-card {
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      background: #ffffff;
-      margin-bottom: 0.5rem;
-    }
-    .bracket-section {
-      background: #ffffff;
-      color: #006644;
-      padding: 1rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      overflow-x: auto;
-    }
-
-    /* ✅ 유튜브 카드 */
-    .youtube-wrapper {
-      background: #ffffff;
-      border: 2px solid #006644;
-      border-radius: 12px;
-      padding: 0.75rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      overflow-x: auto;
-    }
-    .youtube-card {
-      flex: 0 0 auto;
-      width: 220px;
-      scroll-snap-align: start;
-    }
-    .youtube-card .card {
-      border-radius: 12px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-      transition: transform 0.2s;
-    }
-    .youtube-card .card:hover {
-      transform: translateY(-2px);
-    }
-
-    /* ✅ 뉴스 링크 */
-    .news-link {
-      color: #006644;
-      font-weight: 600;
-      font-size: 0.85rem;
-      text-decoration: none;
-    }
-    .news-link:hover {
-      color: #5C2E91;
-      text-decoration: underline;
-    }
-
-    .opening-toggle-wrapper .form-check-label {
-      font-weight: 600;
-      color: #006644;
-      font-size: 0.85rem;
-    }
-
-    .progress-green {
-      background-color: #28a745 !important;  /* 초록 */
-    }
-    .progress-yellow {
-      background-color: #ffc107 !important;  /* 노랑 */
-    }
-    .progress-red {
-      background-color: #dc3545 !important;  /* 빨강 */
-    }
-
-    .progress-text-green {
-      color: #28a745;
-      font-weight: bold;
-    }
-    .progress-text-yellow {
-      color: #ffc107;
-      font-weight: bold;
-    }
-    .progress-text-red {
-      color: #dc3545;
-      font-weight: bold;
-    }
-
-    /* ✅ 반응형 */
-    @media (max-width: 768px) {
-      .main-navbar .nav-link {
-        font-size: 0.72rem;
-        padding: 0.3rem 0.8rem;
-      }
-      .schedule-grid {
-        display: flex;
-        flex-direction: row;
-      }
-    }
-      /* ✅ 카드 래퍼 */
-      #mobile-cards {
-        display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        padding: 0.6rem;
-        padding-bottom: 1.2rem;
-        padding-left: 0;
-        padding-right: 0;
-      }
-
-    /* ✅ 카드 스타일 */
-    .mobile-card {
-      width: 280px;
-      height: 280px;
-      flex: 0 0 100%;
-      scroll-snap-align: center;
-      color: #222222; /* 어두운 텍스트 */
-      background: #ffffff;
-      border: 2px solid #006644;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-      font-size: 0.75rem; /* ✅ 전체 폰트 축소 */
-      padding: 0.6rem; /* ✅ 카드 내부 여백도 소폭 축소 */
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      flex-direction: row;
     }
-
-
-    @media (max-width: 768px) {
-      .filter-btn {
-        font-size: 0.75rem;
-        padding: 0.4rem 0.85rem;
-        min-width: 35px;
-        border-radius: 30px;
-        background-color: #ffffff;
-        color: #006644;
-        border: 1.1px solid #006644;
-        transition: all 0.25s ease;
-        text-align: center;
-        flex-shrink: 0;
-      }
-
-      .mobile-card {
-        width: 220px;
-        min-width: 220px;
-        max-width: 220px;
-        flex: 0 0 48%;
-        font-size: 0.5rem; /* ✅ 전체 폰트 축소 */
-        padding: 0.6rem; /* ✅ 카드 내부 여백도 소폭 축소 */
-        padding-bottom: 1rem;
-        margin: 0 auto;
-      }
+    .mobile-card {
+      width: 220px;
+      min-width: 220px;
+      max-width: 220px;
+      flex: 0 0 48%;
+      font-size: 0.5rem;
+      padding-bottom: 1rem;
+      margin: 0 auto;
     }
+  }
 
-    @media (min-width: 768px) {
-      .mobile-card {
+  @media (min-width: 768px) {
+    .mobile-card {
       flex: 0 0 45%;
       max-width: 45%;
     }
-    }
+  }
+</style>
 
-    .mobile-card {
-      font-size: 0.75rem; /* ✅ 전체 폰트 축소 */
-      padding: 0.6rem; /* ✅ 카드 내부 여백도 소폭 축소 */
-    }
-    
-    .mobile-card h6 {
-      font-size: 0.85rem; /* ✅ 대회명 작게 */
-      margin-bottom: 0.25rem;
-    }
-    .mobile-card p {
-      font-size: 0.8rem;
-      margin-bottom: 0.25rem;
-    }
-    
-    .new-badge {
-      background-color: #FFD700;
-      color: #000;
-      font-weight: bold;
-      font-size: 0.5rem;
-      padding: 0.2rem 0.5rem;
-      border-radius: 5px;
-      display: inline-block;
-    }
-    .card-title {
-      font-size: 1.1rem;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 0.5rem;
-    }
-    .card-info-wrapper {
-      background-color: #f2f2f2;
-      border-radius: 10px;
-      padding: 0.2rem 0.2rem;
-      color: #5C2E91;
-      font-size: 0.78rem;
-      font-size: 0.7rem; /* ✅ 카드 내부 텍스트 축소 */
-      text-align: center;
-      font-weight: 500;
-      line-height: 1.6;
-    }
-    .card-info-wrapper > div {
-      padding: 0.2rem 0;
-    }
-    .card-info-wrapper > div:not(:last-child) {
-      border-bottom: 1px solid rgba(0, 102, 68, 0.2); /* #006644의 연한 버전 */
-    }
-
-    .card-info-wrapper i {
-      margin-right: 0.35rem;
-    }
-    .card-meta {
-      background-color: #f9f9f9;
-      padding: 0.5rem;
-      border-radius: 8px;
-      font-size: 0.78rem;
-      color: #444;
-      margin-bottom: 0.75rem;
-      line-height: 1.4;
-    }
-    .card-meta i {
-      margin-right: 0.25rem;
-    }
-    .card-meta div {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    /* 빈자리 토글 ON 상태 시 강조 색상 */
-    .vacancy-toggle:checked {
-      background-color: #5C2E91;
-      border-color: #5C2E91;
-    }
-
-    /* 라벨 텍스트 색상 */
-    .text-vacancy {
-      color: #5C2E91;
-      font-size: 0.85rem;
-    }
-      /* 보라색 라벨 */
-    .vacancy-label {
-      color: #5C2E91;
-      font-weight: 600;
-      font-size: 0.85rem;
-    }
-    /* 토글 ON 시 퍼플 강조 */
-    .vacancy-toggle:checked {
-      background-color: #5C2E91;
-      border-color: #5C2E91;
-    }
-
-    .slash-divider {
-      color: #5C2E91;
-      font-weight: 600;
-      margin: 0 0.3rem;
-      display: inline-block;
-      font-size: 1.3rem;
-    }
-
-    .bg-purple {
-      background-color: #5C2E91;
-      color: #fff;
-    }
-    .upcoming-slider {
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      padding-left: 0.5rem;
-      padding-top:0.4rem;
-    }
-
-    .upcoming-card-section {
-      background-color: #f3f7f6;
-      border-top: 1px solid #ccc; /* ✅ 연한 회색 구분선 */
-      border-bottom: 1px solid #ccc; /* ✅ 연한 회색 구분선 */
-      padding-top: 0.5rem;
-    }
-
-    .upcoming-card {
-      scroll-snap-align: start;
-      flex: 0 0 auto;
-      width: 130px;
-      min-height: 90px;
-      border: 1.3px solid #5C2E91;
-      background-color: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 2px 3px rgba(0,0,0,0.05);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 0.3rem 0.3rem;  /* ✅ 위아래 여백 살짝만 줌 */
-      margin: 0.2rem 0;        /* ✅ 카드 위아래 여백 살짝 줌 */
-    }
-
-    .upcoming-card .title {
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-align: center;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      line-height: 1.2;
-      height: 2.4em; 
-      margin-bottom: 0.3rem;  /* ✅ 정보와의 간격 줄임 */
-    }
-
-    .upcoming-card .info {
-      font-size: 0.5rem;
-      color: #666;
-      text-align: center;
-      line-height: 1.3;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-
-  </style>
 </head>
 <body>
   <div class="logo" style="text-align: center; margin: 1rem 0;">
@@ -540,6 +402,7 @@
       <a class="nav-link {% if currentPath == 'tournament' %}active{% endif %}" href="/tournament">아마 대회</a>
       <a class="nav-link {% if currentPath == 'tournament_pro' %}active{% endif %}" href="/tournament_pro">프로 소식</a>
       <a class="nav-link {% if currentPath == 'court' %}active{% endif %}" href="/court-guide">코트 가이드</a>
+      <a class="nav-link {% if currentPath == 'court' %}active{% endif %}" href="/shop-guide">테니스 샵</a>
       <a class="nav-link {% if currentPath == 'board' %}active{% endif %}" href="/board">테나무숲</a>
     </div>
   </nav>
