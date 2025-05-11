@@ -79,9 +79,9 @@
   .nav-pill-wrapper {
     background-color: #006644;
     border-radius: 50px;
-    padding: 0.3rem;
+    padding: 0.2rem;
     display: flex;
-    gap: 0.5rem;
+    gap: 0.3rem;
     overflow-x: auto;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
@@ -91,12 +91,11 @@
     font-family: 'Pretendard Variable', sans-serif;
     color: white;
     font-weight: 600;
-    font-size: 0.92rem;
-    padding: 0.4rem 1rem;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.65rem;
     border-radius: 50px;
     transition: all 0.25s ease-in-out;
     white-space: nowrap;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* ✅ 네비게이션 하단에 그림자 통일 */
     }
 
     .main-content {
@@ -128,8 +127,19 @@
 
   /* ✅ 검색창 */
   .search-bar {
-    max-width: 320px;
-    background-color: #ffffff;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+  }
+  #searchInput {
+    height: 40px;
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+  }
+  #searchBtn {
+    height: 36px;
+    font-size :0.8rem;
+    padding: 0 0.75rem;
   }
 
   /* ✅ 카드 공통 */
@@ -137,11 +147,11 @@
     background: #ffffff;
     border: 2px solid #006644;
     border-radius: 16px;
-    padding: 0.75rem;
-    font-size: 0.9rem;
+    padding: 0.5rem;
+    font-size: 0.75rem;
     box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     color: #2b2b2b;
-    min-height: 300px;
+    min-height: unset; 
   }
   .court-card h5 {
     font-size: 1rem;
@@ -150,7 +160,7 @@
     margin-bottom: 0.5rem;
   }
   .court-card p {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     margin-bottom: 0.2rem;
   }
   .court-image {
@@ -160,6 +170,9 @@
     border-radius: 12px;
     margin-bottom: 0.5rem;
   }
+  .court-card .btn-reserve {
+  font-size: 0.75rem; /* 🔽 버튼 텍스트 줄이기 */
+}
 
   /* 💻 PC 및 모바일 공통 슬라이더 */
     .scroll-slider {
@@ -175,8 +188,8 @@
 
     .scroll-slider > div {
       flex: 0 0 auto;
-      min-width: 340px;
-      max-width: 360px;
+      min-width: 280px;
+      max-width: 300px;
       scroll-snap-align: start;
     }
   /* ✅ 데스크탑 카드 래퍼 */
@@ -201,7 +214,7 @@
     -webkit-overflow-scrolling: touch;
   }
   .mobile-slider > div {
-    flex: 0 0 80%;
+    flex: 0 0 70%;
     scroll-snap-align: start;
   }
   .mobile-slider::-webkit-scrollbar { display: none; }
@@ -325,6 +338,7 @@
     overflow-y: auto;
     border-radius: 12px;
   }
+
   /* ✅ 반응형 */
   @media (max-width: 768px) {
     .main-navbar .nav-link {
@@ -377,11 +391,17 @@
     </div>
   </nav>
 
-  <div class="tournament-top-tab shadow-sm">
-    <!-- 🔍 검색창 -->
-    <div class="d-flex justify-content-center mb-3">
-      <input type="text" id="searchInput" class="form-control form-control-sm search-bar" placeholder="검색어를 입력하세요" oninput="filterByKeyword()">
+  <!-- ✨ 여기부터 본문 작성 시작 -->
+  <!-- 🔍 검색창 -->
+  <div class="mb-3 d-flex align-items-center">
+    <input type="text" id="searchInput" class="form-control" placeholder="지역 또는 상호명을 입력하세요 (예: 고양, 일산)">
+    <div class="d-flex justify-content-center" style="width: 100px;">
+      <button id="searchBtn" class="btn btn-success btn-sm">search</button>
     </div>
+  </div>
+  
+    
+    
 
   <!-- 💻 PC 가로 슬라이더 카드 -->
   <div class="desktop-only">
@@ -532,11 +552,12 @@
         </div>
       {% endfor %}
     </div>
-  </div>
 
 </body>
 
     
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 
   <script>
@@ -570,22 +591,37 @@
       `📅 <span style="color: #2b2b2b;">당신이 원하는 날짜는 <u style="color: #5c2e91; font-weight: bold;">${yyyy}-${mm}-${dd} ${weekKor}</u> 에요.</span>`;
   }
 
-    function filterByKeyword() {
-      const keyword = document.getElementById("searchInput").value.trim();
-      const cards = document.querySelectorAll(".court-card");
-      let count = 0;
+  function filterByKeyword() {
+    const keyword = document.getElementById("searchInput").value.trim();
+    const cards = document.querySelectorAll(".court-card");
+    let count = 0;
 
-      cards.forEach(card => {
-        const title = card.querySelector("h5").innerText;
-        const match = title.includes(keyword);
-        card.style.display = match || keyword === "" ? "block" : "none";
-        if (match) count++;
-      });
+    cards.forEach(card => {
+      const title = card.querySelector("h5").innerText;
+      const match = title.includes(keyword);
+      card.style.display = match || keyword === "" ? "block" : "none";
+      if (match) count++;
+    });
+  }
 
-      document.getElementById("searchCount").innerText = keyword
-        ? `🔎 ${count}개 결과`
-        : "";
+  document.addEventListener("DOMContentLoaded", () => {
+    // ✅ 검색 버튼 클릭 시 실행
+    const searchBtn = document.getElementById("searchBtn");
+    if (searchBtn) {
+      searchBtn.addEventListener("click", filterByKeyword);
     }
+
+    // ✅ 엔터 키 입력 시 실행
+    const searchInput = document.getElementById("searchInput");
+    if (searchInput) {
+      searchInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          filterByKeyword();
+        }
+      });
+    }
+  });
     document.addEventListener("DOMContentLoaded", () => {
     const today = new Date().toISOString().split("T")[0];
 

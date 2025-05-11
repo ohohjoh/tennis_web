@@ -42,12 +42,17 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <style>
-    body {
-    font-family: 'Pretendard Variable', sans-serif;
-    background-color: #ffffff;
-    color: #006644;
-    }
-
+  /* ✅ 기본 설정 */
+      body {
+        font-family: 'Pretendard Variable', sans-serif;
+        min-height: 100vh;
+        background-color: #ffffff;
+        color: #006644;
+      }
+      body.grass-theme {
+        background-color: #006644;
+        color: #ffffff;
+      }
     /* ✅ 네비게이션 */
     .main-navbar {
         background-color: #006644;
@@ -100,6 +105,85 @@
     display: block;
     margin: 0 auto;
     }
+    #shopCards {
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      overflow-x: auto;
+    }
+    .shop-card {
+      min-width: 260px;
+      flex-shrink: 0;
+      scroll-snap-align: start;
+    }
+
+    .custom-card {
+      background: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      padding: 0.75rem;
+      font-size: 0.8rem;
+      line-height: 1.3rem;
+      transition: transform 0.2s;
+    }
+    .custom-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+
+    .card-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #222;
+    }
+    .card-subtext {
+      font-size: 0.75rem;
+      color: #777;
+    }
+    .card-tag {
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: white;
+      background-color: #5C2E91;
+      padding: 0.1rem 0.5rem;
+      border-radius: 50px;
+      margin-right: 0.3rem;
+    }
+    .leaflet-container {
+      background: #e9f5ee !important;  /* 연녹색 배경 */
+    }
+
+    .leaflet-pane,
+    .leaflet-tile {
+      image-rendering: auto;
+      border: none !important;
+    }
+    #map {
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .search-bar {
+      display: flex;
+      flex-wrap: nowrap;  /* 줄바꿈 방지 */
+      gap: 0.5rem;
+    }
+
+    #searchInput {
+    height: 40px;
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+    }
+
+    #searchBtn {
+      height: 36px;
+      font-size :0.8rem;
+      padding: 0 0.75rem;
+      
+    }
+
 
       /* ✅ 반응형 */
   @media (max-width: 768px) {
@@ -138,11 +222,21 @@
 </nav>
 
   <!-- ✨ 여기부터 본문 작성 시작 -->
-
-  <div class="container mt-4">
-    <!-- 콘텐츠 영역 -->
-    <div id="map" style="height: 500px; border-radius: 12px; margin-bottom: 2rem;"></div>
-
+  <!-- 🔍 검색창 -->
+  <div class="mb-3 d-flex align-items-center">
+    <input type="text" id="searchInput" class="form-control" placeholder="지역 또는 상호명을 입력하세요 (예: 고양, 일산)">
+    <div class="d-flex justify-content-center" style="width: 100px;">
+      <button id="searchBtn" class="btn btn-success btn-sm">search</button>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-12">
+      <div id="map" style="height: 250px;"></div>
+    </div>
+    <div class="col-md-12 mt-3">
+      <div id="shopCards" class="d-flex flex-row overflow-auto gap-3"></div>
+    </div>
   </div>
 
   <!-- Bootstrap JS -->
@@ -166,12 +260,89 @@
       }
     });
   </script>
+  <script>
+    const fullDataRaw = {{ data | tojson | safe }};
+    const fullData = Object.values(fullDataRaw).flat();  // 🔥 리스트로 평탄화
+    const map = L.map('map').setView([36.5, 127.5], 7);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+  
+    let markers = [];
+  
+    function renderShops(keyword) {
+      const results = fullData.filter(shop =>
+        shop['지번주소']?.includes(keyword) ||
+        shop['주소']?.includes(keyword) ||
+        shop['상호명']?.includes(keyword)
+      );
+  
+      const list = document.getElementById('shopCards');
+      list.innerHTML = '';
+      markers.forEach(m => map.removeLayer(m));
+      markers = [];
+
+      if (results.length === 0) {
+        document.getElementById('shopCards').innerHTML = '<div class="text-muted ms-2">검색 결과가 없습니다.</div>';
+        return;
+      }
+    
+      results.forEach(shop => {
+        const lat = parseFloat(shop.y);
+        const lng = parseFloat(shop.x);
+        if (!lat || !lng) return;
+  
+        const marker = L.marker([lat, lng]).addTo(map);
+        marker.bindPopup(`<strong>${shop.상호명}</strong><br>${shop.지번주소}<br>${shop.전화번호 || ''}`);
+       
+        marker.on("click", () => {
+          const targetCard = document.querySelector(`.shop-card[data-id="${shop.상호명}"]`);
+          if (targetCard) targetCard.scrollIntoView({ behavior: "smooth", inline: "center" });
+        });
+        
+        markers.push(marker);
+  
+        const card = document.createElement('div');
+        card.className = 'custom-card shop-card'; 
+        card.setAttribute("data-id", shop.상호명);
+        card.style.cursor = "pointer";
+        card.innerHTML = `
+          <div class="card-title">${shop["상호명"]}</div>
+          <div class="card-subtext">${shop["지번주소"]}</div>
+          ${shop["전화번호"] ? `<div class="card-subtext">📞 ${shop["전화번호"]}</div>` : ""}
+          ${shop["블로그"] ? `<div class="card-subtext">📘 <a href="${shop["블로그"]}" target="_blank">${shop["블로그"]}</a></div>` : ""}
+          ${shop["인스타그램"] ? `<div class="card-subtext">📷 <a href="${shop["인스타그램"]}" target="_blank">${shop["인스타그램"]}</a></div>` : ""}
+        `;
+
+
+        card.onclick = () => {
+          map.setView([lat, lng], 15);
+          marker.openPopup();
+        };
+        list.appendChild(card);
+      });
+  
+      if (results.length > 0) {
+        map.setView([parseFloat(results[0].y), parseFloat(results[0].x)], 12);
+        markers[0].openPopup();  // ✅ 첫 번째 결과 자동 팝업 열기
+      }
+    }
+  
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("searchBtn").addEventListener("click", () => {
+        const keyword = document.getElementById("searchInput").value.trim();
+        if (keyword) renderShops(keyword);
+      });
+      renderShops('');  // ✅ 기본 전체 렌더링
+    });
+
+    document.getElementById("searchInput").addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        document.getElementById("searchBtn").click();
+      }
+    });
+  </script>
 </body>
-<script>
-  const map = L.map('map').setView([36.5, 127.5], 7); // 한국 중심
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 18,
-    attribution: '© OpenStreetMap'
-  }).addTo(map);
-</script>
 </html>
