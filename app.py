@@ -107,6 +107,7 @@ def tournaments_pro():
     bracket_data_raw = load_from_firebase("tennis_abstract_bracket")
     youtube_data_raw = load_from_firebase("tennis_tournaments_pro_data")
     schedule_data_raw = load_from_firebase("tennis_tournaments_pro_schedules")
+    top100_raw = load_from_firebase("tennis_abstract_top100players")  # ✅ 추가
 
     bracket_data = bracket_data_raw.get("data", []) if bracket_data_raw else []
     last_modified = bracket_data_raw.get("executed_at", "알 수 없음") if bracket_data_raw else "알 수 없음"
@@ -120,6 +121,11 @@ def tournaments_pro():
         if "summary" not in item:
             item["summary"] = "대회 설명이 없습니다."
 
+    # ✅ ATP/WTA Top100 분리
+    atp_players = top100_raw.get("data", []) if top100_raw else []
+    wta_players = top100_raw.get("data2", []) if top100_raw else []
+    top100_last_updated = top100_raw.get("executed_at", "알 수 없음") if top100_raw else "알 수 없음"
+
     return render_template(
         "tournament_pro.html",
         data=bracket_data,
@@ -128,6 +134,9 @@ def tournaments_pro():
         last_modified=last_modified,
         youtube_data=youtube_data,
         youtube_last_modified=youtube_last_modified,
+        atp_players=atp_players,              # ✅ 전달
+        wta_players=wta_players,              # ✅ 전달
+        top100_last_updated=top100_last_updated,
         page_title="🎾 ATP 드로우 및 일정",
         currentPath="tournament_pro"
     )
