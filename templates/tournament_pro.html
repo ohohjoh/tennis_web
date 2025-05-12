@@ -110,7 +110,7 @@
     top: 50px;
     z-index: 999;
     background-color: #ffffff;
-    padding: 0.8rem;
+    padding: 0.3rem 0.8rem;
     border-bottom: 1px solid #ccc;
     width: 100%;
     margin-bottom: 0;
@@ -496,7 +496,11 @@
       <a class="nav-link {% if currentPath == 'board' %}active{% endif %}" href="/board">테나무숲</a>
     </div>
   </nav>
-
+  <div class="update-time-wrapper d-flex justify-content-end">
+    <div class="update-time-box text-muted small" style="font-size: 0.65rem;">
+      ⏰ Updated at {{ last_modified }}
+    </div>
+  </div>
 <!-- ✅ 대회 탭 버튼 최상단 고정 -->
 <div class="tournament-top-tab">
   <div class="filter and summary"></div>

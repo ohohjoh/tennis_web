@@ -135,21 +135,39 @@ def tournaments_pro():
 
 @app.route("/court-guide")
 def court_guide():
-    raw_data = load_data2()
+    fb_data = load_from_firebase("tennis_courts")
     grouped = defaultdict(list)
-    for entry in raw_data:
-        grouped[entry['장소명']].append(entry)
 
-    return render_template("court-guide.html", data=grouped, page_title="🗓️ 코트 예약 가이드", currentPath="court")
+    if fb_data:
+        for entry in fb_data:
+            grouped[entry['장소명']].append(entry)
+
+    return render_template(
+        "court-guide.html",
+        data=grouped,
+        page_title="🗓️ 코트 예약 가이드",
+        currentPath="court"
+    )
 
 @app.route("/shop-guide")
 def shop_guide():
-    raw_data = load_shop_data()
+    fb_data = load_from_firebase("tennis_shops")
     grouped = defaultdict(list)
-    for entry in raw_data:
-        grouped[entry["상호명"]].append(entry)
 
-    return render_template("shop-guide.html", data=grouped, page_title="🛍️ 샵 예약 가이드", currentPath="shop")
+    if isinstance(fb_data, list):
+        for entry in fb_data:
+            grouped[entry['상호명']].append(entry)
+    elif isinstance(fb_data, dict):
+        for entry in fb_data.values():
+            grouped[entry['상호명']].append(entry)
+
+    return render_template(
+        "shop-guide.html",
+        data=grouped,
+        page_title="🛍️ 샵 예약 가이드",
+        currentPath="shop"
+    )
+
 
 
 @app.route("/board")

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Language" content="ko">
@@ -137,7 +136,7 @@
     padding: 0.25rem 0.5rem;
   }
   #searchBtn {
-    height: 36px;
+    height: 38px;
     font-size :0.8rem;
     padding: 0 0.75rem;
   }
@@ -196,12 +195,20 @@
     display: none;
   }
 
+  .court-card.selected {
+    background-color: #f3f7f6 !important;  /* 연한 윔블던 보라 */
+  }
+
   /* 💻 PC 및 모바일 공통 슬라이더 */
       .scroll-slider {
+      touch-action: pan-y;                  /* ⬆️ 세로 스크롤만 허용 */
+      overscroll-behavior: contain;        /* 스크롤 경계에서 bounce 방지 */
+      scroll-snap-type: y mandatory;       /* 수직 스냅 고정 */
       display: flex;
       flex-direction: column;       /* 🔁 수직 정렬 */
       overflow-y: auto;             /* 🔽 세로 스크롤 */
       max-height: 400px;
+      gap: 0.5rem;
     }
     .scroll-slider::-webkit-scrollbar { display: none; }
 
@@ -320,6 +327,11 @@
     color: #5c2e91;
   }
 
+    /* ✅ 확대 방지용 */
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+
   @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(10px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -384,7 +396,7 @@
     overflow: hidden;
   }
   #selectedCalculator {
-    margin-bottom: 1.3rem; /* 검색창과 비슷한 여백 */
+    margin-bottom: 0.5rem; /* 검색창과 비슷한 여백 */
   }
   .calc-placeholder {
     display: flex;
@@ -451,9 +463,9 @@
 </head>
 <body>
   <!-- 🔗 로고 -->
-  <div class="logo text-center my-3">
-    <a href="/">
-      <img src="{{ url_for('static', filename='images/LOGO.png') }}" alt="Tennis Now Logo" style="height: 20px;">
+  <div class="logo" style="text-align: center; margin: 1rem 0;">
+    <a href="/" id="logoLink">
+      <img src="{{ url_for('static', filename='images/LOGO.png') }}" alt="Tennis Now Logo" style="height: 20px; display: block; margin: 0 auto;">
     </a>
   </div>
 
@@ -468,13 +480,19 @@
     </div>
   </nav>
 
-  <!-- 🔍 검색창 -->
-  <div class="mb-3 d-flex align-items-center">
-    <input type="text" id="searchInput" class="form-control" placeholder="지역 또는 상호명을 입력하세요 (예: 고양, 일산)">
-    <div class="d-flex justify-content-center" style="width: 100px;">
-      <button id="searchBtn" class="btn btn-success btn-sm">search</button>
+  <div class="update-time-wrapper d-flex justify-content-end">
+    <div class="update-time-box text-muted small" style="font-size: 0.65rem;">
+      ⏰ Updated at {{ last_modified }}
     </div>
   </div>
+
+  <!-- 🔍 검색창 -->
+<div class="mt-2 mb-2 d-flex align-items-center ps-2">
+  <input type="text" id="searchInput" class="form-control" placeholder="지역 또는 상호명을 입력하세요 (예: 고양, 일산)">
+  <div class="d-flex justify-content-center" style="width: 100px;">
+    <button id="searchBtn" class="btn btn-success btn-sm">search</button>
+  </div>
+</div>
 
   
   <div id="selectedCalculator" class="calculator-area">
@@ -683,10 +701,14 @@
             }
           }
         }
+      // ✅ 선택된 카드 스타일 처리
+        cards.forEach(c => c.classList.remove("selected"));
+        card.classList.add("selected");
+      });
 
       });
     });
-  });
+  
 </script>
 
 </body>

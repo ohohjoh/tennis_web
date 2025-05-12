@@ -106,15 +106,23 @@
     margin: 0 auto;
     }
     #shopCards {
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch;
-      overflow-x: auto;
+      scroll-snap-type: none;       /* 필요없음 */
+      overflow-x: hidden;           /* 좌우 스크롤 제거 */
+      overflow-y: auto;             /* ✅ 세로 스크롤 */
+      max-height: 200px;            /* ✅ 원하는 높이 지정 */
+      display: flex;
+      flex-direction: column;       /* ✅ 세로 카드 정렬 */
+      gap: 0.1rem;
     }
     .shop-card {
       min-width: 260px;
       flex-shrink: 0;
       scroll-snap-align: start;
+    }
+
+    .shop-card.selected {
+      background-color: #f3eaff !important;  /* 윔블던 연보라 */
+      border: 1px solid #f5f5fb;
     }
 
     .custom-card {
@@ -183,6 +191,15 @@
       padding: 0 0.75rem;
       
     }
+        /* ✅ 확대 방지용 */
+    input, select, textarea {
+      font-size: 16px !important;
+    }
+    .card-area-wrapper {
+      max-height: 400px;
+      overflow-y: auto;
+      padding: 0.5rem;
+    }
 
 
       /* ✅ 반응형 */
@@ -220,10 +237,14 @@
     <a class="nav-link {% if currentPath == 'board' %}active{% endif %}" href="/board">테나무숲</a>
   </div>
 </nav>
-
+  <div class="update-time-wrapper d-flex justify-content-end">
+    <div class="update-time-box text-muted small" style="font-size: 0.65rem;">
+      ⏰ Updated at {{ last_modified }}
+    </div>
+  </div>
   <!-- ✨ 여기부터 본문 작성 시작 -->
   <!-- 🔍 검색창 -->
-  <div class="mb-3 d-flex align-items-center">
+<div class="mt-2 mb-2 d-flex align-items-center ps-2">
     <input type="text" id="searchInput" class="form-control" placeholder="지역 또는 상호명을 입력하세요 (예: 고양, 일산)">
     <div class="d-flex justify-content-center" style="width: 100px;">
       <button id="searchBtn" class="btn btn-success btn-sm">search</button>
@@ -231,11 +252,13 @@
   </div>
   
   <div class="row">
+    <div class="container">
+      <div class="card-area-wrapper" style="max-height: 400px; overflow-y: auto;">
+        <div id="shopCards" class="d-flex flex-column gap-1"></div>
+      </div>
+    </div>
     <div class="col-md-12">
       <div id="map" style="height: 250px;"></div>
-    </div>
-    <div class="col-md-12 mt-3">
-      <div id="shopCards" class="d-flex flex-row overflow-auto gap-3"></div>
     </div>
   </div>
 
@@ -277,57 +300,66 @@
         shop['주소']?.includes(keyword) ||
         shop['상호명']?.includes(keyword)
       );
-  
+
       const list = document.getElementById('shopCards');
       list.innerHTML = '';
       markers.forEach(m => map.removeLayer(m));
       markers = [];
 
       if (results.length === 0) {
-        document.getElementById('shopCards').innerHTML = '<div class="text-muted ms-2">검색 결과가 없습니다.</div>';
+        list.innerHTML = '<div class="text-muted ms-2">검색 결과가 없습니다.</div>';
         return;
       }
-    
-      results.forEach(shop => {
+
+      results.forEach((shop, i) => {
         const lat = parseFloat(shop.y);
         const lng = parseFloat(shop.x);
         if (!lat || !lng) return;
-  
+
         const marker = L.marker([lat, lng]).addTo(map);
         marker.bindPopup(`<strong>${shop.상호명}</strong><br>${shop.지번주소}<br>${shop.전화번호 || ''}`);
-       
+
         marker.on("click", () => {
           const targetCard = document.querySelector(`.shop-card[data-id="${shop.상호명}"]`);
-          if (targetCard) targetCard.scrollIntoView({ behavior: "smooth", inline: "center" });
+          if (targetCard) {
+            document.querySelectorAll('.shop-card').forEach(c => c.classList.remove('selected'));
+            targetCard.classList.add('selected');
+            targetCard.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
         });
-        
-        markers.push(marker);
-  
+
         const card = document.createElement('div');
-        card.className = 'custom-card shop-card'; 
+        card.className = 'custom-card shop-card';
         card.setAttribute("data-id", shop.상호명);
         card.style.cursor = "pointer";
+
         card.innerHTML = `
-          <div class="card-title">${shop["상호명"]}</div>
+          <div class="d-flex justify-content-between align-items-center mb-1">
+            <div class="card-title">${shop["상호명"]}</div>
+            <div class="text-muted" style="font-size: 0.7rem;">${i + 1} / ${results.length}</div>
+          </div>
           <div class="card-subtext">${shop["지번주소"]}</div>
           ${shop["전화번호"] ? `<div class="card-subtext">📞 ${shop["전화번호"]}</div>` : ""}
           ${shop["블로그"] ? `<div class="card-subtext">📘 <a href="${shop["블로그"]}" target="_blank">${shop["블로그"]}</a></div>` : ""}
           ${shop["인스타그램"] ? `<div class="card-subtext">📷 <a href="${shop["인스타그램"]}" target="_blank">${shop["인스타그램"]}</a></div>` : ""}
         `;
 
-
         card.onclick = () => {
+          document.querySelectorAll('.shop-card').forEach(c => c.classList.remove('selected'));
+          card.classList.add('selected');
           map.setView([lat, lng], 15);
           marker.openPopup();
         };
+
         list.appendChild(card);
       });
-  
+
       if (results.length > 0) {
         map.setView([parseFloat(results[0].y), parseFloat(results[0].x)], 12);
-        markers[0].openPopup();  // ✅ 첫 번째 결과 자동 팝업 열기
+        markers[0].openPopup();
       }
     }
+
   
     document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("searchBtn").addEventListener("click", () => {

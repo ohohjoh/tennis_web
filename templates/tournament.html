@@ -107,7 +107,7 @@
   .white-container {
     background: #ffffff;
     height: 620px;
-    padding-top: 0.2rem;
+    padding-top: 0.4rem;
   }
 
   /* ✅ 토너먼트 상단 탭 */
@@ -116,11 +116,10 @@
     top: 42px;
     z-index: 999;
     background-color: #ffffff;
-    padding: 0.5rem 1rem 0.2rem 1rem;
+    padding: 0rem 1rem 0.2rem 1rem;
   }
   .filter-area.tournament-switch {
     display: flex;
-    gap: 0.5rem;
     overflow-x: auto;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
@@ -134,7 +133,7 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 0.25rem;
-    padding: 0.5rem;
+    padding: 0.3rem 0.5rem;
   }
 
   /* ✅ 필터 버튼 */
@@ -162,7 +161,7 @@
   .search-wrapper {
     margin: 0 !important;
   }
-
+  
   /* ✅ 요약 박스 */
   #summary-box {
     color: #5C2E91;
@@ -178,25 +177,32 @@
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-    padding: 0.6rem 0 1.2rem 0;
+    padding: 0.1rem 0 1.2rem 0;
   }
 
   .mobile-card {
-    width: 280px;
-    height: 280px;
-    flex: 0 0 100%;
-    scroll-snap-align: center;
-    background: #ffffff;
-    border: 2px solid #006644;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-    font-size: 0.75rem;
-    padding: 0.6rem;
-    color: #222;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
+  width: 280px;
+  height: 280px;
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06); /* ✅ 아주 은은한 테두리 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); /* ✅ 조금 더 부드러운 그림자 */
+  border-radius: 12px; /* ✅ 둥근 모서리 */
+  font-size: 0.75rem;
+  padding: 0.8rem;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mobile-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08); /* ✅ 호버 시 더 강조 */
+}
+
 
   .mobile-card h6 {
     font-size: 0.85rem;
@@ -217,7 +223,7 @@
   }
 
   .card-info-wrapper {
-    background-color: #f2f2f2;
+    background-color: #ffffff;
     border-radius: 10px;
     padding: 0.2rem;
     color: #5C2E91;
@@ -239,13 +245,13 @@
 
   .progress-bar span {
     position: absolute;
-    left: 0; right: 0; top: 0; bottom: 0;
+    inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.7rem;
-    font-weight: 600;
-    color: #222;
+    font-size: 0.65rem;
+    font-weight: 500;
+    color: #444;
   }
 
   /* ✅ 진행률 색상 */
@@ -305,7 +311,7 @@
 
   /* ✅ 예정 대회 카드 */
   .upcoming-card-section {
-    background-color: #f3f7f6;
+    background-color: #f8f4fb;
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
     padding-top: 0.5rem;
@@ -387,6 +393,11 @@
       max-width: 45%;
     }
   }
+
+.form-check.vacancy-toggle-wrapper {
+    display: none !important;
+  }
+  
 </style>
 
 </head>
@@ -406,7 +417,11 @@
       <a class="nav-link {% if currentPath == 'board' %}active{% endif %}" href="/board">테나무숲</a>
     </div>
   </nav>
-
+  <div class="update-time-wrapper d-flex justify-content-end">
+    <div class="update-time-box text-muted small" style="font-size: 0.65rem;">
+      ⏰ Updated at {{ last_modified }}
+    </div>
+  </div>
   <div class="tournament-top-tab">
     <div class="filter-area tournament-switch flex-column align-items-center">
   
@@ -420,6 +435,8 @@
         <span class="slash-divider">/</span>
         <button class="btn btn-outline-success btn-sm filter-btn" id="btn-단식" onclick="filterSingles()">단식</button>
       </div>
+
+
   
       <!-- ✅ 검색창 왼쪽 + 빈자리 토글 오른쪽 정렬
       <div class="d-flex justify-content-between align-items-center w-100 px-2 mt-2">
@@ -427,12 +444,11 @@
           oninput="handleSearch()" style="max-width: 200px;"> -->
   
         <!-- 오른쪽: 빈자리 토글 -->
-        <div class="form-check form-switch d-inline-flex align-items-center mb-0">
+        <div class="form-check form-switch d-inline-flex align-items-center mb-0 vacancy-toggle-wrapper">
           <input class="form-check-input vacancy-toggle" type="checkbox" id="openingOnly" onchange="applyFilters()">
           <label class="form-check-label ms-2 vacancy-label" for="openingOnly">빈자리만</label>
         </div>
       </div>
-  
     </div>
   </div>
   
@@ -447,13 +463,6 @@
       <!-- ✅ 카드 출력 영역 -->
       <div id="mobile-cards" class="d-flex overflow-auto gap-3 px-2"></div>
   
-      <!-- ✅ 업데이트 시간
-      <div class="update-time-wrapper d-flex justify-content-center mt-4">
-        <div class="update-time-box text-muted small">
-          ⏰ 데이터 기준: {{ last_modified }}
-        </div>
-      </div>
-   -->
     </div>
     <div class="upcoming-card-section p-2">
     </div>
@@ -532,30 +541,36 @@
         setActiveButton('btn-all');
         document.getElementById("mobile-cards").scrollTo({ top: 0, left: 0 });
       }
-    
+      const FILTER_KEYWORDS = {
+        "신인": ["신인", "챌린저", "첼린저", "챌린져", "첼린져"],
+        "오픈": ["오픈", "마스터스부", "마스터"]
+      };
       // ✅ 필터 버튼 (복식에서만 필터링)
       function filterByKeyword(keyword) {
         currentFilter = keyword;
-
-         // ✅ 빈자리 토글 해제
         document.getElementById("openingOnly").checked = false;
+
+        const keywords = FILTER_KEYWORDS[keyword] || [keyword];
+
         const filtered = rawData.filter(item =>
           (item['종류'] || '') !== '단식' &&
-          (item['부서'] || '').includes(keyword)
+          keywords.some(kw => (item['부서'] || '').includes(kw))
         );
+
         renderMobileCards(filtered);
         setActiveButton('btn-' + keyword);
         document.getElementById("mobile-cards").scrollTo({ top: 0, left: 0 });
       }
 
-      // ✅ 기타 필터 (복식 중 특정 키워드 미포함만)
       function filterOthers() {
         currentFilter = '기타';
-        const keywords = ['신인', '오픈', '개나리', '국화', '단식'];
+        const keywords = Object.values(FILTER_KEYWORDS).flat().concat(['개나리', '국화', '단식']);
+
         const filtered = rawData.filter(item =>
           (item['종류'] || '') !== '단식' &&
           !keywords.some(kw => (item['부서'] || '').includes(kw))
         );
+
         renderMobileCards(filtered);
         setActiveButton('btn-기타');
         document.getElementById("mobile-cards").scrollTo({ top: 0, left: 0 });
@@ -658,40 +673,40 @@
           div.innerHTML = `
             <div class="d-flex justify-content-between align-items-center mb-1">
               <div class="d-flex align-items-center gap-1">
-                <span class="badge bg-purple text-white" style="font-size: 0.7rem; padding: 0.4rem 0.6rem; background-color: #5C2E91; border-radius: 10px;">${division}</span>
+                <span class="badge text-white" style="font-size: 0.65rem; padding: 0.3rem 0.55rem; background-color: #006644; border-radius: 8px;">${division}</span>
                 ${isNewItem ? '<span class="new-badge">NEW!!</span>' : ''}
               </div>
-              <div class="text-muted" style="font-size:0.75rem">${idx + 1} / ${data.length}</div>
+              <div class="text-muted" style="font-size: 0.7rem;">${idx + 1} / ${data.length}</div>
             </div>
-            <h6 class="text-center">${item['대회명'] || ''}</h6>
+
+            <h6 class="text-center fw-bold mb-2" style="color: #5C2E91; font-size: 0.85rem;">${item['대회명'] || ''}</h6>
 
             <div class="card-info-wrapper">
               ${item['대회기간'] ? `<div><i class="bi bi-calendar-event"></i> ${item['대회기간']}</div>` : ''}
               ${item['장소'] ? `<div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><i class="bi bi-geo-alt"></i> ${item['장소']}</div>` : ''}
               <div><i class="bi bi-person-badge"></i> ${getAgencyLogo(item['주관사'])}</div>
-            </div>
-
-            <div class="progress mb-2" style="position: relative; height: 18px; margin-top: 0.5rem;">
-              <div class="progress-bar ${progressColor}" style="width: ${percentage}%; height: 100%;">
-                <span style="
-                  position: absolute;
-                  left: 0; right: 0;
-                  top: 0; bottom: 0;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  font-size: 0.7rem;
-                  font-weight: 600;
-                  color: #222;">
-                  ${current} / ${capacity}
-                </span>
+              <div class="progress mb-1" style="position: relative; height: 24px; margin-top: 0.4rem;">
+                <div class="progress-bar ${progressColor}" style="width: ${percentage}%; height: 100%;">
+                  <span style="
+                    position: absolute;
+                    inset: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 0.6rem;
+                    font-weight: 500;
+                    color: #333;">
+                    ${current}/${capacity}
+                  </span>
+                </div>
               </div>
             </div>
 
-            <a href="${item['참가신청 링크']}" target="_blank" class="btn btn-outline-success btn-sm">신청하기</a>
+            <a href="${item['참가신청 링크']}" target="_blank" class="btn btn-success btn-sm text-white w-100 mt-1" style="font-size: 0.7rem;">신청하기</a>
 
-            ${item['new_updated'] ? `<div class="text-center text-secondary mt-2" style="font-size: 0.7rem;">업데이트: ${new Date(item['new_updated']).toLocaleDateString('ko-KR')}</div>` : ''}
+            ${item['new_updated'] ? `<div class="text-center text-secondary mt-2" style="font-size: 0.65rem;">🆕 ${new Date(item['new_updated']).toLocaleDateString('ko-KR')}</div>` : ''}
           `;
+
 
 
 
