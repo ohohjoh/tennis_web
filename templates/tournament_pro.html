@@ -169,6 +169,19 @@
     text-align: center;
   }
 
+  .tournament-info-box {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+  .summary-box-fixed {
+    width: 70%;
+    padding-right: 1rem;
+  }
+  .info-box-fixed {
+    width: 30%;
+  }
+
   /* ✅ 카드 공통 래퍼 */
   .white-container {
     margin-top: 0.5rem;
@@ -496,7 +509,7 @@
       <a class="nav-link {% if currentPath == 'board' %}active{% endif %}" href="/board">테나무숲</a>
     </div>
   </nav>
-  <div class="update-time-wrapper d-flex justify-content-center" style="background-color: #e5f4ec;">
+  <div class="update-time-wrapper d-flex justify-content-center mb-1" style="background-color: #e5f4ec;">
     <div class="update-time-box text-muted small" style="font-size: 0.65rem;">
       ⏰ Updated at {{ last_modified }}
     </div>
@@ -515,14 +528,20 @@
     </button>
     {% endfor %}
   </div>
-  <div class ="summary-wraper">
-    <div id="tournament-info-box">
-    
-      <div id="summary-box">
-        📋 대회 정보를 불러오는 중입니다...
-      </div>
-    </div>
+
+<div id="tournament-info-box" class="tournament-info-box">
+  <div id="summary-box" class="summary-box-fixed">
+    📋 대회 정보를 불러오는 중입니다...
   </div>
+<div id="info-side-box" class="info-box-fixed d-flex justify-content-center align-items-center">
+  <img id="stadium-image"
+       src=""
+       alt="stadium"
+       class="img-fluid rounded shadow-sm border"
+       style="width: 130px; height: 80px; display: none; border-radius: 8px; object-fit: cover;">
+</div>
+</div>
+  
 
 
   {% set round_labels = {
@@ -617,14 +636,14 @@
 <div class="white-container2">
 
   <div class="button-group">
-    <button id="btn-schedule" class="btn btn-outline-secondary btn-sm filter-btn" onclick="showMediaSection('schedule')">일정</button>
-    <button id="btn-youtube" class="btn btn-outline-secondary btn-sm filter-btn active" onclick="showMediaSection('youtube')">영상</button>
+    <button id="btn-schedule" class="btn btn-outline-secondary btn-sm filter-btn active" onclick="showMediaSection('schedule')">일정</button>
+    <button id="btn-youtube" class="btn btn-outline-secondary btn-sm filter-btn" onclick="showMediaSection('youtube')">영상</button>
     <button id="btn-news" class="btn btn-outline-secondary btn-sm filter-btn" onclick="showMediaSection('news')">뉴스</button>
     <button id="btn-draw" class="btn btn-outline-secondary btn-sm filter-btn" onclick="showMediaSection('draw')">드로우</button>
   </div>
 
   <!-- 🎾 일정 섹션 -->
-<div id="schedule-section" class="media-section" style="display: none;">
+<div id="schedule-section" class="media-section" style="display: block;">
   <div class="schedule-wrapper">
     <div id="scheduleContainer" class="news-container">
       <div class="schedule-scroll-container">
@@ -674,7 +693,7 @@
 </div>
 
 <!-- 🎾 유튜브 섹션 -->
-<div id="youtube-section" class="media-section" style="display: block;">
+<div id="youtube-section" class="media-section" style="display: none;">
   <div class="youtube-wrapper">
     <div id="youtubeContainer" class="news-container">
       <div class="youtube-grid">
@@ -742,31 +761,68 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
+  // ✅ 대회 이름 기반 썸네일 이미지 표시 함수
+  function updateStadiumImage(tournamentRealName) {
+    const imgElement = document.getElementById("stadium-image");
+    if (!tournamentRealName) {
+      imgElement.style.display = "none";
+      return;
+    }
+
+    const safeFileName = tournamentRealName.replace(/[\/\\:*?"<>|]/g, "").trim();
+    const imagePath = `/static/images/stadium/${safeFileName}.png`;
+    imgElement.src = imagePath;
+    imgElement.style.display = "block";
+
+    // 이미지가 없을 경우 숨김 처리
+    imgElement.onerror = () => {
+      imgElement.style.display = "none";
+    };
+  }
+
+  // ✅ 각 대회에 대한 summary HTML 텍스트 매핑
   const tournamentSummaries = {
     {% for entry in youtube_data %}
       "{{ entry.tournament }}": `{{ entry.summary | replace('\n', ' ') | replace("`", "\\`") | safe }}`{% if not loop.last %},{% endif %}
     {% endfor %}
   };
 
+  // ✅ 각 대회에 대한 실제 대회명 (stadium 이미지용)
+  const tournamentRealNames = {
+    {% for entry in youtube_data %}
+      "{{ entry.tournament }}": `{{ entry.tournament_real_name | replace("`", "\\`") }}`{% if not loop.last %},{% endif %}
+    {% endfor %}
+  };
+
+  // ✅ 실제 이름 가져오는 함수
+  function getRealTournamentName(shortName) {
+    return tournamentRealNames[shortName] || null;
+  }
+
+  // ✅ 텍스트 정규화 함수 (소문자 + 영숫자만)
   function normalize(text) {
     return text ? text.replace(/[^a-z0-9]/gi, '').toLowerCase() : '';
   }
 
+  // ✅ 페이지 초기화 및 버튼 클릭 처리
   document.addEventListener('DOMContentLoaded', () => {
     const path = window.location.pathname;
 
+    // 현재 메뉴 강조
     document.querySelectorAll('.main-navbar .nav-link').forEach(link => {
       if (link.getAttribute('href') === path) {
         link.classList.add('active');
       }
     });
 
+    // 뉴스 기본 표시
     document.querySelectorAll('.news-list').forEach(news => {
       news.style.display = 'block';
     });
 
     const drawWrapper = document.getElementById("draw-wrapper");
 
+    // ✅ 대회 버튼 클릭 이벤트 등록
     document.querySelectorAll('.tournament-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const title = btn.getAttribute('data-title') || '';
@@ -777,33 +833,42 @@
         const normalizedTournament = normalize(tournamentName);
         const normalizedTitle = normalize(title);
 
+        // ✅ summary 표시
         const summaryBox = document.getElementById("summary-box");
         summaryBox.innerHTML = tournamentSummaries[title] || "📋 대회 정보가 없습니다.";
 
+        // ✅ stadium 이미지 표시
+        updateStadiumImage(getRealTournamentName(title));
+
+        // 버튼 스타일 업데이트
         document.querySelectorAll('.tournament-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
 
+        // ✅ 일정 필터링
         document.querySelectorAll('.schedule-item').forEach(card => {
           const cardTournament = normalize(card.getAttribute('data-tournament') || '');
           const cardTour = normalize(card.getAttribute('data-tour') || '');
           card.style.display = (cardTour === normalize(tour) && cardTournament.includes(normalizedTournament)) ? 'block' : 'none';
         });
 
+        // ✅ 유튜브 필터링
         document.querySelectorAll('.youtube-card').forEach(card => {
           const cardTournament = normalize(card.getAttribute('data-tournament') || '');
           card.style.display = cardTournament === normalizedTitle ? 'block' : 'none';
         });
 
+        // ✅ 뉴스 필터링
         document.querySelectorAll('.news-list').forEach(news => {
           const cardTournament = normalize(news.getAttribute('data-tournament') || '');
           news.style.display = cardTournament === normalizedTitle ? 'block' : 'none';
         });
 
+        // ✅ draw 카드 표시
         document.querySelectorAll('.tournament-card').forEach(card => {
           card.style.display = (card.getAttribute('data-tid') === tid) ? 'block' : 'none';
         });
 
-        // ✅ draw 복사: 현재 대회의 bracket-section을 draw-wrapper로 전환
+        // ✅ draw 복사: 해당 카드의 draw-section을 draw-wrapper에 표시
         const sourceBracket = document.querySelector(`.tournament-card[data-tid="${tid}"] .bracket-section`);
         drawWrapper.innerHTML = '';
 
@@ -813,7 +878,7 @@
           columns.forEach(col => drawWrapper.appendChild(col.cloneNode(true)));
         }
 
-        // 기본값: upcoming 버튼 상태
+        // draw 기본 탭: upcoming 선택
         document.getElementById("drawUpcomingBtn").click();
       });
     });
@@ -822,7 +887,7 @@
     const firstTournamentBtn = document.querySelector('.tournament-btn');
     if (firstTournamentBtn) firstTournamentBtn.click();
 
-    // ✅ draw 탭 내 모드 버튼 처리 (draw-wrapper 내부 필터링)
+    // ✅ draw 필터 버튼 처리
     const btnUpcoming = document.getElementById("drawUpcomingBtn");
     const btnPast = document.getElementById("drawPastBtn");
 
@@ -832,7 +897,6 @@
       btnPast.classList.remove('btn-outline-primary');
       btnPast.classList.add('btn-outline-secondary');
 
-      const drawWrapper = document.getElementById("draw-wrapper");
       drawWrapper.querySelectorAll('.round-column').forEach(col => {
         const isUpcoming = [...col.querySelectorAll('.match-box')].every(box => box.classList.contains('upcoming'));
         col.style.display = isUpcoming ? 'flex' : 'none';
@@ -845,7 +909,6 @@
       btnUpcoming.classList.remove('btn-outline-primary');
       btnUpcoming.classList.add('btn-outline-secondary');
 
-      const drawWrapper = document.getElementById("draw-wrapper");
       drawWrapper.querySelectorAll('.round-column').forEach(col => {
         const hasPast = [...col.querySelectorAll('.match-box')].some(box => !box.classList.contains('upcoming'));
         col.style.display = hasPast ? 'flex' : 'none';
@@ -853,6 +916,7 @@
     });
   });
 
+  // ✅ 일정/뉴스/영상/드로우 탭 전환 함수
   function showMediaSection(type) {
     ['btn-schedule', 'btn-youtube', 'btn-news', 'btn-draw'].forEach(id => {
       const el = document.getElementById(id);
@@ -867,15 +931,6 @@
     document.getElementById("news-section").style.display = type === "news" ? "block" : "none";
     document.getElementById("draw-section").style.display = type === "draw" ? "block" : "none";
   }
-</script>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const link = document.getElementById("logoLink");
-    if (window.location.pathname === "/") {
-      link.style.pointerEvents = "none";
-      link.style.cursor = "default";
-    }
-  });
 </script>
 
 

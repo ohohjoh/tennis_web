@@ -75,6 +75,9 @@ def load_data_with_timestamp():
         return fb_data.get("data", []), fb_data.get("executed_at", "알 수 없음")
     return [], "알 수 없음"
 
+def load_combined_tournaments():
+    return load_from_firebase("combined_tennis_tournaments_2025") or []
+
 @app.route("/")
 def index():
     data, last_modified = load_data_with_timestamp()
@@ -107,7 +110,8 @@ def tournaments_pro():
     bracket_data_raw = load_from_firebase("tennis_abstract_bracket")
     youtube_data_raw = load_from_firebase("tennis_tournaments_pro_data")
     schedule_data_raw = load_from_firebase("tennis_tournaments_pro_schedules")
-    top100_raw = load_from_firebase("tennis_abstract_top100players")  # ✅ 추가
+    top100_raw = load_from_firebase("tennis_abstract_top100players")
+    combined_data = load_combined_tournaments()  # ✅ 추가
 
     bracket_data = bracket_data_raw.get("data", []) if bracket_data_raw else []
     last_modified = bracket_data_raw.get("executed_at", "알 수 없음") if bracket_data_raw else "알 수 없음"
@@ -116,12 +120,10 @@ def tournaments_pro():
     schedule_data = schedule_data_raw.get("matches", []) if schedule_data_raw else []
     schedule_date = schedule_data_raw.get("date", "알 수 없음") if schedule_data_raw else "알 수 없음"
 
-    # ✅ summary 없는 경우 기본값 추가
     for item in youtube_data:
         if "summary" not in item:
             item["summary"] = "대회 설명이 없습니다."
 
-    # ✅ ATP/WTA Top100 분리
     atp_players = top100_raw.get("data", []) if top100_raw else []
     wta_players = top100_raw.get("data2", []) if top100_raw else []
     top100_last_updated = top100_raw.get("executed_at", "알 수 없음") if top100_raw else "알 수 없음"
@@ -134,13 +136,13 @@ def tournaments_pro():
         last_modified=last_modified,
         youtube_data=youtube_data,
         youtube_last_modified=youtube_last_modified,
-        atp_players=atp_players,              # ✅ 전달
-        wta_players=wta_players,              # ✅ 전달
+        atp_players=atp_players,
+        wta_players=wta_players,
         top100_last_updated=top100_last_updated,
+        combined_data=combined_data,  # ✅ 템플릿에 전달
         page_title="🎾 ATP 드로우 및 일정",
         currentPath="tournament_pro"
     )
-    
 
 @app.route("/court-guide")
 def court_guide():
