@@ -247,25 +247,32 @@
     margin-right: 0.35rem;
   }
 
-  .progress-bar span {
-    position: absolute;
-    inset: 0;
+  /* ✅ 보라색 단일 진행률 바 스타일 */
+  .progress-bar-purple {
+    background-color: #5C2E91 !important;
+    position: relative;
+    transition: width 0.4s ease;
+    border-radius: 30px;
+    height: 22px;
+    min-width: 50px; /* 👈 이 줄 추가 */
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #ffffff;
     font-size: 0.65rem;
-    font-weight: 500;
-    color: #444;
+    font-weight: 600;
+    text-align: center;
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    padding-inline: 0.4rem; /* 👈 추가 가능 */
   }
 
-  /* ✅ 진행률 색상 */
-  .progress-green { background-color: #28a745 !important; }
-  .progress-yellow { background-color: #ffc107 !important; }
-  .progress-red { background-color: #dc3545 !important; }
-
-  .progress-text-green { color: #28a745; font-weight: bold; }
-  .progress-text-yellow { color: #ffc107; font-weight: bold; }
-  .progress-text-red { color: #dc3545; font-weight: bold; }
+  .progress {
+    background-color: #e9e4f2;
+    border-radius: 30px;
+    overflow: hidden;
+    height: 22px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
 
   /* ✅ 유튜브 카드 */
   .youtube-wrapper {
@@ -315,10 +322,10 @@
 
   /* ✅ 예정 대회 카드 */
   .upcoming-card-section {
-    background-color: #f8f4fb;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    padding-top: 0.5rem;
+    background-color: #e5f4ec;
+    border-top: 0.5px solid #ccc;
+    border-bottom: 0.5px solid #ccc;
+    padding-bottom: 1rem;
   }
 
   .upcoming-slider {
@@ -331,29 +338,25 @@
   .upcoming-card {
     flex: 0 0 auto;
     width: 130px;
-    min-height: 90px;
-    border: 1.3px solid #5C2E91;
     background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.06);
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0.3rem;
-    margin: 0.2rem 0;
   }
   .upcoming-card .title {
     font-size: 0.75rem;
     font-weight: 600;
     text-align: center;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
+    white-space: nowrap;              /* ✅ 줄바꿈 금지 */
+    overflow: hidden;                 /* ✅ 넘치는 부분 숨기기 */
+    text-overflow: ellipsis;         /* ✅ 말줄임 (...) */
+    width: 100%;                      /* ✅ 부모 너비 기준 제한 */
+    max-width: 100%;                  /* ✅ 오버플로 방지 */
+    display: block;                   /* ✅ inline 요소가 아닌 블럭 처리 */
     overflow: hidden;
-    text-overflow: ellipsis;
-    line-height: 1.2;
-    height: 2.4em;
-    margin-bottom: 0.3rem;
+
   }
   .upcoming-card .info {
     font-size: 0.5rem;
@@ -421,7 +424,7 @@
       <a class="nav-link {% if currentPath == 'board' %}active{% endif %}" href="/board">테나무숲</a>
     </div>
   </nav>
-  <div class="update-time-wrapper d-flex justify-content-center mb-1" style="background-color: #e5f4ec;">
+  <div class="update-time-wrapper d-flex justify-content-center mb-2" style="background-color: #e5f4ec;">
     <div class="update-time-box text-muted small" style="font-size: 0.65rem;">
       ⏰ Updated at {{ last_modified }}
     </div>
@@ -656,16 +659,6 @@
           const capacity = parseInt(item['정원']) || 0;
           const percentage = capacity > 0 ? Math.round((current / capacity) * 100) : 0;
 
-          const progressColor =
-            percentage >= 100 ? 'progress-red'
-            : percentage >= 70 ? 'progress-yellow'
-            : 'progress-green';
-
-          const progressTextClass =
-            percentage >= 100 ? 'progress-text-red'
-            : percentage >= 70 ? 'progress-text-yellow'
-            : 'progress-text-green';
-
           const division = (item['부서'] || '').includes('단식')
             ? (item['그룹'] ? `${item['그룹']}그룹` : '단식')
             : item['부서'] || '';
@@ -689,30 +682,17 @@
               ${item['대회기간'] ? `<div><i class="bi bi-calendar-event"></i> ${item['대회기간']}</div>` : ''}
               ${item['장소'] ? `<div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><i class="bi bi-geo-alt"></i> ${item['장소']}</div>` : ''}
               <div><i class="bi bi-person-badge"></i> ${getAgencyLogo(item['주관사'])}</div>
-              <div class="progress mb-1" style="position: relative; height: 24px; margin-top: 0.4rem;">
-                <div class="progress-bar ${progressColor}" style="width: ${percentage}%; height: 100%;">
-                  <span style="
-                    position: absolute;
-                    inset: 0;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    font-size: 0.6rem;
-                    font-weight: 500;
-                    color: #333;">
+                <div class="progress mb-1" style="margin-top: 0.4rem;">
+                  <div class="progress-bar-purple" style="width: ${percentage}%;">
                     ${current}/${capacity}
-                  </span>
+                  </div>
                 </div>
-              </div>
             </div>
 
-            <a href="${item['참가신청 링크']}" target="_blank" class="btn btn-success btn-sm text-white w-100 mt-1" style="font-size: 0.7rem;">신청하기</a>
+            <a href="${item['참가신청 링크']}" target="_blank" class="btn btn-success btn-sm text-white mt-1" style="font-size: 0.7rem;">신청하기</a>
 
             ${item['new_updated'] ? `<div class="text-center text-secondary mt-2" style="font-size: 0.65rem;">🆕 ${new Date(item['new_updated']).toLocaleDateString('ko-KR')}</div>` : ''}
           `;
-
-
-
 
           cardsContainer.appendChild(div);
         });
@@ -757,7 +737,7 @@
 
         container.innerHTML = `
           <div class="d-flex align-items-center justify-content-between px-2 mb-1">
-            <h6 class="m-0 fw-bold">📅 예정 대회 (${data.length}개)</h6>
+            <h6 class="m-0 fw-bold" style="font-size: 0.85rem;">📅 예정 대회 (${data.length}개)</h6>
           </div>
           <div class="upcoming-slider d-flex overflow-auto gap-2 pb-2 px-2"></div>
         `;
