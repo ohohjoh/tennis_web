@@ -329,9 +329,9 @@
     gap: 1rem;
     overflow-x: auto;
     overflow-y: auto;
-    touch-action: pan-x pan-y; /* 상하 좌우만 허용, 대각선 제스처 방지 */
+    touch-action: pan-x; /* ← 종스크롤 제한 제거 */
     overscroll-behavior: contain;
-    scroll-snap-type: both mandatory; /* 상하좌우 모두 snap */
+    scroll-snap-type: x mandatory; /* ⛔ 수정: both → x만 */
     -webkit-overflow-scrolling: touch;
   }
   .bracket-section {
@@ -480,8 +480,14 @@
     .news-card .card-body {
       padding: 0.4rem 0.5rem;
     }
+      #draw-wrapper-mb {
+      scroll-snap-type: none !important;
+      touch-action: auto !important;
+      overflow-y: auto;
+      overflow-x: auto;
+      max-height: 600px; /* 또는 필요 시 적당한 높이 */
+    }
   }
-
   @media (min-width: 768px) {
   /* 📌 요약 + 이미지 + 스케줄 카드 */
   .tournament-info-box {
@@ -573,19 +579,14 @@
 
   /* 🎾 유튜브 */
   .youtube-wrapper {
-    height: 220px;
-    overflow-y: auto;
+    height: auto; /* 고정 높이 제거 */
+    overflow-y: auto; /* 스크롤 숨김 */
   }
 
-  .youtube-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem;
-  }
 
   .youtube-card .card-title {
     font-size: 0.68rem;
-    line-height: 1rem;
+    line-height: 0.8rem;
   }
 
   .youtube-card .card-channel,
@@ -879,14 +880,7 @@
   </div>
 <!-- 🎾📺📰 브라켓 왼쪽 / 유튜브+뉴스 오른쪽 (PC only) -->
 <div class="media-layout-2col d-none d-md-flex">
-  <!-- 🧩 브라켓 (왼쪽) -->
-  <div class="bracket-box">
-    <div class="draw-wrapper" id="draw-wrapper">
-      <!-- draw 내용은 JS에서 삽입됩니다 -->
-    </div>
-  </div>
-
-  <!-- 🎾 유튜브 + 📰 뉴스 (오른쪽, 세로 배치) -->
+  <!-- 🎾 유튜브 + 📰 뉴스 (왼쪽, 세로 배치) -->
   <div class="right-media-column">
     <!-- 🎾 유튜브 -->
     <div class="media-box" id="youtube-section">
@@ -942,7 +936,15 @@
       </div>
     </div>
   </div>
+
+  <!-- 🧩 브라켓 (오른쪽) -->
+  <div class="bracket-box">
+    <div class="draw-wrapper" id="draw-wrapper">
+      <!-- draw 내용은 JS에서 삽입됩니다 -->
+    </div>
+  </div>
 </div>
+
 
 
 <!-- 모바일용 단일 출력 -->

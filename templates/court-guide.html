@@ -446,8 +446,11 @@
   @media (min-width: 768px) {
     .mobile-only { display: none !important; }
     .scroll-slider {
-    scrollbar-width: thin; /* Firefox */
-    scrollbar-color: #bbb transparent;
+      max-height: 70vh;  /* 높이 고정 */
+      overflow-y: auto;
+    }
+    .right-info-box {
+      min-height: 300px;
     }
 
     .scroll-slider::-webkit-scrollbar {
@@ -463,6 +466,15 @@
       background-color: transparent;
     }
   }
+  /* 모바일에서는 상하로 배치되며 여백 조정 */
+@media (max-width: 767px) {
+  .right-info-box {
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+    min-height: auto;
+  }
+}
+  
 </style>
 </head>
 <body>
@@ -492,228 +504,249 @@
 
   <!-- 🔍 검색창 -->
 <div class="mt-2 mb-2 d-flex align-items-center ps-2">
-  <input type="text" id="searchInput" class="form-control" placeholder="지역 또는 상호명을 입력하세요 (예: 고양, 일산)">
+  <input type="text" id="searchInput" class="form-control" placeholder="지역 또는 상호명을 입력하세요!">
   <div class="d-flex justify-content-center" style="width: 100px;">
     <button id="searchBtn" class="btn btn-success btn-sm">search</button>
   </div>
 </div>
 
-  
-  <div id="selectedCalculator" class="calculator-area">
-    <div class="calc-placeholder">
-      <div class="emoji">🎾</div>
-      <div class="text">코트를 선택하면<br><strong>예약 계산기</strong>가 나타납니다!</div>
+  <!-- 🧮 계산기 모달 -->
+<div class="modal fade" id="calcModal" tabindex="-1" aria-labelledby="calcModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="calcModalLabel">🎾 예약 계산기</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="닫기"></button>
+      </div>
+      <div class="modal-body" id="calcModalBody">
+        <!-- 계산기 콘텐츠가 동적으로 들어옵니다 -->
+      </div>
     </div>
   </div>
+</div>
   
-  <!-- 💻 카드 슬라이더 -->
-  <div class="scroll-slider">
-    {% for 장소명, 리스트 in data.items() %}
-      {% set first = 리스트[0] %}
-      <div class="court-card selectable-card" data-court="{{ first['코트명'] }}">
-        <div class="d-flex justify-content-between align-items-center mb-2">
-          <h5 class="mb-0">{{ first['코트명'] }}</h5>
-          <div class="small text-muted">{{ loop.index }} / {{ data|length }}</div>
-        </div>
-                <div class="row align-items-start">
-          <!-- ① 이미지 열 -->
-          <div class="col-4">
-            <img src="{{ url_for('static', filename='images/court/' + first['코트명'] + '.png') }}"
-                 class="court-image w-100" alt="{{ first['코트명'] }}">
+<!-- 💻 좌우 레이아웃: 데스크탑용 -->
+<div class="row flex-wrap-reverse flex-md-nowrap g-3 px-2 px-md-4">
+  <!-- 왼쪽: 카드 슬라이더 -->
+<div class="col-12 col-md-6 order-2 order-md-1">
+    <div class="scroll-slider">
+      {% for 장소명, 리스트 in data.items() %}
+        {% set first = 리스트[0] %}
+        <div class="court-card selectable-card" data-court="{{ first['코트명'] }}">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <h5 class="mb-0">{{ first['코트명'] }}</h5>
+            <div class="small text-muted">{{ loop.index }} / {{ data|length }}</div>
+          </div>
+                  <div class="row align-items-start">
+            <!-- ① 이미지 열 -->
+            <div class="col-4">
+              <img src="{{ url_for('static', filename='images/court/' + first['코트명'] + '.png') }}"
+                  class="court-image w-100" alt="{{ first['코트명'] }}">
+            </div>
+          
+            <!-- ② 위치 / 전화 / 이용 -->
+            <div class="col-4">
+              <div><strong>위치:</strong> {{ first['지역명'] }}</div>
+              <div><strong>전화:</strong> {{ first['전화번호'] }}</div>
+              <div><strong>이용:</strong> {{ first['서비스이용 시작시간'] }} ~ {{ first['서비스이용 종료시간'] }}</div>
+            </div>
+          
+            <!-- ③ 접수주기 / 예약일 / 접수시간 -->
+            <div class="col-4">
+              <div>
+                <strong>접수주기:</strong>
+                {% if first['접수 텀'] == '일' %}
+                  <span class="badge-daily">{{ first['접수 텀'] }}</span>
+                {% elif first['접수 텀'] in ['월', '보름'] %}
+                  <span class="badge-monthly">{{ first['접수 텀'] }}</span>
+                {% else %}
+                  <span class="badge bg-secondary">{{ first['접수 텀'] }}</span>
+                {% endif %}
+              </div>
+              <div>
+                <strong>예약일:</strong>
+                {% if first['접수 텀'] == '일' %}
+                  +{{ first['접수일'] }}일
+                {% elif first['접수 텀'] in ['월', '보름'] %}
+                  매달 {{ first['접수일'] }}일{% if first['2차 접수일'] %}, {{ first['2차 접수일'] }}일{% endif %}
+                {% endif %}
+              </div>
+              <div><strong>접수시간:</strong> {{ first['접수시간'] }}</div>
+            </div>
           </div>
         
-          <!-- ② 위치 / 전화 / 이용 -->
-          <div class="col-4">
-            <div><strong>위치:</strong> {{ first['지역명'] }}</div>
-            <div><strong>전화:</strong> {{ first['전화번호'] }}</div>
-            <div><strong>이용:</strong> {{ first['서비스이용 시작시간'] }} ~ {{ first['서비스이용 종료시간'] }}</div>
-          </div>
         
-          <!-- ③ 접수주기 / 예약일 / 접수시간 -->
-          <div class="col-4">
-            <div>
-              <strong>접수주기:</strong>
-              {% if first['접수 텀'] == '일' %}
-                <span class="badge-daily">{{ first['접수 텀'] }}</span>
-              {% elif first['접수 텀'] in ['월', '보름'] %}
-                <span class="badge-monthly">{{ first['접수 텀'] }}</span>
-              {% else %}
-                <span class="badge bg-secondary">{{ first['접수 텀'] }}</span>
-              {% endif %}
-            </div>
-            <div>
-              <strong>예약일:</strong>
-              {% if first['접수 텀'] == '일' %}
-                +{{ first['접수일'] }}일
-              {% elif first['접수 텀'] in ['월', '보름'] %}
-                매달 {{ first['접수일'] }}일{% if first['2차 접수일'] %}, {{ first['2차 접수일'] }}일{% endif %}
-              {% endif %}
-            </div>
-            <div><strong>접수시간:</strong> {{ first['접수시간'] }}</div>
-          </div>
-        </div>
-       
-      
-        <template class="calc-template">
-          {% if first['접수 텀'] == '일' %}
-          <div class="simple-calc-box">
-            <div class="row text-center">
-              <!-- 왼쪽 열 -->
-              <div class="col-6">
-                <!-- ✅ 도전일 -->
-                <div class="d-flex align-items-center gap-2 mb-2">
-                  <div class="text-wimbledon small fw-bold" style="min-width: 70px;">도전일</div>
-                  <input type="date" class="form-control form-control-sm calc-date" style="max-width: 160px;">
+          <template class="calc-template">
+            {% if first['접수 텀'] == '일' %}
+            <div class="simple-calc-box">
+              <div class="row text-center">
+                <!-- 왼쪽 열 -->
+                <div class="col-6">
+                  <!-- ✅ 도전일 -->
+                  <div class="d-flex align-items-center gap-2 mb-2">
+                    <div class="text-wimbledon small fw-bold" style="min-width: 70px;">도전일</div>
+                    <input type="date" class="form-control form-control-sm calc-date" style="max-width: 160px;">
+                  </div>
+                
+                  <!-- ✅ 도전 시간 -->
+                  <div class="d-flex align-items-center gap-2 mb-2">
+                    <div class="text-wimbledon small fw-bold" style="min-width: 70px;">도전 시간</div>
+                    <div class="text-danger-emph">{{ first['접수시간'] }}</div>
+                  </div>
                 </div>
-              
-                <!-- ✅ 도전 시간 -->
-                <div class="d-flex align-items-center gap-2 mb-2">
-                  <div class="text-wimbledon small fw-bold" style="min-width: 70px;">도전 시간</div>
-                  <div class="text-danger-emph">{{ first['접수시간'] }}</div>
+          
+                <!-- 오른쪽 열 -->
+                <div class="col-6  padding-bottom = 0; padding-top=0.4rem;">
+                  <div class="mb-2">
+                    <div class="text-wimbledon small fw-bold">테니스 치는 날짜</div>
+                    <div class="calc-result text-danger-emph mt-1">계산 중...</div>
+                  </div>
                 </div>
               </div>
-        
-              <!-- 오른쪽 열 -->
-              <div class="col-6  padding-bottom = 0; padding-top=0.4rem;">
-                <div class="mb-2">
-                  <div class="text-wimbledon small fw-bold">테니스 치는 날짜</div>
-                  <div class="calc-result text-danger-emph mt-1">계산 중...</div>
-                </div>
-              </div>
-            </div>
-        
-              
-                <!-- 숨겨진 입력 -->
-                <input type="hidden" class="calc-days" value="{{ first['접수일'] }}">
-                <input type="hidden" class="calc-time" value="{{ first['접수시간'] }}">
-              </div>              
           
-            <!-- 숨겨진 정보는 화면에 보이지 않음 -->
-            <input type="hidden" class="calc-days" value="{{ first['접수일'] }}">
-            <input type="hidden" class="calc-time" value="{{ first['접수시간'] }}">
-          </div>
-          
-          
-          {% elif first['접수 텀'] in ['월', '보름'] %}
-            <div class="monthly-reserve-box"
-              data-term="{{ first['접수 텀'] }}"
-              data-day="{{ first['접수일'] }}"
-              data-day2="{{ first['2차 접수일'] }}"
-              data-time="{{ first['접수시간'] }}">
-              <div class="monthly-start-line2 fw-bold text-center">날짜 계산 중...</div>
-              <div class="monthly-start-line3 small text-center">예약 정보 계산 중...</div>
+                
+                  <!-- 숨겨진 입력 -->
+                  <input type="hidden" class="calc-days" value="{{ first['접수일'] }}">
+                  <input type="hidden" class="calc-time" value="{{ first['접수시간'] }}">
+                </div>              
+            
+              <!-- 숨겨진 정보는 화면에 보이지 않음 -->
               <input type="hidden" class="calc-days" value="{{ first['접수일'] }}">
+              <input type="hidden" class="calc-time" value="{{ first['접수시간'] }}">
             </div>
-          {% endif %}
-        </template>
-        
-      </div>
-    {% endfor %}
+            
+            
+            {% elif first['접수 텀'] in ['월', '보름'] %}
+              <div class="monthly-reserve-box"
+                data-term="{{ first['접수 텀'] }}"
+                data-day="{{ first['접수일'] }}"
+                data-day2="{{ first['2차 접수일'] }}"
+                data-time="{{ first['접수시간'] }}">
+                <div class="monthly-start-line2 fw-bold text-center">날짜 계산 중...</div>
+                <div class="monthly-start-line3 small text-center">예약 정보 계산 중...</div>
+                <input type="hidden" class="calc-days" value="{{ first['접수일'] }}">
+              </div>
+            {% endif %}
+          </template>
+          
+        </div>
+      {% endfor %}
   </div>
-  
+</div>
 
-  <!-- 📦 계산기 연동 JS -->
+  <!-- 오른쪽: 비어 있는 영역 (향후 정보 출력 용도) -->
+<div class="col-12 col-md-6 order-1 order-md-2">
+    <div class="right-info-box d-flex align-items-center justify-content-center border rounded p-4 h-100">
+      <div class="text-muted">📌 추후 설명이나 지도 등을 배치할 수 있어요.</div>
+    </div>
+  </div>
+</div>
+
 <!-- 📦 계산기 연동 JS -->
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const calculatorArea = document.getElementById("selectedCalculator");
-    const cards = document.querySelectorAll(".selectable-card");
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".selectable-card");
+  const calcModal = new bootstrap.Modal(document.getElementById("calcModal"));
+  const calcModalBody = document.getElementById("calcModalBody");
 
-    cards.forEach(card => {
-      card.addEventListener("click", () => {
-        const template = card.querySelector(".calc-template");
-        if (!template) return;
+  cards.forEach(card => {
+    card.addEventListener("click", () => {
+      const template = card.querySelector(".calc-template");
+      if (!template) return;
 
-        const clone = template.content.cloneNode(true);
-        calculatorArea.innerHTML = '';
-        calculatorArea.appendChild(clone);
+      const clone = template.content.cloneNode(true);
+      calcModalBody.innerHTML = '';
+      calcModalBody.appendChild(clone);
 
-        // ✅ 일 계산기 처리
-        const dateInput = calculatorArea.querySelector(".calc-date");
-        const daysInput = calculatorArea.querySelector(".calc-days");
-        const resultDiv = calculatorArea.querySelector(".calc-result");
+      // ✅ 일 계산기 처리
+      const dateInput = calcModalBody.querySelector(".calc-date");
+      const daysInput = calcModalBody.querySelector(".calc-days");
+      const resultDiv = calcModalBody.querySelector(".calc-result");
 
-        if (dateInput && daysInput && resultDiv) {
-          const today = new Date().toISOString().split("T")[0];
-          dateInput.value = today;
+      if (dateInput && daysInput && resultDiv) {
+        const today = new Date().toISOString().split("T")[0];
+        dateInput.value = today;
 
-          const updateResult = () => {
-            const base = dateInput.value;
-            const days = parseInt(daysInput.value || "0");
-            if (!base || isNaN(days)) return;
+        const updateResult = () => {
+          const base = dateInput.value;
+          const days = parseInt(daysInput.value || "0");
+          if (!base || isNaN(days)) return;
 
-            const baseDate = new Date(base);
-            baseDate.setDate(baseDate.getDate() + days);
-            const yyyy = baseDate.getFullYear();
-            const mm = String(baseDate.getMonth() + 1).padStart(2, '0');
-            const dd = String(baseDate.getDate()).padStart(2, '0');
-            const day = ['일','월','화','수','목','금','토'][baseDate.getDay()];
-            resultDiv.innerHTML = `<span style="color:red;">${yyyy}-${mm}-${dd} (${day})</span>`;
-          };
+          const baseDate = new Date(base);
+          baseDate.setDate(baseDate.getDate() + days);
+          const yyyy = baseDate.getFullYear();
+          const mm = String(baseDate.getMonth() + 1).padStart(2, '0');
+          const dd = String(baseDate.getDate()).padStart(2, '0');
+          const day = ['일','월','화','수','목','금','토'][baseDate.getDay()];
+          resultDiv.innerHTML = `<span style="color:red;">${yyyy}-${mm}-${dd} (${day})</span>`;
+        };
 
-          dateInput.addEventListener("change", updateResult);
-          updateResult();
-        }
+        dateInput.addEventListener("change", updateResult);
+        updateResult();
+      }
 
-        // ✅ 월/보름 계산기 처리
-        const monthlyBox = calculatorArea.querySelector(".monthly-reserve-box");
-        if (monthlyBox) {
-          const term = monthlyBox.dataset.term;
-          const day1 = parseInt(monthlyBox.dataset.day);
-          const day2 = parseInt(monthlyBox.dataset.day2 || "");
-          const time = monthlyBox.dataset.time || "07:00";
+      // ✅ 월/보름 계산기 처리
+      const monthlyBox = calcModalBody.querySelector(".monthly-reserve-box");
+      if (monthlyBox) {
+        const term = monthlyBox.dataset.term;
+        const day1 = parseInt(monthlyBox.dataset.day);
+        const day2 = parseInt(monthlyBox.dataset.day2 || "");
+        const time = monthlyBox.dataset.time || "07:00";
 
-          const now = new Date();
-          const year = now.getFullYear();
-          const month = now.getMonth();
-          const weekdayKor = ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'];
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = now.getMonth();
+        const weekdayKor = ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'];
 
-          const isValidDay = d => !isNaN(d) && d >= 1 && d <= 31;
+        const isValidDay = d => !isNaN(d) && d >= 1 && d <= 31;
 
-          const formatDateString = (d) => {
-            const target = new Date(year, month, d);
-            const weekday = weekdayKor[target.getDay()];
-            return `${target.getFullYear()}년 ${target.getMonth() + 1}월 ${target.getDate()}일 (${weekday}) ${time}`;
-          };
+        const formatDateString = (d) => {
+          const target = new Date(year, month, d);
+          const weekday = weekdayKor[target.getDay()];
+          return `${target.getFullYear()}년 ${target.getMonth() + 1}월 ${target.getDate()}일 (${weekday}) ${time}`;
+        };
 
-          const result1 = isValidDay(day1) ? formatDateString(day1) : null;
-          const result2 = isValidDay(day2) ? formatDateString(day2) : null;
+        const result1 = isValidDay(day1) ? formatDateString(day1) : null;
+        const result2 = isValidDay(day2) ? formatDateString(day2) : null;
 
-          const nextMonthLabel = `${new Date(year, month + 1, 1).getMonth() + 1}월`;
-          const line2 = monthlyBox.querySelector(".monthly-start-line2");
-          const line3 = monthlyBox.querySelector(".monthly-start-line3");
+        const nextMonthLabel = `${new Date(year, month + 1, 1).getMonth() + 1}월`;
+        const line2 = monthlyBox.querySelector(".monthly-start-line2");
+        const line3 = monthlyBox.querySelector(".monthly-start-line3");
 
-          if (term === "보름") {
-            if (result1 && result2) {
-              line2.innerHTML = `${result1}<br>${result2}`;
-              line3.textContent = `${nextMonthLabel} 예약이 시작돼요!`;
-              monthlyBox.style.backgroundColor = '';
-            } else {
-              line2.textContent = "아직 확인이 안돼요 ㅠㅠ";
-              line3.textContent = "잠시만 기다려주세요!";
-              monthlyBox.style.backgroundColor = '#ffeded';
-            }
+        if (term === "보름") {
+          if (result1 && result2) {
+            line2.innerHTML = `${result1}<br>${result2}`;
+            line3.textContent = `${nextMonthLabel} 예약이 시작돼요!`;
+            monthlyBox.style.backgroundColor = '';
           } else {
-            if (result1) {
-              line2.textContent = result1;
-              line3.textContent = `${nextMonthLabel} 예약이 시작돼요!`;
-              monthlyBox.style.backgroundColor = '';
-            } else {
-              line2.textContent = "아직 확인이 안돼요 ㅠㅠ";
-              line3.textContent = "잠시만 기다려주세요!";
-              monthlyBox.style.backgroundColor = '#ffeded';
-            }
+            line2.textContent = "아직 확인이 안돼요 ㅠㅠ";
+            line3.textContent = "잠시만 기다려주세요!";
+            monthlyBox.style.backgroundColor = '#ffeded';
+          }
+        } else {
+          if (result1) {
+            line2.textContent = result1;
+            line3.textContent = `${nextMonthLabel} 예약이 시작돼요!`;
+            monthlyBox.style.backgroundColor = '';
+          } else {
+            line2.textContent = "아직 확인이 안돼요 ㅠㅠ";
+            line3.textContent = "잠시만 기다려주세요!";
+            monthlyBox.style.backgroundColor = '#ffeded';
           }
         }
-      // ✅ 선택된 카드 스타일 처리
-        cards.forEach(c => c.classList.remove("selected"));
-        card.classList.add("selected");
-      });
+      }
 
-      });
+      // ✅ 선택 스타일
+      cards.forEach(c => c.classList.remove("selected"));
+      card.classList.add("selected");
+
+      // ✅ 모달 열기
+      calcModal.show();
     });
-  
+  });
+});
 </script>
+
 
 </body>
 

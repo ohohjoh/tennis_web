@@ -134,9 +134,8 @@
       border: 1px solid #e0e0e0;
       border-radius: 12px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      padding: 0.75rem;
-      font-size: 0.8rem;
-      line-height: 1.3rem;
+      padding: 0.5rem;
+      font-size: 0.7rem;
       transition: transform 0.2s;
     }
     .custom-card:hover {
@@ -145,12 +144,12 @@
     }
 
     .card-title {
-      font-size: 0.85rem;
+      font-size: 0.75rem;
       font-weight: 600;
       color: #222;
     }
     .card-subtext {
-      font-size: 0.75rem;
+      font-size: 0.65rem;
       color: #777;
     }
     .card-tag {
@@ -217,7 +216,24 @@
       padding: 0.4rem 0.85rem;
       min-width: 35px;
     }
-}
+    #map {
+      height: 150px;
+      margin-top: 1rem;
+    }
+    
+    /* 카드 영역 높이 조절 */
+    .card-area-wrapper {
+      max-height: 70vh;
+      padding: 0.25rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    #map {
+      height: 100%;
+      min-height: 500px;
+    }
+  }
 
         
   </style>
@@ -255,16 +271,21 @@
     </div>
   </div>
   
-  <div class="row">
-    <div class="container">
-      <div class="card-area-wrapper" style="max-height: 400px; overflow-y: auto;">
-        <div id="shopCards" class="d-flex flex-column gap-1"></div>
-      </div>
-    </div>
-    <div class="col-md-12">
-      <div id="map" style="height: 250px;"></div>
+<div class="row g-3 px-3 px-md-4 flex-nowrap">
+  <!-- 지도: 모바일/PC 공통 왼쪽 -->
+  <div class="col-6 col-md-6 px-1">
+    <div id="map" style="width: 100%; height: 100%; min-height: 200px;"></div>
+  </div>
+
+  <!-- 카드: 모바일/PC 공통 오른쪽 -->
+  <div class="col-6 col-md-6 px-1">
+    <div class="card-area-wrapper" style="max-height: 80vh; overflow-y: auto;">
+      <div id="shopCards" class="d-flex flex-column gap-1"></div>
     </div>
   </div>
+</div>
+
+
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
